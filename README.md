@@ -36,3 +36,6 @@ ex : "Button_Home"
 ```
 Form : "From" + fonction
 ```
+
+Formulaire de base : 
+![CommunForm](https://raw.githubusercontent.com/francejean/H18EQ01/blob/master/Standards/Standard%20Interface.pdn)
