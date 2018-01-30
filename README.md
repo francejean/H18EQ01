@@ -41,5 +41,6 @@ Form : "From" + fonction
 
 **Images** : Nom_Image(Nom_Auteur).png
 
-Formulaire de base : 
+
+### Formulaire de base : 
 ![CommunForm](https://raw.githubusercontent.com/francejean/H18EQ01/master/Standards/Standard%20Interface.png)
