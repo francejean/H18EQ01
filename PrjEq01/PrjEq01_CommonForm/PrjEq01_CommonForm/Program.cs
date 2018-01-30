@@ -16,7 +16,7 @@ namespace PrjEq01_CommonForm
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new CommonForm());
+			Application.Run(new FormCommon());
 		}
 	}
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PrjEq01_CommonForm
 {
-    public partial class Form1 : Form
+    public partial class FormCommon : Form
     {
-        public Form1()
+        public FormCommon()
         {
             InitializeComponent();
         }
