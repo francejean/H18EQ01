@@ -36,6 +36,17 @@ ex : "Button_Home"
 ```
 Form : "From" + fonction
 ```
+### DB
+
+```
+CREATE TABLE NOMTABLE
+(
+    NomChamp        INT     NOT NULL,
+    CleEtrangere    INT     NULL
+    FOREIGN KEY (IdReser),
+    FOREIGN KEY (NoCham)    REFERENCES CHAMBRE(NoCham)
+);
+```
 
 ### Fichiers
 
