@@ -1,5 +1,6 @@
 USE H18EQ01;
 
+/*<CLIENT>*/
 INSERT INTO CLIENT (Nom,Adresse,Telephone,NoCarte,TypeCarte,DatExp,SoldeDu) 
 VALUES ('Guy Tare','818 Rue Jean-Chretien','8195394567','450067891234786','MASTERCARD','20201123',1350);
 INSERT INTO CLIENT (Nom,Adresse,Telephone,NoCarte,TypeCarte,DatExp,SoldeDu) 
@@ -20,3 +21,8 @@ INSERT INTO CLIENT (Nom,Adresse,Telephone,NoCarte,TypeCarte,DatExp,SoldeDu)
 VALUES ('Luc Gionno','123 Boulevard des Hetres','8190914833','2215666647235698','MASTERCARD','20241031',765);
 INSERT INTO CLIENT (Nom,Adresse,Telephone,NoCarte,TypeCarte,DatExp,SoldeDu) 
 VALUES ('Valerie Bontemps','77 Rue des Ecoliers','8199433554','5621146655522333','VISA','20190912',3700);
+/*</CLIENT>*/
+
+/*<ARRIVE>*/
+
+/*</ARRIVE>*/
