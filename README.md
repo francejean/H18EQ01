@@ -39,6 +39,8 @@ Form : "From" + fonction
 
 ### Fichiers
 
+**DB_CREATE_** + ( E1, E2, ... )  + **.sql**= "DB_CREATE_E1.sql" 
+**DB_INSERT_** + ( E1, E2, ... )  + **.sql**= "DB_INSERT_E1.sql" 
 **Images** : Nom_Image(Nom_Auteur).png
 
 
