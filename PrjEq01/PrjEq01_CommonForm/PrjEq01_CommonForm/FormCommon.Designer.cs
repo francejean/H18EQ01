@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommon));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Tab_Clients = new System.Windows.Forms.TabPage();
+            this.Tab_Réservations = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -39,39 +39,45 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.Tab_Chambres = new System.Windows.Forms.TabPage();
+            this.Tab_Arrivées = new System.Windows.Forms.TabPage();
+            this.Tab_Départs = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.Tab_Clients);
+            this.tabControl1.Controls.Add(this.Tab_Réservations);
+            this.tabControl1.Controls.Add(this.Tab_Chambres);
+            this.tabControl1.Controls.Add(this.Tab_Arrivées);
+            this.tabControl1.Controls.Add(this.Tab_Départs);
             this.tabControl1.Location = new System.Drawing.Point(12, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1305, 561);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // Tab_Clients
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1297, 532);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.Tab_Clients.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Clients.Name = "Tab_Clients";
+            this.Tab_Clients.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Clients.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Clients.TabIndex = 0;
+            this.Tab_Clients.Text = "Clients";
+            this.Tab_Clients.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // Tab_Réservations
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 71);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.Tab_Réservations.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Réservations.Name = "Tab_Réservations";
+            this.Tab_Réservations.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Réservations.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Réservations.TabIndex = 1;
+            this.Tab_Réservations.Text = "Réservations";
+            this.Tab_Réservations.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
             // 
@@ -147,15 +153,43 @@
             this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
-            // Form1
+            // Tab_Chambres
+            // 
+            this.Tab_Chambres.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Chambres.Name = "Tab_Chambres";
+            this.Tab_Chambres.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Chambres.TabIndex = 2;
+            this.Tab_Chambres.Text = "Chambres";
+            this.Tab_Chambres.UseVisualStyleBackColor = true;
+            // 
+            // Tab_Arrivées
+            // 
+            this.Tab_Arrivées.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Arrivées.Name = "Tab_Arrivées";
+            this.Tab_Arrivées.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Arrivées.TabIndex = 3;
+            this.Tab_Arrivées.Text = "Arrivées";
+            this.Tab_Arrivées.UseVisualStyleBackColor = true;
+            // 
+            // Tab_Départs
+            // 
+            this.Tab_Départs.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Départs.Name = "Tab_Départs";
+            this.Tab_Départs.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Départs.TabIndex = 4;
+            this.Tab_Départs.Text = "Départs";
+            this.Tab_Départs.UseVisualStyleBackColor = true;
+            // 
+            // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1329, 603);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FormCommon";
+            this.Text = "Système de réservation en hébergement";
             this.tabControl1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -167,8 +201,8 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage Tab_Clients;
+        private System.Windows.Forms.TabPage Tab_Réservations;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -176,5 +210,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.TabPage Tab_Chambres;
+        private System.Windows.Forms.TabPage Tab_Arrivées;
+        private System.Windows.Forms.TabPage Tab_Départs;
     }
 }
