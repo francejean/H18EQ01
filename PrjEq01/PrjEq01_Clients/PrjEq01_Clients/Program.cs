@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_Arrivees_Clients
+namespace PrjEq01_Clients
 {
     static class Program
     {

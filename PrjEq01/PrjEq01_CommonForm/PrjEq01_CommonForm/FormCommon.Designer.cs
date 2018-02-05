@@ -32,22 +32,26 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Tab_Clients = new System.Windows.Forms.TabPage();
             this.Tab_Réservations = new System.Windows.Forms.TabPage();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.Tab_Chambres = new System.Windows.Forms.TabPage();
             this.Tab_Arrivées = new System.Windows.Forms.TabPage();
             this.Tab_Départs = new System.Windows.Forms.TabPage();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.Button_Add = new System.Windows.Forms.ToolStripButton();
+            this.Button_Delete = new System.Windows.Forms.ToolStripButton();
+            this.Button_Forward_All = new System.Windows.Forms.ToolStripButton();
+            this.Button_Forward_One = new System.Windows.Forms.ToolStripButton();
+            this.Button_Back_One = new System.Windows.Forms.ToolStripButton();
+            this.Button_Back_All = new System.Windows.Forms.ToolStripButton();
+            this.Button_Edit = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Tab_Clients);
             this.tabControl1.Controls.Add(this.Tab_Réservations);
             this.tabControl1.Controls.Add(this.Tab_Chambres);
@@ -79,80 +83,6 @@
             this.Tab_Réservations.Text = "Réservations";
             this.Tab_Réservations.UseVisualStyleBackColor = true;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1329, 27);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton5.Text = "toolStripButton5";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton6.Text = "toolStripButton6";
-            // 
             // Tab_Chambres
             // 
             this.Tab_Chambres.Location = new System.Drawing.Point(4, 25);
@@ -180,6 +110,90 @@
             this.Tab_Départs.Text = "Départs";
             this.Tab_Départs.UseVisualStyleBackColor = true;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Button_Add,
+            this.Button_Edit,
+            this.Button_Delete,
+            this.Button_Forward_All,
+            this.Button_Forward_One,
+            this.Button_Back_One,
+            this.Button_Back_All});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1329, 27);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // Button_Add
+            // 
+            this.Button_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Add.Image = ((System.Drawing.Image)(resources.GetObject("Button_Add.Image")));
+            this.Button_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Add.Name = "Button_Add";
+            this.Button_Add.Size = new System.Drawing.Size(24, 24);
+            this.Button_Add.Text = "Button_Add";
+            // 
+            // Button_Delete
+            // 
+            this.Button_Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Delete.Image = ((System.Drawing.Image)(resources.GetObject("Button_Delete.Image")));
+            this.Button_Delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Delete.Name = "Button_Delete";
+            this.Button_Delete.Size = new System.Drawing.Size(24, 24);
+            this.Button_Delete.Text = "Button_Delete";
+            // 
+            // Button_Forward_All
+            // 
+            this.Button_Forward_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Button_Forward_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Forward_All.Image = ((System.Drawing.Image)(resources.GetObject("Button_Forward_All.Image")));
+            this.Button_Forward_All.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Forward_All.Name = "Button_Forward_All";
+            this.Button_Forward_All.Size = new System.Drawing.Size(24, 24);
+            this.Button_Forward_All.Text = "Button_Forward_All";
+            // 
+            // Button_Forward_One
+            // 
+            this.Button_Forward_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Button_Forward_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Forward_One.Image = ((System.Drawing.Image)(resources.GetObject("Button_Forward_One.Image")));
+            this.Button_Forward_One.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Forward_One.Name = "Button_Forward_One";
+            this.Button_Forward_One.Size = new System.Drawing.Size(24, 24);
+            this.Button_Forward_One.Text = "Button_Forward_One";
+            // 
+            // Button_Back_One
+            // 
+            this.Button_Back_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Button_Back_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Back_One.Image = ((System.Drawing.Image)(resources.GetObject("Button_Back_One.Image")));
+            this.Button_Back_One.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Back_One.Name = "Button_Back_One";
+            this.Button_Back_One.Size = new System.Drawing.Size(24, 24);
+            this.Button_Back_One.Text = "Button_Back_One";
+            // 
+            // Button_Back_All
+            // 
+            this.Button_Back_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Button_Back_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Back_All.Image = ((System.Drawing.Image)(resources.GetObject("Button_Back_All.Image")));
+            this.Button_Back_All.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Back_All.Name = "Button_Back_All";
+            this.Button_Back_All.Size = new System.Drawing.Size(24, 24);
+            this.Button_Back_All.Text = "Button_Back_All";
+            // 
+            // Button_Edit
+            // 
+            this.Button_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Edit.Image = ((System.Drawing.Image)(resources.GetObject("Button_Edit.Image")));
+            this.Button_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Edit.Name = "Button_Edit";
+            this.Button_Edit.Size = new System.Drawing.Size(24, 24);
+            this.Button_Edit.Text = "Button_Edit";
+            // 
             // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,19 +213,19 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage Tab_Clients;
-        private System.Windows.Forms.TabPage Tab_Réservations;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.TabPage Tab_Chambres;
-        private System.Windows.Forms.TabPage Tab_Arrivées;
-        private System.Windows.Forms.TabPage Tab_Départs;
+        private System.Windows.Forms.ToolStripButton Button_Add;
+        private System.Windows.Forms.ToolStripButton Button_Delete;
+        private System.Windows.Forms.ToolStripButton Button_Forward_All;
+        private System.Windows.Forms.ToolStripButton Button_Forward_One;
+        private System.Windows.Forms.ToolStripButton Button_Back_One;
+        private System.Windows.Forms.ToolStripButton Button_Back_All;
+        private System.Windows.Forms.TabControl tabControl1;
+        protected System.Windows.Forms.TabPage Tab_Clients;
+        protected System.Windows.Forms.TabPage Tab_Réservations;
+        protected System.Windows.Forms.TabPage Tab_Chambres;
+        protected System.Windows.Forms.TabPage Tab_Arrivées;
+        protected System.Windows.Forms.TabPage Tab_Départs;
+        private System.Windows.Forms.ToolStripButton Button_Edit;
     }
 }

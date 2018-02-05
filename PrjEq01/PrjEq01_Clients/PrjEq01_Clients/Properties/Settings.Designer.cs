@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrjEq01_Arrivees_Clients.Properties
+namespace PrjEq01_Clients.Properties
 {
 
 

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PrjEq01_Arrivees_Clients")]
+[assembly: AssemblyTitle("PrjEq01_Clients")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PrjEq01_Arrivees_Clients")]
+[assembly: AssemblyProduct("PrjEq01_Clients")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e6f6253b-ee83-4448-98a9-cd5ac9d1f5a4")]
+[assembly: Guid("52e63e9c-832e-4ddb-b487-600ebb7a37b2")]
 
 // Version information for an assembly consists of the following four values:
 //
