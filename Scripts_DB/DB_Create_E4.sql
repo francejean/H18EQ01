@@ -9,15 +9,15 @@ CREATE TABLE TYPETRX
 CREATE TABLE TRX (
 	IdTrx 		int 			NOT NULL	IDENTITY(1,1),  
 	DateTrx 	DATE			NULL,
-	MontantTrx 	DECIMAL(10,2)	NULL,
-	Reportee 	BIT				NULL,
+	MontantTrx 	DECIMAL(10,2)		NULL,
+	Reportee 	BIT			NULL,
 	CodTypTrx 	VARCHAR(2)		NULL, 
-	IdReser 	int				NULL, 
+	IdReser 	int			NULL, 
 	NoCham 		VARCHAR(4) 		NULL,
 	IdCli 		int 			NULL,
 	PRIMARY KEY (IdTrx),
 	FOREIGN KEY (CodTypTrx) REFERENCES TYPETRX(CodTypTrx),
 	FOREIGN KEY (IdReser) 	REFERENCES RESERVATION(IdReser),
 	FOREIGN KEY (NoCham)	REFERENCES CHAMBRE(NoCham),
-	FOREIGN KEY (IdCli)		REFERENCES CLIENT(IdCli)
+	FOREIGN KEY (IdCli)	REFERENCES CLIENT(IdCli)
 );
