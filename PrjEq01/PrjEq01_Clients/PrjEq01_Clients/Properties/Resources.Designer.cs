@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrjEq01_Arrivees_Clients.Properties
+namespace PrjEq01_Clients.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace PrjEq01_Arrivees_Clients.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PrjEq01_Arrivees_Clients.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PrjEq01_Clients.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
