@@ -32,6 +32,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Tab_Clients = new System.Windows.Forms.TabPage();
             this.Tab_Réservations = new System.Windows.Forms.TabPage();
+            this.Tab_Chambres = new System.Windows.Forms.TabPage();
+            this.Tab_Arrivées = new System.Windows.Forms.TabPage();
+            this.Tab_Départs = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -39,9 +42,6 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.Tab_Chambres = new System.Windows.Forms.TabPage();
-            this.Tab_Arrivées = new System.Windows.Forms.TabPage();
-            this.Tab_Départs = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +78,33 @@
             this.Tab_Réservations.TabIndex = 1;
             this.Tab_Réservations.Text = "Réservations";
             this.Tab_Réservations.UseVisualStyleBackColor = true;
+            // 
+            // Tab_Chambres
+            // 
+            this.Tab_Chambres.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Chambres.Name = "Tab_Chambres";
+            this.Tab_Chambres.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Chambres.TabIndex = 2;
+            this.Tab_Chambres.Text = "Chambres";
+            this.Tab_Chambres.UseVisualStyleBackColor = true;
+            // 
+            // Tab_Arrivées
+            // 
+            this.Tab_Arrivées.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Arrivées.Name = "Tab_Arrivées";
+            this.Tab_Arrivées.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Arrivées.TabIndex = 3;
+            this.Tab_Arrivées.Text = "Arrivées";
+            this.Tab_Arrivées.UseVisualStyleBackColor = true;
+            // 
+            // Tab_Départs
+            // 
+            this.Tab_Départs.Location = new System.Drawing.Point(4, 25);
+            this.Tab_Départs.Name = "Tab_Départs";
+            this.Tab_Départs.Size = new System.Drawing.Size(1297, 532);
+            this.Tab_Départs.TabIndex = 4;
+            this.Tab_Départs.Text = "Départs";
+            this.Tab_Départs.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
             // 
@@ -152,33 +179,6 @@
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton6.Text = "toolStripButton6";
-            // 
-            // Tab_Chambres
-            // 
-            this.Tab_Chambres.Location = new System.Drawing.Point(4, 25);
-            this.Tab_Chambres.Name = "Tab_Chambres";
-            this.Tab_Chambres.Size = new System.Drawing.Size(1297, 532);
-            this.Tab_Chambres.TabIndex = 2;
-            this.Tab_Chambres.Text = "Chambres";
-            this.Tab_Chambres.UseVisualStyleBackColor = true;
-            // 
-            // Tab_Arrivées
-            // 
-            this.Tab_Arrivées.Location = new System.Drawing.Point(4, 25);
-            this.Tab_Arrivées.Name = "Tab_Arrivées";
-            this.Tab_Arrivées.Size = new System.Drawing.Size(1297, 532);
-            this.Tab_Arrivées.TabIndex = 3;
-            this.Tab_Arrivées.Text = "Arrivées";
-            this.Tab_Arrivées.UseVisualStyleBackColor = true;
-            // 
-            // Tab_Départs
-            // 
-            this.Tab_Départs.Location = new System.Drawing.Point(4, 25);
-            this.Tab_Départs.Name = "Tab_Départs";
-            this.Tab_Départs.Size = new System.Drawing.Size(1297, 532);
-            this.Tab_Départs.TabIndex = 4;
-            this.Tab_Départs.Text = "Départs";
-            this.Tab_Départs.UseVisualStyleBackColor = true;
             // 
             // FormCommon
             // 
