@@ -37,12 +37,12 @@
             this.Tab_Départs = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Button_Add = new System.Windows.Forms.ToolStripButton();
+            this.Button_Edit = new System.Windows.Forms.ToolStripButton();
             this.Button_Delete = new System.Windows.Forms.ToolStripButton();
             this.Button_Forward_All = new System.Windows.Forms.ToolStripButton();
             this.Button_Forward_One = new System.Windows.Forms.ToolStripButton();
             this.Button_Back_One = new System.Windows.Forms.ToolStripButton();
             this.Button_Back_All = new System.Windows.Forms.ToolStripButton();
-            this.Button_Edit = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -130,16 +130,25 @@
             // Button_Add
             // 
             this.Button_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Add.Image = ((System.Drawing.Image)(resources.GetObject("Button_Add.Image")));
+            this.Button_Add.Image = global::PrjEq01_CommonForm.Properties.Resources.Add_Hanan_;
             this.Button_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Add.Name = "Button_Add";
             this.Button_Add.Size = new System.Drawing.Size(24, 24);
             this.Button_Add.Text = "Button_Add";
             // 
+            // Button_Edit
+            // 
+            this.Button_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Edit.Image = global::PrjEq01_CommonForm.Properties.Resources.Edit_Freepik_;
+            this.Button_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Edit.Name = "Button_Edit";
+            this.Button_Edit.Size = new System.Drawing.Size(24, 24);
+            this.Button_Edit.Text = "Button_Edit";
+            // 
             // Button_Delete
             // 
             this.Button_Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Delete.Image = ((System.Drawing.Image)(resources.GetObject("Button_Delete.Image")));
+            this.Button_Delete.Image = global::PrjEq01_CommonForm.Properties.Resources.Delete_Freepik_;
             this.Button_Delete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Delete.Name = "Button_Delete";
             this.Button_Delete.Size = new System.Drawing.Size(24, 24);
@@ -149,7 +158,7 @@
             // 
             this.Button_Forward_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Forward_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Forward_All.Image = ((System.Drawing.Image)(resources.GetObject("Button_Forward_All.Image")));
+            this.Button_Forward_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Right_Arrow_Dave_Gandy_;
             this.Button_Forward_All.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Forward_All.Name = "Button_Forward_All";
             this.Button_Forward_All.Size = new System.Drawing.Size(24, 24);
@@ -159,7 +168,7 @@
             // 
             this.Button_Forward_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Forward_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Forward_One.Image = ((System.Drawing.Image)(resources.GetObject("Button_Forward_One.Image")));
+            this.Button_Forward_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Right_Arrow_Google_;
             this.Button_Forward_One.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Forward_One.Name = "Button_Forward_One";
             this.Button_Forward_One.Size = new System.Drawing.Size(24, 24);
@@ -169,7 +178,7 @@
             // 
             this.Button_Back_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Back_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Back_One.Image = ((System.Drawing.Image)(resources.GetObject("Button_Back_One.Image")));
+            this.Button_Back_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Left_Arrow_Google_;
             this.Button_Back_One.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Back_One.Name = "Button_Back_One";
             this.Button_Back_One.Size = new System.Drawing.Size(24, 24);
@@ -179,20 +188,11 @@
             // 
             this.Button_Back_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Back_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Back_All.Image = ((System.Drawing.Image)(resources.GetObject("Button_Back_All.Image")));
+            this.Button_Back_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Left_Arrow_Dave_Gandy_;
             this.Button_Back_All.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Back_All.Name = "Button_Back_All";
             this.Button_Back_All.Size = new System.Drawing.Size(24, 24);
             this.Button_Back_All.Text = "Button_Back_All";
-            // 
-            // Button_Edit
-            // 
-            this.Button_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Edit.Image = ((System.Drawing.Image)(resources.GetObject("Button_Edit.Image")));
-            this.Button_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Edit.Name = "Button_Edit";
-            this.Button_Edit.Size = new System.Drawing.Size(24, 24);
-            this.Button_Edit.Text = "Button_Edit";
             // 
             // FormCommon
             // 
