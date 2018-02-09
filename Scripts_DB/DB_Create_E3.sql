@@ -1,7 +1,7 @@
 USE H18EQ01;
 CREATE TABLE CLIENT
 (
-	IdCli 		int				NOT NULL  IDENTITY(1,1),
+	IdCli 		int				NOT NULL	IDENTITY(1,1),
 	Nom 		VARCHAR(25)		NULL,
 	Adresse 	VARCHAR(25)		NULL,
 	Telephone 	VARCHAR(10)		NULL,
@@ -14,11 +14,11 @@ CREATE TABLE CLIENT
 
 CREATE TABLE ARRIVE
 (
-	IdArrive 	int			NOT NULL	IDENTITY(1,1),
-	DateArrive 	DATE 		NULL,
-	IdCli 		int			NULL,
-	IdReser 	int			NULL,
-	NoCham 		VARCHAR(3)	NULL,
+	IdArrive 	int				NOT NULL	IDENTITY(1,1),
+	DateArrive 	DATE 			NULL,
+	IdCli 		int				NULL,
+	IdReser 	int				NULL,
+	NoCham 		VARCHAR(3)		NULL,
 	PRIMARY KEY	(IdArrive),
 	FOREIGN KEY (IdCli) 	REFERENCES CLIENT(IdCli),
 	FOREIGN KEY (NoCham) 	REFERENCES CHAMBRE(NoCham),

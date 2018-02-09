@@ -24,5 +24,6 @@ VALUES ('Valerie Bontemps','77 Rue des Ecoliers','8199433554','5621146655522333'
 /*</CLIENT>*/
 
 /*<ARRIVE>*/
-
+INSERT INTO ARRIVE (DateArrive,IdCli,IdReser,NoCham) 
+VALUES ()
 /*</ARRIVE>*/
