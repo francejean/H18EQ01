@@ -14,11 +14,11 @@ VALUES (5, DATEADD(day, -10, CURRENT_TIMESTAMP), DATEADD(day, -3, CURRENT_TIMEST
 /*</RESERVATION>*/
 
 /*<DE>*/
-INSERT INTO DE VALUES (false, 1, ???);
-INSERT INTO DE VALUES (false, 2, ???);
-INSERT INTO DE VALUES (true,  3, ???);
-INSERT INTO DE VALUES (true,  4, ???);
-INSERT INTO DE VALUES (false, 5, ???);
+INSERT INTO DE VALUES (false, 1, '???');
+INSERT INTO DE VALUES (false, 2, '???');
+INSERT INTO DE VALUES (true,  3, '???');
+INSERT INTO DE VALUES (true,  4, '???');
+INSERT INTO DE VALUES (false, 5, '???');
 /*</DE>*/
 
 /*<DEPART>*/

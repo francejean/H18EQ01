@@ -73,6 +73,16 @@ namespace PrjEq01_CommonForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Back_Dave_Gandy_ {
+            get {
+                object obj = ResourceManager.GetObject("Back(Dave_Gandy)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bed_Cursor_Creative_ {
             get {
                 object obj = ResourceManager.GetObject("Bed(Cursor_Creative)", resourceCulture);
@@ -156,6 +166,16 @@ namespace PrjEq01_CommonForm.Properties {
         internal static System.Drawing.Bitmap Right_Arrow_Google_ {
             get {
                 object obj = ResourceManager.GetObject("Right_Arrow(Google)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Save_Smashicons_ {
+            get {
+                object obj = ResourceManager.GetObject("Save(Smashicons)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
