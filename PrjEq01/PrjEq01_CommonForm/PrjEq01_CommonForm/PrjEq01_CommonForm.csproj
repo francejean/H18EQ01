@@ -54,10 +54,19 @@
     <Compile Include="FormCommon.Designer.cs">
       <DependentUpon>FormCommon.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormToolsStandard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormToolsStandard.Designer.cs">
+      <DependentUpon>FormToolsStandard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCommon.resx">
       <DependentUpon>FormCommon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolsStandard.resx">
+      <DependentUpon>FormToolsStandard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,6 +76,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,6 +90,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add%28Hanan%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bed%28Cursor_Creative%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bed%28Vectors_Market%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete%28Freepik%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Double_Left_Arrow%28Dave_Gandy%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Double_Right_Arrow%28Dave_Gandy%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit%28Freepik%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit%28SmashIcons%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left_Arrow%28Google%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right_Arrow%28Google%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
