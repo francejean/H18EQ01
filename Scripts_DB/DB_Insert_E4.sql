@@ -20,3 +20,10 @@ VALUES ('50','DEPOT ARGENT','CR');
 INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
 VALUES ('60','PAIEMENT','CR');
 /*</TYPETRX>*/
+
+/*<TRX>*/
+INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli)
+VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP),234.56,1,'01',5,'???',5);
+INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli)
+VALUES (CURRENT_TIMESTAMP,52.99,0,'60',2,'???',2);
+/*</TRX>*/
