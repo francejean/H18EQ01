@@ -22,6 +22,7 @@ INSERT INTO DE VALUES (false, 5, '???');
 /*</DE>*/
 
 /*<DEPART>*/
+
 INSERT INTO DEPART (DateDepart, ConfirmerPar, IdReser, NoCham, IdCli)
-VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP), "O.L.P.", 5, ???, 5);
+VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP), "O.L.P.", 5, '???', 5);
 /*</DEPART>*/
