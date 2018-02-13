@@ -1,4 +1,4 @@
-/** TYPECHAM **/ 
+/*<TYPECHAM>*/ 
 INSERT INTO TYPECHAM (CodTypChan, DescTyp, NbDispo)
 VALUES ('1J', '1 LIT JUMEAU', 2);
 INSERT INTO TYPECHAM (CodTypChan, DescTyp, NbDispo)
@@ -15,10 +15,10 @@ INSERT INTO TYPECHAM (CodTypChan, DescTyp, NbDispo)
 VALUES ('ST', 'SUITE', 1);
 INSERT INTO TYPECHAM (CodTypChan, DescTyp, NbDispo)
 VALUES ('SR', 'SALLE RÉCEPTION', 2);
-/** TYPECHAM **/
+/*</TYPECHAM>*/
 
 
-/** COMMODITE **/
+/*<COMMODITE>*/
 INSERT INTO COMMODITE (CodCom, DescCom) 
 VALUES ('AS', 'STANDARDS');
 INSERT INTO COMMODITE (CodCom, DescCom) 
@@ -35,10 +35,10 @@ INSERT INTO COMMODITE (CodCom, DescCom)
 VALUES ('HP', 'HANDICAPE');
 INSERT INTO COMMODITE (CodCom, DescCom) 
 VALUES ('NF', 'NON FUMEUR');
-/** COMMODITE **/
+/*</COMMODITE>*/
 
 
-/** LOCALISATION **/
+/*<LOCALISATION>*/
 INSERT INTO LOCALISATION (CodLoc, DescLoc) 
 VALUES ('AR', 'ARRIERE');
 INSERT INTO LOCALISATION (CodLoc, DescLoc) 
@@ -49,10 +49,10 @@ INSERT INTO LOCALISATION (CodLoc, DescLoc)
 VALUES ('VM', 'VUE SUR LA MER');
 INSERT INTO LOCALISATION (CodLoc, DescLoc) 
 VALUES ('SM', 'PRES DE LA SALLE A MANGER');
-/** LOCALISATION **/
+/*</LOCALISATION **/
 
 
-/** CHAMBRE **/
+/*<CHAMBRE>*/
 INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
 VALUES ('15', '1', 90.99, 1, NULL, 'AR', '1J');
 INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
@@ -79,10 +79,10 @@ INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)
 VALUES ('5', '4', 100.99, 1, NULL, 'AR', 'SR');
 INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
 VALUES ('8', '4', 100.99, 1, NULL, 'AS', 'SR');
-/** CHAMBRE **/
+/*</CHAMBRE>*/
 
 
-/** AYANT **/
+/*<AYANT>*/
 INSERT INTO AYANT (NoCham, CodCom) VALUES ('15', 'AS');
 INSERT INTO AYANT (NoCham, CodCom) VALUES ('3', 'AS');
 INSERT INTO AYANT (NoCham, CodCom) VALUES ('7', 'AS');
@@ -96,4 +96,4 @@ INSERT INTO AYANT (NoCham, CodCom) VALUES ('11', 'AS');
 INSERT INTO AYANT (NoCham, CodCom) VALUES ('1', 'AS');
 INSERT INTO AYANT (NoCham, CodCom) VALUES ('5', 'AS');
 INSERT INTO AYANT (NoCham, CodCom) VALUES ('8', 'AS');
-/** AYANT **/
+/*</AYANT>*/
