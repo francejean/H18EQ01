@@ -1,0 +1,29 @@
+USE H18EQ01;
+
+/*<TYPETRX>*/
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('01','PRIX DE LA CHAMBRE','DB');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('02','LIT ADDITIONNEL','DB');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('10','TELEPHONE INTERURBAIN','DB');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('21','PHOTOCOPIE','DB');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('22','INTERNET','DB');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('30','RESTAURANT','DB');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('31','BAR TERRASSE','DB');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('50','DEPOT ARGENT','CR');
+INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 
+VALUES ('60','PAIEMENT','CR');
+/*</TYPETRX>*/
+
+/*<TRX>*/
+INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli)
+VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP),234.56,1,'01',5,'???',5);
+INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli)
+VALUES (CURRENT_TIMESTAMP,52.99,0,'60',2,'???',2);
+/*</TRX>*/
