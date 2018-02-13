@@ -1,3 +1,5 @@
+USE h18equipe1;
+
 CREATE TABLE RESERVATION
 (
 	IdReser     INT         NOT NULL    IDENTITY(1,1),
@@ -11,7 +13,7 @@ CREATE TABLE RESERVATION
 
 CREATE TABLE DE
 (
-    Attribuee   BOOLEAN     NULL,
+    Attribuee	BIT			NULL,
     IdReser     INT         NULL,
     NoCham      VARCHAR(6)  NULL,
     FOREIGN KEY (IdReser)   REFERENCES RESERVATION(IdReser),
