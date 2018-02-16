@@ -162,36 +162,40 @@
             // 
             this.Button_Forward_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Forward_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Forward_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Right_Arrow_Dave_Gandy_;
             this.Button_Forward_All.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Forward_All.Name = "Button_Forward_All";
-            this.Button_Forward_All.Size = new System.Drawing.Size(23, 24);
+            this.Button_Forward_All.Size = new System.Drawing.Size(24, 24);
             this.Button_Forward_All.Text = "Button_Forward_All";
             // 
             // Button_Forward_One
             // 
             this.Button_Forward_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Forward_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Forward_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Right_Arrow_Google_;
             this.Button_Forward_One.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Forward_One.Name = "Button_Forward_One";
-            this.Button_Forward_One.Size = new System.Drawing.Size(23, 24);
+            this.Button_Forward_One.Size = new System.Drawing.Size(24, 24);
             this.Button_Forward_One.Text = "Button_Forward_One";
             // 
             // Button_Back_One
             // 
             this.Button_Back_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Back_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Back_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Left_Arrow_Google_;
             this.Button_Back_One.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Back_One.Name = "Button_Back_One";
-            this.Button_Back_One.Size = new System.Drawing.Size(23, 24);
+            this.Button_Back_One.Size = new System.Drawing.Size(24, 24);
             this.Button_Back_One.Text = "Button_Back_One";
             // 
             // Button_Back_All
             // 
             this.Button_Back_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Back_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Back_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Left_Arrow_Dave_Gandy_;
             this.Button_Back_All.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Back_All.Name = "Button_Back_All";
-            this.Button_Back_All.Size = new System.Drawing.Size(23, 24);
+            this.Button_Back_All.Size = new System.Drawing.Size(24, 24);
             this.Button_Back_All.Text = "Button_Back_All";
             // 
             // toolStripButton1
