@@ -1,3 +1,5 @@
+USE h18equipe1;
+
 /*<TYPECHAM>*/ 
 INSERT INTO TYPECHAM (CodTypChan, DescTyp, NbDispo)
 VALUES ('1J', '1 LIT JUMEAU', 2);

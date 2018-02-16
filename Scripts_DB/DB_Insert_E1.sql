@@ -1,4 +1,4 @@
-USE H18EQ01;
+USE h18equipe1;
 
 /*<RESERVATION>*/
 INSERT INTO RESERVATION (IdCli, DateReser, DateDebut, DateFin)
