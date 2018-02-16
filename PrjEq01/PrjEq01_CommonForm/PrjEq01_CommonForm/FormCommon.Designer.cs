@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommon));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Tab_Clients = new System.Windows.Forms.TabPage();
             this.Tab_Réservations = new System.Windows.Forms.TabPage();
             this.Tab_Chambres = new System.Windows.Forms.TabPage();
             this.Tab_Arrivées = new System.Windows.Forms.TabPage();
@@ -54,7 +53,6 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.Tab_Clients);
             this.tabControl1.Controls.Add(this.Tab_Réservations);
             this.tabControl1.Controls.Add(this.Tab_Chambres);
             this.tabControl1.Controls.Add(this.Tab_Arrivées);
@@ -64,16 +62,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1305, 561);
             this.tabControl1.TabIndex = 0;
-            // 
-            // Tab_Clients
-            // 
-            this.Tab_Clients.Location = new System.Drawing.Point(4, 25);
-            this.Tab_Clients.Name = "Tab_Clients";
-            this.Tab_Clients.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_Clients.Size = new System.Drawing.Size(1297, 532);
-            this.Tab_Clients.TabIndex = 0;
-            this.Tab_Clients.Text = "Clients";
-            this.Tab_Clients.UseVisualStyleBackColor = true;
             // 
             // Tab_Réservations
             // 
@@ -243,7 +231,6 @@
         private System.Windows.Forms.ToolStripButton Button_Back_One;
         private System.Windows.Forms.ToolStripButton Button_Back_All;
         private System.Windows.Forms.TabControl tabControl1;
-        protected System.Windows.Forms.TabPage Tab_Clients;
         protected System.Windows.Forms.TabPage Tab_Réservations;
         protected System.Windows.Forms.TabPage Tab_Chambres;
         protected System.Windows.Forms.TabPage Tab_Arrivées;
