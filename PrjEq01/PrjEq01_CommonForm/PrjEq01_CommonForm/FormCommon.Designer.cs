@@ -53,8 +53,8 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.Tab_Réservations);
             this.tabControl1.Controls.Add(this.Tab_Chambres);
+            this.tabControl1.Controls.Add(this.Tab_Réservations);
             this.tabControl1.Controls.Add(this.Tab_Arrivées);
             this.tabControl1.Controls.Add(this.Tab_Départs);
             this.tabControl1.Location = new System.Drawing.Point(12, 30);
