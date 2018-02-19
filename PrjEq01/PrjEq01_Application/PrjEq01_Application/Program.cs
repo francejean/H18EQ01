@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_Accueil
+namespace PrjEq01_Application
 {
 	static class Program
 	{
@@ -16,7 +16,7 @@ namespace PrjEq01_Accueil
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FormAccueil());
+			Application.Run(new FormApplication());
 		}
 	}
 }

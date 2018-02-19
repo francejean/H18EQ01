@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommon));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Tab_Clients = new System.Windows.Forms.TabPage();
             this.Tab_Réservations = new System.Windows.Forms.TabPage();
             this.Tab_Chambres = new System.Windows.Forms.TabPage();
             this.Tab_Arrivées = new System.Windows.Forms.TabPage();
@@ -54,9 +53,8 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.Tab_Clients);
-            this.tabControl1.Controls.Add(this.Tab_Réservations);
             this.tabControl1.Controls.Add(this.Tab_Chambres);
+            this.tabControl1.Controls.Add(this.Tab_Réservations);
             this.tabControl1.Controls.Add(this.Tab_Arrivées);
             this.tabControl1.Controls.Add(this.Tab_Départs);
             this.tabControl1.Location = new System.Drawing.Point(12, 30);
@@ -64,16 +62,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1305, 561);
             this.tabControl1.TabIndex = 0;
-            // 
-            // Tab_Clients
-            // 
-            this.Tab_Clients.Location = new System.Drawing.Point(4, 25);
-            this.Tab_Clients.Name = "Tab_Clients";
-            this.Tab_Clients.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_Clients.Size = new System.Drawing.Size(1297, 532);
-            this.Tab_Clients.TabIndex = 0;
-            this.Tab_Clients.Text = "Clients";
-            this.Tab_Clients.UseVisualStyleBackColor = true;
             // 
             // Tab_Réservations
             // 
@@ -162,36 +150,40 @@
             // 
             this.Button_Forward_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Forward_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Forward_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Right_Arrow_Dave_Gandy_;
             this.Button_Forward_All.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Forward_All.Name = "Button_Forward_All";
-            this.Button_Forward_All.Size = new System.Drawing.Size(23, 24);
+            this.Button_Forward_All.Size = new System.Drawing.Size(24, 24);
             this.Button_Forward_All.Text = "Button_Forward_All";
             // 
             // Button_Forward_One
             // 
             this.Button_Forward_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Forward_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Forward_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Right_Arrow_Google_;
             this.Button_Forward_One.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Forward_One.Name = "Button_Forward_One";
-            this.Button_Forward_One.Size = new System.Drawing.Size(23, 24);
+            this.Button_Forward_One.Size = new System.Drawing.Size(24, 24);
             this.Button_Forward_One.Text = "Button_Forward_One";
             // 
             // Button_Back_One
             // 
             this.Button_Back_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Back_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Back_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Left_Arrow_Google_;
             this.Button_Back_One.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Back_One.Name = "Button_Back_One";
-            this.Button_Back_One.Size = new System.Drawing.Size(23, 24);
+            this.Button_Back_One.Size = new System.Drawing.Size(24, 24);
             this.Button_Back_One.Text = "Button_Back_One";
             // 
             // Button_Back_All
             // 
             this.Button_Back_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.Button_Back_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Back_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Left_Arrow_Dave_Gandy_;
             this.Button_Back_All.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Button_Back_All.Name = "Button_Back_All";
-            this.Button_Back_All.Size = new System.Drawing.Size(23, 24);
+            this.Button_Back_All.Size = new System.Drawing.Size(24, 24);
             this.Button_Back_All.Text = "Button_Back_All";
             // 
             // toolStripButton1
@@ -227,7 +219,6 @@
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -239,7 +230,6 @@
         private System.Windows.Forms.ToolStripButton Button_Back_One;
         private System.Windows.Forms.ToolStripButton Button_Back_All;
         private System.Windows.Forms.TabControl tabControl1;
-        protected System.Windows.Forms.TabPage Tab_Clients;
         protected System.Windows.Forms.TabPage Tab_Réservations;
         protected System.Windows.Forms.TabPage Tab_Chambres;
         protected System.Windows.Forms.TabPage Tab_Arrivées;
