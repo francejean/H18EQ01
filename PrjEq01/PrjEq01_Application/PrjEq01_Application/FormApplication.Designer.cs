@@ -1,6 +1,6 @@
-﻿namespace PrjEq01_Accueil
+﻿namespace PrjEq01_Application
 {
-	partial class FormAccueil
+	partial class FormApplication
 	{
 		/// <summary>
 		/// Variable nécessaire au concepteur.
@@ -28,17 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.SuspendLayout();
-			// 
-			// FormAccueil
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.components = new System.ComponentModel.Container();
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(623, 408);
-			this.Name = "FormAccueil";
-			this.Text = "Accueil";
-			this.ResumeLayout(false);
-
+			this.Text = "Form1";
 		}
 
 		#endregion

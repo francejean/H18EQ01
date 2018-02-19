@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrjEq01_Accueil.Properties
+namespace PrjEq01_Application.Properties
 {
 
 
