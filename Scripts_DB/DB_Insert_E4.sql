@@ -1,4 +1,4 @@
-USE H18EQ01;
+USE h18equipe1;
 
 /*<TYPETRX>*/
 INSERT INTO TYPETRX (CodTypTrx,DescTrx,Nature) 

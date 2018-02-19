@@ -1,4 +1,4 @@
-USE H18EQ01;
+USE h18equipe1;
 
 /*<CLIENT>*/
 INSERT INTO CLIENT (Nom,Adresse,Telephone,NoCarte,TypeCarte,DatExp,SoldeDu) 
