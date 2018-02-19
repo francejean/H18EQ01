@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_Accueil
+namespace PrjEq01_Application
 {
-	public partial class FormAccueil : Form
+	public partial class FormApplication : PrjEq01_CommonForm.FormCommon
 	{
-		public FormAccueil()
+		public FormApplication()
 		{
 			InitializeComponent();
 		}
