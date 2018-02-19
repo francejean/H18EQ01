@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Button_Add.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Button_Add.Designer.cs">
+      <DependentUpon>Button_Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCommon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\Button_Add.resx">
+      <DependentUpon>Button_Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCommon.resx">
       <DependentUpon>FormCommon.cs</DependentUpon>
     </EmbeddedResource>
