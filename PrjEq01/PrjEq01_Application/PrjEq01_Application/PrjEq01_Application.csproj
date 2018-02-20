@@ -62,6 +62,27 @@
     <Compile Include="Tabs\Tab_Arrive.Designer.cs">
       <DependentUpon>Tab_Arrive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tabs\Tab_Reservation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\Tab_Reservation.Designer.cs">
+      <DependentUpon>Tab_Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation.Designer.cs">
+      <DependentUpon>Info_Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PlaceHolderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Saisi_Info_Client.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Saisi_Info_Client.Designer.cs">
+      <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +97,15 @@
     </Compile>
     <EmbeddedResource Include="Tabs\Tab_Arrive.resx">
       <DependentUpon>Tab_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\Tab_Reservation.resx">
+      <DependentUpon>Tab_Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation.resx">
+      <DependentUpon>Info_Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Saisi_Info_Client.resx">
+      <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
