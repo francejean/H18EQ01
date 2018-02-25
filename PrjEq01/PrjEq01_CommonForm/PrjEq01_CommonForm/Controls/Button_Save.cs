@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PrjEq01_CommonForm.Controls
 {
-    public partial class Button_Add : Button
+    public partial class Button_Save : Button
     {
-        public Button_Add()
+        public Button_Save()
         {
             InitializeComponent();
         }
