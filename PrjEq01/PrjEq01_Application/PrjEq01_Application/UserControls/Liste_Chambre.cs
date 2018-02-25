@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_CommonForm.Controls
+namespace PrjEq01_Application.UserControls
 {
-    public partial class Button_Add : Button
+    public partial class Liste_Chambre : UserControl
     {
-        public Button_Add()
+        public Liste_Chambre()
         {
             InitializeComponent();
         }
