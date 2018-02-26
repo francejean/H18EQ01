@@ -47,10 +47,10 @@
 			// info_Reservation1
 			// 
 			this.info_Reservation1.Location = new System.Drawing.Point(371, 0);
-			this.info_Reservation1.MaximumSize = new System.Drawing.Size(170, 180);
-			this.info_Reservation1.MinimumSize = new System.Drawing.Size(200, 180);
+			this.info_Reservation1.MaximumSize = new System.Drawing.Size(170, 184);
+			this.info_Reservation1.MinimumSize = new System.Drawing.Size(200, 184);
 			this.info_Reservation1.Name = "info_Reservation1";
-			this.info_Reservation1.Size = new System.Drawing.Size(200, 180);
+			this.info_Reservation1.Size = new System.Drawing.Size(200, 184);
 			this.info_Reservation1.TabIndex = 2;
 			// 
 			// saisi_Info_Client1
@@ -89,6 +89,7 @@
 		}
 
 		#endregion
+
 		private UserControls.Saisi_Info_Client saisi_Info_Client1;
 		private UserControls.Info_Reservation info_Reservation1;
 		private System.Windows.Forms.Label label9;
