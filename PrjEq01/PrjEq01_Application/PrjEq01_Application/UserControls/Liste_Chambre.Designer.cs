@@ -35,10 +35,10 @@
             this.Label_Prix_Chambre = new System.Windows.Forms.Label();
             this.Label_Type_Chambre = new System.Windows.Forms.Label();
             this.Label_No_Chambre = new System.Windows.Forms.Label();
-            this.Liste_Occupee_Chambre = new System.Windows.Forms.ListBox();
-            this.Liste_Prix_Chambre = new System.Windows.Forms.ListBox();
-            this.Liste_Type_Chambre = new System.Windows.Forms.ListBox();
-            this.Liste_No_Chambre = new System.Windows.Forms.ListBox();
+            this.Liste_OccupeeChambre = new System.Windows.Forms.ListBox();
+            this.Liste_PrixChambre = new System.Windows.Forms.ListBox();
+            this.Liste_TypeChambre = new System.Windows.Forms.ListBox();
+            this.Liste_NoChambre = new System.Windows.Forms.ListBox();
             this.GroupBox_ListeChambres.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +52,10 @@
             this.GroupBox_ListeChambres.Controls.Add(this.Label_Prix_Chambre);
             this.GroupBox_ListeChambres.Controls.Add(this.Label_Type_Chambre);
             this.GroupBox_ListeChambres.Controls.Add(this.Label_No_Chambre);
-            this.GroupBox_ListeChambres.Controls.Add(this.Liste_Occupee_Chambre);
-            this.GroupBox_ListeChambres.Controls.Add(this.Liste_Prix_Chambre);
-            this.GroupBox_ListeChambres.Controls.Add(this.Liste_Type_Chambre);
-            this.GroupBox_ListeChambres.Controls.Add(this.Liste_No_Chambre);
+            this.GroupBox_ListeChambres.Controls.Add(this.Liste_OccupeeChambre);
+            this.GroupBox_ListeChambres.Controls.Add(this.Liste_PrixChambre);
+            this.GroupBox_ListeChambres.Controls.Add(this.Liste_TypeChambre);
+            this.GroupBox_ListeChambres.Controls.Add(this.Liste_NoChambre);
             this.GroupBox_ListeChambres.Location = new System.Drawing.Point(0, 0);
             this.GroupBox_ListeChambres.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox_ListeChambres.Name = "GroupBox_ListeChambres";
@@ -120,45 +120,45 @@
             this.Label_No_Chambre.TabIndex = 4;
             this.Label_No_Chambre.Text = "No. chambre";
             // 
-            // Liste_Occupee_Chambre
+            // Liste_OccupeeChambre
             // 
-            this.Liste_Occupee_Chambre.FormattingEnabled = true;
-            this.Liste_Occupee_Chambre.ItemHeight = 16;
-            this.Liste_Occupee_Chambre.Location = new System.Drawing.Point(871, 41);
-            this.Liste_Occupee_Chambre.Margin = new System.Windows.Forms.Padding(4);
-            this.Liste_Occupee_Chambre.Name = "Liste_Occupee_Chambre";
-            this.Liste_Occupee_Chambre.Size = new System.Drawing.Size(253, 228);
-            this.Liste_Occupee_Chambre.TabIndex = 3;
+            this.Liste_OccupeeChambre.FormattingEnabled = true;
+            this.Liste_OccupeeChambre.ItemHeight = 16;
+            this.Liste_OccupeeChambre.Location = new System.Drawing.Point(871, 41);
+            this.Liste_OccupeeChambre.Margin = new System.Windows.Forms.Padding(4);
+            this.Liste_OccupeeChambre.Name = "Liste_OccupeeChambre";
+            this.Liste_OccupeeChambre.Size = new System.Drawing.Size(253, 228);
+            this.Liste_OccupeeChambre.TabIndex = 3;
             // 
-            // Liste_Prix_Chambre
+            // Liste_PrixChambre
             // 
-            this.Liste_Prix_Chambre.FormattingEnabled = true;
-            this.Liste_Prix_Chambre.ItemHeight = 16;
-            this.Liste_Prix_Chambre.Location = new System.Drawing.Point(588, 41);
-            this.Liste_Prix_Chambre.Margin = new System.Windows.Forms.Padding(4);
-            this.Liste_Prix_Chambre.Name = "Liste_Prix_Chambre";
-            this.Liste_Prix_Chambre.Size = new System.Drawing.Size(263, 228);
-            this.Liste_Prix_Chambre.TabIndex = 2;
+            this.Liste_PrixChambre.FormattingEnabled = true;
+            this.Liste_PrixChambre.ItemHeight = 16;
+            this.Liste_PrixChambre.Location = new System.Drawing.Point(588, 41);
+            this.Liste_PrixChambre.Margin = new System.Windows.Forms.Padding(4);
+            this.Liste_PrixChambre.Name = "Liste_PrixChambre";
+            this.Liste_PrixChambre.Size = new System.Drawing.Size(263, 228);
+            this.Liste_PrixChambre.TabIndex = 2;
             // 
-            // Liste_Type_Chambre
+            // Liste_TypeChambre
             // 
-            this.Liste_Type_Chambre.FormattingEnabled = true;
-            this.Liste_Type_Chambre.ItemHeight = 16;
-            this.Liste_Type_Chambre.Location = new System.Drawing.Point(291, 41);
-            this.Liste_Type_Chambre.Margin = new System.Windows.Forms.Padding(4);
-            this.Liste_Type_Chambre.Name = "Liste_Type_Chambre";
-            this.Liste_Type_Chambre.Size = new System.Drawing.Size(277, 228);
-            this.Liste_Type_Chambre.TabIndex = 1;
+            this.Liste_TypeChambre.FormattingEnabled = true;
+            this.Liste_TypeChambre.ItemHeight = 16;
+            this.Liste_TypeChambre.Location = new System.Drawing.Point(291, 41);
+            this.Liste_TypeChambre.Margin = new System.Windows.Forms.Padding(4);
+            this.Liste_TypeChambre.Name = "Liste_TypeChambre";
+            this.Liste_TypeChambre.Size = new System.Drawing.Size(277, 228);
+            this.Liste_TypeChambre.TabIndex = 1;
             // 
-            // Liste_No_Chambre
+            // Liste_NoChambre
             // 
-            this.Liste_No_Chambre.FormattingEnabled = true;
-            this.Liste_No_Chambre.ItemHeight = 16;
-            this.Liste_No_Chambre.Location = new System.Drawing.Point(8, 41);
-            this.Liste_No_Chambre.Margin = new System.Windows.Forms.Padding(4);
-            this.Liste_No_Chambre.Name = "Liste_No_Chambre";
-            this.Liste_No_Chambre.Size = new System.Drawing.Size(263, 228);
-            this.Liste_No_Chambre.TabIndex = 0;
+            this.Liste_NoChambre.FormattingEnabled = true;
+            this.Liste_NoChambre.ItemHeight = 16;
+            this.Liste_NoChambre.Location = new System.Drawing.Point(8, 41);
+            this.Liste_NoChambre.Margin = new System.Windows.Forms.Padding(4);
+            this.Liste_NoChambre.Name = "Liste_NoChambre";
+            this.Liste_NoChambre.Size = new System.Drawing.Size(263, 228);
+            this.Liste_NoChambre.TabIndex = 0;
             // 
             // Liste_Chambre
             // 
@@ -179,10 +179,10 @@
 
         private System.Windows.Forms.GroupBox GroupBox_ListeChambres;
         private System.Windows.Forms.Label Label_No_Chambre;
-        private System.Windows.Forms.ListBox Liste_Occupee_Chambre;
-        private System.Windows.Forms.ListBox Liste_Prix_Chambre;
-        private System.Windows.Forms.ListBox Liste_Type_Chambre;
-        private System.Windows.Forms.ListBox Liste_No_Chambre;
+        private System.Windows.Forms.ListBox Liste_OccupeeChambre;
+        private System.Windows.Forms.ListBox Liste_PrixChambre;
+        private System.Windows.Forms.ListBox Liste_TypeChambre;
+        private System.Windows.Forms.ListBox Liste_NoChambre;
         private System.Windows.Forms.Label Label_Occupee_Chambre;
         private System.Windows.Forms.Label Label_Prix_Chambre;
         private System.Windows.Forms.Label Label_Type_Chambre;

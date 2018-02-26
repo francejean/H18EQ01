@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.liste_Chambre1 = new PrjEq01_Application.UserControls.Liste_Chambre();
+            this.Liste_Chambre = new PrjEq01_Application.UserControls.Liste_Chambre();
             this.Label_Num_Chambre = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Label_Num_Client = new System.Windows.Forms.Label();
@@ -38,8 +38,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.Label_Num_Arrivee = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.saisi_Info_Client1 = new PrjEq01_Application.UserControls.Saisi_Info_Client();
-            this.info_Reservation1 = new PrjEq01_Application.UserControls.Info_Reservation();
+            this.Info_Client = new PrjEq01_Application.UserControls.Info_Client();
+            this.Info_Reservation = new PrjEq01_Application.UserControls.Info_Reservation();
             this.TA_ARRIVE = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
             this.TA_RESERVATION = new PrjEq01_Application.DS_MasterTableAdapters.RESERVATIONTableAdapter();
             this.TA_DEPART = new PrjEq01_Application.DS_MasterTableAdapters.DEPARTTableAdapter();
@@ -56,14 +56,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.BS_TRX)).BeginInit();
             this.SuspendLayout();
             // 
-            // liste_Chambre1
+            // Liste_Chambre
             // 
-            this.liste_Chambre1.Location = new System.Drawing.Point(4, 245);
-            this.liste_Chambre1.Margin = new System.Windows.Forms.Padding(5);
-            this.liste_Chambre1.MinimumSize = new System.Drawing.Size(1133, 283);
-            this.liste_Chambre1.Name = "liste_Chambre1";
-            this.liste_Chambre1.Size = new System.Drawing.Size(1133, 283);
-            this.liste_Chambre1.TabIndex = 2;
+            this.Liste_Chambre.Location = new System.Drawing.Point(4, 245);
+            this.Liste_Chambre.Margin = new System.Windows.Forms.Padding(5);
+            this.Liste_Chambre.MinimumSize = new System.Drawing.Size(1133, 283);
+            this.Liste_Chambre.Name = "Liste_Chambre";
+            this.Liste_Chambre.Size = new System.Drawing.Size(1133, 283);
+            this.Liste_Chambre.TabIndex = 2;
             // 
             // Label_Num_Chambre
             // 
@@ -138,23 +138,23 @@
             this.textBox4.Size = new System.Drawing.Size(132, 22);
             this.textBox4.TabIndex = 12;
             // 
-            // saisi_Info_Client1
+            // Info_Client
             // 
-            this.saisi_Info_Client1.Location = new System.Drawing.Point(0, 0);
-            this.saisi_Info_Client1.Margin = new System.Windows.Forms.Padding(4);
-            this.saisi_Info_Client1.MinimumSize = new System.Drawing.Size(487, 234);
-            this.saisi_Info_Client1.Name = "saisi_Info_Client1";
-            this.saisi_Info_Client1.Size = new System.Drawing.Size(487, 234);
-            this.saisi_Info_Client1.TabIndex = 13;
+            this.Info_Client.Location = new System.Drawing.Point(0, 0);
+            this.Info_Client.Margin = new System.Windows.Forms.Padding(4);
+            this.Info_Client.MinimumSize = new System.Drawing.Size(487, 234);
+            this.Info_Client.Name = "Info_Client";
+            this.Info_Client.Size = new System.Drawing.Size(487, 234);
+            this.Info_Client.TabIndex = 13;
             // 
-            // info_Reservation1
+            // Info_Reservation
             // 
-            this.info_Reservation1.Location = new System.Drawing.Point(498, 0);
-            this.info_Reservation1.Margin = new System.Windows.Forms.Padding(4);
-            this.info_Reservation1.MinimumSize = new System.Drawing.Size(267, 234);
-            this.info_Reservation1.Name = "info_Reservation1";
-            this.info_Reservation1.Size = new System.Drawing.Size(267, 234);
-            this.info_Reservation1.TabIndex = 14;
+            this.Info_Reservation.Location = new System.Drawing.Point(498, 0);
+            this.Info_Reservation.Margin = new System.Windows.Forms.Padding(4);
+            this.Info_Reservation.MinimumSize = new System.Drawing.Size(267, 234);
+            this.Info_Reservation.Name = "Info_Reservation";
+            this.Info_Reservation.Size = new System.Drawing.Size(267, 234);
+            this.Info_Reservation.TabIndex = 14;
             // 
             // TA_ARRIVE
             // 
@@ -189,9 +189,9 @@
             this.Controls.Add(this.Label_Num_Client);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Label_Num_Chambre);
-            this.Controls.Add(this.liste_Chambre1);
-            this.Controls.Add(this.saisi_Info_Client1);
-            this.Controls.Add(this.info_Reservation1);
+            this.Controls.Add(this.Liste_Chambre);
+            this.Controls.Add(this.Info_Client);
+            this.Controls.Add(this.Info_Reservation);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Tab_Arrive";
             this.Size = new System.Drawing.Size(1297, 532);
@@ -203,10 +203,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.BS_TRX)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
-        private UserControls.Liste_Chambre liste_Chambre1;
+        private UserControls.Liste_Chambre Liste_Chambre;
         private System.Windows.Forms.Label Label_Num_Chambre;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Label_Num_Client;
@@ -215,8 +216,8 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label Label_Num_Arrivee;
         private System.Windows.Forms.TextBox textBox4;
-        private UserControls.Saisi_Info_Client saisi_Info_Client1;
-        private UserControls.Info_Reservation info_Reservation1;
+        private UserControls.Info_Client Info_Client;
+        private UserControls.Info_Reservation Info_Reservation;
         private DS_MasterTableAdapters.ARRIVETableAdapter TA_ARRIVE;
         private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
         private DS_MasterTableAdapters.DEPARTTableAdapter TA_DEPART;

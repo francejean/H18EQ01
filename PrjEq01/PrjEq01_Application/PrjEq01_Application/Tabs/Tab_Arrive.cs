@@ -28,6 +28,8 @@ namespace PrjEq01_Application.Tabs
             this.TA_DEPART.Fill(this.DS_Master.DEPART);
             this.TA_RESERVATION.FillByARRIVE(this.DS_Master.RESERVATION);
             this.TA_TRX.Fill(this.DS_Master.TRX);
+
+            Link_ARRIVE();
         }
 
         private void Link_ARRIVE()
@@ -37,7 +39,7 @@ namespace PrjEq01_Application.Tabs
 
             try
             {
-
+                Info_Client.TextBox_NoClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
             }
             catch(Exception ee) { MessageBox.Show(ee.Message); }
         }

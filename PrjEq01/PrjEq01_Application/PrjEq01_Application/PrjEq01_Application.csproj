@@ -91,11 +91,11 @@
     <Compile Include="UserControls\PlaceHolderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserControls\Saisi_Info_Client.cs">
+    <Compile Include="UserControls\Info_Client.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Saisi_Info_Client.Designer.cs">
-      <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
+    <Compile Include="UserControls\Info_Client.Designer.cs">
+      <DependentUpon>Info_Client.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
@@ -121,8 +121,8 @@
     <EmbeddedResource Include="UserControls\Liste_Chambre.resx">
       <DependentUpon>Liste_Chambre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Saisi_Info_Client.resx">
-      <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Info_Client.resx">
+      <DependentUpon>Info_Client.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_Master.xsc">
       <DependentUpon>DS_Master.xsd</DependentUpon>
