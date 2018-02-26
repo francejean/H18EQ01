@@ -211,14 +211,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Client no";
             // 
-            // Saisi_Info_Client
+            // Info_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.GroupBox_Client);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(487, 234);
-            this.Name = "Saisi_Info_Client";
+            this.Name = "Info_Client";
             this.Size = new System.Drawing.Size(487, 234);
             this.GroupBox_Client.ResumeLayout(false);
             this.GroupBox_Client.PerformLayout();
@@ -233,7 +233,6 @@
 		public System.Windows.Forms.TextBox TextBox_Expiration;
 		public System.Windows.Forms.TextBox TextBox_Telephone;
 		public System.Windows.Forms.TextBox TextBox_NoClient;
-		private System.Windows.Forms.GroupBox GroupBox_Client;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
@@ -243,5 +242,6 @@
 		private System.Windows.Forms.Label label1;
 		private PrjEq01_CommonForm.Controls.Button_List Button_List;
 		public System.Windows.Forms.TextBox TextBox_Adresse;
-	}
+        public System.Windows.Forms.GroupBox GroupBox_Client;
+    }
 }

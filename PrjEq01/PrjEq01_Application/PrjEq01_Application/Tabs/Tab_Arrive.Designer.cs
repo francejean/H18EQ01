@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.Liste_Chambre = new PrjEq01_Application.UserControls.Liste_Chambre();
             this.Label_Num_Chambre = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBox_NoChambre = new System.Windows.Forms.TextBox();
             this.Label_Num_Client = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TextBox_NoClient = new System.Windows.Forms.TextBox();
             this.Label_Nom_Client = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TextBox_NomReserv = new System.Windows.Forms.TextBox();
             this.Label_Num_Arrivee = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TextBox_NoArrive = new System.Windows.Forms.TextBox();
             this.Info_Client = new PrjEq01_Application.UserControls.Info_Client();
             this.Info_Reservation = new PrjEq01_Application.UserControls.Info_Reservation();
             this.TA_ARRIVE = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
@@ -75,13 +75,13 @@
             this.Label_Num_Chambre.TabIndex = 3;
             this.Label_Num_Chambre.Text = "No. chambre";
             // 
-            // textBox1
+            // TextBox_NoChambre
             // 
-            this.textBox1.Location = new System.Drawing.Point(364, 170);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 22);
-            this.textBox1.TabIndex = 4;
+            this.TextBox_NoChambre.Location = new System.Drawing.Point(364, 170);
+            this.TextBox_NoChambre.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBox_NoChambre.Name = "TextBox_NoChambre";
+            this.TextBox_NoChambre.Size = new System.Drawing.Size(113, 22);
+            this.TextBox_NoChambre.TabIndex = 4;
             // 
             // Label_Num_Client
             // 
@@ -93,13 +93,13 @@
             this.Label_Num_Client.TabIndex = 5;
             this.Label_Num_Client.Text = "No. Client";
             // 
-            // textBox2
+            // TextBox_NoClient
             // 
-            this.textBox2.Location = new System.Drawing.Point(626, 170);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(129, 22);
-            this.textBox2.TabIndex = 6;
+            this.TextBox_NoClient.Location = new System.Drawing.Point(626, 170);
+            this.TextBox_NoClient.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBox_NoClient.Name = "TextBox_NoClient";
+            this.TextBox_NoClient.Size = new System.Drawing.Size(129, 22);
+            this.TextBox_NoClient.TabIndex = 6;
             // 
             // Label_Nom_Client
             // 
@@ -111,13 +111,13 @@
             this.Label_Nom_Client.TabIndex = 7;
             this.Label_Nom_Client.Text = "Nom";
             // 
-            // textBox3
+            // TextBox_NomReserv
             // 
-            this.textBox3.Location = new System.Drawing.Point(626, 199);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(129, 22);
-            this.textBox3.TabIndex = 8;
+            this.TextBox_NomReserv.Location = new System.Drawing.Point(626, 199);
+            this.TextBox_NomReserv.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBox_NomReserv.Name = "TextBox_NomReserv";
+            this.TextBox_NomReserv.Size = new System.Drawing.Size(129, 22);
+            this.TextBox_NomReserv.TabIndex = 8;
             // 
             // Label_Num_Arrivee
             // 
@@ -130,13 +130,13 @@
             this.Label_Num_Arrivee.TabIndex = 11;
             this.Label_Num_Arrivee.Text = "No. Arrivee";
             // 
-            // textBox4
+            // TextBox_NoArrive
             // 
-            this.textBox4.Location = new System.Drawing.Point(773, 23);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 22);
-            this.textBox4.TabIndex = 12;
+            this.TextBox_NoArrive.Location = new System.Drawing.Point(773, 23);
+            this.TextBox_NoArrive.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBox_NoArrive.Name = "TextBox_NoArrive";
+            this.TextBox_NoArrive.Size = new System.Drawing.Size(132, 22);
+            this.TextBox_NoArrive.TabIndex = 12;
             // 
             // Info_Client
             // 
@@ -181,13 +181,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.TextBox_NoArrive);
             this.Controls.Add(this.Label_Num_Arrivee);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TextBox_NomReserv);
             this.Controls.Add(this.Label_Nom_Client);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TextBox_NoClient);
             this.Controls.Add(this.Label_Num_Client);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBox_NoChambre);
             this.Controls.Add(this.Label_Num_Chambre);
             this.Controls.Add(this.Liste_Chambre);
             this.Controls.Add(this.Info_Client);
@@ -209,13 +209,13 @@
         #endregion
         private UserControls.Liste_Chambre Liste_Chambre;
         private System.Windows.Forms.Label Label_Num_Chambre;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBox_NoChambre;
         private System.Windows.Forms.Label Label_Num_Client;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TextBox_NoClient;
         private System.Windows.Forms.Label Label_Nom_Client;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TextBox_NomReserv;
         private System.Windows.Forms.Label Label_Num_Arrivee;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TextBox_NoArrive;
         private UserControls.Info_Client Info_Client;
         private UserControls.Info_Reservation Info_Reservation;
         private DS_MasterTableAdapters.ARRIVETableAdapter TA_ARRIVE;

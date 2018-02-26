@@ -171,8 +171,6 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.GroupBox GroupBox_Reserv;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
@@ -182,5 +180,6 @@
 		private System.Windows.Forms.MaskedTextBox TextBox_DateReserv;
 		private System.Windows.Forms.TextBox TextBox_NoReserv;
         private PrjEq01_CommonForm.Controls.Button_List Button_List;
+        public System.Windows.Forms.GroupBox GroupBox_Reserv;
     }
 }

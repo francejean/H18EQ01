@@ -176,8 +176,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox GroupBox_ListeChambres;
         private System.Windows.Forms.Label Label_No_Chambre;
         private System.Windows.Forms.ListBox Liste_OccupeeChambre;
         private System.Windows.Forms.ListBox Liste_PrixChambre;
@@ -187,5 +185,6 @@
         private System.Windows.Forms.Label Label_Prix_Chambre;
         private System.Windows.Forms.Label Label_Type_Chambre;
         private PrjEq01_CommonForm.Controls.Button_List Button_List;
+        public System.Windows.Forms.GroupBox GroupBox_ListeChambres;
     }
 }

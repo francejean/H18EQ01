@@ -40,6 +40,7 @@ namespace PrjEq01_Application.Tabs
             try
             {
                 Info_Client.TextBox_NoClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
+                TextBox_NoArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
             }
             catch(Exception ee) { MessageBox.Show(ee.Message); }
         }
