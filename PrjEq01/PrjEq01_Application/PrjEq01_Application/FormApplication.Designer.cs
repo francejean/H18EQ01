@@ -28,67 +28,67 @@ namespace PrjEq01_Application
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.tab_Reservation1 = new PrjEq01_Application.Tabs.Tab_Reservation();
-            this.tab_Arrive1 = new PrjEq01_Application.Tabs.Tab_Arrive();
-            this.Tab_Réservations.SuspendLayout();
-            this.Tab_Arrivées.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // Tab_Réservations
-            // 
-            this.Tab_Réservations.Controls.Add(this.tab_Reservation1);
-            this.Tab_Réservations.Location = new System.Drawing.Point(4, 22);
-            this.Tab_Réservations.Size = new System.Drawing.Size(971, 430);
-            // 
-            // Tab_Chambres
-            // 
-            this.Tab_Chambres.Location = new System.Drawing.Point(4, 22);
-            this.Tab_Chambres.Size = new System.Drawing.Size(971, 430);
-            // 
-            // Tab_Arrivées
-            // 
-            this.Tab_Arrivées.Controls.Add(this.tab_Arrive1);
-            this.Tab_Arrivées.Location = new System.Drawing.Point(4, 22);
-            this.Tab_Arrivées.Size = new System.Drawing.Size(971, 430);
-            // 
-            // Tab_Départs
-            // 
-            this.Tab_Départs.Location = new System.Drawing.Point(4, 22);
-            this.Tab_Départs.Size = new System.Drawing.Size(971, 430);
-            // 
-            // tab_Reservation1
-            // 
-            this.tab_Reservation1.AutoSize = true;
-            this.tab_Reservation1.Location = new System.Drawing.Point(0, 0);
-            this.tab_Reservation1.Margin = new System.Windows.Forms.Padding(2);
-            this.tab_Reservation1.Name = "tab_Reservation1";
-            this.tab_Reservation1.Size = new System.Drawing.Size(728, 349);
-            this.tab_Reservation1.TabIndex = 0;
-            // 
-            // tab_Arrive1
-            // 
-            this.tab_Arrive1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.tab_Reservation1 = new PrjEq01_Application.Tabs.Tab_Reservation();
+			this.tab_Arrive1 = new PrjEq01_Application.Tabs.Tab_Arrive();
+			this.Tab_Réservations.SuspendLayout();
+			this.Tab_Arrivées.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// Tab_Réservations
+			// 
+			this.Tab_Réservations.Controls.Add(this.tab_Reservation1);
+			this.Tab_Réservations.Location = new System.Drawing.Point(4, 22);
+			this.Tab_Réservations.Size = new System.Drawing.Size(971, 430);
+			// 
+			// Tab_Chambres
+			// 
+			this.Tab_Chambres.Location = new System.Drawing.Point(4, 22);
+			this.Tab_Chambres.Size = new System.Drawing.Size(971, 430);
+			// 
+			// Tab_Arrivées
+			// 
+			this.Tab_Arrivées.Controls.Add(this.tab_Arrive1);
+			this.Tab_Arrivées.Location = new System.Drawing.Point(4, 22);
+			this.Tab_Arrivées.Size = new System.Drawing.Size(971, 430);
+			// 
+			// Tab_Départs
+			// 
+			this.Tab_Départs.Location = new System.Drawing.Point(4, 22);
+			this.Tab_Départs.Size = new System.Drawing.Size(971, 430);
+			// 
+			// tab_Reservation1
+			// 
+			this.tab_Reservation1.AutoSize = true;
+			this.tab_Reservation1.Location = new System.Drawing.Point(0, 0);
+			this.tab_Reservation1.Margin = new System.Windows.Forms.Padding(2);
+			this.tab_Reservation1.Name = "tab_Reservation1";
+			this.tab_Reservation1.Size = new System.Drawing.Size(728, 349);
+			this.tab_Reservation1.TabIndex = 0;
+			// 
+			// tab_Arrive1
+			// 
+			this.tab_Arrive1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tab_Arrive1.Location = new System.Drawing.Point(0, 0);
-            this.tab_Arrive1.Margin = new System.Windows.Forms.Padding(2);
-            this.tab_Arrive1.Name = "tab_Arrive1";
-            this.tab_Arrive1.Size = new System.Drawing.Size(969, 430);
-            this.tab_Arrive1.TabIndex = 1;
-            // 
-            // FormApplication
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 490);
-            this.MinimumSize = new System.Drawing.Size(1013, 528);
-            this.Name = "FormApplication";
-            this.Text = "Hotel Simulator 2018";
-            this.Tab_Réservations.ResumeLayout(false);
-            this.Tab_Réservations.PerformLayout();
-            this.Tab_Arrivées.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.tab_Arrive1.Location = new System.Drawing.Point(0, 0);
+			this.tab_Arrive1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tab_Arrive1.Name = "tab_Arrive1";
+			this.tab_Arrive1.Size = new System.Drawing.Size(969, 430);
+			this.tab_Arrive1.TabIndex = 1;
+			// 
+			// FormApplication
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(997, 490);
+			this.MinimumSize = new System.Drawing.Size(1013, 528);
+			this.Name = "FormApplication";
+			this.Text = "Hotel Simulator 2018";
+			this.Tab_Réservations.ResumeLayout(false);
+			this.Tab_Réservations.PerformLayout();
+			this.Tab_Arrivées.ResumeLayout(false);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 

@@ -48,6 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Master.cs">
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Master.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +124,17 @@
     <EmbeddedResource Include="UserControls\Saisi_Info_Client.resx">
       <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DS_Master.xsc">
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Master.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Master.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_Master.xss">
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
