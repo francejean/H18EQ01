@@ -214,7 +214,6 @@
 			this.boxClient.ResumeLayout(false);
 			this.boxClient.PerformLayout();
 			this.ResumeLayout(false);
-
 		}
 
 		#endregion
