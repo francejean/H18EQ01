@@ -44,7 +44,7 @@
             // liste_Chambre1
             // 
             this.liste_Chambre1.Location = new System.Drawing.Point(4, 245);
-            this.liste_Chambre1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.liste_Chambre1.Margin = new System.Windows.Forms.Padding(5);
             this.liste_Chambre1.MinimumSize = new System.Drawing.Size(1133, 283);
             this.liste_Chambre1.Name = "liste_Chambre1";
             this.liste_Chambre1.Size = new System.Drawing.Size(1133, 283);
@@ -63,9 +63,9 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(368, 176);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 22);
+            this.textBox1.Size = new System.Drawing.Size(112, 22);
             this.textBox1.TabIndex = 4;
             // 
             // Label_Num_Client
@@ -81,7 +81,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(626, 173);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(129, 22);
             this.textBox2.TabIndex = 6;
@@ -99,7 +99,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(626, 204);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(129, 22);
             this.textBox3.TabIndex = 8;
@@ -118,15 +118,15 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(773, 23);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(132, 22);
             this.textBox4.TabIndex = 12;
             // 
             // saisi_Info_Client1
             // 
-            this.saisi_Info_Client1.Location = new System.Drawing.Point(0, 4);
-            this.saisi_Info_Client1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saisi_Info_Client1.Location = new System.Drawing.Point(4, 2);
+            this.saisi_Info_Client1.Margin = new System.Windows.Forms.Padding(4);
             this.saisi_Info_Client1.MinimumSize = new System.Drawing.Size(487, 234);
             this.saisi_Info_Client1.Name = "saisi_Info_Client1";
             this.saisi_Info_Client1.Size = new System.Drawing.Size(487, 234);
@@ -135,7 +135,7 @@
             // info_Reservation1
             // 
             this.info_Reservation1.Location = new System.Drawing.Point(498, 4);
-            this.info_Reservation1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.info_Reservation1.Margin = new System.Windows.Forms.Padding(4);
             this.info_Reservation1.MinimumSize = new System.Drawing.Size(267, 234);
             this.info_Reservation1.Name = "info_Reservation1";
             this.info_Reservation1.Size = new System.Drawing.Size(267, 234);
