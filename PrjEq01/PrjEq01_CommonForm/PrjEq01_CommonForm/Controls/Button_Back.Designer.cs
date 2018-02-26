@@ -1,6 +1,6 @@
 ﻿namespace PrjEq01_CommonForm.Controls
 {
-    partial class Button_Add
+    partial class Button_Back
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.SuspendLayout();
             // 
-            // Button_Add
+            // Button_Back
             // 
-            this.BackgroundImage = global::PrjEq01_CommonForm.Properties.Resources.Add_Hanan_;
+            this.BackgroundImage = global::PrjEq01_CommonForm.Properties.Resources.Back_Dave_Gandy_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Button_Add";
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Size = new System.Drawing.Size(20, 20);
             this.TabIndex = 1;
             this.UseVisualStyleBackColor = true;
+            this.ResumeLayout(false);
 
         }
 

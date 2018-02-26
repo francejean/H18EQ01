@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_CommonForm.Controls
+namespace PrjEq01_Application.UserControls
 {
-    public partial class Button_Add : Button
-    {
-        public Button_Add()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class Info_Reservation : UserControl
+	{
+		public Info_Reservation()
+		{
+			InitializeComponent();
+		}
+	}
 }

@@ -163,6 +163,16 @@ namespace PrjEq01_CommonForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap List_Chanut_ {
+            get {
+                object obj = ResourceManager.GetObject("List(Chanut)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Right_Arrow_Google_ {
             get {
                 object obj = ResourceManager.GetObject("Right_Arrow(Google)", resourceCulture);

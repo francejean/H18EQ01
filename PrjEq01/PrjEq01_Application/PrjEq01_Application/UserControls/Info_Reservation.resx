@@ -117,44 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Bed(Cursor_Creative)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bed(Cursor_Creative).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bed(Vectors_Market)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bed(Vectors_Market).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Left_Arrow(Google)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Left_Arrow(Google).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Edit(Freepik)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit(Freepik).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Back(Dave_Gandy)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Back(Dave_Gandy).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Edit(SmashIcons)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit(SmashIcons).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Delete(Freepik)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete(Freepik).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Double_Right_Arrow(Dave_Gandy)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Double_Right_Arrow(Dave_Gandy).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Add(Hanan)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add(Hanan).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Right_Arrow(Google)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Right_Arrow(Google).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Double_Left_Arrow(Dave_Gandy)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Double_Left_Arrow(Dave_Gandy).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save(Smashicons)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Save(Smashicons).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="List(Chanut)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\List(Chanut).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button_List1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3QAAAN0AEQbD0HAAAAB3RJ
+        TUUH4gIZExMeRQk6hAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGXSURBVHhe
+        7du/K0VhHMfxIySEkh8lKUlsLMqEP8FktZhlM1rZDBiMNmVSSkpZlJLFpKx+TBYy+fl+TvfcTnwf3fE+
+        vp93vZJzn2e5t3OO59xHppRSSqlybZWfrurDHp7wiRssoZYaMIq5RMxiENW6cY8vwwb+ahiXsObWu0N0
+        INupHLB8YAKxzmHNS8U2stvSAcsyrPphjU/JI/Lz3nqxsAarHljjU3KH7KR0wDKPWMew5qRiHflVMVz5
+        rQFXaEascBocITa/Xr1hFy3IC7e8F5QHXSBc5WupC+OJGEMrfhU+zQWsINwvG6GUUkoppZSThjCN9vw3
+        R03hGsVC6B1bqPWN6MVkIsITrk5UG8EryivBwgH+agCnsObWs7B8Dw+B81XhPqxBhbAyjHUGa04qNhF9
+        IlxYhVV4lG6NT8kD9Aa4PwXcXwRDrm+D5dz+IaSUUkoppTzn+uvxRTyjvGIKO8DC2qCWkt4gMYPYFpew
+        B7AJsf7FFhn3m6Tcb5Nzv1HS/VZZ95ulQ663y//M5T9MKKWUUu7Ksm+0hjgZDZ0JTgAAAABJRU5ErkJg
+        gg==
+</value>
   </data>
 </root>

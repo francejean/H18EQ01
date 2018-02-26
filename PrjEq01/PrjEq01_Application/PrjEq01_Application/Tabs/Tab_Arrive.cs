@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_CommonForm.Controls
+namespace PrjEq01_Application.Tabs
 {
-    public partial class Button_Add : Button
+    public partial class Tab_Arrive : UserControl
     {
-        public Button_Add()
+        public Tab_Arrive()
         {
             InitializeComponent();
         }
