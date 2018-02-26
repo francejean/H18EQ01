@@ -85,14 +85,12 @@
 			this.Size = new System.Drawing.Size(971, 430);
 			this.ResumeLayout(false);
 			this.PerformLayout();
-
 		}
 
 		#endregion
-
-		private UserControls.Saisi_Info_Client saisi_Info_Client1;
-		private UserControls.Info_Reservation info_Reservation1;
 		private System.Windows.Forms.Label label9;
 		private UserControls.PlaceHolderTextBox placeHolderTextBox1;
-	}
+        private UserControls.Saisi_Info_Client saisi_Info_Client1;
+        private UserControls.Info_Reservation info_Reservation1;
+    }
 }

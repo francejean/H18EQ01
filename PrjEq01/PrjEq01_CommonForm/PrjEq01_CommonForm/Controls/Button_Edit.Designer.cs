@@ -1,6 +1,6 @@
 ﻿namespace PrjEq01_CommonForm.Controls
 {
-    partial class Button_Add
+    partial class Button_Edit
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             // 
-            // Button_Add
+            // Button_Edit
             // 
-            this.BackgroundImage = global::PrjEq01_CommonForm.Properties.Resources.Add_Hanan_;
+            this.BackgroundImage = global::PrjEq01_CommonForm.Properties.Resources.Edit_Freepik_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Button_Add";
+            this.Name = "Button_Edit";
             this.Size = new System.Drawing.Size(20, 20);
             this.TabIndex = 1;
             this.UseVisualStyleBackColor = true;
