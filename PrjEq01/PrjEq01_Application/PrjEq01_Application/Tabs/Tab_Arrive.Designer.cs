@@ -203,7 +203,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BS_TRX)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
