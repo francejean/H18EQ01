@@ -30,7 +30,7 @@
 		{
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info_Reservation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_List1 = new PrjEq01_CommonForm.Controls.Button_List();
+            this.Button_List = new PrjEq01_CommonForm.Controls.Button_List();
             this.noReserText = new System.Windows.Forms.TextBox();
             this.dateFinText = new System.Windows.Forms.MaskedTextBox();
             this.dateDebutText = new System.Windows.Forms.MaskedTextBox();
@@ -47,7 +47,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button_List1);
+            this.groupBox1.Controls.Add(this.Button_List);
             this.groupBox1.Controls.Add(this.noReserText);
             this.groupBox1.Controls.Add(this.dateFinText);
             this.groupBox1.Controls.Add(this.dateDebutText);
@@ -57,31 +57,30 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.MinimumSize = new System.Drawing.Size(259, 209);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(267, 234);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information sur la réservation";
             // 
-            // button_List1
+            // Button_List
             // 
-            this.button_List1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_List1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_List1.BackgroundImage")));
-            this.button_List1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_List1.Location = new System.Drawing.Point(232, 12);
-            this.button_List1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_List1.Name = "button_List1";
-            this.button_List1.Size = new System.Drawing.Size(27, 25);
-            this.button_List1.TabIndex = 1;
-            this.button_List1.UseVisualStyleBackColor = true;
+            this.Button_List.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button_List.BackgroundImage")));
+            this.Button_List.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button_List.Location = new System.Drawing.Point(232, 12);
+            this.Button_List.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Button_List.Name = "Button_List";
+            this.Button_List.Size = new System.Drawing.Size(27, 25);
+            this.Button_List.TabIndex = 1;
+            this.Button_List.UseVisualStyleBackColor = true;
             // 
             // noReserText
             // 
             this.noReserText.Location = new System.Drawing.Point(129, 43);
-            this.noReserText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.noReserText.Margin = new System.Windows.Forms.Padding(4);
             this.noReserText.Name = "noReserText";
             this.noReserText.Size = new System.Drawing.Size(128, 22);
             this.noReserText.TabIndex = 18;
@@ -89,7 +88,7 @@
             // dateFinText
             // 
             this.dateFinText.Location = new System.Drawing.Point(129, 139);
-            this.dateFinText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateFinText.Margin = new System.Windows.Forms.Padding(4);
             this.dateFinText.Mask = "00/00/0000";
             this.dateFinText.Name = "dateFinText";
             this.dateFinText.Size = new System.Drawing.Size(128, 22);
@@ -99,7 +98,7 @@
             // dateDebutText
             // 
             this.dateDebutText.Location = new System.Drawing.Point(129, 107);
-            this.dateDebutText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateDebutText.Margin = new System.Windows.Forms.Padding(4);
             this.dateDebutText.Mask = "00/00/0000";
             this.dateDebutText.Name = "dateDebutText";
             this.dateDebutText.Size = new System.Drawing.Size(128, 22);
@@ -109,7 +108,7 @@
             // dateReserText
             // 
             this.dateReserText.Location = new System.Drawing.Point(129, 75);
-            this.dateReserText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateReserText.Margin = new System.Windows.Forms.Padding(4);
             this.dateReserText.Mask = "00/00/0000";
             this.dateReserText.Name = "dateReserText";
             this.dateReserText.Size = new System.Drawing.Size(128, 22);
@@ -161,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(267, 234);
             this.Name = "Info_Reservation";
             this.Size = new System.Drawing.Size(267, 234);
@@ -182,6 +181,6 @@
 		private System.Windows.Forms.MaskedTextBox dateDebutText;
 		private System.Windows.Forms.MaskedTextBox dateReserText;
 		private System.Windows.Forms.TextBox noReserText;
-        private PrjEq01_CommonForm.Controls.Button_List button_List1;
+        private PrjEq01_CommonForm.Controls.Button_List Button_List;
     }
 }

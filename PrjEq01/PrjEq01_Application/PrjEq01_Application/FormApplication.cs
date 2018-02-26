@@ -16,5 +16,5 @@ namespace PrjEq01_Application
 		{
 			InitializeComponent();
 		}
-	}
+    }
 }

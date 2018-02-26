@@ -16,5 +16,30 @@ namespace PrjEq01_Application.Tabs
         {
             InitializeComponent();
         }
+
+        private void Tab_Arrive_Load(object sender, EventArgs e)
+        {
+            Fill();
+        }
+
+        private void Fill()
+        {
+            this.TA_ARRIVE.Fill(this.DS_Master.ARRIVE);
+            this.TA_DEPART.Fill(this.DS_Master.DEPART);
+            this.TA_RESERVATION.FillByARRIVE(this.DS_Master.RESERVATION);
+            this.TA_TRX.Fill(this.DS_Master.TRX);
+        }
+
+        private void Link_ARRIVE()
+        {
+            this.BS_ARRIVE.DataMember = "ARRIVE";
+            this.BS_ARRIVE.DataSource = this.DS_Master;
+
+            try
+            {
+
+            }
+            catch(Exception ee) { MessageBox.Show(ee.Message); }
+        }
     }
 }

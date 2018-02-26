@@ -71,9 +71,9 @@
             this.boxClient.Controls.Add(this.label2);
             this.boxClient.Controls.Add(this.label1);
             this.boxClient.Location = new System.Drawing.Point(0, 0);
-            this.boxClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.boxClient.Margin = new System.Windows.Forms.Padding(4);
             this.boxClient.Name = "boxClient";
-            this.boxClient.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.boxClient.Padding = new System.Windows.Forms.Padding(4);
             this.boxClient.Size = new System.Drawing.Size(487, 234);
             this.boxClient.TabIndex = 1;
             this.boxClient.TabStop = false;
@@ -81,7 +81,6 @@
             // 
             // button_List1
             // 
-            this.button_List1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_List1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_List1.BackgroundImage")));
             this.button_List1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_List1.Location = new System.Drawing.Point(452, 12);
@@ -94,7 +93,7 @@
             // noCarteText
             // 
             this.noCarteText.Location = new System.Drawing.Point(345, 139);
-            this.noCarteText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.noCarteText.Margin = new System.Windows.Forms.Padding(4);
             this.noCarteText.Name = "noCarteText";
             this.noCarteText.Size = new System.Drawing.Size(132, 22);
             this.noCarteText.TabIndex = 13;
@@ -112,7 +111,7 @@
             // nomClientText
             // 
             this.nomClientText.Location = new System.Drawing.Point(345, 43);
-            this.nomClientText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nomClientText.Margin = new System.Windows.Forms.Padding(4);
             this.nomClientText.Name = "nomClientText";
             this.nomClientText.Size = new System.Drawing.Size(132, 22);
             this.nomClientText.TabIndex = 11;
@@ -130,7 +129,7 @@
             // typeCarteText
             // 
             this.typeCarteText.Location = new System.Drawing.Point(116, 139);
-            this.typeCarteText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.typeCarteText.Margin = new System.Windows.Forms.Padding(4);
             this.typeCarteText.Name = "typeCarteText";
             this.typeCarteText.Size = new System.Drawing.Size(132, 22);
             this.typeCarteText.TabIndex = 9;
@@ -148,7 +147,7 @@
             // expirationText
             // 
             this.expirationText.Location = new System.Drawing.Point(116, 171);
-            this.expirationText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.expirationText.Margin = new System.Windows.Forms.Padding(4);
             this.expirationText.Name = "expirationText";
             this.expirationText.Size = new System.Drawing.Size(132, 22);
             this.expirationText.TabIndex = 7;
@@ -156,7 +155,7 @@
             // telephoneText
             // 
             this.telephoneText.Location = new System.Drawing.Point(116, 107);
-            this.telephoneText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.telephoneText.Margin = new System.Windows.Forms.Padding(4);
             this.telephoneText.Name = "telephoneText";
             this.telephoneText.Size = new System.Drawing.Size(132, 22);
             this.telephoneText.TabIndex = 6;
@@ -164,7 +163,7 @@
             // adresseText
             // 
             this.adresseText.Location = new System.Drawing.Point(116, 75);
-            this.adresseText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.adresseText.Margin = new System.Windows.Forms.Padding(4);
             this.adresseText.Name = "adresseText";
             this.adresseText.Size = new System.Drawing.Size(361, 22);
             this.adresseText.TabIndex = 5;
@@ -172,7 +171,7 @@
             // noClienText
             // 
             this.noClienText.Location = new System.Drawing.Point(116, 43);
-            this.noClienText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.noClienText.Margin = new System.Windows.Forms.Padding(4);
             this.noClienText.Name = "noClienText";
             this.noClienText.Size = new System.Drawing.Size(132, 22);
             this.noClienText.TabIndex = 1;
@@ -232,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.boxClient);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(487, 234);
             this.Name = "Saisi_Info_Client";
             this.Size = new System.Drawing.Size(487, 234);
