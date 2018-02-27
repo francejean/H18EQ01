@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Master.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +66,18 @@
     </Compile>
     <Compile Include="Tabs\Tab_Arrive.Designer.cs">
       <DependentUpon>Tab_Arrive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\Tab_Chambre.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\Tab_Chambre.Designer.cs">
+      <DependentUpon>Tab_Chambre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\Tab_Departs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\Tab_Departs.Designer.cs">
+      <DependentUpon>Tab_Departs.cs</DependentUpon>
     </Compile>
     <Compile Include="Tabs\Tab_Reservation.cs">
       <SubType>UserControl</SubType>
@@ -104,6 +121,12 @@
     <EmbeddedResource Include="Tabs\Tab_Arrive.resx">
       <DependentUpon>Tab_Arrive.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\Tab_Chambre.resx">
+      <DependentUpon>Tab_Chambre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\Tab_Departs.resx">
+      <DependentUpon>Tab_Departs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tabs\Tab_Reservation.resx">
       <DependentUpon>Tab_Reservation.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +139,17 @@
     <EmbeddedResource Include="UserControls\Saisi_Info_Client.resx">
       <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DS_Master.xsc">
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Master.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Master.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_Master.xss">
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
