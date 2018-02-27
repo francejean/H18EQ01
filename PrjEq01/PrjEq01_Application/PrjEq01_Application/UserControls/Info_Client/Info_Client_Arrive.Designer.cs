@@ -1,6 +1,6 @@
 ﻿namespace PrjEq01_Application.UserControls
 {
-	partial class Info_Client
+	partial class Info_Client_Arrive
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -28,8 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info_Client));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info_Client_Arrive));
             this.GroupBox_Client = new System.Windows.Forms.GroupBox();
+            this.TextBox_NoChambre = new System.Windows.Forms.TextBox();
+            this.Label_Num_Chambre = new System.Windows.Forms.Label();
             this.Button_List = new PrjEq01_CommonForm.Controls.Button_List();
             this.TextBox_NoCarte = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,6 +52,8 @@
             // 
             // GroupBox_Client
             // 
+            this.GroupBox_Client.Controls.Add(this.TextBox_NoChambre);
+            this.GroupBox_Client.Controls.Add(this.Label_Num_Chambre);
             this.GroupBox_Client.Controls.Add(this.Button_List);
             this.GroupBox_Client.Controls.Add(this.TextBox_NoCarte);
             this.GroupBox_Client.Controls.Add(this.label8);
@@ -73,6 +77,24 @@
             this.GroupBox_Client.TabIndex = 1;
             this.GroupBox_Client.TabStop = false;
             this.GroupBox_Client.Text = "Informations du client";
+            // 
+            // TextBox_NoChambre
+            // 
+            this.TextBox_NoChambre.Location = new System.Drawing.Point(366, 171);
+            this.TextBox_NoChambre.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBox_NoChambre.Name = "TextBox_NoChambre";
+            this.TextBox_NoChambre.Size = new System.Drawing.Size(111, 22);
+            this.TextBox_NoChambre.TabIndex = 15;
+            // 
+            // Label_Num_Chambre
+            // 
+            this.Label_Num_Chambre.AutoSize = true;
+            this.Label_Num_Chambre.Location = new System.Drawing.Point(269, 174);
+            this.Label_Num_Chambre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_Num_Chambre.Name = "Label_Num_Chambre";
+            this.Label_Num_Chambre.Size = new System.Drawing.Size(89, 17);
+            this.Label_Num_Chambre.TabIndex = 14;
+            this.Label_Num_Chambre.Text = "No. chambre";
             // 
             // Button_List
             // 
@@ -207,18 +229,18 @@
             this.label1.Location = new System.Drawing.Point(9, 47);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Client no";
+            this.label1.Text = "No. Client";
             // 
-            // Info_Client
+            // Info_Client_Arrive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.GroupBox_Client);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(487, 234);
-            this.Name = "Info_Client";
+            this.Name = "Info_Client_Arrive";
             this.Size = new System.Drawing.Size(487, 234);
             this.GroupBox_Client.ResumeLayout(false);
             this.GroupBox_Client.PerformLayout();
@@ -243,5 +265,7 @@
 		private PrjEq01_CommonForm.Controls.Button_List Button_List;
 		public System.Windows.Forms.TextBox TextBox_Adresse;
         public System.Windows.Forms.GroupBox GroupBox_Client;
+        private System.Windows.Forms.Label Label_Num_Chambre;
+        public System.Windows.Forms.TextBox TextBox_NoChambre;
     }
 }

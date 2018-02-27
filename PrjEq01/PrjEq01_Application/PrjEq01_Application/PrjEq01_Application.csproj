@@ -76,10 +76,34 @@
     <Compile Include="Tabs\Tab_Reservation.Designer.cs">
       <DependentUpon>Tab_Reservation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Info_Reservation.cs">
+    <Compile Include="UserControls\Info_Client\Info_Client_Reserv.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Info_Reservation.Designer.cs">
+    <Compile Include="UserControls\Info_Client\Info_Client_Reserv.Designer.cs">
+      <DependentUpon>Info_Client_Reserv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Client\Info_Client_Arrive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Client\Info_Client_Arrive.Designer.cs">
+      <DependentUpon>Info_Client_Arrive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\Info_Reservation_Reserv.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\Info_Reservation_Reserv.Designer.cs">
+      <DependentUpon>Info_Reservation_Reserv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\Info_Reservation_Arrive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\Info_Reservation_Arrive.Designer.cs">
+      <DependentUpon>Info_Reservation_Arrive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\Info_Reservation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\Info_Reservation.Designer.cs">
       <DependentUpon>Info_Reservation.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Liste_Chambre.cs">
@@ -91,10 +115,10 @@
     <Compile Include="UserControls\PlaceHolderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserControls\Info_Client.cs">
+    <Compile Include="UserControls\Info_Client\Info_Client.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Info_Client.Designer.cs">
+    <Compile Include="UserControls\Info_Client\Info_Client.Designer.cs">
       <DependentUpon>Info_Client.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormApplication.resx">
@@ -115,13 +139,25 @@
     <EmbeddedResource Include="Tabs\Tab_Reservation.resx">
       <DependentUpon>Tab_Reservation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Info_Reservation.resx">
+    <EmbeddedResource Include="UserControls\Info_Client\Info_Client_Reserv.resx">
+      <DependentUpon>Info_Client_Reserv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Client\Info_Client_Arrive.resx">
+      <DependentUpon>Info_Client_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation\Info_Reservation_Reserv.resx">
+      <DependentUpon>Info_Reservation_Reserv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation\Info_Reservation_Arrive.resx">
+      <DependentUpon>Info_Reservation_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation\Info_Reservation.resx">
       <DependentUpon>Info_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Liste_Chambre.resx">
       <DependentUpon>Liste_Chambre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Info_Client.resx">
+    <EmbeddedResource Include="UserControls\Info_Client\Info_Client.resx">
       <DependentUpon>Info_Client.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_Master.xsc">
