@@ -32,22 +32,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.GroupBox_Reserv.SuspendLayout();
+            this.gb_reserv.SuspendLayout();
             this.SuspendLayout();
             // 
             // GroupBox_Reserv
             // 
-            this.GroupBox_Reserv.Controls.Add(this.textBox2);
-            this.GroupBox_Reserv.Controls.Add(this.textBox1);
-            this.GroupBox_Reserv.Controls.Add(this.label6);
-            this.GroupBox_Reserv.Controls.Add(this.label5);
-            this.GroupBox_Reserv.Controls.SetChildIndex(this.label5, 0);
-            this.GroupBox_Reserv.Controls.SetChildIndex(this.label6, 0);
-            this.GroupBox_Reserv.Controls.SetChildIndex(this.textBox1, 0);
-            this.GroupBox_Reserv.Controls.SetChildIndex(this.textBox2, 0);
-            this.GroupBox_Reserv.Controls.SetChildIndex(this.DTP_Reserv, 0);
-            this.GroupBox_Reserv.Controls.SetChildIndex(this.DTP_Debut, 0);
-            this.GroupBox_Reserv.Controls.SetChildIndex(this.DTP_Fin, 0);
+            this.gb_reserv.Controls.Add(this.textBox2);
+            this.gb_reserv.Controls.Add(this.textBox1);
+            this.gb_reserv.Controls.Add(this.label6);
+            this.gb_reserv.Controls.Add(this.label5);
+            this.gb_reserv.Controls.SetChildIndex(this.label5, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.label6, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.textBox1, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.textBox2, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.DTP_Reserv, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.DTP_Debut, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.DTP_Fin, 0);
             // 
             // label5
             // 
@@ -89,8 +89,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "IR_Arrive";
-            this.GroupBox_Reserv.ResumeLayout(false);
-            this.GroupBox_Reserv.PerformLayout();
+            this.gb_reserv.ResumeLayout(false);
+            this.gb_reserv.PerformLayout();
             this.ResumeLayout(false);
 
         }
