@@ -33,6 +33,8 @@ namespace PrjEq01_Application.Tabs
         {
             TA_CHAMBRE.FillBy(this.dS_Master.CHAMBRE);
             TA_AYANT.Fill(this.dS_Master.AYANT);
+            TA_COMMODITE.Fill(this.dS_Master.COMMODITE);
+            TA_TYPECHAM.Fill(this.dS_Master.TYPECHAM);
         }
 
         private void LinkChambre()
@@ -42,8 +44,15 @@ namespace PrjEq01_Application.Tabs
 
             try
             {
-                noChamTextBox.DataBindings.Add("Text", BS_CHAMBRE, "NoCham");
-                //do it with all text box
+                tb_noCham.DataBindings.Add("Text", BS_CHAMBRE, "NoCham");
+                tb_etage.DataBindings.Add("Text", BS_CHAMBRE, "Etage");
+                tb_etat.DataBindings.Add("Text", BS_CHAMBRE, "Etat");
+                tb_codeType.DataBindings.Add("Text", BS_CHAMBRE, "CodTypCham");
+                tb_codeLoc.DataBindings.Add("Text", BS_CHAMBRE, "CodLoc");
+                mtb_prix.DataBindings.Add("Text", BS_CHAMBRE, "Prix");
+                tb_descType.DataBindings.Add("Text", BS_CHAMBRE, "DescTyp");
+                tb_descLoc.DataBindings.Add("Text", BS_CHAMBRE, "DescLoc");
+                tb_memo.DataBindings.Add("Text", BS_CHAMBRE, "Memo");
             }
             catch
             {
@@ -55,7 +64,7 @@ namespace PrjEq01_Application.Tabs
         {
             BS_AYANT.DataMember = "AYANT_FK_NoCham";
             BS_AYANT.DataSource = BS_CHAMBRE;
-            dataGridView1.DataSource = BS_AYANT;
+            dgv_commodite.DataSource = BS_AYANT;
         }
     }
 }
