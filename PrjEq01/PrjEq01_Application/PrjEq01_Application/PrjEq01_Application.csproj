@@ -76,7 +76,7 @@
     <Compile Include="Tabs\Tab_Reservation.Designer.cs">
       <DependentUpon>Tab_Reservation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Info_Client\Info_Client_Reserv.cs">
+    <Compile Include="UserControls\Info_Reservation\IR_Base.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\Info_Client\Info_Client_Reserv.Designer.cs">
@@ -103,11 +103,11 @@
     <Compile Include="UserControls\PlaceHolderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserControls\Info_Client\Info_Client.cs">
+    <Compile Include="UserControls\Info_Client\IC_Base.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Info_Client\Info_Client.Designer.cs">
-      <DependentUpon>Info_Client.cs</DependentUpon>
+    <Compile Include="UserControls\Info_Client\IC_Base.Designer.cs">
+      <DependentUpon>IC_Base.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="UserControls\Liste_Chambre.resx">
       <DependentUpon>Liste_Chambre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Info_Client\Info_Client.resx">
-      <DependentUpon>Info_Client.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Info_Client\IC_Base.resx">
+      <DependentUpon>IC_Base.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_Master.xsc">
       <DependentUpon>DS_Master.xsd</DependentUpon>

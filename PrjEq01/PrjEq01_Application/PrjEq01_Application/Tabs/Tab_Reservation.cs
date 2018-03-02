@@ -39,7 +39,7 @@ namespace PrjEq01_Application.Tabs
 
 			try
 			{
-				saisi_Info_Client1.TextBox_NoClient.DataBindings.Add("Text", BS_RESERVATION, "");
+				//saisi_Info_Client1.TextBox_NoClient.DataBindings.Add("Text", BS_RESERVATION, "");
 			}
 			catch (Exception e)
 			{ MessageBox.Show(e.Message); }

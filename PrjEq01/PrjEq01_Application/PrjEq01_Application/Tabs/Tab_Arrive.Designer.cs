@@ -129,7 +129,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

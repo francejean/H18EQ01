@@ -1,4 +1,4 @@
-﻿namespace PrjEq01_Application.Tabs
+namespace PrjEq01_Application.Tabs
 {
 	partial class Tab_Reservation
 	{
@@ -118,7 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
 		}
 
 		#endregion
@@ -132,6 +131,5 @@
 		private System.Windows.Forms.BindingSource BS_CHAMBRE;
 		private System.Windows.Forms.BindingSource BS_DE;
 		private System.Windows.Forms.BindingSource BS_RESERVATION;
-        private UserControls.Info_Client saisi_Info_Client1;
-    }
+		private UserControls.Info_Client saisi_Info_Client1;
 }

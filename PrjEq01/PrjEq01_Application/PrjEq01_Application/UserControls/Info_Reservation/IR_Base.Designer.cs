@@ -1,4 +1,4 @@
-﻿namespace PrjEq01_Application.UserControls
+namespace PrjEq01_Application.UserControls
 {
 	partial class Info_Reservation_Base
 	{
