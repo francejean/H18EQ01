@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.UserControls
 {
-	public partial class Saisi_Info_Client : UserControl
+	public partial class Info_Reservation_Reserv : UserControl
 	{
-		public Saisi_Info_Client()
+		public Info_Reservation_Reserv()
 		{
 			InitializeComponent();
 		}

@@ -31,7 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.label9 = new System.Windows.Forms.Label();
 			this.info_Reservation1 = new PrjEq01_Application.UserControls.Info_Reservation();
-			this.saisi_Info_Client1 = new PrjEq01_Application.UserControls.Saisi_Info_Client();
+			this.saisi_Info_Client1 = new PrjEq01_Application.UserControls.Info_Client();
 			this.placeHolderTextBox1 = new PrjEq01_Application.UserControls.PlaceHolderTextBox();
 			this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
 			this.TA_RESERVATION = new PrjEq01_Application.DS_MasterTableAdapters.RESERVATIONTableAdapter();
@@ -135,7 +135,7 @@
 		#endregion
 		private System.Windows.Forms.Label label9;
 		private UserControls.PlaceHolderTextBox placeHolderTextBox1;
-        private UserControls.Saisi_Info_Client saisi_Info_Client1;
+        private UserControls.Info_Client saisi_Info_Client1;
         private UserControls.Info_Reservation info_Reservation1;
 		private DS_MasterTableAdapters.DETableAdapter TA_DE;
 		private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
