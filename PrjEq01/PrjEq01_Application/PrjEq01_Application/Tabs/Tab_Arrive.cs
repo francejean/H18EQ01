@@ -19,10 +19,10 @@ namespace PrjEq01_Application.Tabs
 
         private void Tab_Arrive_Load(object sender, EventArgs e)
         {
-            Fill();
+            //Fill();
         }
 
-        private void Fill()
+        /*private void Fill()
         {
             this.TA_ARRIVE.Fill(this.DS_Master.ARRIVE);
             this.TA_DEPART.Fill(this.DS_Master.DEPART);
@@ -44,7 +44,7 @@ namespace PrjEq01_Application.Tabs
 
             try
             {
-                TextBox_NoArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
+                tb_noArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
                 //Info_Client_Arrive.TextBox_NoClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
                 Info_Client_Arrive.TextBox_NoChambre.DataBindings.Add("Text", BS_ARRIVE, "NoCham");
             }
@@ -93,9 +93,9 @@ namespace PrjEq01_Application.Tabs
 
             try
             {
-                Liste_Chambre.DG_Chambres.DataSource = BS_CHAMBRE;
+                ls_chambre.dgv_chambre.DataSource = BS_CHAMBRE;
             }
             catch(Exception ee) { MessageBox.Show(ee.Message); }
-        }
+        }*/
     }
 }
