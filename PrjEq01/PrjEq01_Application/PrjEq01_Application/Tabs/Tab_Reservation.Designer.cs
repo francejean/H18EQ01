@@ -31,12 +31,14 @@ namespace PrjEq01_Application.Tabs
 			this.components = new System.ComponentModel.Container();
 			this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
 			this.TA_RESERVATION = new PrjEq01_Application.DS_MasterTableAdapters.RESERVATIONTableAdapter();
-			this.liste_Chambre1 = new PrjEq01_Application.UserControls.Liste_Chambre();
 			this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
 			this.DS_Master = new PrjEq01_Application.DS_Master();
 			this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
 			this.BS_DE = new System.Windows.Forms.BindingSource(this.components);
 			this.BS_RESERVATION = new System.Windows.Forms.BindingSource(this.components);
+			this.iR_Base1 = new PrjEq01_Application.UserControls.IR_Base();
+			this.liste_Chambre1 = new PrjEq01_Application.UserControls.Liste_Chambre();
+			this.iC_Reserv1 = new PrjEq01_Application.UserControls.Info_Client.IC_Reserv();
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_DE)).BeginInit();
@@ -51,14 +53,6 @@ namespace PrjEq01_Application.Tabs
 			// 
 			this.TA_RESERVATION.ClearBeforeFill = true;
 			// 
-			// liste_Chambre1
-			// 
-			this.liste_Chambre1.Location = new System.Drawing.Point(3, 190);
-			this.liste_Chambre1.MinimumSize = new System.Drawing.Size(850, 230);
-			this.liste_Chambre1.Name = "liste_Chambre1";
-			this.liste_Chambre1.Size = new System.Drawing.Size(850, 230);
-			this.liste_Chambre1.TabIndex = 19;
-			// 
 			// TA_CHAMBRE
 			// 
 			this.TA_CHAMBRE.ClearBeforeFill = true;
@@ -68,11 +62,37 @@ namespace PrjEq01_Application.Tabs
 			this.DS_Master.DataSetName = "DS_Master";
 			this.DS_Master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
+			// iR_Base1
+			// 
+			this.iR_Base1.Location = new System.Drawing.Point(374, 3);
+			this.iR_Base1.MinimumSize = new System.Drawing.Size(200, 190);
+			this.iR_Base1.Name = "iR_Base1";
+			this.iR_Base1.Size = new System.Drawing.Size(200, 190);
+			this.iR_Base1.TabIndex = 21;
+			// 
+			// liste_Chambre1
+			// 
+			this.liste_Chambre1.Location = new System.Drawing.Point(3, 197);
+			this.liste_Chambre1.MinimumSize = new System.Drawing.Size(850, 230);
+			this.liste_Chambre1.Name = "liste_Chambre1";
+			this.liste_Chambre1.Size = new System.Drawing.Size(850, 230);
+			this.liste_Chambre1.TabIndex = 19;
+			// 
+			// iC_Reserv1
+			// 
+			this.iC_Reserv1.Location = new System.Drawing.Point(3, 3);
+			this.iC_Reserv1.MinimumSize = new System.Drawing.Size(365, 190);
+			this.iC_Reserv1.Name = "iC_Reserv1";
+			this.iC_Reserv1.Size = new System.Drawing.Size(365, 190);
+			this.iC_Reserv1.TabIndex = 22;
+			// 
 			// Tab_Reservation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
+			this.Controls.Add(this.iC_Reserv1);
+			this.Controls.Add(this.iR_Base1);
 			this.Controls.Add(this.liste_Chambre1);
 			this.Name = "Tab_Reservation";
 			this.Size = new System.Drawing.Size(971, 430);
@@ -94,5 +114,7 @@ namespace PrjEq01_Application.Tabs
 		private System.Windows.Forms.BindingSource BS_CHAMBRE;
 		private System.Windows.Forms.BindingSource BS_DE;
 		private System.Windows.Forms.BindingSource BS_RESERVATION;
+		private UserControls.IR_Base iR_Base1;
+		private UserControls.Info_Client.IC_Reserv iC_Reserv1;
 	}
 }
