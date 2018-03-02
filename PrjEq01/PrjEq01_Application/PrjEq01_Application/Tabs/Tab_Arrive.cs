@@ -71,7 +71,7 @@ namespace PrjEq01_Application.Tabs
 
         private void Link_RESERVATION()
         {
-            this.BS_RESERVATION.DataMember = "RESERVATION";
+            /*this.BS_RESERVATION.DataMember = "RESERVATION";
             this.BS_RESERVATION.DataSource = this.DS_Master;
 
             try
@@ -83,7 +83,7 @@ namespace PrjEq01_Application.Tabs
                 Info_Reservation_Arrive.TextBox_NoClient.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
                 Info_Reservation_Arrive.TextBox_NomReserv.DataBindings.Add("Text", BS_RESERVATION, "Nom");
             }
-            catch (Exception ee) { MessageBox.Show(ee.Message); }
+            catch (Exception ee) { MessageBox.Show(ee.Message); }*/
         }
 
         private void Link_CHAMBRE()
