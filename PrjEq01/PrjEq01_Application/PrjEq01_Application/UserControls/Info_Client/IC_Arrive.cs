@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
+using System.Drawing;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_Application.UserControls
+namespace PrjEq01_Application.UserControls.Info_Client
 {
-	public partial class IC_Base : UserControl
+	public partial class IC_Arrive : PrjEq01_Application.UserControls.IC_Base
 	{
-		public IC_Base()
+		public IC_Arrive()
 		{
 			InitializeComponent();
 		}

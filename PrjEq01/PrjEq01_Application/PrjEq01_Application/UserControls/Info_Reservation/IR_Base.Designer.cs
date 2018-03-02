@@ -1,6 +1,6 @@
 namespace PrjEq01_Application.UserControls
 {
-	partial class Info_Reservation_Base
+	partial class IR_Base
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -28,7 +28,7 @@ namespace PrjEq01_Application.UserControls
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info_Reservation_Base));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IR_Base));
             this.gb_reserv = new System.Windows.Forms.GroupBox();
             this.DTP_Fin = new System.Windows.Forms.DateTimePicker();
             this.DTP_Debut = new System.Windows.Forms.DateTimePicker();
