@@ -1,6 +1,6 @@
 ﻿namespace PrjEq01_Application.Tabs
 {
-    partial class Tab_Arrive
+    partial class UC_Arrive
     {
         /// <summary> 
         /// Required designer variable.

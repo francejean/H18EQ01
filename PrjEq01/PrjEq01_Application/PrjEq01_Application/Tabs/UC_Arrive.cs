@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.Tabs
 {
-	public partial class Tab_Arrive : UserControl
-	{
-		public Tab_Arrive()
+	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
+    {
+		public UC_Arrive()
 		{
 			InitializeComponent();
 		}
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
 		{
-			Fill();
+			//Fill();
 		}
 
 		private void Fill()
@@ -61,9 +61,9 @@ namespace PrjEq01_Application.Tabs
 				ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
 				ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
 				ic_arrive.DataBindings.Add("Text", BS_CLIENT, "Telephone");
-				.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
-				.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
-				.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+				//.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+				//.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
+				//.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 			}
 			catch (Exception ee) { MessageBox.Show(ee.Message); }
 		}
@@ -96,5 +96,50 @@ namespace PrjEq01_Application.Tabs
 			}
 			catch (Exception ee) { MessageBox.Show(ee.Message); }
 		}
-	}
+
+        public void Add()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Edit()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Delete()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Undo()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Save()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_Start()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_Back()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_Forward()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_End()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+    }
 }
