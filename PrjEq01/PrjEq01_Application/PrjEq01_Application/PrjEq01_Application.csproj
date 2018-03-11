@@ -64,17 +64,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tabs\Tab_Arrive.cs">
+    <Compile Include="Tabs\UC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Tabs\Tab_Arrive.Designer.cs">
-      <DependentUpon>Tab_Arrive.cs</DependentUpon>
+    <Compile Include="Tabs\UC_Arrive.Designer.cs">
+      <DependentUpon>UC_Arrive.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tabs\Tab_Reservation.cs">
+    <Compile Include="Tabs\UC_Reservation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Tabs\Tab_Reservation.Designer.cs">
-      <DependentUpon>Tab_Reservation.cs</DependentUpon>
+    <Compile Include="Tabs\UC_Reservation.Designer.cs">
+      <DependentUpon>UC_Reservation.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Info_Client\IC_Arrive.cs">
       <SubType>UserControl</SubType>
@@ -121,11 +121,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Tabs\Tab_Arrive.resx">
-      <DependentUpon>Tab_Arrive.cs</DependentUpon>
+    <EmbeddedResource Include="Tabs\UC_Arrive.resx">
+      <DependentUpon>UC_Arrive.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tabs\Tab_Reservation.resx">
-      <DependentUpon>Tab_Reservation.cs</DependentUpon>
+    <EmbeddedResource Include="Tabs\UC_Reservation.resx">
+      <DependentUpon>UC_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Arrive.resx">
       <DependentUpon>IC_Arrive.cs</DependentUpon>
