@@ -16,5 +16,10 @@ namespace PrjEq01_Application.UserControls
         {
             InitializeComponent();
         }
+
+        private void bt_list_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
     }
 }

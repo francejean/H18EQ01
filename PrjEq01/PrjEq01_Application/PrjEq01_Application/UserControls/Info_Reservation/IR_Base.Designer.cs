@@ -105,6 +105,7 @@ namespace PrjEq01_Application.UserControls
             this.bt_list.Size = new System.Drawing.Size(20, 20);
             this.bt_list.TabIndex = 1;
             this.bt_list.UseVisualStyleBackColor = true;
+            this.bt_list.Click += new System.EventHandler(this.bt_list_Click);
             // 
             // tb_noReserv
             // 
@@ -151,13 +152,13 @@ namespace PrjEq01_Application.UserControls
             this.label3.TabIndex = 10;
             this.label3.Text = "Date de début";
             // 
-            // Info_Reservation_Base
+            // IR_Base
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_reserv);
             this.MinimumSize = new System.Drawing.Size(200, 190);
-            this.Name = "Info_Reservation_Base";
+            this.Name = "IR_Base";
             this.Size = new System.Drawing.Size(200, 190);
             this.gb_reserv.ResumeLayout(false);
             this.gb_reserv.PerformLayout();
