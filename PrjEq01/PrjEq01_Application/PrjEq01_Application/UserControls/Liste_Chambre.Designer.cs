@@ -80,7 +80,7 @@
             this.codTypChamDataGridViewTextBoxColumn});
             this.dgv_chambre.DataSource = this.cHAMBREBindingSource;
             this.dgv_chambre.Location = new System.Drawing.Point(29, 18);
-            this.dgv_chambre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_chambre.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_chambre.Name = "dgv_chambre";
             this.dgv_chambre.RowTemplate.Height = 24;
             this.dgv_chambre.Size = new System.Drawing.Size(815, 206);
@@ -143,11 +143,12 @@
             this.bt_list.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_list.BackgroundImage")));
             this.bt_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bt_list.Location = new System.Drawing.Point(5, 17);
-            this.bt_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_list.Margin = new System.Windows.Forms.Padding(2);
             this.bt_list.Name = "bt_list";
             this.bt_list.Size = new System.Drawing.Size(20, 20);
             this.bt_list.TabIndex = 1;
             this.bt_list.UseVisualStyleBackColor = true;
+            this.bt_list.Click += new System.EventHandler(this.bt_list_Click);
             // 
             // cHAMBRETableAdapter
             // 
