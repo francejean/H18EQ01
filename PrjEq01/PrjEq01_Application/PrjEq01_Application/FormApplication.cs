@@ -15,7 +15,9 @@ namespace PrjEq01_Application
 		public FormApplication()
 		{
 			InitializeComponent();
-            Tab_Arrivées.uc_tab = uc_arrive; 
+            Tab_Arrivées.uc_tab = uc_arrive;
+            Tab_Chambres.uc_tab = uc_chambre;
+            Tab_Départs.uc_tab = uc_departs;
 		}
     }
 }

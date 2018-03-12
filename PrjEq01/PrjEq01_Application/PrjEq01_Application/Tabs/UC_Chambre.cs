@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.Tabs
 {
-    public partial class Tab_Chambre : UserControl
+    public partial class UC_Chambre : UserControl, PrjEq01_CommonForm.IButtons
     {
-        public Tab_Chambre()
+        public UC_Chambre()
         {
             InitializeComponent();
         }
@@ -65,6 +65,51 @@ namespace PrjEq01_Application.Tabs
             BS_AYANT.DataMember = "AYANT_FK_NoCham";
             BS_AYANT.DataSource = BS_CHAMBRE;
             dgv_commodite.DataSource = BS_AYANT;
+        }
+
+        public void Add()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Edit()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Delete()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Undo()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Save()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_Start()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_Back()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_Forward()
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        public void Go_End()
+        {
+            MessageBox.Show("Fonction en développement.");
         }
     }
 }

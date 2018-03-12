@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_Application.Tabs
+namespace PrjEq01_Application.UserControls.Info_Reservation
 {
-    public partial class Tab_Departs : UserControl
+    public partial class IR_Depart : UserControl
     {
-        public Tab_Departs()
+        public IR_Depart()
         {
             InitializeComponent();
         }
