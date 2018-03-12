@@ -55,47 +55,67 @@ VALUES ('SM', 'PRES DE LA SALLE A MANGER');
 
 
 /*<CHAMBRE>*/
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('15', '1', 90.99, 1, NULL, 'AR', '1J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('3', '2', 99.99, 1, NULL, 'AR', '1J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('7', '1', 95.99, 1, NULL, 'AV', '2J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('10', '2', 100.99, 0, 'toilette non fonctionnel', 'AV', '2J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('9', '1', 110.99, 1, NULL, 'AS', '1D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('4', '2', 110.99, 0, 'tapis tacher', 'AS', '1D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('6', '1', 120.99, 1, NULL, 'SM', '2D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('14', '2', 120.99, 1, NULL, 'VM', '2D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('2', '3', 125.99, 1, NULL, 'AS', 'LQ');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('11', '3', 130.99, 1, NULL, 'VM', 'LK');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('1', '4', 160.99, 1, NULL, 'VM', 'ST');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('5', '4', 100.99, 1, NULL, 'AR', 'SR');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
-VALUES ('8', '4', 100.99, 1, NULL, 'AS', 'SR');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('102', '1', 90.99, 1, NULL, 'AR', '1J'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('202', '2', 99.99, 1, NULL, 'AR', '1J'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('104', '1', 95.99, 1, NULL, 'AV', '2J'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('201', '2', 100.99, 0, 'toilette non fonctionnel', 'AV', '2J'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('101', '1', 110.99, 1, NULL, 'AS', '1D'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('207', '2', 110.99, 0, 'tapis tacher', 'AS', '1D'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('105', '1', 120.99, 1, NULL, 'SM', '2D'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('203', '2', 120.99, 1, NULL, 'VM', '2D'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('308', '3', 125.99, 1, NULL, 'AS', 'LQ'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('310', '3', 130.99, 1, NULL, 'VM', 'LK'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('401', '4', 160.99, 1, NULL, 'VM', 'ST'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('402', '4', 100.99, 1, NULL, 'AR', 'SR'); 
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+VALUES ('403', '4', 100.99, 1, NULL, 'AS', 'SR');
 /*</CHAMBRE>*/
 
 
 /*<AYANT>*/
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('15', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('3', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('7', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('10', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('9', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('4', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('6', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('14', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('2', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('11', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('1', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('5', 'AS');
-INSERT INTO AYANT (NoCham, CodCom) VALUES ('8', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('102', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('202', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('104', 'HP');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('104', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('201', 'HP');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('201', 'NF');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('201', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('101', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('101', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('207', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('207', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('207', 'NF');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('105', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('105', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('105', 'NF');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('203', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('203', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('308', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('308', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('308', 'BA');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('310', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('310', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('310', 'NF');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('310', 'BA');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('401', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('401', 'BA');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('401', 'BT');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('401', 'MB');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('402', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('402', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('403', 'AS');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('403', 'IN');
+INSERT INTO AYANT (NoCham, CodCom) VALUES ('403', 'NF');
 /*</AYANT>*/
