@@ -184,12 +184,6 @@ SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (N
               <Mapping SourceColumn="CodTypCham" DataSetColumn="CodTypCham" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByARRIVE" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByARRIVE" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByARRIVE">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        CHAMBRE.NoCham, CHAMBRE.Prix, CHAMBRE.Etat, TYPECHAM.DescTyp
-FROM            CHAMBRE INNER JOIN
-                         TYPECHAM ON CHAMBRE.CodTypCham = TYPECHAM.CodTypCham</CommandText>
               <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -855,7 +849,7 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CHAMBRE" msprop:Generator_TableClassName="CHAMBREDataTable" msprop:Generator_TableVarName="tableCHAMBRE" msprop:Generator_TablePropName="CHAMBRE" msprop:Generator_RowDeletingName="CHAMBRERowDeleting" msprop:Generator_RowChangingName="CHAMBRERowChanging" msprop:Generator_RowEvHandlerName="CHAMBRERowChangeEventHandler" msprop:Generator_RowDeletedName="CHAMBRERowDeleted" msprop:Generator_UserTableName="CHAMBRE" msprop:Generator_RowChangedName="CHAMBRERowChanged" msprop:Generator_RowEvArgName="CHAMBRERowChangeEvent" msprop:Generator_RowClassName="CHAMBRERow">
+        <xs:element name="CHAMBRE" msprop:Generator_TableClassName="CHAMBREDataTable" msprop:Generator_TableVarName="tableCHAMBRE" msprop:Generator_RowChangedName="CHAMBRERowChanged" msprop:Generator_TablePropName="CHAMBRE" msprop:Generator_RowDeletingName="CHAMBRERowDeleting" msprop:Generator_RowChangingName="CHAMBRERowChanging" msprop:Generator_RowEvHandlerName="CHAMBRERowChangeEventHandler" msprop:Generator_RowDeletedName="CHAMBRERowDeleted" msprop:Generator_RowClassName="CHAMBRERow" msprop:Generator_UserTableName="CHAMBRE" msprop:Generator_RowEvArgName="CHAMBRERowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoCham" msprop:Generator_ColumnVarNameInTable="columnNoCham" msprop:Generator_ColumnPropNameInRow="NoCham" msprop:Generator_ColumnPropNameInTable="NoChamColumn" msprop:Generator_UserColumnName="NoCham">
@@ -900,7 +894,7 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CLIENT" msprop:Generator_TableClassName="CLIENTDataTable" msprop:Generator_TableVarName="tableCLIENT" msprop:Generator_TablePropName="CLIENT" msprop:Generator_RowDeletingName="CLIENTRowDeleting" msprop:Generator_RowChangingName="CLIENTRowChanging" msprop:Generator_RowEvHandlerName="CLIENTRowChangeEventHandler" msprop:Generator_RowDeletedName="CLIENTRowDeleted" msprop:Generator_UserTableName="CLIENT" msprop:Generator_RowChangedName="CLIENTRowChanged" msprop:Generator_RowEvArgName="CLIENTRowChangeEvent" msprop:Generator_RowClassName="CLIENTRow">
+        <xs:element name="CLIENT" msprop:Generator_TableClassName="CLIENTDataTable" msprop:Generator_TableVarName="tableCLIENT" msprop:Generator_RowChangedName="CLIENTRowChanged" msprop:Generator_TablePropName="CLIENT" msprop:Generator_RowDeletingName="CLIENTRowDeleting" msprop:Generator_RowChangingName="CLIENTRowChanging" msprop:Generator_RowEvHandlerName="CLIENTRowChangeEventHandler" msprop:Generator_RowDeletedName="CLIENTRowDeleted" msprop:Generator_RowClassName="CLIENTRow" msprop:Generator_UserTableName="CLIENT" msprop:Generator_RowEvArgName="CLIENTRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdCli" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdCli" msprop:Generator_ColumnPropNameInRow="IdCli" msprop:Generator_ColumnPropNameInTable="IdCliColumn" msprop:Generator_UserColumnName="IdCli" type="xs:int" />
@@ -1004,7 +998,7 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LOCALISATION" msprop:Generator_TableClassName="LOCALISATIONDataTable" msprop:Generator_TableVarName="tableLOCALISATION" msprop:Generator_TablePropName="LOCALISATION" msprop:Generator_RowDeletingName="LOCALISATIONRowDeleting" msprop:Generator_RowChangingName="LOCALISATIONRowChanging" msprop:Generator_RowEvHandlerName="LOCALISATIONRowChangeEventHandler" msprop:Generator_RowDeletedName="LOCALISATIONRowDeleted" msprop:Generator_UserTableName="LOCALISATION" msprop:Generator_RowChangedName="LOCALISATIONRowChanged" msprop:Generator_RowEvArgName="LOCALISATIONRowChangeEvent" msprop:Generator_RowClassName="LOCALISATIONRow">
+        <xs:element name="LOCALISATION" msprop:Generator_TableClassName="LOCALISATIONDataTable" msprop:Generator_TableVarName="tableLOCALISATION" msprop:Generator_RowChangedName="LOCALISATIONRowChanged" msprop:Generator_TablePropName="LOCALISATION" msprop:Generator_RowDeletingName="LOCALISATIONRowDeleting" msprop:Generator_RowChangingName="LOCALISATIONRowChanging" msprop:Generator_RowEvHandlerName="LOCALISATIONRowChangeEventHandler" msprop:Generator_RowDeletedName="LOCALISATIONRowDeleted" msprop:Generator_RowClassName="LOCALISATIONRow" msprop:Generator_UserTableName="LOCALISATION" msprop:Generator_RowEvArgName="LOCALISATIONRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CodLoc" msprop:Generator_ColumnVarNameInTable="columnCodLoc" msprop:Generator_ColumnPropNameInRow="CodLoc" msprop:Generator_ColumnPropNameInTable="CodLocColumn" msprop:Generator_UserColumnName="CodLoc">

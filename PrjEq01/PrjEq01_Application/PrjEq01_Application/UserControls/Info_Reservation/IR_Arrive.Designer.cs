@@ -30,22 +30,21 @@
         {
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tb_noClient = new System.Windows.Forms.TextBox();
-            this.tb_nom = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.gb_reserv.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gb_reserv
+            // GroupBox_Reserv
             // 
-            this.gb_reserv.Controls.Add(this.tb_nom);
-            this.gb_reserv.Controls.Add(this.tb_noClient);
+            this.gb_reserv.Controls.Add(this.textBox2);
+            this.gb_reserv.Controls.Add(this.textBox1);
             this.gb_reserv.Controls.Add(this.label6);
             this.gb_reserv.Controls.Add(this.label5);
-            this.gb_reserv.Controls.SetChildIndex(this.tb_noReserv, 0);
             this.gb_reserv.Controls.SetChildIndex(this.label5, 0);
             this.gb_reserv.Controls.SetChildIndex(this.label6, 0);
-            this.gb_reserv.Controls.SetChildIndex(this.tb_noClient, 0);
-            this.gb_reserv.Controls.SetChildIndex(this.tb_nom, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.textBox1, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.textBox2, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Reserv, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Debut, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Fin, 0);
@@ -68,23 +67,23 @@
             this.label6.TabIndex = 23;
             this.label6.Text = "Nom";
             // 
-            // tb_noClient
+            // textBox1
             // 
-            this.tb_noClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_noClient.Location = new System.Drawing.Point(97, 136);
-            this.tb_noClient.Name = "tb_noClient";
-            this.tb_noClient.Size = new System.Drawing.Size(97, 20);
-            this.tb_noClient.TabIndex = 24;
+            this.textBox1.Location = new System.Drawing.Point(97, 136);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(97, 20);
+            this.textBox1.TabIndex = 24;
             // 
-            // tb_nom
+            // textBox2
             // 
-            this.tb_nom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_nom.Location = new System.Drawing.Point(97, 161);
-            this.tb_nom.Name = "tb_nom";
-            this.tb_nom.Size = new System.Drawing.Size(97, 20);
-            this.tb_nom.TabIndex = 25;
+            this.textBox2.Location = new System.Drawing.Point(97, 161);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(97, 20);
+            this.textBox2.TabIndex = 25;
             // 
             // IR_Arrive
             // 
@@ -100,7 +99,7 @@
 
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox tb_nom;
-        public System.Windows.Forms.TextBox tb_noClient;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

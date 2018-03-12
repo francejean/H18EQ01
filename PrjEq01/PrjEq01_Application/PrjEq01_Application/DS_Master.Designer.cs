@@ -7992,12 +7992,7 @@ SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (N
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        CHAMBRE.NoCham, CHAMBRE.Prix, CHAMBRE.Etat, TYPECHAM.DescTyp\r\nFROM " +
-                "           CHAMBRE INNER JOIN\r\n                         TYPECHAM ON CHAMBRE.CodT" +
-                "ypCham = TYPECHAM.CodTypCham";
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT CHAMBRE.NoCham, CHAMBRE.Etage, CHAMBRE.Prix, CHAMBRE.Etat, CHAMBRE.Memo, CHAMBRE.CodLoc, CHAMBRE.CodTypCham, LOCALISATION.DescLoc, TYPECHAM.DescTyp
+            this._commandCollection[1].CommandText = @"SELECT CHAMBRE.NoCham, CHAMBRE.Etage, CHAMBRE.Prix, CHAMBRE.Etat, CHAMBRE.Memo, CHAMBRE.CodLoc, CHAMBRE.CodTypCham, LOCALISATION.DescLoc, TYPECHAM.DescTyp
 FROM     CHAMBRE INNER JOIN
                   LOCALISATION ON CHAMBRE.CodLoc = LOCALISATION.CodLoc INNER JOIN
                   TYPECHAM ON CHAMBRE.CodTypCham = TYPECHAM.CodTypCham";
@@ -8032,7 +8027,6 @@ FROM     CHAMBRE INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByARRIVE(DS_Master.CHAMBREDataTable dataTable) {
         public virtual int FillBy(DS_Master.CHAMBREDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
