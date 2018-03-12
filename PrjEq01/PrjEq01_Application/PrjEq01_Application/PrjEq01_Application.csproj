@@ -76,18 +76,6 @@
     <Compile Include="Tabs\UC_Reservation.Designer.cs">
       <DependentUpon>UC_Reservation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tabs\Tab_Chambre.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Tabs\Tab_Chambre.Designer.cs">
-      <DependentUpon>Tab_Chambre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tabs\Tab_Departs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Tabs\Tab_Departs.Designer.cs">
-      <DependentUpon>Tab_Departs.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Info_Client\IC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -138,12 +126,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tabs\UC_Reservation.resx">
       <DependentUpon>UC_Reservation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tabs\Tab_Chambre.resx">
-      <DependentUpon>Tab_Chambre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tabs\Tab_Departs.resx">
-      <DependentUpon>Tab_Departs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Arrive.resx">
       <DependentUpon>IC_Arrive.cs</DependentUpon>
