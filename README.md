@@ -6,9 +6,13 @@
 
 **Nom de Classes**   : UpperCamelCase
 **Nom de Méthodes**  : UpperCamelCase
-**Nom de variables** : lowerCamelCase
+**Nom de variables** : lowerCamelCase 
 
 Le code doit être bien indenté.
+Les noms des UserControls commencent par la premiere lettre de chaque mot
+du UserControl, avec 2 lettres minimum, puis le nom de l'information.
+	-> ex: Label du no. client = lb_noClient
+	-> ex: Textbox du no. client = tb_noClient
 Les parenthèses "{}" doivent être come ceci : 
 ```
 void NomMethode()
@@ -16,6 +20,7 @@ void NomMethode()
     
 }
 ```
+
 
 ### Répertoires
 

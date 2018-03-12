@@ -27,7 +27,7 @@ namespace PrjEq01_Application.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql.local.shawinigan.info;Initial Catalog=h18equipe1;Persist Securi" +
-            "ty Info=True;User ID=h18equipe1etd2;Password=62013055")]
+            "ty Info=True;User ID=h18equipe1etd3;Password=1645226963")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));

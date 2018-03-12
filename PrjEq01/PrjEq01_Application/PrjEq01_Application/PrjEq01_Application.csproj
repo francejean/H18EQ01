@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Master.cs">
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_Master.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,11 +64,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tabs\Tab_Arrive.cs">
+    <Compile Include="Tabs\UC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Tabs\Tab_Arrive.Designer.cs">
-      <DependentUpon>Tab_Arrive.cs</DependentUpon>
+    <Compile Include="Tabs\UC_Arrive.Designer.cs">
+      <DependentUpon>UC_Arrive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\UC_Reservation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\UC_Reservation.Designer.cs">
+      <DependentUpon>UC_Reservation.cs</DependentUpon>
     </Compile>
     <Compile Include="Tabs\Tab_Chambre.cs">
       <SubType>UserControl</SubType>
@@ -82,14 +91,23 @@
     <Compile Include="Tabs\Tab_Reservation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Tabs\Tab_Reservation.Designer.cs">
-      <DependentUpon>Tab_Reservation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Info_Reservation.cs">
+    <Compile Include="UserControls\Info_Client\IC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Info_Reservation.Designer.cs">
-      <DependentUpon>Info_Reservation.cs</DependentUpon>
+    <Compile Include="UserControls\Info_Client\IC_Arrive.Designer.cs">
+      <DependentUpon>IC_Arrive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\IR_Base.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\IR_Base.Designer.cs">
+      <DependentUpon>IR_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\IR_Arrive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\IR_Arrive.Designer.cs">
+      <DependentUpon>IR_Arrive.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Liste_Chambre.cs">
       <SubType>UserControl</SubType>
@@ -100,11 +118,11 @@
     <Compile Include="UserControls\PlaceHolderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserControls\Saisi_Info_Client.cs">
+    <Compile Include="UserControls\Info_Client\IC_Base.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Saisi_Info_Client.Designer.cs">
-      <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
+    <Compile Include="UserControls\Info_Client\IC_Base.Designer.cs">
+      <DependentUpon>IC_Base.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
@@ -118,8 +136,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Tabs\Tab_Arrive.resx">
-      <DependentUpon>Tab_Arrive.cs</DependentUpon>
+    <EmbeddedResource Include="Tabs\UC_Arrive.resx">
+      <DependentUpon>UC_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\UC_Reservation.resx">
+      <DependentUpon>UC_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tabs\Tab_Chambre.resx">
       <DependentUpon>Tab_Chambre.cs</DependentUpon>
@@ -130,14 +151,20 @@
     <EmbeddedResource Include="Tabs\Tab_Reservation.resx">
       <DependentUpon>Tab_Reservation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Info_Reservation.resx">
-      <DependentUpon>Info_Reservation.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Info_Client\IC_Arrive.resx">
+      <DependentUpon>IC_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation\IR_Arrive.resx">
+      <DependentUpon>IR_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation\IR_Base.resx">
+      <DependentUpon>IR_Base.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Liste_Chambre.resx">
       <DependentUpon>Liste_Chambre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Saisi_Info_Client.resx">
-      <DependentUpon>Saisi_Info_Client.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Info_Client\IC_Base.resx">
+      <DependentUpon>IC_Base.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_Master.xsc">
       <DependentUpon>DS_Master.xsd</DependentUpon>
