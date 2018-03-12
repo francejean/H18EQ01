@@ -1122,8 +1122,6 @@ namespace PrjEq01_Application {
             
             private global::System.Data.DataColumn columnCodCom;
             
-            private global::System.Data.DataColumn columnDescCom;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AYANTDataTable() {
@@ -1175,14 +1173,6 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DescComColumn {
-                get {
-                    return this.columnDescCom;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1218,12 +1208,11 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AYANTRow AddAYANTRow(CHAMBRERow parentCHAMBRERowByAYANT_FK_NoCham, COMMODITERow parentCOMMODITERowByAYANT_FK_CodCom, string DescCom) {
+            public AYANTRow AddAYANTRow(CHAMBRERow parentCHAMBRERowByAYANT_FK_NoCham, COMMODITERow parentCOMMODITERowByAYANT_FK_CodCom) {
                 AYANTRow rowAYANTRow = ((AYANTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
-                        DescCom};
+                        null};
                 if ((parentCHAMBRERowByAYANT_FK_NoCham != null)) {
                     columnValuesArray[0] = parentCHAMBRERowByAYANT_FK_NoCham[0];
                 }
@@ -1254,7 +1243,6 @@ namespace PrjEq01_Application {
             internal void InitVars() {
                 this.columnNoCham = base.Columns["NoCham"];
                 this.columnCodCom = base.Columns["CodCom"];
-                this.columnDescCom = base.Columns["DescCom"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1264,11 +1252,8 @@ namespace PrjEq01_Application {
                 base.Columns.Add(this.columnNoCham);
                 this.columnCodCom = new global::System.Data.DataColumn("CodCom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodCom);
-                this.columnDescCom = new global::System.Data.DataColumn("DescCom", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescCom);
                 this.columnNoCham.MaxLength = 3;
                 this.columnCodCom.MaxLength = 2;
-                this.columnDescCom.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1416,8 +1401,6 @@ namespace PrjEq01_Application {
             
             private global::System.Data.DataColumn columnCodTypCham;
             
-            private global::System.Data.DataColumn columnDescLoc;
-            
             private global::System.Data.DataColumn columnDescTyp;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1511,14 +1494,6 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DescLocColumn {
-                get {
-                    return this.columnDescLoc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn DescTypColumn {
                 get {
                     return this.columnDescTyp;
@@ -1562,7 +1537,7 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CHAMBRERow AddCHAMBRERow(string NoCham, string Etage, decimal Prix, byte Etat, string Memo, LOCALISATIONRow parentLOCALISATIONRowByCHAMBRE_FK_CodLoc, TYPECHAMRow parentTYPECHAMRowByCHAMBRE_FK_CodTypCham, string DescLoc, string DescTyp) {
+            public CHAMBRERow AddCHAMBRERow(string NoCham, string Etage, decimal Prix, byte Etat, string Memo, LOCALISATIONRow parentLOCALISATIONRowByCHAMBRE_FK_CodLoc, TYPECHAMRow parentTYPECHAMRowByCHAMBRE_FK_CodTypCham, string DescTyp) {
                 CHAMBRERow rowCHAMBRERow = ((CHAMBRERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NoCham,
@@ -1572,7 +1547,6 @@ namespace PrjEq01_Application {
                         Memo,
                         null,
                         null,
-                        DescLoc,
                         DescTyp};
                 if ((parentLOCALISATIONRowByCHAMBRE_FK_CodLoc != null)) {
                     columnValuesArray[5] = parentLOCALISATIONRowByCHAMBRE_FK_CodLoc[0];
@@ -1616,7 +1590,6 @@ namespace PrjEq01_Application {
                 this.columnMemo = base.Columns["Memo"];
                 this.columnCodLoc = base.Columns["CodLoc"];
                 this.columnCodTypCham = base.Columns["CodTypCham"];
-                this.columnDescLoc = base.Columns["DescLoc"];
                 this.columnDescTyp = base.Columns["DescTyp"];
             }
             
@@ -1637,8 +1610,6 @@ namespace PrjEq01_Application {
                 base.Columns.Add(this.columnCodLoc);
                 this.columnCodTypCham = new global::System.Data.DataColumn("CodTypCham", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodTypCham);
-                this.columnDescLoc = new global::System.Data.DataColumn("DescLoc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescLoc);
                 this.columnDescTyp = new global::System.Data.DataColumn("DescTyp", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescTyp);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -2716,8 +2687,6 @@ namespace PrjEq01_Application {
             
             private global::System.Data.DataColumn columnIdCli;
             
-            private global::System.Data.DataColumn columnNom;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DEPARTDataTable() {
@@ -2801,14 +2770,6 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NomColumn {
-                get {
-                    return this.columnNom;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2844,7 +2805,7 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DEPARTRow AddDEPARTRow(System.DateTime DateDepart, string ConfirmerPar, RESERVATIONRow parentRESERVATIONRowByDEPART_FK_IdReser, CHAMBRERow parentCHAMBRERowByDEPART_FK_NoCham, CLIENTRow parentCLIENTRowByDEPART_FK_IdCli, string Nom) {
+            public DEPARTRow AddDEPARTRow(System.DateTime DateDepart, string ConfirmerPar, RESERVATIONRow parentRESERVATIONRowByDEPART_FK_IdReser, CHAMBRERow parentCHAMBRERowByDEPART_FK_NoCham, CLIENTRow parentCLIENTRowByDEPART_FK_IdCli) {
                 DEPARTRow rowDEPARTRow = ((DEPARTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2852,8 +2813,7 @@ namespace PrjEq01_Application {
                         ConfirmerPar,
                         null,
                         null,
-                        null,
-                        Nom};
+                        null};
                 if ((parentRESERVATIONRowByDEPART_FK_IdReser != null)) {
                     columnValuesArray[3] = parentRESERVATIONRowByDEPART_FK_IdReser[0];
                 }
@@ -2898,7 +2858,6 @@ namespace PrjEq01_Application {
                 this.columnIdReser = base.Columns["IdReser"];
                 this.columnNoCham = base.Columns["NoCham"];
                 this.columnIdCli = base.Columns["IdCli"];
-                this.columnNom = base.Columns["Nom"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2916,8 +2875,6 @@ namespace PrjEq01_Application {
                 base.Columns.Add(this.columnNoCham);
                 this.columnIdCli = new global::System.Data.DataColumn("IdCli", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIdCli);
-                this.columnNom = new global::System.Data.DataColumn("Nom", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNom);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdDepart}, true));
                 this.columnIdDepart.AutoIncrement = true;
@@ -4861,22 +4818,6 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DescCom {
-                get {
-                    try {
-                        return ((string)(this[this.tableAYANT.DescComColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescCom\' in table \'AYANT\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAYANT.DescComColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public COMMODITERow COMMODITERow {
                 get {
                     return ((COMMODITERow)(this.GetParentRow(this.Table.ParentRelations["AYANT_FK_CodCom"])));
@@ -4919,18 +4860,6 @@ namespace PrjEq01_Application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCodComNull() {
                 this[this.tableAYANT.CodComColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDescComNull() {
-                return this.IsNull(this.tableAYANT.DescComColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDescComNull() {
-                this[this.tableAYANT.DescComColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5057,22 +4986,6 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DescLoc {
-                get {
-                    try {
-                        return ((string)(this[this.tableCHAMBRE.DescLocColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescLoc\' in table \'CHAMBRE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCHAMBRE.DescLocColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string DescTyp {
                 get {
                     try {
@@ -5179,18 +5092,6 @@ namespace PrjEq01_Application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCodTypChamNull() {
                 this[this.tableCHAMBRE.CodTypChamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDescLocNull() {
-                return this.IsNull(this.tableCHAMBRE.DescLocColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDescLocNull() {
-                this[this.tableCHAMBRE.DescLocColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5820,22 +5721,6 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Nom {
-                get {
-                    try {
-                        return ((string)(this[this.tableDEPART.NomColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nom\' in table \'DEPART\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDEPART.NomColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public CLIENTRow CLIENTRow {
                 get {
                     return ((CLIENTRow)(this.GetParentRow(this.Table.ParentRelations["DEPART_FK_IdCli"])));
@@ -5925,18 +5810,6 @@ namespace PrjEq01_Application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetIdCliNull() {
                 this[this.tableDEPART.IdCliColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNomNull() {
-                return this.IsNull(this.tableDEPART.NomColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNomNull() {
-                this[this.tableDEPART.NomColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7680,7 +7553,6 @@ SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE (IdArrive 
             tableMapping.DataSetTable = "AYANT";
             tableMapping.ColumnMappings.Add("NoCham", "NoCham");
             tableMapping.ColumnMappings.Add("CodCom", "CodCom");
-            tableMapping.ColumnMappings.Add("DescCom", "DescCom");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7925,10 +7797,9 @@ SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (N
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT CHAMBRE.NoCham, CHAMBRE.Etage, CHAMBRE.Prix, CHAMBRE.Etat, CHAMBRE.Memo, CHAMBRE.CodLoc, CHAMBRE.CodTypCham, LOCALISATION.DescLoc, TYPECHAM.DescTyp
-FROM     CHAMBRE INNER JOIN
-                  LOCALISATION ON CHAMBRE.CodLoc = LOCALISATION.CodLoc INNER JOIN
-                  TYPECHAM ON CHAMBRE.CodTypCham = TYPECHAM.CodTypCham";
+            this._commandCollection[1].CommandText = "SELECT        CHAMBRE.NoCham, CHAMBRE.Prix, CHAMBRE.Etat, TYPECHAM.DescTyp\r\nFROM " +
+                "           CHAMBRE INNER JOIN\r\n                         TYPECHAM ON CHAMBRE.CodT" +
+                "ypCham = TYPECHAM.CodTypCham";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7960,7 +7831,7 @@ FROM     CHAMBRE INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DS_Master.CHAMBREDataTable dataTable) {
+        public virtual int FillByARRIVE(DS_Master.CHAMBREDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9583,18 +9454,12 @@ SELECT IdDepart, DateDepart, ConfirmerPar, IdReser, NoCham, IdCli FROM DEPART WH
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdDepart, DateDepart, ConfirmerPar, IdReser, NoCham, IdCli FROM dbo.DEPART" +
                 "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT DEPART.IdDepart, DEPART.DateDepart, DEPART.ConfirmerPar, DEPART.IdReser, D" +
-                "EPART.NoCham, DEPART.IdCli, CLIENT.Nom\r\nFROM     DEPART INNER JOIN\r\n            " +
-                "      CLIENT ON DEPART.IdCli = CLIENT.IdCli";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9616,30 +9481,6 @@ SELECT IdDepart, DateDepart, ConfirmerPar, IdReser, NoCham, IdCli FROM DEPART WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DS_Master.DEPARTDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DS_Master.DEPARTDataTable dataTable = new DS_Master.DEPARTDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DS_Master.DEPARTDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DS_Master.DEPARTDataTable GetDataBy() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
             DS_Master.DEPARTDataTable dataTable = new DS_Master.DEPARTDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

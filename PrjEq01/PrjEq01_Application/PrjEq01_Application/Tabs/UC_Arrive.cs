@@ -19,7 +19,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
 		{
-			//Fill();
+			Fill();
 		}
 
 		private void Fill()
@@ -29,7 +29,7 @@ namespace PrjEq01_Application.Tabs
 			this.TA_RESERVATION.FillByARRIVE(this.DS_Master.RESERVATION);
 			this.TA_TRX.Fill(this.DS_Master.TRX);
 			this.TA_CLIENT.Fill(this.DS_Master.CLIENT);
-			this.TA_CHAMBRE.Fill(this.DS_Master.CHAMBRE);
+			this.TA_CHAMBRE.FillByARRIVE(this.DS_Master.CHAMBRE);
 
 			Link_ARRIVE();
 			Link_CLIENT();
@@ -46,6 +46,7 @@ namespace PrjEq01_Application.Tabs
 			{
 				tb_noArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
                 ic_arrive.tb_noClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
+                ir_arrive.tb_noReserv.DataBindings.Add("Text", BS_ARRIVE, "IdReser");
                 ic_arrive.tb_noChambre.DataBindings.Add("Text", BS_ARRIVE, "NoCham");
 			}
 			catch (Exception ee) { MessageBox.Show(ee.Message); }
@@ -60,10 +61,10 @@ namespace PrjEq01_Application.Tabs
 			{
 				ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
 				ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
-				ic_arrive.DataBindings.Add("Text", BS_CLIENT, "Telephone");
-				//.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
-				//.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
-				//.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+				ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
+				ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+				ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
+				ic_arrive.tb_expiration.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 			}
 			catch (Exception ee) { MessageBox.Show(ee.Message); }
 		}
@@ -75,12 +76,11 @@ namespace PrjEq01_Application.Tabs
 
 			try
 			{
-				/*.DataBindings.Add("Text", BS_RESERVATION, "IdReser");
-				.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
-				.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
-				.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
-				.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
-				.DataBindings.Add("Text", BS_RESERVATION, "Nom");*/
+				ir_arrive.DTP_Reserv.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
+				ir_arrive.DTP_Debut.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
+				ir_arrive.DTP_Fin.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
+				ir_arrive.tb_noClient.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
+				ir_arrive.tb_nom.DataBindings.Add("Text", BS_RESERVATION, "Nom");
 			}
 			catch (Exception ee) { MessageBox.Show(ee.Message); }
 		}
@@ -124,22 +124,22 @@ namespace PrjEq01_Application.Tabs
 
         public void Go_Start()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_ARRIVE.MoveFirst();
         }
 
         public void Go_Back()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_ARRIVE.MovePrevious();
         }
 
         public void Go_Forward()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_ARRIVE.MoveNext();
         }
 
         public void Go_End()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_ARRIVE.MoveLast();
         }
     }
 }
