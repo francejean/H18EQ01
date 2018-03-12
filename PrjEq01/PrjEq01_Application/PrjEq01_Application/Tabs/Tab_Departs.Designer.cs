@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.saisi_Info_Client1 = new PrjEq01_Application.UserControls.Saisi_Info_Client();
-            this.info_Reservation1 = new PrjEq01_Application.UserControls.Info_Reservation();
+            this.saisi_Info_Client1 = new PrjEq01_Application.UserControls.IC_Base();
+            this.info_Reservation1 = new PrjEq01_Application.UserControls.IR_Base();
             this.lb_noDepart = new System.Windows.Forms.Label();
             this.tb_noDepart = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -88,8 +88,8 @@
 
         #endregion
 
-        private UserControls.Saisi_Info_Client saisi_Info_Client1;
-        private UserControls.Info_Reservation info_Reservation1;
+        private UserControls.IC_Base saisi_Info_Client1;
+        private UserControls.IR_Base info_Reservation1;
         private System.Windows.Forms.Label lb_noDepart;
         private System.Windows.Forms.TextBox tb_noDepart;
     }
