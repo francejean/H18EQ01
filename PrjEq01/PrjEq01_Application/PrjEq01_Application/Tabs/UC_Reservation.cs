@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.Tabs
 {
-	public partial class Tab_Reservation : UserControl
+	public partial class UC_Reservation : UserControl
 	{
-		public Tab_Reservation()
+		public UC_Reservation()
 		{
 			
 

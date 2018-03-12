@@ -1,6 +1,6 @@
 namespace PrjEq01_Application.Tabs
 {
-	partial class Tab_Reservation
+	partial class UC_Reservation
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.

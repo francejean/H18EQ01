@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrjEq01_Application.UserControls
+namespace PrjEq01_Application.Tabs
 {
-    public partial class Liste_Chambre : UserControl
+    public partial class Tab_Departs : UserControl
     {
-        public Liste_Chambre()
+        public Tab_Departs()
         {
             InitializeComponent();
-        }
-
-        private void bt_list_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Fonction en développement.");
         }
     }
 }
