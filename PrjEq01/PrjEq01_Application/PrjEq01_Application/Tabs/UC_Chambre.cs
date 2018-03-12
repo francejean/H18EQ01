@@ -94,22 +94,30 @@ namespace PrjEq01_Application.Tabs
 
         public void Go_Start()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_CHAMBRE.MoveFirst();
+            BS_AYANT.DataSource = BS_CHAMBRE;
+            //MessageBox.Show("Fonction en développement.");
         }
 
         public void Go_Back()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_CHAMBRE.MovePrevious();
+            BS_AYANT.DataSource = BS_CHAMBRE;
+            //MessageBox.Show("Fonction en développement.");
         }
 
         public void Go_Forward()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_CHAMBRE.MoveNext();
+            BS_AYANT.DataSource = BS_CHAMBRE;
+            //MessageBox.Show("Fonction en développement.");
         }
 
         public void Go_End()
         {
-            MessageBox.Show("Fonction en développement.");
+            BS_CHAMBRE.MoveLast();
+            BS_AYANT.DataSource = BS_CHAMBRE;
+            //MessageBox.Show("Fonction en développement.");
         }
     }
 }
