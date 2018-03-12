@@ -28,6 +28,8 @@ namespace PrjEq01_Application
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.uc_chambre = new PrjEq01_Application.Tabs.UC_Chambre();
+            this.uc_departs = new PrjEq01_Application.Tabs.UC_Departs();
             this.uc_reservation = new PrjEq01_Application.Tabs.UC_Reservation();
             this.uc_arrive = new PrjEq01_Application.Tabs.UC_Arrive();
             this.Tab_Réservations.SuspendLayout();
@@ -38,21 +40,51 @@ namespace PrjEq01_Application
             // Tab_Réservations
             // 
             this.Tab_Réservations.Controls.Add(this.uc_reservation);
+            this.Tab_Réservations.Location = new System.Drawing.Point(4, 25);
             this.Tab_Réservations.Margin = new System.Windows.Forms.Padding(3);
             this.Tab_Réservations.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Réservations.Size = new System.Drawing.Size(1297, 532);
             // 
             // Tab_Chambres
             // 
+            this.Tab_Chambres.Controls.Add(this.uc_chambre);
+            this.Tab_Chambres.Location = new System.Drawing.Point(4, 25);
             this.Tab_Chambres.Margin = new System.Windows.Forms.Padding(3);
+            this.Tab_Chambres.Size = new System.Drawing.Size(1297, 532);
             // 
             // Tab_Arrivées
             // 
             this.Tab_Arrivées.Controls.Add(this.uc_arrive);
+            this.Tab_Arrivées.Location = new System.Drawing.Point(4, 25);
             this.Tab_Arrivées.Margin = new System.Windows.Forms.Padding(3);
+            this.Tab_Arrivées.Size = new System.Drawing.Size(1297, 532);
             // 
             // Tab_Départs
             // 
+            this.Tab_Départs.Controls.Add(this.uc_departs);
+            this.Tab_Départs.Location = new System.Drawing.Point(4, 25);
             this.Tab_Départs.Margin = new System.Windows.Forms.Padding(3);
+            this.Tab_Départs.Size = new System.Drawing.Size(1297, 532);
+            // 
+            // uc_chambre
+            // 
+            this.uc_chambre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uc_chambre.Location = new System.Drawing.Point(0, 0);
+            this.uc_chambre.Name = "uc_chambre";
+            this.uc_chambre.Size = new System.Drawing.Size(1297, 532);
+            this.uc_chambre.TabIndex = 0;
+            // 
+            // uc_departs
+            // 
+            this.uc_departs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uc_departs.Location = new System.Drawing.Point(0, 0);
+            this.uc_departs.Name = "uc_departs";
+            this.uc_departs.Size = new System.Drawing.Size(1297, 532);
+            this.uc_departs.TabIndex = 0;
             // 
             // uc_reservation
             // 
@@ -60,7 +92,7 @@ namespace PrjEq01_Application
             this.uc_reservation.Location = new System.Drawing.Point(0, 0);
             this.uc_reservation.Margin = new System.Windows.Forms.Padding(2);
             this.uc_reservation.Name = "uc_reservation";
-            this.uc_reservation.Size = new System.Drawing.Size(856, 423);
+            this.uc_reservation.Size = new System.Drawing.Size(1142, 522);
             this.uc_reservation.TabIndex = 0;
             // 
             // uc_arrive
@@ -96,5 +128,7 @@ namespace PrjEq01_Application
 
         private Tabs.UC_Reservation uc_reservation;
         private Tabs.UC_Arrive uc_arrive;
+        private Tabs.UC_Chambre uc_chambre;
+        private Tabs.UC_Departs uc_departs;
     }
 }

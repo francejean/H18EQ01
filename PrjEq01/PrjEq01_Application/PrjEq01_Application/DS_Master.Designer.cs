@@ -7554,12 +7554,6 @@ SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE (IdArrive 
             tableMapping.ColumnMappings.Add("NoCham", "NoCham");
             tableMapping.ColumnMappings.Add("CodCom", "CodCom");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[AYANT] ([NoCham], [CodCom]) VALUES (@NoCham, @CodCom)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NoCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoCham", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodCom", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodCom", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7575,7 +7569,8 @@ SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE (IdArrive 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT NoCham, CodCom FROM dbo.AYANT";
+            this._commandCollection[0].CommandText = "SELECT AYANT.NoCham, AYANT.CodCom, COMMODITE.DescCom\r\nFROM     AYANT INNER JOIN\r\n" +
+                "                  COMMODITE ON AYANT.CodCom = COMMODITE.CodCom";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7601,68 +7596,6 @@ SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE (IdArrive 
             DS_Master.AYANTDataTable dataTable = new DS_Master.AYANTDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DS_Master.AYANTDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DS_Master dataSet) {
-            return this.Adapter.Update(dataSet, "AYANT");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NoCham, string CodCom) {
-            if ((NoCham == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NoCham));
-            }
-            if ((CodCom == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CodCom));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -11982,8 +11915,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
         
         private ARRIVETableAdapter _aRRIVETableAdapter;
         
-        private AYANTTableAdapter _aYANTTableAdapter;
-        
         private CHAMBRETableAdapter _cHAMBRETableAdapter;
         
         private CLIENTTableAdapter _cLIENTTableAdapter;
@@ -12030,20 +11961,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
             }
             set {
                 this._aRRIVETableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public AYANTTableAdapter AYANTTableAdapter {
-            get {
-                return this._aYANTTableAdapter;
-            }
-            set {
-                this._aYANTTableAdapter = value;
             }
         }
         
@@ -12210,10 +12127,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                             && (this._aRRIVETableAdapter.Connection != null))) {
                     return this._aRRIVETableAdapter.Connection;
                 }
-                if (((this._aYANTTableAdapter != null) 
-                            && (this._aYANTTableAdapter.Connection != null))) {
-                    return this._aYANTTableAdapter.Connection;
-                }
                 if (((this._cHAMBRETableAdapter != null) 
                             && (this._cHAMBRETableAdapter.Connection != null))) {
                     return this._cHAMBRETableAdapter.Connection;
@@ -12268,9 +12181,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
             get {
                 int count = 0;
                 if ((this._aRRIVETableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._aYANTTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._cHAMBRETableAdapter != null)) {
@@ -12386,15 +12296,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._aYANTTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.AYANT.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._aYANTTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._dETableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.DE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -12496,14 +12397,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._aYANTTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.AYANT.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._aYANTTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._dETableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.DE.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -12559,14 +12452,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._dETableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._aYANTTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.AYANT.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._aYANTTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -12678,11 +12563,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._aYANTTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._aYANTTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._cHAMBRETableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._cHAMBRETableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -12772,15 +12652,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                     if (this._aRRIVETableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._aRRIVETableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._aRRIVETableAdapter.Adapter);
-                    }
-                }
-                if ((this._aYANTTableAdapter != null)) {
-                    revertConnections.Add(this._aYANTTableAdapter, this._aYANTTableAdapter.Connection);
-                    this._aYANTTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._aYANTTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._aYANTTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._aYANTTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._aYANTTableAdapter.Adapter);
                     }
                 }
                 if ((this._cHAMBRETableAdapter != null)) {
@@ -12934,10 +12805,6 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                 if ((this._aRRIVETableAdapter != null)) {
                     this._aRRIVETableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._aRRIVETableAdapter]));
                     this._aRRIVETableAdapter.Transaction = null;
-                }
-                if ((this._aYANTTableAdapter != null)) {
-                    this._aYANTTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._aYANTTableAdapter]));
-                    this._aYANTTableAdapter.Transaction = null;
                 }
                 if ((this._cHAMBRETableAdapter != null)) {
                     this._cHAMBRETableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cHAMBRETableAdapter]));

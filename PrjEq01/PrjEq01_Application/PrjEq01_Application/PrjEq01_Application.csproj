@@ -76,6 +76,18 @@
     <Compile Include="Tabs\UC_Reservation.Designer.cs">
       <DependentUpon>UC_Reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tabs\UC_Chambre.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\UC_Chambre.Designer.cs">
+      <DependentUpon>UC_Chambre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\UC_Departs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\UC_Departs.Designer.cs">
+      <DependentUpon>UC_Departs.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Info_Client\IC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,6 +105,12 @@
     </Compile>
     <Compile Include="UserControls\Info_Reservation\IR_Arrive.Designer.cs">
       <DependentUpon>IR_Arrive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\IR_Depart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Reservation\IR_Depart.Designer.cs">
+      <DependentUpon>IR_Depart.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Liste_Chambre.cs">
       <SubType>UserControl</SubType>
@@ -127,6 +145,12 @@
     <EmbeddedResource Include="Tabs\UC_Reservation.resx">
       <DependentUpon>UC_Reservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\UC_Chambre.resx">
+      <DependentUpon>UC_Chambre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\UC_Departs.resx">
+      <DependentUpon>UC_Departs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Arrive.resx">
       <DependentUpon>IC_Arrive.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Reservation\IR_Base.resx">
       <DependentUpon>IR_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation\IR_Depart.resx">
+      <DependentUpon>IR_Depart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Liste_Chambre.resx">
       <DependentUpon>Liste_Chambre.cs</DependentUpon>

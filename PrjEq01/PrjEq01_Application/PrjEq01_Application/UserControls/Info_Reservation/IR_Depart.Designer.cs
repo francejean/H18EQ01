@@ -1,34 +1,34 @@
-namespace PrjEq01_Application.UserControls
+﻿namespace PrjEq01_Application.UserControls.Info_Reservation
 {
-	partial class IR_Base
-	{
-		/// <summary> 
-		/// Variable nécessaire au concepteur.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class IR_Depart
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary> 
-		/// Nettoyage des ressources utilisées.
-		/// </summary>
-		/// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Code généré par le Concepteur de composants
+        #region Component Designer generated code
 
-		/// <summary> 
-		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
-		/// le contenu de cette méthode avec l'éditeur de code.
-		/// </summary>
-		private void InitializeComponent()
-		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IR_Base));
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IR_Depart));
             this.gb_reserv = new System.Windows.Forms.GroupBox();
             this.DTP_Fin = new System.Windows.Forms.DateTimePicker();
             this.DTP_Debut = new System.Windows.Forms.DateTimePicker();
@@ -39,6 +39,8 @@ namespace PrjEq01_Application.UserControls
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.gb_reserv.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +49,8 @@ namespace PrjEq01_Application.UserControls
             this.gb_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gb_reserv.Controls.Add(this.textBox1);
+            this.gb_reserv.Controls.Add(this.label5);
             this.gb_reserv.Controls.Add(this.DTP_Fin);
             this.gb_reserv.Controls.Add(this.DTP_Debut);
             this.gb_reserv.Controls.Add(this.DTP_Reserv);
@@ -57,12 +61,12 @@ namespace PrjEq01_Application.UserControls
             this.gb_reserv.Controls.Add(this.label2);
             this.gb_reserv.Controls.Add(this.label3);
             this.gb_reserv.Location = new System.Drawing.Point(0, 0);
-            this.gb_reserv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_reserv.Margin = new System.Windows.Forms.Padding(4);
             this.gb_reserv.MinimumSize = new System.Drawing.Size(259, 209);
             this.gb_reserv.Name = "gb_reserv";
-            this.gb_reserv.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_reserv.Padding = new System.Windows.Forms.Padding(4);
             this.gb_reserv.Size = new System.Drawing.Size(267, 234);
-            this.gb_reserv.TabIndex = 0;
+            this.gb_reserv.TabIndex = 1;
             this.gb_reserv.TabStop = false;
             this.gb_reserv.Text = "Information sur la réservation";
             // 
@@ -72,7 +76,7 @@ namespace PrjEq01_Application.UserControls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_Fin.Location = new System.Drawing.Point(129, 139);
-            this.DTP_Fin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DTP_Fin.Margin = new System.Windows.Forms.Padding(4);
             this.DTP_Fin.Name = "DTP_Fin";
             this.DTP_Fin.Size = new System.Drawing.Size(128, 22);
             this.DTP_Fin.TabIndex = 21;
@@ -83,7 +87,7 @@ namespace PrjEq01_Application.UserControls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_Debut.Location = new System.Drawing.Point(129, 107);
-            this.DTP_Debut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DTP_Debut.Margin = new System.Windows.Forms.Padding(4);
             this.DTP_Debut.Name = "DTP_Debut";
             this.DTP_Debut.Size = new System.Drawing.Size(128, 22);
             this.DTP_Debut.TabIndex = 20;
@@ -94,7 +98,7 @@ namespace PrjEq01_Application.UserControls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DTP_Reserv.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_Reserv.Location = new System.Drawing.Point(129, 75);
-            this.DTP_Reserv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DTP_Reserv.Margin = new System.Windows.Forms.Padding(4);
             this.DTP_Reserv.Name = "DTP_Reserv";
             this.DTP_Reserv.Size = new System.Drawing.Size(128, 22);
             this.DTP_Reserv.TabIndex = 19;
@@ -110,14 +114,13 @@ namespace PrjEq01_Application.UserControls
             this.bt_list.Size = new System.Drawing.Size(27, 25);
             this.bt_list.TabIndex = 1;
             this.bt_list.UseVisualStyleBackColor = true;
-            this.bt_list.Click += new System.EventHandler(this.bt_list_Click);
             // 
             // tb_noReserv
             // 
             this.tb_noReserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_noReserv.Location = new System.Drawing.Point(129, 43);
-            this.tb_noReserv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_noReserv.Margin = new System.Windows.Forms.Padding(4);
             this.tb_noReserv.Name = "tb_noReserv";
             this.tb_noReserv.Size = new System.Drawing.Size(128, 22);
             this.tb_noReserv.TabIndex = 18;
@@ -162,31 +165,53 @@ namespace PrjEq01_Application.UserControls
             this.label3.TabIndex = 10;
             this.label3.Text = "Date de début";
             // 
-            // IR_Base
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(129, 169);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(128, 22);
+            this.textBox1.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 172);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 17);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Confirmé par";
+            // 
+            // IR_Depart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_reserv);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimumSize = new System.Drawing.Size(267, 234);
-            this.Name = "IR_Base";
+            this.Name = "IR_Depart";
             this.Size = new System.Drawing.Size(267, 234);
             this.gb_reserv.ResumeLayout(false);
             this.gb_reserv.PerformLayout();
             this.ResumeLayout(false);
 
-		}
+        }
 
-		#endregion
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
-        private PrjEq01_CommonForm.Controls.Button_List bt_list;
+        #endregion
+
         public System.Windows.Forms.GroupBox gb_reserv;
         public System.Windows.Forms.DateTimePicker DTP_Fin;
         public System.Windows.Forms.DateTimePicker DTP_Debut;
         public System.Windows.Forms.DateTimePicker DTP_Reserv;
+        private PrjEq01_CommonForm.Controls.Button_List bt_list;
         public System.Windows.Forms.TextBox tb_noReserv;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
