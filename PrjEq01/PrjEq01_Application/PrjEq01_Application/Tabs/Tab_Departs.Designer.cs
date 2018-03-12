@@ -28,29 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.saisi_Info_Client1 = new PrjEq01_Application.UserControls.IC_Base();
-            this.info_Reservation1 = new PrjEq01_Application.UserControls.IR_Base();
             this.lb_noDepart = new System.Windows.Forms.Label();
             this.tb_noDepart = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // saisi_Info_Client1
-            // 
-            this.saisi_Info_Client1.Location = new System.Drawing.Point(4, 4);
-            this.saisi_Info_Client1.Margin = new System.Windows.Forms.Padding(4);
-            this.saisi_Info_Client1.MinimumSize = new System.Drawing.Size(487, 234);
-            this.saisi_Info_Client1.Name = "saisi_Info_Client1";
-            this.saisi_Info_Client1.Size = new System.Drawing.Size(487, 234);
-            this.saisi_Info_Client1.TabIndex = 0;
-            // 
-            // info_Reservation1
-            // 
-            this.info_Reservation1.Location = new System.Drawing.Point(499, 4);
-            this.info_Reservation1.Margin = new System.Windows.Forms.Padding(4);
-            this.info_Reservation1.MinimumSize = new System.Drawing.Size(267, 234);
-            this.info_Reservation1.Name = "info_Reservation1";
-            this.info_Reservation1.Size = new System.Drawing.Size(267, 234);
-            this.info_Reservation1.TabIndex = 1;
             // 
             // lb_noDepart
             // 
@@ -77,8 +57,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tb_noDepart);
             this.Controls.Add(this.lb_noDepart);
-            this.Controls.Add(this.info_Reservation1);
-            this.Controls.Add(this.saisi_Info_Client1);
             this.Name = "Tab_Departs";
             this.Size = new System.Drawing.Size(1297, 532);
             this.ResumeLayout(false);
@@ -87,9 +65,6 @@
         }
 
         #endregion
-
-        private UserControls.IC_Base saisi_Info_Client1;
-        private UserControls.IR_Base info_Reservation1;
         private System.Windows.Forms.Label lb_noDepart;
         private System.Windows.Forms.TextBox tb_noDepart;
     }
