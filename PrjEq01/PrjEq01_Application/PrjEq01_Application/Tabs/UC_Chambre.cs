@@ -31,7 +31,7 @@ namespace PrjEq01_Application.Tabs
 
         private void Fill()
         {
-            TA_CHAMBRE.FillBy(this.dS_Master.CHAMBRE);
+            TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
             TA_AYANT.Fill(this.dS_Master.AYANT);
             TA_COMMODITE.Fill(this.dS_Master.COMMODITE);
             TA_TYPECHAM.Fill(this.dS_Master.TYPECHAM);
