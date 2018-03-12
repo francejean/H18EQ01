@@ -28,10 +28,14 @@ namespace PrjEq01_Application
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.tab_Chambre1 = new PrjEq01_Application.Tabs.Tab_Chambre();
+            this.tab_Departs1 = new PrjEq01_Application.Tabs.Tab_Departs();
             this.uc_reservation = new PrjEq01_Application.Tabs.UC_Reservation();
             this.uc_arrive = new PrjEq01_Application.Tabs.UC_Arrive();
             this.Tab_Réservations.SuspendLayout();
+            this.Tab_Chambres.SuspendLayout();
             this.Tab_Arrivées.SuspendLayout();
+            this.Tab_Départs.SuspendLayout();
             this.tc_main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +47,7 @@ namespace PrjEq01_Application
             // 
             // Tab_Chambres
             // 
+            this.Tab_Chambres.Controls.Add(this.tab_Chambre1);
             this.Tab_Chambres.Margin = new System.Windows.Forms.Padding(3);
             // 
             // Tab_Arrivées
@@ -52,6 +57,7 @@ namespace PrjEq01_Application
             // 
             // Tab_Départs
             // 
+            this.Tab_Départs.Controls.Add(this.tab_Departs1);
             this.Tab_Départs.Margin = new System.Windows.Forms.Padding(3);
             // 
             // uc_reservation
@@ -74,9 +80,29 @@ namespace PrjEq01_Application
             this.uc_arrive.Size = new System.Drawing.Size(970, 430);
             this.uc_arrive.TabIndex = 1;
             // 
+            // tab_Chambre1
+            // 
+            this.tab_Chambre1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_Chambre1.Location = new System.Drawing.Point(0, 0);
+            this.tab_Chambre1.Name = "tab_Chambre1";
+            this.tab_Chambre1.Size = new System.Drawing.Size(1297, 532);
+            this.tab_Chambre1.TabIndex = 0;
+            // 
+            // tab_Departs1
+            // 
+            this.tab_Departs1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_Departs1.Location = new System.Drawing.Point(0, 0);
+            this.tab_Departs1.Name = "tab_Departs1";
+            this.tab_Departs1.Size = new System.Drawing.Size(1297, 532);
+            this.tab_Departs1.TabIndex = 0;
+            // 
             // FormApplication
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 490);
             this.Margin = new System.Windows.Forms.Padding(3);
@@ -85,7 +111,9 @@ namespace PrjEq01_Application
             this.Text = "Hotel Simulator 2018";
             this.Tab_Réservations.ResumeLayout(false);
             this.Tab_Réservations.PerformLayout();
+            this.Tab_Chambres.ResumeLayout(false);
             this.Tab_Arrivées.ResumeLayout(false);
+            this.Tab_Départs.ResumeLayout(false);
             this.tc_main.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,5 +124,7 @@ namespace PrjEq01_Application
 
         private Tabs.UC_Reservation uc_reservation;
         private Tabs.UC_Arrive uc_arrive;
+        private Tabs.Tab_Chambre tab_Chambre1;
+        private Tabs.Tab_Departs tab_Departs1;
     }
 }

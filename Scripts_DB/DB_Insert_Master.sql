@@ -96,32 +96,32 @@ VALUES ('60','PAIEMENT','CR');
 /*</TYPETRX>*/
 
 /*<CHAMBRE>*/
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham) 
-VALUES ('015', '1', 90.99, 1, NULL, 'AR', '1J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('003', '2', 99.99, 1, NULL, 'AR', '1J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('007', '1', 95.99, 1, NULL, 'AV', '2J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('010', '2', 100.99, 0, 'toilette non fonctionnel', 'AV', '2J');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('009', '1', 110.99, 1, NULL, 'AS', '1D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('004', '2', 110.99, 0, 'tapis tacher', 'AS', '1D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('006', '1', 120.99, 1, NULL, 'SM', '2D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('014', '2', 120.99, 1, NULL, 'VM', '2D');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('002', '3', 125.99, 1, NULL, 'AS', 'LQ');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('011', '3', 130.99, 1, NULL, 'VM', 'LK');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('001', '4', 160.99, 1, NULL, 'VM', 'ST');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('005', '4', 100.99, 1, NULL, 'AR', 'SR');
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)
-VALUES ('008', '4', 100.99, 1, NULL, 'AS', 'SR');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0102', '1', 90.99, 1, NULL, 'AR', '1J');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0202', '2', 99.99, 1, NULL, 'AR', '1J');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0104', '1', 95.99, 1, NULL, 'AV', '2J');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0201', '2', 100.99, 0, 'toilette non fonctionnel', 'AV', '2J');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0101', '1', 110.99, 1, NULL, 'AS', '1D');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0207', '2', 110.99, 0, 'tapis tacher', 'AS', '1D');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0105', '1', 120.99, 1, NULL, 'SM', '2D');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0203', '2', 120.99, 1, NULL, 'VM', '2D');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0308', '3', 125.99, 1, NULL, 'AS', 'LQ');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0310', '3', 130.99, 1, NULL, 'VM', 'LK');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0401', '4', 160.99, 1, NULL, 'VM', 'ST');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0402', '4', 100.99, 1, NULL, 'AR', 'SR');
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType) 
+VALUES ('0403', '4', 100.99, 1, NULL, 'AS', 'SR');
 /*</CHAMBRE>*/
 
 /*<AYANT>*/
