@@ -1268,7 +1268,6 @@ namespace PrjEq01_Application {
                 base.Columns.Add(this.columnDescCom);
                 this.columnNoCham.MaxLength = 3;
                 this.columnCodCom.MaxLength = 2;
-                this.columnDescCom.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1418,7 +1417,7 @@ namespace PrjEq01_Application {
             
             private global::System.Data.DataColumn columnDescCom;
             
-            private global::System.Data.DataColumn columnDescTyp;
+            private global::System.Data.DataColumn columnDescLoc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1519,9 +1518,9 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DescTypColumn {
+            public global::System.Data.DataColumn DescLocColumn {
                 get {
-                    return this.columnDescTyp;
+                    return this.columnDescLoc;
                 }
             }
             
@@ -1562,7 +1561,7 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CHAMBRERow AddCHAMBRERow(string NoCham, string Etage, decimal Prix, byte Etat, string Memo, LOCALISATIONRow parentLOCALISATIONRowByCHAMBRE_FK_CodLoc, TYPECHAMRow parentTYPECHAMRowByCHAMBRE_FK_CodTypCham, string DescCom, string DescTyp) {
+            public CHAMBRERow AddCHAMBRERow(string NoCham, string Etage, decimal Prix, byte Etat, string Memo, LOCALISATIONRow parentLOCALISATIONRowByCHAMBRE_FK_CodLoc, TYPECHAMRow parentTYPECHAMRowByCHAMBRE_FK_CodTypCham, string DescCom, string DescLoc) {
                 CHAMBRERow rowCHAMBRERow = ((CHAMBRERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NoCham,
@@ -1573,7 +1572,7 @@ namespace PrjEq01_Application {
                         null,
                         null,
                         DescCom,
-                        DescTyp};
+                        DescLoc};
                 if ((parentLOCALISATIONRowByCHAMBRE_FK_CodLoc != null)) {
                     columnValuesArray[5] = parentLOCALISATIONRowByCHAMBRE_FK_CodLoc[0];
                 }
@@ -1617,7 +1616,7 @@ namespace PrjEq01_Application {
                 this.columnCodLoc = base.Columns["CodLoc"];
                 this.columnCodTypCham = base.Columns["CodTypCham"];
                 this.columnDescCom = base.Columns["DescCom"];
-                this.columnDescTyp = base.Columns["DescTyp"];
+                this.columnDescLoc = base.Columns["DescLoc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1639,8 +1638,8 @@ namespace PrjEq01_Application {
                 base.Columns.Add(this.columnCodTypCham);
                 this.columnDescCom = new global::System.Data.DataColumn("DescCom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescCom);
-                this.columnDescTyp = new global::System.Data.DataColumn("DescTyp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescTyp);
+                this.columnDescLoc = new global::System.Data.DataColumn("DescLoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescLoc);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNoCham}, true));
                 this.columnNoCham.AllowDBNull = false;
@@ -5045,17 +5044,17 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DescTyp {
+            public string DescLoc {
                 get {
                     try {
-                        return ((string)(this[this.tableCHAMBRE.DescTypColumn]));
+                        return ((string)(this[this.tableCHAMBRE.DescLocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescTyp\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DescLoc\' in table \'CHAMBRE\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCHAMBRE.DescTypColumn] = value;
+                    this[this.tableCHAMBRE.DescLocColumn] = value;
                 }
             }
             
@@ -5167,14 +5166,14 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDescTypNull() {
-                return this.IsNull(this.tableCHAMBRE.DescTypColumn);
+            public bool IsDescLocNull() {
+                return this.IsNull(this.tableCHAMBRE.DescLocColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDescTypNull() {
-                this[this.tableCHAMBRE.DescTypColumn] = global::System.Convert.DBNull;
+            public void SetDescLocNull() {
+                this[this.tableCHAMBRE.DescLocColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7841,11 +7840,10 @@ SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (N
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT CHAMBRE.NoCham, CHAMBRE.Etage, CHAMBRE.Prix, CHAMBRE.Etat, CHAMBRE.Memo, CHAMBRE.CodLoc, CHAMBRE.CodTypCham, COMMODITE.DescCom, TYPECHAM.DescTyp
+            this._commandCollection[1].CommandText = @"SELECT CHAMBRE.NoCham, CHAMBRE.Etage, CHAMBRE.Prix, CHAMBRE.Etat, CHAMBRE.Memo, CHAMBRE.CodLoc, CHAMBRE.CodTypCham, TYPECHAM.DescTyp, LOCALISATION.DescLoc
 FROM     CHAMBRE INNER JOIN
                   TYPECHAM ON CHAMBRE.CodTypCham = TYPECHAM.CodTypCham INNER JOIN
-                  AYANT ON CHAMBRE.NoCham = AYANT.NoCham INNER JOIN
-                  COMMODITE ON AYANT.CodCom = COMMODITE.CodCom";
+                  LOCALISATION ON CHAMBRE.CodLoc = LOCALISATION.CodLoc";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         

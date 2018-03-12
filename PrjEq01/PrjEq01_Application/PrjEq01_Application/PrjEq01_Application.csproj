@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_Master.cs">
+      <DependentUpon>DS_Master.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_Master.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
