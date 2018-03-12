@@ -94,6 +94,12 @@
     <Compile Include="UserControls\Info_Client\IC_Arrive.Designer.cs">
       <DependentUpon>IC_Arrive.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Info_Client\IC_Reserv.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Client\IC_Reserv.Designer.cs">
+      <DependentUpon>IC_Reserv.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Info_Reservation\IR_Base.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Arrive.resx">
       <DependentUpon>IC_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Client\IC_Reserv.resx">
+      <DependentUpon>IC_Reserv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Reservation\IR_Arrive.resx">
       <DependentUpon>IR_Arrive.cs</DependentUpon>

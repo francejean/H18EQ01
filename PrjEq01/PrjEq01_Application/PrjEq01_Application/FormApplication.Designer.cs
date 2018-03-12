@@ -121,7 +121,6 @@ namespace PrjEq01_Application
             this.tc_main.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
 		}
 
         #endregion
