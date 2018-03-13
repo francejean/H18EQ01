@@ -76,7 +76,7 @@
       <RoutePoints>
         <Point>
           <X>269</X>
-          <Y>389</Y>
+          <Y>396</Y>
         </Point>
         <Point>
           <X>269</X>
@@ -100,7 +100,7 @@
         </Point>
         <Point>
           <X>261</X>
-          <Y>389</Y>
+          <Y>396</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -116,7 +116,7 @@
         </Point>
         <Point>
           <X>253</X>
-          <Y>389</Y>
+          <Y>396</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -140,7 +140,7 @@
       <RoutePoints>
         <Point>
           <X>277</X>
-          <Y>389</Y>
+          <Y>396</Y>
         </Point>
         <Point>
           <X>277</X>
@@ -188,7 +188,7 @@
       <RoutePoints>
         <Point>
           <X>285</X>
-          <Y>389</Y>
+          <Y>396</Y>
         </Point>
         <Point>
           <X>285</X>
@@ -271,11 +271,11 @@
     <Connector ID="DesignRelation:TRX_FK_NoCham" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>293</X>
-          <Y>389</Y>
+          <X>288</X>
+          <Y>396</Y>
         </Point>
         <Point>
-          <X>293</X>
+          <X>288</X>
           <Y>704</Y>
         </Point>
         <Point>

@@ -198,6 +198,16 @@ FROM     CHAMBRE INNER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByARRIVE" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByARRIVE" GeneratorSourceName="FillByARRIVE" GetMethodModifier="Public" GetMethodName="GetDataByARRIVE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByARRIVE" UserSourceName="FillByARRIVE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CHAMBRE.NoCham, CHAMBRE.Prix, CHAMBRE.Etat, TYPECHAM.DescTyp
+FROM            CHAMBRE INNER JOIN
+                         TYPECHAM ON CHAMBRE.CodTypCham = TYPECHAM.CodTypCham</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CLIENTTableAdapter" GeneratorDataComponentClassName="CLIENTTableAdapter" Name="CLIENT" UserDataComponentName="CLIENTTableAdapter">
