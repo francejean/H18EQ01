@@ -26,7 +26,7 @@ namespace PrjEq01_Application.UserControls
         {
             try
             {
-                //this.cHAMBRETableAdapter.FillByARRIVE(this.dS_Master.CHAMBRE);
+                this.cHAMBRETableAdapter.FillByARRIVE(this.dS_Master.CHAMBRE);
             }
             catch (System.Exception ex)
             {
@@ -39,7 +39,7 @@ namespace PrjEq01_Application.UserControls
         {
             try
             {
-                //this.cHAMBRETableAdapter.FillByARRIVE(this.dS_Master.CHAMBRE);
+                this.cHAMBRETableAdapter.FillByARRIVE(this.dS_Master.CHAMBRE);
             }
             catch (System.Exception ex)
             {
@@ -52,7 +52,7 @@ namespace PrjEq01_Application.UserControls
         {
             try
             {
-                //this.cHAMBRETableAdapter.FillByARRIVE(this.dS_Master.CHAMBRE);
+                this.cHAMBRETableAdapter.FillByARRIVE(this.dS_Master.CHAMBRE);
             }
             catch (System.Exception ex)
             {
