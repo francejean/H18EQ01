@@ -35,6 +35,8 @@ namespace PrjEq01_Application.Tabs
 			Link_CLIENT();
 			Link_RESERVATION();
 			Link_CHAMBRE();
+
+            Sync_ForeignTables();
 		}
 
 		private void Link_ARRIVE()
@@ -111,6 +113,13 @@ namespace PrjEq01_Application.Tabs
             tb_noArrive.ReadOnly = state;
         }
 
+        public bool Sync_ForeignTables()
+        {
+            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["ARRIVE"].Rows[BS_CLIENT.Position]["IdCli"]);
+            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DS_Master.Tables["ARRIVE"].Rows[BS_CLIENT.Position]["IdReser"]);
+            return false;
+        }
+
         public void Add()
         {
             MessageBox.Show("Fonction en développement.");
@@ -143,21 +152,29 @@ namespace PrjEq01_Application.Tabs
         public void Go_Start()
         {
             BS_ARRIVE.MoveFirst();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
 
         public void Go_Back()
         {
             BS_ARRIVE.MovePrevious();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
 
         public void Go_Forward()
         {
             BS_ARRIVE.MoveNext();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
 
         public void Go_End()
         {
             BS_ARRIVE.MoveLast();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
     }
 }
