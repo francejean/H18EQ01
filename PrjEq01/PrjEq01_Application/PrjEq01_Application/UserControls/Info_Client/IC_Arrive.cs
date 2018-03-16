@@ -10,9 +10,9 @@ namespace PrjEq01_Application.UserControls.Info_Client
 {
 	public partial class IC_Arrive : PrjEq01_Application.UserControls.IC_Base
 	{
-		public IC_Arrive()
+        public IC_Arrive()
 		{
 			InitializeComponent();
 		}
-	}
+    }
 }

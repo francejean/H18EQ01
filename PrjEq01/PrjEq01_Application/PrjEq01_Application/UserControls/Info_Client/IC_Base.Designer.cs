@@ -88,6 +88,7 @@
             // 
             this.tb_noCarte.Location = new System.Drawing.Point(259, 113);
             this.tb_noCarte.Name = "tb_noCarte";
+            this.tb_noCarte.ReadOnly = true;
             this.tb_noCarte.Size = new System.Drawing.Size(100, 20);
             this.tb_noCarte.TabIndex = 13;
             // 
@@ -104,6 +105,7 @@
             // 
             this.tb_nomClient.Location = new System.Drawing.Point(259, 35);
             this.tb_nomClient.Name = "tb_nomClient";
+            this.tb_nomClient.ReadOnly = true;
             this.tb_nomClient.Size = new System.Drawing.Size(100, 20);
             this.tb_nomClient.TabIndex = 11;
             // 
@@ -120,6 +122,7 @@
             // 
             this.tb_typeCarte.Location = new System.Drawing.Point(87, 113);
             this.tb_typeCarte.Name = "tb_typeCarte";
+            this.tb_typeCarte.ReadOnly = true;
             this.tb_typeCarte.Size = new System.Drawing.Size(100, 20);
             this.tb_typeCarte.TabIndex = 9;
             // 
@@ -136,6 +139,7 @@
             // 
             this.tb_expiration.Location = new System.Drawing.Point(87, 139);
             this.tb_expiration.Name = "tb_expiration";
+            this.tb_expiration.ReadOnly = true;
             this.tb_expiration.Size = new System.Drawing.Size(100, 20);
             this.tb_expiration.TabIndex = 7;
             // 
@@ -143,6 +147,7 @@
             // 
             this.tb_telephone.Location = new System.Drawing.Point(87, 87);
             this.tb_telephone.Name = "tb_telephone";
+            this.tb_telephone.ReadOnly = true;
             this.tb_telephone.Size = new System.Drawing.Size(100, 20);
             this.tb_telephone.TabIndex = 6;
             // 
@@ -150,6 +155,7 @@
             // 
             this.tb_adresse.Location = new System.Drawing.Point(87, 61);
             this.tb_adresse.Name = "tb_adresse";
+            this.tb_adresse.ReadOnly = true;
             this.tb_adresse.Size = new System.Drawing.Size(272, 20);
             this.tb_adresse.TabIndex = 5;
             // 
@@ -157,6 +163,7 @@
             // 
             this.tb_noClient.Location = new System.Drawing.Point(87, 35);
             this.tb_noClient.Name = "tb_noClient";
+            this.tb_noClient.ReadOnly = true;
             this.tb_noClient.Size = new System.Drawing.Size(100, 20);
             this.tb_noClient.TabIndex = 1;
             // 

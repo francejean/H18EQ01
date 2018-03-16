@@ -97,19 +97,36 @@ namespace PrjEq01_Application.Tabs
 			catch (Exception ee) { MessageBox.Show(ee.Message); }
 		}
 
+        public void SetReadOnly(bool state)
+        {
+            List<IReadOnly> consult_controls = new List<IReadOnly>();
+            consult_controls.Add(ic_arrive);
+            consult_controls.Add(ir_arrive);
+
+            foreach(IReadOnly consult_control in consult_controls)
+            {
+                consult_control.SetReadOnly(state);
+            }
+
+            tb_noArrive.ReadOnly = state;
+        }
+
         public void Add()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(false);
         }
 
         public void Edit()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(false);
         }
 
         public void Delete()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(true);
         }
 
         public void Undo()
@@ -120,6 +137,7 @@ namespace PrjEq01_Application.Tabs
         public void Save()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(true);
         }
 
         public void Go_Start()

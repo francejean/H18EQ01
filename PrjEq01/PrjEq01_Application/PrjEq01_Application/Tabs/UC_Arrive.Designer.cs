@@ -70,6 +70,7 @@
             // 
             this.tb_noArrive.Location = new System.Drawing.Point(580, 19);
             this.tb_noArrive.Name = "tb_noArrive";
+            this.tb_noArrive.ReadOnly = true;
             this.tb_noArrive.Size = new System.Drawing.Size(100, 20);
             this.tb_noArrive.TabIndex = 12;
             // 
