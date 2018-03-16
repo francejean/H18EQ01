@@ -33,11 +33,11 @@ void NomMethode()
 ```
 ```
 Abbreviation du type du control (2 lettres min.) + "_" + fonction du control
-Lower camel case
+lowerCamelCase
 ex : "bt_home", "dgv_chambresLouees"
 ```
 ```
-Form : "From" + fonction
+Form : "Form" + fonction
 ```
 ### DB
 
@@ -46,8 +46,6 @@ CREATE TABLE NOMTABLE
 (
     NomChamp        INT     NOT NULL,
     CleEtrangere    INT     NULL
-    FOREIGN KEY (IdReser),
-    FOREIGN KEY (NoCham)    REFERENCES CHAMBRE(NoCham)
 );
 ```
 ```
@@ -59,8 +57,6 @@ ALTER TABLE <NOM_TABLE>
 
 ### Fichiers
 
-**DB_CREATE_** + ( E1, E2, ... )  + **.sql**= "DB_CREATE_E1.sql" 
-**DB_INSERT_** + ( E1, E2, ... )  + **.sql**= "DB_INSERT_E1.sql" 
 **Images** : Nom_Image(Nom_Auteur).png
 
 
