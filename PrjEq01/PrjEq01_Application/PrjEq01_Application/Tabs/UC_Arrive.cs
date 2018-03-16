@@ -115,9 +115,9 @@ namespace PrjEq01_Application.Tabs
 
         public bool Sync_ForeignTables()
         {
-            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["ARRIVE"].Rows[BS_CLIENT.Position]["IdCli"]);
-            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DS_Master.Tables["ARRIVE"].Rows[BS_CLIENT.Position]["IdReser"]);
-            return false;
+            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+            return true;
         }
 
         public void Add()
