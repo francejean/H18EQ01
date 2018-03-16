@@ -52,13 +52,14 @@
             this.tb_noArrivee.Location = new System.Drawing.Point(774, 25);
             this.tb_noArrivee.Margin = new System.Windows.Forms.Padding(4);
             this.tb_noArrivee.Name = "tb_noArrivee";
+            this.tb_noArrivee.ReadOnly = true;
             this.tb_noArrivee.Size = new System.Drawing.Size(132, 22);
             this.tb_noArrivee.TabIndex = 13;
             // 
             // ir_departs
             // 
             this.ir_departs.Location = new System.Drawing.Point(499, 4);
-            this.ir_departs.Margin = new System.Windows.Forms.Padding(4);
+            this.ir_departs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ir_departs.MinimumSize = new System.Drawing.Size(267, 234);
             this.ir_departs.Name = "ir_departs";
             this.ir_departs.Size = new System.Drawing.Size(267, 234);
