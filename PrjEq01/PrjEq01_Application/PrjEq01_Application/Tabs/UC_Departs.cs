@@ -17,6 +17,20 @@ namespace PrjEq01_Application.Tabs
             InitializeComponent();
         }
 
+        public void SetReadOnly(bool state)
+        {
+            List<IReadOnly> consult_controls = new List<IReadOnly>();
+            consult_controls.Add(ic_base);
+            consult_controls.Add(ir_departs);
+
+            foreach (IReadOnly consult_control in consult_controls)
+            {
+                consult_control.SetReadOnly(state);
+            }
+
+            tb_noArrivee.ReadOnly = state;
+        }
+
         public void Add()
         {
             MessageBox.Show("Fonction en développement.");
