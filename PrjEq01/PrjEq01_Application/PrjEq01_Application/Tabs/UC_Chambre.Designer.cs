@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Chambre));
             this.lb_noCham = new System.Windows.Forms.Label();
             this.lb_etage = new System.Windows.Forms.Label();
             this.tb_etage = new System.Windows.Forms.TextBox();
@@ -39,6 +40,9 @@
             this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
             this.BS_AYANT = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_commodite = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BS_COMMODITE = new System.Windows.Forms.BindingSource(this.components);
             this.BS_TYPECHAM = new System.Windows.Forms.BindingSource(this.components);
             this.tb_noCham = new System.Windows.Forms.TextBox();
@@ -58,9 +62,12 @@
             this.TA_COMMODITE = new PrjEq01_Application.DS_MasterTableAdapters.COMMODITETableAdapter();
             this.TA_TYPECHAM = new PrjEq01_Application.DS_MasterTableAdapters.TYPECHAMTableAdapter();
             this.gb_infoChambre = new System.Windows.Forms.GroupBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gb_commodite = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.bt_list = new PrjEq01_CommonForm.Controls.Button_List();
+            this.button_List1 = new PrjEq01_CommonForm.Controls.Button_List();
+            this.button_List2 = new PrjEq01_CommonForm.Controls.Button_List();
+            this.button_List3 = new PrjEq01_CommonForm.Controls.Button_List();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_AYANT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_commodite)).BeginInit();
@@ -68,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BS_TYPECHAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).BeginInit();
             this.gb_infoChambre.SuspendLayout();
+            this.gb_commodite.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_noCham
@@ -90,9 +98,10 @@
             // 
             // tb_etage
             // 
-            this.tb_etage.Location = new System.Drawing.Point(82, 73);
+            this.tb_etage.Location = new System.Drawing.Point(64, 75);
             this.tb_etage.Name = "tb_etage";
-            this.tb_etage.Size = new System.Drawing.Size(132, 22);
+            this.tb_etage.ReadOnly = true;
+            this.tb_etage.Size = new System.Drawing.Size(116, 22);
             this.tb_etage.TabIndex = 3;
             // 
             // lb_etat
@@ -106,9 +115,10 @@
             // 
             // tb_etat
             // 
-            this.tb_etat.Location = new System.Drawing.Point(82, 125);
+            this.tb_etat.Location = new System.Drawing.Point(64, 125);
             this.tb_etat.Name = "tb_etat";
-            this.tb_etat.Size = new System.Drawing.Size(34, 22);
+            this.tb_etat.ReadOnly = true;
+            this.tb_etat.Size = new System.Drawing.Size(116, 22);
             this.tb_etat.TabIndex = 5;
             // 
             // lb_codeType
@@ -139,18 +149,44 @@
             this.Column1,
             this.Description,
             this.Column2});
-            this.dgv_commodite.Location = new System.Drawing.Point(3, 201);
+            this.dgv_commodite.Location = new System.Drawing.Point(39, 21);
             this.dgv_commodite.Name = "dgv_commodite";
+            this.dgv_commodite.ReadOnly = true;
             this.dgv_commodite.RowTemplate.Height = 24;
-            this.dgv_commodite.Size = new System.Drawing.Size(985, 317);
+            this.dgv_commodite.Size = new System.Drawing.Size(940, 301);
             this.dgv_commodite.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "CodCom";
+            this.Column1.HeaderText = "CODCOM";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 130;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.DataPropertyName = "DescCom";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "NoCham";
+            this.Column2.HeaderText = "No. Cham";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 130;
             // 
             // tb_noCham
             // 
             this.tb_noCham.Location = new System.Drawing.Point(82, 22);
             this.tb_noCham.Margin = new System.Windows.Forms.Padding(4);
             this.tb_noCham.Name = "tb_noCham";
-            this.tb_noCham.Size = new System.Drawing.Size(132, 22);
+            this.tb_noCham.ReadOnly = true;
+            this.tb_noCham.Size = new System.Drawing.Size(98, 22);
             this.tb_noCham.TabIndex = 14;
             // 
             // lb_prix
@@ -165,7 +201,7 @@
             // lb_descLoc
             // 
             this.lb_descLoc.AutoSize = true;
-            this.lb_descLoc.Location = new System.Drawing.Point(499, 78);
+            this.lb_descLoc.Location = new System.Drawing.Point(511, 78);
             this.lb_descLoc.Name = "lb_descLoc";
             this.lb_descLoc.Size = new System.Drawing.Size(87, 17);
             this.lb_descLoc.TabIndex = 16;
@@ -174,7 +210,7 @@
             // lb_descType
             // 
             this.lb_descType.AutoSize = true;
-            this.lb_descType.Location = new System.Drawing.Point(499, 27);
+            this.lb_descType.Location = new System.Drawing.Point(511, 27);
             this.lb_descType.Name = "lb_descType";
             this.lb_descType.Size = new System.Drawing.Size(87, 17);
             this.lb_descType.TabIndex = 17;
@@ -183,7 +219,7 @@
             // lb_memo
             // 
             this.lb_memo.AutoSize = true;
-            this.lb_memo.Location = new System.Drawing.Point(442, 128);
+            this.lb_memo.Location = new System.Drawing.Point(395, 128);
             this.lb_memo.Name = "lb_memo";
             this.lb_memo.Size = new System.Drawing.Size(54, 17);
             this.lb_memo.TabIndex = 18;
@@ -193,35 +229,40 @@
             // 
             this.tb_codeLoc.Location = new System.Drawing.Point(368, 75);
             this.tb_codeLoc.Name = "tb_codeLoc";
-            this.tb_codeLoc.Size = new System.Drawing.Size(100, 22);
+            this.tb_codeLoc.ReadOnly = true;
+            this.tb_codeLoc.Size = new System.Drawing.Size(81, 22);
             this.tb_codeLoc.TabIndex = 19;
             // 
             // tb_codeType
             // 
-            this.tb_codeType.Location = new System.Drawing.Point(368, 22);
+            this.tb_codeType.Location = new System.Drawing.Point(325, 22);
             this.tb_codeType.Name = "tb_codeType";
-            this.tb_codeType.Size = new System.Drawing.Size(100, 22);
+            this.tb_codeType.ReadOnly = true;
+            this.tb_codeType.Size = new System.Drawing.Size(124, 22);
             this.tb_codeType.TabIndex = 20;
             // 
             // tb_descLoc
             // 
-            this.tb_descLoc.Location = new System.Drawing.Point(592, 73);
+            this.tb_descLoc.Location = new System.Drawing.Point(604, 73);
             this.tb_descLoc.Name = "tb_descLoc";
-            this.tb_descLoc.Size = new System.Drawing.Size(372, 22);
+            this.tb_descLoc.ReadOnly = true;
+            this.tb_descLoc.Size = new System.Drawing.Size(360, 22);
             this.tb_descLoc.TabIndex = 21;
             // 
             // tb_descType
             // 
-            this.tb_descType.Location = new System.Drawing.Point(592, 24);
+            this.tb_descType.Location = new System.Drawing.Point(604, 24);
             this.tb_descType.Name = "tb_descType";
-            this.tb_descType.Size = new System.Drawing.Size(372, 22);
+            this.tb_descType.ReadOnly = true;
+            this.tb_descType.Size = new System.Drawing.Size(360, 22);
             this.tb_descType.TabIndex = 22;
             // 
             // tb_memo
             // 
-            this.tb_memo.Location = new System.Drawing.Point(502, 125);
+            this.tb_memo.Location = new System.Drawing.Point(455, 125);
             this.tb_memo.Name = "tb_memo";
-            this.tb_memo.Size = new System.Drawing.Size(462, 22);
+            this.tb_memo.ReadOnly = true;
+            this.tb_memo.Size = new System.Drawing.Size(509, 22);
             this.tb_memo.TabIndex = 23;
             // 
             // mtb_prix
@@ -229,6 +270,7 @@
             this.mtb_prix.Location = new System.Drawing.Point(271, 125);
             this.mtb_prix.Mask = "000.00$";
             this.mtb_prix.Name = "mtb_prix";
+            this.mtb_prix.ReadOnly = true;
             this.mtb_prix.Size = new System.Drawing.Size(72, 22);
             this.mtb_prix.TabIndex = 24;
             // 
@@ -255,6 +297,9 @@
             // 
             // gb_infoChambre
             // 
+            this.gb_infoChambre.Controls.Add(this.button_List3);
+            this.gb_infoChambre.Controls.Add(this.button_List2);
+            this.gb_infoChambre.Controls.Add(this.button_List1);
             this.gb_infoChambre.Controls.Add(this.tb_noCham);
             this.gb_infoChambre.Controls.Add(this.mtb_prix);
             this.gb_infoChambre.Controls.Add(this.lb_noCham);
@@ -280,34 +325,70 @@
             this.gb_infoChambre.TabStop = false;
             this.gb_infoChambre.Text = "Information sur la chambre";
             // 
-            // Column1
+            // gb_commodite
             // 
-            this.Column1.DataPropertyName = "CodCom";
-            this.Column1.HeaderText = "CODCOM";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 130;
+            this.gb_commodite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gb_commodite.Controls.Add(this.bt_list);
+            this.gb_commodite.Controls.Add(this.dgv_commodite);
+            this.gb_commodite.Location = new System.Drawing.Point(3, 201);
+            this.gb_commodite.Name = "gb_commodite";
+            this.gb_commodite.Size = new System.Drawing.Size(985, 328);
+            this.gb_commodite.TabIndex = 26;
+            this.gb_commodite.TabStop = false;
+            this.gb_commodite.Text = "Liste des commodités";
             // 
-            // Description
+            // bt_list
             // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.DataPropertyName = "DescCom";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
+            this.bt_list.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_list.BackgroundImage")));
+            this.bt_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_list.Location = new System.Drawing.Point(6, 21);
+            this.bt_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bt_list.Name = "bt_list";
+            this.bt_list.Size = new System.Drawing.Size(27, 25);
+            this.bt_list.TabIndex = 9;
+            this.bt_list.UseVisualStyleBackColor = true;
             // 
-            // Column2
+            // button_List1
             // 
-            this.Column2.DataPropertyName = "NoCham";
-            this.Column2.HeaderText = "No. Cham";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 130;
+            this.button_List1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_List1.BackgroundImage")));
+            this.button_List1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_List1.Location = new System.Drawing.Point(187, 19);
+            this.button_List1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_List1.Name = "button_List1";
+            this.button_List1.Size = new System.Drawing.Size(27, 25);
+            this.button_List1.TabIndex = 25;
+            this.button_List1.UseVisualStyleBackColor = true;
             // 
-            // Tab_Chambre
+            // button_List2
+            // 
+            this.button_List2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_List2.BackgroundImage")));
+            this.button_List2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_List2.Location = new System.Drawing.Point(455, 19);
+            this.button_List2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_List2.Name = "button_List2";
+            this.button_List2.Size = new System.Drawing.Size(27, 25);
+            this.button_List2.TabIndex = 26;
+            this.button_List2.UseVisualStyleBackColor = true;
+            // 
+            // button_List3
+            // 
+            this.button_List3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_List3.BackgroundImage")));
+            this.button_List3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_List3.Location = new System.Drawing.Point(455, 72);
+            this.button_List3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_List3.Name = "button_List3";
+            this.button_List3.Size = new System.Drawing.Size(27, 25);
+            this.button_List3.TabIndex = 27;
+            this.button_List3.UseVisualStyleBackColor = true;
+            // 
+            // UC_Chambre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gb_commodite);
             this.Controls.Add(this.gb_infoChambre);
-            this.Controls.Add(this.dgv_commodite);
-            this.Name = "Tab_Chambre";
+            this.Name = "UC_Chambre";
             this.Size = new System.Drawing.Size(1297, 532);
             this.Load += new System.EventHandler(this.Tab_Chambre_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).EndInit();
@@ -318,6 +399,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).EndInit();
             this.gb_infoChambre.ResumeLayout(false);
             this.gb_infoChambre.PerformLayout();
+            this.gb_commodite.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -356,5 +438,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.GroupBox gb_commodite;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private PrjEq01_CommonForm.Controls.Button_List button_List2;
+        private PrjEq01_CommonForm.Controls.Button_List button_List1;
+        private PrjEq01_CommonForm.Controls.Button_List bt_list;
+        private PrjEq01_CommonForm.Controls.Button_List button_List3;
     }
 }

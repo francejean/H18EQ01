@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.UserControls.Info_Reservation
 {
-    public partial class IR_Depart : UserControl
+    public partial class IR_Depart : PrjEq01_Application.UserControls.IR_Base
     {
         public IR_Depart()
         {
