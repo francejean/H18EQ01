@@ -32,7 +32,7 @@ void NomMethode()
              |-> UpperCamelCase
 ```
 ```
-Abbreviation du type du control (2 lettres min.) + "_" + fonction du control
+Abréviation du type du control (2 lettres min.) + "_" + fonction du control
 lowerCamelCase
 ex : "bt_home", "dgv_chambresLouees"
 ```
