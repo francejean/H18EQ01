@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Liste_Chambre));
             this.GroupBox_ListeChambres = new System.Windows.Forms.GroupBox();
             this.dgv_chambre = new System.Windows.Forms.DataGridView();
             this.noChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +37,6 @@
             this.etatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cHAMBREBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Master = new PrjEq01_Application.DS_Master();
-            this.bt_list = new PrjEq01_CommonForm.Controls.Button_List();
             this.cHAMBRETableAdapter = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.aRRIVEFKNoChamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aRRIVETableAdapter = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
@@ -55,7 +53,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GroupBox_ListeChambres.Controls.Add(this.dgv_chambre);
-            this.GroupBox_ListeChambres.Controls.Add(this.bt_list);
             this.GroupBox_ListeChambres.Location = new System.Drawing.Point(0, 0);
             this.GroupBox_ListeChambres.Name = "GroupBox_ListeChambres";
             this.GroupBox_ListeChambres.Size = new System.Drawing.Size(951, 256);
@@ -79,11 +76,11 @@
             this.prixDataGridViewTextBoxColumn,
             this.etatDataGridViewTextBoxColumn});
             this.dgv_chambre.DataSource = this.cHAMBREBindingSource;
-            this.dgv_chambre.Location = new System.Drawing.Point(30, 17);
+            this.dgv_chambre.Location = new System.Drawing.Point(6, 17);
             this.dgv_chambre.Name = "dgv_chambre";
             this.dgv_chambre.ReadOnly = true;
             this.dgv_chambre.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dgv_chambre.Size = new System.Drawing.Size(915, 233);
+            this.dgv_chambre.Size = new System.Drawing.Size(939, 233);
             this.dgv_chambre.TabIndex = 2;
             // 
             // noChamDataGridViewTextBoxColumn
@@ -124,18 +121,6 @@
             this.dS_Master.DataSetName = "DS_Master";
             this.dS_Master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bt_list
-            // 
-            this.bt_list.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_list.BackgroundImage")));
-            this.bt_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bt_list.Location = new System.Drawing.Point(5, 17);
-            this.bt_list.Margin = new System.Windows.Forms.Padding(2);
-            this.bt_list.Name = "bt_list";
-            this.bt_list.Size = new System.Drawing.Size(20, 20);
-            this.bt_list.TabIndex = 1;
-            this.bt_list.UseVisualStyleBackColor = true;
-            this.bt_list.Click += new System.EventHandler(this.bt_list_Click);
-            // 
             // cHAMBRETableAdapter
             // 
             this.cHAMBRETableAdapter.ClearBeforeFill = true;
@@ -167,7 +152,6 @@
         }
 
         #endregion
-        private PrjEq01_CommonForm.Controls.Button_List bt_list;
         public System.Windows.Forms.GroupBox GroupBox_ListeChambres;
         private System.Windows.Forms.BindingSource cHAMBREBindingSource;
         private DS_Master dS_Master;
