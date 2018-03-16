@@ -42,8 +42,7 @@ namespace PrjEq01_Application
             // Tab_Réservations
             // 
             this.Tab_Réservations.Controls.Add(this.uc_reservation);
-            this.Tab_Réservations.Margin = new System.Windows.Forms.Padding(3);
-            this.Tab_Réservations.Padding = new System.Windows.Forms.Padding(3);
+            this.Tab_Réservations.Size = new System.Drawing.Size(1220, 522);
             // 
             // Tab_Chambres
             // 
@@ -53,7 +52,6 @@ namespace PrjEq01_Application
             // Tab_Arrivées
             // 
             this.Tab_Arrivées.Controls.Add(this.uc_arrive);
-            this.Tab_Arrivées.Margin = new System.Windows.Forms.Padding(3);
             // 
             // Tab_Départs
             // 
@@ -104,8 +102,7 @@ namespace PrjEq01_Application
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 490);
-            this.Margin = new System.Windows.Forms.Padding(3);
-            this.MinimumSize = new System.Drawing.Size(1013, 526);
+            this.MinimumSize = new System.Drawing.Size(1013, 529);
             this.Name = "FormApplication";
             this.Text = "Hotel Simulator 2018";
             this.Tab_Réservations.ResumeLayout(false);

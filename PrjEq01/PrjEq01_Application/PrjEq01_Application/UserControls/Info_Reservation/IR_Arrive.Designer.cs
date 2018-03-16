@@ -74,6 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_noClient.Location = new System.Drawing.Point(97, 136);
             this.tb_noClient.Name = "tb_noClient";
+            this.tb_noClient.ReadOnly = true;
             this.tb_noClient.Size = new System.Drawing.Size(97, 20);
             this.tb_noClient.TabIndex = 24;
             // 
@@ -83,6 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_nom.Location = new System.Drawing.Point(97, 161);
             this.tb_nom.Name = "tb_nom";
+            this.tb_nom.ReadOnly = true;
             this.tb_nom.Size = new System.Drawing.Size(97, 20);
             this.tb_nom.TabIndex = 25;
             // 

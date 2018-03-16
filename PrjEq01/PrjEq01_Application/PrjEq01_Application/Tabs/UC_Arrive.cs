@@ -35,6 +35,8 @@ namespace PrjEq01_Application.Tabs
 			Link_CLIENT();
 			Link_RESERVATION();
 			Link_CHAMBRE();
+
+            Sync_ForeignTables();
 		}
 
 		private void Link_ARRIVE()
@@ -97,19 +99,43 @@ namespace PrjEq01_Application.Tabs
 			catch (Exception ee) { MessageBox.Show(ee.Message); }
 		}
 
+        public void SetReadOnly(bool state)
+        {
+            List<IReadOnly> consult_controls = new List<IReadOnly>();
+            consult_controls.Add(ic_arrive);
+            consult_controls.Add(ir_arrive);
+
+            foreach(IReadOnly consult_control in consult_controls)
+            {
+                consult_control.SetReadOnly(state);
+            }
+
+            tb_noArrive.ReadOnly = state;
+        }
+
+        public bool Sync_ForeignTables()
+        {
+            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["ARRIVE"].Rows[BS_CLIENT.Position]["IdCli"]);
+            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DS_Master.Tables["ARRIVE"].Rows[BS_CLIENT.Position]["IdReser"]);
+            return false;
+        }
+
         public void Add()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(false);
         }
 
         public void Edit()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(false);
         }
 
         public void Delete()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(true);
         }
 
         public void Undo()
@@ -120,26 +146,35 @@ namespace PrjEq01_Application.Tabs
         public void Save()
         {
             MessageBox.Show("Fonction en développement.");
+            SetReadOnly(true);
         }
 
         public void Go_Start()
         {
             BS_ARRIVE.MoveFirst();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
 
         public void Go_Back()
         {
             BS_ARRIVE.MovePrevious();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
 
         public void Go_Forward()
         {
             BS_ARRIVE.MoveNext();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
 
         public void Go_End()
         {
             BS_ARRIVE.MoveLast();
+            Sync_ForeignTables();
+            SetReadOnly(true);
         }
     }
 }
