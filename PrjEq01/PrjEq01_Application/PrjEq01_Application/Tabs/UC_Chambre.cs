@@ -12,6 +12,7 @@ namespace PrjEq01_Application.Tabs
 {
     public partial class UC_Chambre : UserControl, PrjEq01_CommonForm.IButtons
     {
+
         public UC_Chambre()
         {
             InitializeComponent();
@@ -130,7 +131,14 @@ namespace PrjEq01_Application.Tabs
 
         private void bt_listNoChambre_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Fonction en développement.");
+            PrjEq01_Application.List_Forms.LF_ChambreNoCham lf_chambreNoCham = new PrjEq01_Application.List_Forms.LF_ChambreNoCham();
+            lf_chambreNoCham.Dgv_noCham.DataSource = BS_CHAMBRE;
+            int tempPositionBs_CHAMBRE = BS_CHAMBRE.Position;
+            if (lf_chambreNoCham.ShowDialog() == DialogResult.Cancel)
+            {
+                BS_CHAMBRE.Position = tempPositionBs_CHAMBRE;
+            }
+            //MessageBox.Show("Fonction en développement.");
         }
 
         private void bt_listCodeType_Click(object sender, EventArgs e)
