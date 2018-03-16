@@ -1,4 +1,4 @@
-# H18EQ01
+﻿# H18EQ01
 
 ## Standards
 
@@ -35,8 +35,9 @@ void NomMethode()
              |-> UpperCamelCase
 ```
 ```
-Type du control + "_" + fonction du control
-ex : "Button_Home"
+Abbreviation du type du control (2 lettres min.) + "_" + fonction du control
+Lower camel case
+ex : "bt_home", "dgv_chambresLouees"
 ```
 ```
 Form : "From" + fonction
