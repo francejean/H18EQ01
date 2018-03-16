@@ -123,7 +123,7 @@ ALTER TABLE RESERVATION
 
 CREATE TABLE DE
 (
-    	Attribuee	BIT			NULL,
+    	Attribuee		BIT					NULL,
     	IdReser     	INT         		NULL,
     	NoCham      	VARCHAR(3)  		NULL/*,
     	FOREIGN KEY (IdReser)   REFERENCES RESERVATION(IdReser),
