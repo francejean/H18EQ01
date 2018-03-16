@@ -37,11 +37,10 @@
             this.tb_etat = new System.Windows.Forms.TextBox();
             this.lb_codeType = new System.Windows.Forms.Label();
             this.lb_codeLoc = new System.Windows.Forms.Label();
-            this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
-            this.BS_AYANT = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_commodite = new System.Windows.Forms.DataGridView();
-            this.BS_COMMODITE = new System.Windows.Forms.BindingSource(this.components);
-            this.BS_TYPECHAM = new System.Windows.Forms.BindingSource(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_noCham = new System.Windows.Forms.TextBox();
             this.lb_prix = new System.Windows.Forms.Label();
             this.lb_descLoc = new System.Windows.Forms.Label();
@@ -65,18 +64,19 @@
             this.gb_commodite = new System.Windows.Forms.GroupBox();
             this.bt_listCommodite = new PrjEq01_CommonForm.Controls.Button_List();
             this.TA_LOCALISATION = new PrjEq01_Application.DS_MasterTableAdapters.LOCALISATIONTableAdapter();
+            this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
+            this.BS_AYANT = new System.Windows.Forms.BindingSource(this.components);
+            this.BS_COMMODITE = new System.Windows.Forms.BindingSource(this.components);
+            this.BS_TYPECHAM = new System.Windows.Forms.BindingSource(this.components);
             this.BS_LOCALISATION = new System.Windows.Forms.BindingSource(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_AYANT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_commodite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_COMMODITE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_TYPECHAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).BeginInit();
             this.gb_infoChambre.SuspendLayout();
             this.gb_commodite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_AYANT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_COMMODITE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_TYPECHAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_LOCALISATION)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,7 +143,8 @@
             // 
             // dgv_commodite
             // 
-            this.dgv_commodite.AllowUserToOrderColumns = true;
+            this.dgv_commodite.AllowUserToAddRows = false;
+            this.dgv_commodite.AllowUserToDeleteRows = false;
             this.dgv_commodite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dgv_commodite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -154,9 +155,36 @@
             this.dgv_commodite.Location = new System.Drawing.Point(39, 21);
             this.dgv_commodite.Name = "dgv_commodite";
             this.dgv_commodite.ReadOnly = true;
+            this.dgv_commodite.RowHeadersVisible = false;
             this.dgv_commodite.RowTemplate.Height = 24;
             this.dgv_commodite.Size = new System.Drawing.Size(940, 301);
             this.dgv_commodite.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "CodCom";
+            this.Column1.HeaderText = "CODCOM";
+            this.Column1.MinimumWidth = 75;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 98;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.DataPropertyName = "DescCom";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "NoCham";
+            this.Column2.HeaderText = "No. Cham";
+            this.Column2.MinimumWidth = 50;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 99;
             // 
             // tb_noCham
             // 
@@ -368,32 +396,6 @@
             // 
             this.TA_LOCALISATION.ClearBeforeFill = true;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "CodCom";
-            this.Column1.HeaderText = "CODCOM";
-            this.Column1.MinimumWidth = 75;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 98;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.DataPropertyName = "DescCom";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "NoCham";
-            this.Column2.HeaderText = "No. Cham";
-            this.Column2.MinimumWidth = 50;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 99;
-            // 
             // UC_Chambre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -403,15 +405,15 @@
             this.Name = "UC_Chambre";
             this.Size = new System.Drawing.Size(1297, 532);
             this.Load += new System.EventHandler(this.Tab_Chambre_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_AYANT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_commodite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_COMMODITE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_TYPECHAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).EndInit();
             this.gb_infoChambre.ResumeLayout(false);
             this.gb_infoChambre.PerformLayout();
             this.gb_commodite.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_AYANT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_COMMODITE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_TYPECHAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_LOCALISATION)).EndInit();
             this.ResumeLayout(false);
 
