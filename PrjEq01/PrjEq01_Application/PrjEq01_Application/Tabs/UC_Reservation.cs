@@ -88,6 +88,18 @@ namespace PrjEq01_Application.Tabs
 			{ MessageBox.Show(e.Message); }
 		}
 
+		public void SetReadOnly(bool state)
+		{
+			List<IReadOnly> consult_controls = new List<IReadOnly>();
+			consult_controls.Add(ic_Reserv);
+			consult_controls.Add(ir_Base);
+
+			foreach (IReadOnly consult_control in consult_controls)
+			{ consult_control.SetReadOnly(state); }
+
+			ic_Reserv.tb_solde.ReadOnly = state;
+		}
+
 		private bool Sync_ForeignTables()
 		{
 			BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position]["IdCli"]);
@@ -97,16 +109,19 @@ namespace PrjEq01_Application.Tabs
 		public void Add()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(false);
 		}
 
 		public void Edit()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(false);
 		}
 
 		public void Delete()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(true);
 		}
 
 		public void Undo()
@@ -117,30 +132,35 @@ namespace PrjEq01_Application.Tabs
 		public void Save()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(true);
 		}
 
 		public void Go_Start()
 		{
 			this.BS_RESERVATION.MoveFirst();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 
 		public void Go_Back()
 		{
 			this.BS_RESERVATION.MovePrevious();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 
 		public void Go_Forward()
 		{
 			this.BS_RESERVATION.MoveNext();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 
 		public void Go_End()
 		{
 			this.BS_RESERVATION.MoveLast();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 	}
 }
