@@ -29,16 +29,16 @@
 		private void InitializeComponent()
 		{
 			this.label4 = new System.Windows.Forms.Label();
-			this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+			this.tb_solde = new System.Windows.Forms.MaskedTextBox();
 			this.gb_client.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// gb_client
 			// 
-			this.gb_client.Controls.Add(this.maskedTextBox1);
+			this.gb_client.Controls.Add(this.tb_solde);
 			this.gb_client.Controls.Add(this.label4);
 			this.gb_client.Controls.SetChildIndex(this.label4, 0);
-			this.gb_client.Controls.SetChildIndex(this.maskedTextBox1, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_solde, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_adresse, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_telephone, 0);
@@ -56,14 +56,14 @@
 			this.label4.TabIndex = 16;
 			this.label4.Text = "Solde dû";
 			// 
-			// maskedTextBox1
+			// tb_solde
 			// 
-			this.maskedTextBox1.Location = new System.Drawing.Point(259, 139);
-			this.maskedTextBox1.Mask = "000.00$";
-			this.maskedTextBox1.Name = "maskedTextBox1";
-			this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-			this.maskedTextBox1.TabIndex = 17;
-			this.maskedTextBox1.Text = "00000";
+			this.tb_solde.Location = new System.Drawing.Point(259, 139);
+			this.tb_solde.Mask = "000.00$";
+			this.tb_solde.Name = "tb_solde";
+			this.tb_solde.Size = new System.Drawing.Size(100, 20);
+			this.tb_solde.TabIndex = 17;
+			this.tb_solde.Text = "00000";
 			// 
 			// IC_Reserv
 			// 
@@ -77,6 +77,6 @@
 
 		#endregion
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+		public System.Windows.Forms.MaskedTextBox tb_solde;
 	}
 }
