@@ -1,5 +1,3 @@
-USE h18equipe1;
-
 /*<TYPECHAM>*/ 
 INSERT INTO TYPECHAM (CodTypCham, DescTyp, NbDispo)
 VALUES ('1J', '1 LIT JUMEAU', 2);
@@ -96,31 +94,31 @@ VALUES ('60','PAIEMENT','CR');
 /*</TYPETRX>*/
 
 /*<CHAMBRE>*/
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('102', '1', 90.99, 1, NULL, 'AR', '1J'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('202', '2', 99.99, 1, NULL, 'AR', '1J'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('104', '1', 95.99, 1, NULL, 'AV', '2J'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('201', '2', 100.99, 0, 'toilette non fonctionnel', 'AV', '2J'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('101', '1', 110.99, 1, NULL, 'AS', '1D'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('207', '2', 110.99, 0, 'tapis tacher', 'AS', '1D'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('105', '1', 120.99, 1, NULL, 'SM', '2D'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('203', '2', 120.99, 1, NULL, 'VM', '2D'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('308', '3', 125.99, 1, NULL, 'AS', 'LQ'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('310', '3', 130.99, 1, NULL, 'VM', 'LK'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('401', '4', 160.99, 1, NULL, 'VM', 'ST'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('402', '4', 100.99, 1, NULL, 'AR', 'SR'); 
-INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodType)  
+INSERT INTO CHAMBRE (NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham)  
 VALUES ('403', '4', 100.99, 1, NULL, 'AS', 'SR');
 /*</CHAMBRE>*/
 
@@ -174,30 +172,30 @@ VALUES (5, DATEADD(day, -10, CURRENT_TIMESTAMP), DATEADD(day, -3, CURRENT_TIMEST
 /*</RESERVATION>*/
 
 /*<DE>*/
-INSERT INTO DE VALUES (0, 1, '001');
-INSERT INTO DE VALUES (0, 2, '002');
-INSERT INTO DE VALUES (1, 3, '003');
-INSERT INTO DE VALUES (1, 4, '004');
-INSERT INTO DE VALUES (0, 5, '005');
+INSERT INTO DE VALUES (0, 1, '101');
+INSERT INTO DE VALUES (0, 2, '308');
+INSERT INTO DE VALUES (1, 3, '203');
+INSERT INTO DE VALUES (1, 4, '104');
+INSERT INTO DE VALUES (0, 5, '207');
 /*</DE>*/
 
 /*<DEPART>*/
 INSERT INTO DEPART (DateDepart, ConfirmerPar, IdReser, NoCham, IdCli)
-VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP), 'O.L.P.', 5, '001', 5);
+VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP), 'O.L.P.', 5, '101', 5);
 /*</DEPART>*/
 
 /*<ARRIVE>*/
 INSERT INTO ARRIVE (DateArrive,IdCli,IdReser,NoCham) 
-VALUES (DATEADD(day, -3, CURRENT_TIMESTAMP),3,3,'001');
+VALUES (DATEADD(day, -3, CURRENT_TIMESTAMP),3,3,'203');
 INSERT INTO ARRIVE (DateArrive,IdCli,IdReser,NoCham) 
-VALUES (DATEADD(day, -2, CURRENT_TIMESTAMP),4,4,'002');
+VALUES (DATEADD(day, -2, CURRENT_TIMESTAMP),4,4,'104');
 INSERT INTO ARRIVE (DateArrive,IdCli,IdReser,NoCham) 
-VALUES (DATEADD(day, -3, CURRENT_TIMESTAMP),5,5,'003');
+VALUES (DATEADD(day, -3, CURRENT_TIMESTAMP),5,5,'207');
 /*</ARRIVE>*/
 
 /*<TRX>*/
 INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli)
-VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP),234.56,1,'01',5,'015',5);
+VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP),234.56,1,'01',5,'207',5);
 INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli)
-VALUES (CURRENT_TIMESTAMP,52.99,0,'60',2,'014',2);
+VALUES (CURRENT_TIMESTAMP,52.99,0,'60',2,'308',2);
 /*</TRX>*/

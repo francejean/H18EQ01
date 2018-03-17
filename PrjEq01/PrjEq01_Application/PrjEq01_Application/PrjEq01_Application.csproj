@@ -37,6 +37,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,11 +64,29 @@
       <DependentUpon>FormApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="IReadOnly.cs" />
+    <Compile Include="List_Forms\LF_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_Forms\LF_Base.Designer.cs">
+      <DependentUpon>LF_Base.cs</DependentUpon>
+    </Compile>
     <Compile Include="List_Forms\LF_ChambreNoCham.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="List_Forms\LF_ChambreNoCham.Designer.cs">
       <DependentUpon>LF_ChambreNoCham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="List_Forms\LF_Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_Forms\LF_Client.Designer.cs">
+      <DependentUpon>LF_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="List_Forms\LF_Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_Forms\LF_Reservation.Designer.cs">
+      <DependentUpon>LF_Reservation.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +144,12 @@
     <Compile Include="UserControls\Info_Reservation\IR_Depart.Designer.cs">
       <DependentUpon>IR_Depart.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Inherit_DGV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\Inherit_DGV.Designer.cs">
+      <DependentUpon>Inherit_DGV.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Liste_Chambre.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,8 +168,17 @@
     <EmbeddedResource Include="FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_Base.resx">
+      <DependentUpon>LF_Base.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_ChambreNoCham.resx">
       <DependentUpon>LF_ChambreNoCham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_Client.resx">
+      <DependentUpon>LF_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_Reservation.resx">
+      <DependentUpon>LF_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
