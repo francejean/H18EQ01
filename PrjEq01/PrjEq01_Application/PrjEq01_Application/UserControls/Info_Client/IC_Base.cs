@@ -19,7 +19,6 @@ namespace PrjEq01_Application.UserControls
 
         private void bt_list_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Fonction en développement.");
             List_Forms.LF_Client lf_client = new List_Forms.LF_Client();
             lf_client.ShowDialog();
         }

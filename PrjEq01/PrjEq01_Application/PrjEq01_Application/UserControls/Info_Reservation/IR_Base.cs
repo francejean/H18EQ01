@@ -19,7 +19,6 @@ namespace PrjEq01_Application.UserControls
 
         private void bt_list_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Fonction en développement.");
             List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation();
             lf_reservation.ShowDialog();
         }
