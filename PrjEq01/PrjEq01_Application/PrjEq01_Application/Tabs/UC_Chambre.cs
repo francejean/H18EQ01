@@ -12,6 +12,7 @@ namespace PrjEq01_Application.Tabs
 {
     public partial class UC_Chambre : UserControl, PrjEq01_CommonForm.IButtons
     {
+
         public UC_Chambre()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace PrjEq01_Application.Tabs
             TA_AYANT.Fill(this.dS_Master.AYANT);
             TA_COMMODITE.Fill(this.dS_Master.COMMODITE);
             TA_TYPECHAM.Fill(this.dS_Master.TYPECHAM);
+            TA_LOCALISATION.Fill(this.dS_Master.LOCALISATION);
         }
 
         private void LinkChambre()
@@ -65,6 +67,17 @@ namespace PrjEq01_Application.Tabs
             BS_AYANT.DataMember = "AYANT_FK_NoCham";
             BS_AYANT.DataSource = BS_CHAMBRE;
             dgv_commodite.DataSource = BS_AYANT;
+        }
+
+        public void SetReadOnly(bool state)
+        {
+            foreach (Control ctrl in gb_infoChambre.Controls)
+            {
+                if (ctrl.GetType() == typeof(TextBox))
+                    ((TextBox)ctrl).ReadOnly = state;
+                if (ctrl.GetType() == typeof(MaskedTextBox))
+                    ((MaskedTextBox)ctrl).ReadOnly = state;
+            }
         }
 
         public void Add()
@@ -114,6 +127,33 @@ namespace PrjEq01_Application.Tabs
         {
             BS_CHAMBRE.MoveLast();
             //MessageBox.Show("Fonction en développement.");
+        }
+
+        private void bt_listNoChambre_Click(object sender, EventArgs e)
+        {
+            PrjEq01_Application.List_Forms.LF_ChambreNoCham lf_chambreNoCham = new PrjEq01_Application.List_Forms.LF_ChambreNoCham();
+            lf_chambreNoCham.Dgv_noCham.DataSource = BS_CHAMBRE;
+            int tempPositionBs_CHAMBRE = BS_CHAMBRE.Position;
+            if (lf_chambreNoCham.ShowDialog() == DialogResult.Cancel)
+            {
+                BS_CHAMBRE.Position = tempPositionBs_CHAMBRE;
+            }
+            //MessageBox.Show("Fonction en développement.");
+        }
+
+        private void bt_listCodeType_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        private void bt_listCodeLoc_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonction en développement.");
+        }
+
+        private void bt_listCommodite_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonction en développement.");
         }
     }
 }

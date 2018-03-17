@@ -1,4 +1,4 @@
-# H18EQ01
+﻿# H18EQ01
 
 ## Standards
 
@@ -9,10 +9,7 @@
 **Nom de variables** : lowerCamelCase 
 
 Le code doit être bien indenté.
-Les noms des UserControls commencent par la premiere lettre de chaque mot
-du UserControl, avec 2 lettres minimum, puis le nom de l'information.
-	-> ex: Label du no. client = lb_noClient
-	-> ex: Textbox du no. client = tb_noClient
+
 Les parenthèses "{}" doivent être come ceci : 
 ```
 void NomMethode()
@@ -35,11 +32,12 @@ void NomMethode()
              |-> UpperCamelCase
 ```
 ```
-Type du control + "_" + fonction du control
-ex : "Button_Home"
+Abréviation du type du control (2 lettres min.) + "_" + fonction du control
+lowerCamelCase
+ex : "bt_home", "dgv_chambresLouees"
 ```
 ```
-Form : "From" + fonction
+Form : "Form" + fonction
 ```
 ### DB
 
@@ -48,8 +46,6 @@ CREATE TABLE NOMTABLE
 (
     NomChamp        INT     NOT NULL,
     CleEtrangere    INT     NULL
-    FOREIGN KEY (IdReser),
-    FOREIGN KEY (NoCham)    REFERENCES CHAMBRE(NoCham)
 );
 ```
 ```
@@ -61,8 +57,6 @@ ALTER TABLE <NOM_TABLE>
 
 ### Fichiers
 
-**DB_CREATE_** + ( E1, E2, ... )  + **.sql**= "DB_CREATE_E1.sql" 
-**DB_INSERT_** + ( E1, E2, ... )  + **.sql**= "DB_INSERT_E1.sql" 
 **Images** : Nom_Image(Nom_Auteur).png
 
 
