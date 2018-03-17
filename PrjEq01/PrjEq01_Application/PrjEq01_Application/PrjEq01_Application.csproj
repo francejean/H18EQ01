@@ -75,6 +75,12 @@
     <Compile Include="List_Forms\LF_Client.Designer.cs">
       <DependentUpon>LF_Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="List_Forms\LF_Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_Forms\LF_Reservation.Designer.cs">
+      <DependentUpon>LF_Reservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tabs\UC_Arrive.cs">
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_Client.resx">
       <DependentUpon>LF_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_Reservation.resx">
+      <DependentUpon>LF_Reservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
