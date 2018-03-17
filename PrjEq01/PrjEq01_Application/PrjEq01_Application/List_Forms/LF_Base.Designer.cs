@@ -70,8 +70,10 @@
             // 
             // LF_Base
             // 
+            this.AcceptButton = this.bt_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_cancel;
             this.ClientSize = new System.Drawing.Size(734, 362);
             this.Controls.Add(this.dgv_main);
             this.Controls.Add(this.bt_cancel);
