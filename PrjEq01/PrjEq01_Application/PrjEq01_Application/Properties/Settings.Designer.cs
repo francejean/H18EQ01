@@ -26,8 +26,8 @@ namespace PrjEq01_Application.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\David\\Documents\\Loc" +
-            "al Database.mdf\";Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=h18equipe1;Integrated Security" +
+            "=True")]
         public string h18equipe1ConnectionString {
             get {
                 return ((string)(this["h18equipe1ConnectionString"]));

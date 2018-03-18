@@ -37,6 +37,7 @@
 			// 
 			this.gb_client.Controls.Add(this.tb_solde);
 			this.gb_client.Controls.Add(this.label4);
+			this.gb_client.Controls.SetChildIndex(this.bt_list, 0);
 			this.gb_client.Controls.SetChildIndex(this.label4, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_solde, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);

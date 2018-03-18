@@ -17,6 +17,16 @@ namespace PrjEq01_Application.Tabs
 			InitializeComponent();
 		}
 
+		public BindingSource Get_BS_RESERVATION()
+		{
+			return BS_RESERVATION;
+		}
+
+		public BindingSource Get_BS_CLIENT()
+		{
+			return BS_CLIENT;
+		}
+
 		private void Tab_Reservation_Load(object sender, EventArgs e)
 		{
 			Fill();

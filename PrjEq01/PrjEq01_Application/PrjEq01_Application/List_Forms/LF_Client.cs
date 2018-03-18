@@ -15,6 +15,18 @@ namespace PrjEq01_Application.List_Forms
             InitializeComponent();
         }
 
+		public UserControls.Inherit_DGV Dgv_IdCli
+		{
+			get
+			{
+				return dgv_main;
+			}
+			set
+			{
+				dgv_main = value;
+			}
+		}
+
         private void LF_Client_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS_Master.CLIENT' table. You can move, or remove it, as needed.
