@@ -192,6 +192,9 @@
     <EmbeddedResource Include="List_Forms\LF_ChambreCodeType.resx">
       <DependentUpon>LF_ChambreCodeType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_ChambreCommodite.resx">
+      <DependentUpon>LF_ChambreCommodite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_ChambreNoCham.resx">
       <DependentUpon>LF_ChambreNoCham.cs</DependentUpon>
     </EmbeddedResource>

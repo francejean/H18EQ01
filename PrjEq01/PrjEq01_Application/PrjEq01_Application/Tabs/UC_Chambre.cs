@@ -99,6 +99,9 @@ namespace PrjEq01_Application.Tabs
                 if (ctrl.GetType() == typeof(MaskedTextBox))
                     ((MaskedTextBox)ctrl).ReadOnly = state;
             }
+            bt_listCodeLoc.Enabled = !state;
+            bt_listCodeType.Enabled = !state;
+            bt_listCommodite.Enabled = !state;
         }
 
         public void Add()

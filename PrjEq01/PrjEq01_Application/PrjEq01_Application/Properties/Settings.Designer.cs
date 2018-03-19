@@ -26,8 +26,8 @@ namespace PrjEq01_Application.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=h18equipe1;Integrated Security" +
-            "=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql.local.shawinigan.info;Initial Catalog=h18equipe1;User ID=h18equ" +
+            "ipe1etd2;Password=62013055")]
         public string h18equipe1ConnectionString {
             get {
                 return ((string)(this["h18equipe1ConnectionString"]));
