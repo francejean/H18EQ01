@@ -5,10 +5,10 @@
     <Setting Name="h18equipe1ConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=mssql.local.shawinigan.info;Initial Catalog=h18equipe1;Persist Security Info=True;User ID=h18equipe1etd3;Password=1645226963;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=mssql.local.shawinigan.info;Initial Catalog=h18equipe1;Persist Security Info=True;User ID=h18equipe1etd1;Password=211525250&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=mssql.local.shawinigan.info;Initial Catalog=h18equipe1;Persist Security Info=True;User ID=h18equipe1etd3;Password=1645226963;Connect Timeout=30</Value>
+      <Value Profile="(Default)">Data Source=mssql.local.shawinigan.info;Initial Catalog=h18equipe1;Persist Security Info=True;User ID=h18equipe1etd1;Password=211525250</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lb_noClient = new System.Windows.Forms.Label();
+            this.lb_nom = new System.Windows.Forms.Label();
             this.tb_noClient = new System.Windows.Forms.TextBox();
             this.tb_nom = new System.Windows.Forms.TextBox();
             this.gb_reserv.SuspendLayout();
@@ -39,34 +39,34 @@
             // 
             this.gb_reserv.Controls.Add(this.tb_nom);
             this.gb_reserv.Controls.Add(this.tb_noClient);
-            this.gb_reserv.Controls.Add(this.label6);
-            this.gb_reserv.Controls.Add(this.label5);
+            this.gb_reserv.Controls.Add(this.lb_nom);
+            this.gb_reserv.Controls.Add(this.lb_noClient);
             this.gb_reserv.Controls.SetChildIndex(this.tb_noReserv, 0);
-            this.gb_reserv.Controls.SetChildIndex(this.label5, 0);
-            this.gb_reserv.Controls.SetChildIndex(this.label6, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.lb_noClient, 0);
+            this.gb_reserv.Controls.SetChildIndex(this.lb_nom, 0);
             this.gb_reserv.Controls.SetChildIndex(this.tb_noClient, 0);
             this.gb_reserv.Controls.SetChildIndex(this.tb_nom, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Reserv, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Debut, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Fin, 0);
             // 
-            // label5
+            // lb_noClient
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 139);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "No. Client";
+            this.lb_noClient.AutoSize = true;
+            this.lb_noClient.Location = new System.Drawing.Point(7, 139);
+            this.lb_noClient.Name = "lb_noClient";
+            this.lb_noClient.Size = new System.Drawing.Size(53, 13);
+            this.lb_noClient.TabIndex = 22;
+            this.lb_noClient.Text = "No. Client";
             // 
-            // label6
+            // lb_nom
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 161);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 13);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Nom";
+            this.lb_nom.AutoSize = true;
+            this.lb_nom.Location = new System.Drawing.Point(7, 161);
+            this.lb_nom.Name = "lb_nom";
+            this.lb_nom.Size = new System.Drawing.Size(29, 13);
+            this.lb_nom.TabIndex = 23;
+            this.lb_nom.Text = "Nom";
             // 
             // tb_noClient
             // 
@@ -100,8 +100,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lb_noClient;
+        private System.Windows.Forms.Label lb_nom;
         public System.Windows.Forms.TextBox tb_nom;
         public System.Windows.Forms.TextBox tb_noClient;
     }

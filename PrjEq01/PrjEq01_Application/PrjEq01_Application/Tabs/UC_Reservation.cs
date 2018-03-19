@@ -17,6 +17,16 @@ namespace PrjEq01_Application.Tabs
 			InitializeComponent();
 		}
 
+		public BindingSource Get_BS_RESERVATION()
+		{
+			return BS_RESERVATION;
+		}
+
+		public BindingSource Get_BS_CLIENT()
+		{
+			return BS_CLIENT;
+		}
+
 		private void Tab_Reservation_Load(object sender, EventArgs e)
 		{
 			Fill();
@@ -26,7 +36,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void Fill()
 		{
-			TA_DE.Fill(DS_Master.DE);
+			TA_DE.FillBy(DS_Master.DE);
 			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
 			TA_RESERVATION.Fill(DS_Master.RESERVATION);
 			TA_CLIENT.Fill(DS_Master.CLIENT);
@@ -77,8 +87,8 @@ namespace PrjEq01_Application.Tabs
 
 		private void Link_Chamber()
 		{
-			this.BS_CHAMBRE.DataMember = "CHAMBRE";
-			this.BS_CHAMBRE.DataSource = this.DS_Master;
+			this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
+			this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
 
 			try
 			{
@@ -88,7 +98,19 @@ namespace PrjEq01_Application.Tabs
 			{ MessageBox.Show(e.Message); }
 		}
 
-		private bool Sync_ForeignTables()
+		public void SetReadOnly(bool state)
+		{
+			List<IReadOnly> consult_controls = new List<IReadOnly>();
+			consult_controls.Add(ic_Reserv);
+			consult_controls.Add(ir_Base);
+
+			foreach (IReadOnly consult_control in consult_controls)
+			{ consult_control.SetReadOnly(state); }
+
+			ic_Reserv.tb_solde.ReadOnly = state;
+		}
+
+		public bool Sync_ForeignTables()
 		{
 			BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position]["IdCli"]);
 			return false;
@@ -97,16 +119,19 @@ namespace PrjEq01_Application.Tabs
 		public void Add()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(false);
 		}
 
 		public void Edit()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(false);
 		}
 
 		public void Delete()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(true);
 		}
 
 		public void Undo()
@@ -117,30 +142,35 @@ namespace PrjEq01_Application.Tabs
 		public void Save()
 		{
 			MessageBox.Show("Fonction en développement.");
+			SetReadOnly(true);
 		}
 
 		public void Go_Start()
 		{
 			this.BS_RESERVATION.MoveFirst();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 
 		public void Go_Back()
 		{
 			this.BS_RESERVATION.MovePrevious();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 
 		public void Go_Forward()
 		{
 			this.BS_RESERVATION.MoveNext();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 
 		public void Go_End()
 		{
 			this.BS_RESERVATION.MoveLast();
 			Sync_ForeignTables();
+			SetReadOnly(true);
 		}
 	}
 }

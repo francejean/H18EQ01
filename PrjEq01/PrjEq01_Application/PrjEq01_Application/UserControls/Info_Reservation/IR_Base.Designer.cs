@@ -35,10 +35,10 @@ namespace PrjEq01_Application.UserControls
             this.DTP_Reserv = new System.Windows.Forms.DateTimePicker();
             this.bt_list = new PrjEq01_CommonForm.Controls.Button_List();
             this.tb_noReserv = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_dateFin = new System.Windows.Forms.Label();
+            this.lb_noReservation = new System.Windows.Forms.Label();
+            this.lb_dateReserv = new System.Windows.Forms.Label();
+            this.lb_dateDebut = new System.Windows.Forms.Label();
             this.gb_reserv.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +52,10 @@ namespace PrjEq01_Application.UserControls
             this.gb_reserv.Controls.Add(this.DTP_Reserv);
             this.gb_reserv.Controls.Add(this.bt_list);
             this.gb_reserv.Controls.Add(this.tb_noReserv);
-            this.gb_reserv.Controls.Add(this.label4);
-            this.gb_reserv.Controls.Add(this.label1);
-            this.gb_reserv.Controls.Add(this.label2);
-            this.gb_reserv.Controls.Add(this.label3);
+            this.gb_reserv.Controls.Add(this.lb_dateFin);
+            this.gb_reserv.Controls.Add(this.lb_noReservation);
+            this.gb_reserv.Controls.Add(this.lb_dateReserv);
+            this.gb_reserv.Controls.Add(this.lb_dateDebut);
             this.gb_reserv.Location = new System.Drawing.Point(0, 0);
             this.gb_reserv.MinimumSize = new System.Drawing.Size(194, 170);
             this.gb_reserv.Name = "gb_reserv";
@@ -103,7 +103,7 @@ namespace PrjEq01_Application.UserControls
             this.bt_list.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_list.BackgroundImage")));
             this.bt_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bt_list.Location = new System.Drawing.Point(174, 10);
-            this.bt_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_list.Margin = new System.Windows.Forms.Padding(2);
             this.bt_list.Name = "bt_list";
             this.bt_list.Size = new System.Drawing.Size(20, 20);
             this.bt_list.TabIndex = 1;
@@ -120,41 +120,41 @@ namespace PrjEq01_Application.UserControls
             this.tb_noReserv.Size = new System.Drawing.Size(97, 20);
             this.tb_noReserv.TabIndex = 18;
             // 
-            // label4
+            // lb_dateFin
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Date de fin";
+            this.lb_dateFin.AutoSize = true;
+            this.lb_dateFin.Location = new System.Drawing.Point(7, 116);
+            this.lb_dateFin.Name = "lb_dateFin";
+            this.lb_dateFin.Size = new System.Drawing.Size(59, 13);
+            this.lb_dateFin.TabIndex = 13;
+            this.lb_dateFin.Text = "Date de fin";
             // 
-            // label1
+            // lb_noReservation
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "No. Réservation";
+            this.lb_noReservation.AutoSize = true;
+            this.lb_noReservation.Location = new System.Drawing.Point(7, 38);
+            this.lb_noReservation.Name = "lb_noReservation";
+            this.lb_noReservation.Size = new System.Drawing.Size(84, 13);
+            this.lb_noReservation.TabIndex = 7;
+            this.lb_noReservation.Text = "No. Réservation";
             // 
-            // label2
+            // lb_dateReserv
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Réservé le";
+            this.lb_dateReserv.AutoSize = true;
+            this.lb_dateReserv.Location = new System.Drawing.Point(7, 64);
+            this.lb_dateReserv.Name = "lb_dateReserv";
+            this.lb_dateReserv.Size = new System.Drawing.Size(58, 13);
+            this.lb_dateReserv.TabIndex = 9;
+            this.lb_dateReserv.Text = "Réservé le";
             // 
-            // label3
+            // lb_dateDebut
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Date de début";
+            this.lb_dateDebut.AutoSize = true;
+            this.lb_dateDebut.Location = new System.Drawing.Point(7, 90);
+            this.lb_dateDebut.Name = "lb_dateDebut";
+            this.lb_dateDebut.Size = new System.Drawing.Size(75, 13);
+            this.lb_dateDebut.TabIndex = 10;
+            this.lb_dateDebut.Text = "Date de début";
             // 
             // IR_Base
             // 
@@ -171,15 +171,15 @@ namespace PrjEq01_Application.UserControls
 		}
 
 		#endregion
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label lb_noReservation;
+		private System.Windows.Forms.Label lb_dateReserv;
+		private System.Windows.Forms.Label lb_dateDebut;
+		private System.Windows.Forms.Label lb_dateFin;
         private PrjEq01_CommonForm.Controls.Button_List bt_list;
         public System.Windows.Forms.GroupBox gb_reserv;
         public System.Windows.Forms.DateTimePicker DTP_Fin;
         public System.Windows.Forms.DateTimePicker DTP_Debut;
         public System.Windows.Forms.DateTimePicker DTP_Reserv;
         public System.Windows.Forms.TextBox tb_noReserv;
-    }
+	}
 }

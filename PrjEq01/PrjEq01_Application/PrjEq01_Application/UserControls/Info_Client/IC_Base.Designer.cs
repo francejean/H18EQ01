@@ -32,19 +32,19 @@
             this.gb_client = new System.Windows.Forms.GroupBox();
             this.bt_list = new PrjEq01_CommonForm.Controls.Button_List();
             this.tb_noCarte = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lb_noCarte = new System.Windows.Forms.Label();
             this.tb_nomClient = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lb_nom = new System.Windows.Forms.Label();
             this.tb_typeCarte = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lb_typeCarte = new System.Windows.Forms.Label();
             this.tb_expiration = new System.Windows.Forms.TextBox();
             this.tb_telephone = new System.Windows.Forms.TextBox();
             this.tb_adresse = new System.Windows.Forms.TextBox();
             this.tb_noClient = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_expiration = new System.Windows.Forms.Label();
+            this.lb_telephone = new System.Windows.Forms.Label();
+            this.lb_addresse = new System.Windows.Forms.Label();
+            this.lb_noClient = new System.Windows.Forms.Label();
             this.gb_client.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,19 +52,19 @@
             // 
             this.gb_client.Controls.Add(this.bt_list);
             this.gb_client.Controls.Add(this.tb_noCarte);
-            this.gb_client.Controls.Add(this.label8);
+            this.gb_client.Controls.Add(this.lb_noCarte);
             this.gb_client.Controls.Add(this.tb_nomClient);
-            this.gb_client.Controls.Add(this.label7);
+            this.gb_client.Controls.Add(this.lb_nom);
             this.gb_client.Controls.Add(this.tb_typeCarte);
-            this.gb_client.Controls.Add(this.label6);
+            this.gb_client.Controls.Add(this.lb_typeCarte);
             this.gb_client.Controls.Add(this.tb_expiration);
             this.gb_client.Controls.Add(this.tb_telephone);
             this.gb_client.Controls.Add(this.tb_adresse);
             this.gb_client.Controls.Add(this.tb_noClient);
-            this.gb_client.Controls.Add(this.label5);
-            this.gb_client.Controls.Add(this.label3);
-            this.gb_client.Controls.Add(this.label2);
-            this.gb_client.Controls.Add(this.label1);
+            this.gb_client.Controls.Add(this.lb_expiration);
+            this.gb_client.Controls.Add(this.lb_telephone);
+            this.gb_client.Controls.Add(this.lb_addresse);
+            this.gb_client.Controls.Add(this.lb_noClient);
             this.gb_client.Location = new System.Drawing.Point(0, 0);
             this.gb_client.Name = "gb_client";
             this.gb_client.Size = new System.Drawing.Size(365, 190);
@@ -92,14 +92,14 @@
             this.tb_noCarte.Size = new System.Drawing.Size(100, 20);
             this.tb_noCarte.TabIndex = 13;
             // 
-            // label8
+            // lb_noCarte
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(201, 116);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "No. Carte";
+            this.lb_noCarte.AutoSize = true;
+            this.lb_noCarte.Location = new System.Drawing.Point(201, 116);
+            this.lb_noCarte.Name = "lb_noCarte";
+            this.lb_noCarte.Size = new System.Drawing.Size(52, 13);
+            this.lb_noCarte.TabIndex = 12;
+            this.lb_noCarte.Text = "No. Carte";
             // 
             // tb_nomClient
             // 
@@ -109,14 +109,14 @@
             this.tb_nomClient.Size = new System.Drawing.Size(100, 20);
             this.tb_nomClient.TabIndex = 11;
             // 
-            // label7
+            // lb_nom
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(201, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Nom";
+            this.lb_nom.AutoSize = true;
+            this.lb_nom.Location = new System.Drawing.Point(201, 38);
+            this.lb_nom.Name = "lb_nom";
+            this.lb_nom.Size = new System.Drawing.Size(29, 13);
+            this.lb_nom.TabIndex = 10;
+            this.lb_nom.Text = "Nom";
             // 
             // tb_typeCarte
             // 
@@ -126,14 +126,14 @@
             this.tb_typeCarte.Size = new System.Drawing.Size(100, 20);
             this.tb_typeCarte.TabIndex = 9;
             // 
-            // label6
+            // lb_typeCarte
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Type de Carte";
+            this.lb_typeCarte.AutoSize = true;
+            this.lb_typeCarte.Location = new System.Drawing.Point(7, 116);
+            this.lb_typeCarte.Name = "lb_typeCarte";
+            this.lb_typeCarte.Size = new System.Drawing.Size(74, 13);
+            this.lb_typeCarte.TabIndex = 8;
+            this.lb_typeCarte.Text = "Type de Carte";
             // 
             // tb_expiration
             // 
@@ -167,41 +167,41 @@
             this.tb_noClient.Size = new System.Drawing.Size(100, 20);
             this.tb_noClient.TabIndex = 1;
             // 
-            // label5
+            // lb_expiration
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Expiration";
+            this.lb_expiration.AutoSize = true;
+            this.lb_expiration.Location = new System.Drawing.Point(7, 142);
+            this.lb_expiration.Name = "lb_expiration";
+            this.lb_expiration.Size = new System.Drawing.Size(53, 13);
+            this.lb_expiration.TabIndex = 4;
+            this.lb_expiration.Text = "Expiration";
             // 
-            // label3
+            // lb_telephone
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Téléphone";
+            this.lb_telephone.AutoSize = true;
+            this.lb_telephone.Location = new System.Drawing.Point(7, 90);
+            this.lb_telephone.Name = "lb_telephone";
+            this.lb_telephone.Size = new System.Drawing.Size(58, 13);
+            this.lb_telephone.TabIndex = 2;
+            this.lb_telephone.Text = "Téléphone";
             // 
-            // label2
+            // lb_addresse
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Adresse";
+            this.lb_addresse.AutoSize = true;
+            this.lb_addresse.Location = new System.Drawing.Point(7, 64);
+            this.lb_addresse.Name = "lb_addresse";
+            this.lb_addresse.Size = new System.Drawing.Size(45, 13);
+            this.lb_addresse.TabIndex = 1;
+            this.lb_addresse.Text = "Adresse";
             // 
-            // label1
+            // lb_noClient
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "No. Client";
+            this.lb_noClient.AutoSize = true;
+            this.lb_noClient.Location = new System.Drawing.Point(7, 38);
+            this.lb_noClient.Name = "lb_noClient";
+            this.lb_noClient.Size = new System.Drawing.Size(53, 13);
+            this.lb_noClient.TabIndex = 0;
+            this.lb_noClient.Text = "No. Client";
             // 
             // IC_Base
             // 
@@ -224,15 +224,15 @@
 		public System.Windows.Forms.TextBox tb_expiration;
 		public System.Windows.Forms.TextBox tb_telephone;
 		public System.Windows.Forms.TextBox tb_noClient;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
-		private PrjEq01_CommonForm.Controls.Button_List bt_list;
+		private System.Windows.Forms.Label lb_noCarte;
+		private System.Windows.Forms.Label lb_nom;
+		private System.Windows.Forms.Label lb_typeCarte;
+		private System.Windows.Forms.Label lb_expiration;
+		private System.Windows.Forms.Label lb_telephone;
+		private System.Windows.Forms.Label lb_addresse;
+		private System.Windows.Forms.Label lb_noClient;
 		public System.Windows.Forms.TextBox tb_adresse;
         public System.Windows.Forms.GroupBox gb_client;
-    }
+		public PrjEq01_CommonForm.Controls.Button_List bt_list;
+	}
 }

@@ -39,9 +39,9 @@
             this.codTypChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Master = new PrjEq01_Application.DS_Master();
-            this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.bt_ok = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
+            this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_noCham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).BeginInit();
@@ -62,13 +62,13 @@
             this.codLocDataGridViewTextBoxColumn,
             this.codTypChamDataGridViewTextBoxColumn});
             this.dgv_noCham.DataSource = this.BS_CHAMBRE;
-            this.dgv_noCham.Location = new System.Drawing.Point(9, 10);
-            this.dgv_noCham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_noCham.Location = new System.Drawing.Point(16, 15);
+            this.dgv_noCham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_noCham.Name = "dgv_noCham";
             this.dgv_noCham.ReadOnly = true;
             this.dgv_noCham.RowHeadersVisible = false;
             this.dgv_noCham.RowTemplate.Height = 24;
-            this.dgv_noCham.Size = new System.Drawing.Size(708, 267);
+            this.dgv_noCham.Size = new System.Drawing.Size(947, 369);
             this.dgv_noCham.TabIndex = 0;
             // 
             // noChamDataGridViewTextBoxColumn
@@ -111,14 +111,14 @@
             // codLocDataGridViewTextBoxColumn
             // 
             this.codLocDataGridViewTextBoxColumn.DataPropertyName = "CodLoc";
-            this.codLocDataGridViewTextBoxColumn.HeaderText = "CodLoc";
+            this.codLocDataGridViewTextBoxColumn.HeaderText = "Code Localisation";
             this.codLocDataGridViewTextBoxColumn.Name = "codLocDataGridViewTextBoxColumn";
             this.codLocDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // codTypChamDataGridViewTextBoxColumn
             // 
             this.codTypChamDataGridViewTextBoxColumn.DataPropertyName = "CodTypCham";
-            this.codTypChamDataGridViewTextBoxColumn.HeaderText = "CodTypCham";
+            this.codTypChamDataGridViewTextBoxColumn.HeaderText = "Code Type";
             this.codTypChamDataGridViewTextBoxColumn.Name = "codTypChamDataGridViewTextBoxColumn";
             this.codTypChamDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -132,17 +132,13 @@
             this.dS_Master.DataSetName = "DS_Master";
             this.dS_Master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // TA_CHAMBRE
-            // 
-            this.TA_CHAMBRE.ClearBeforeFill = true;
-            // 
             // bt_ok
             // 
             this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bt_ok.Location = new System.Drawing.Point(245, 282);
-            this.bt_ok.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_ok.Location = new System.Drawing.Point(333, 390);
+            this.bt_ok.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_ok.Name = "bt_ok";
-            this.bt_ok.Size = new System.Drawing.Size(59, 34);
+            this.bt_ok.Size = new System.Drawing.Size(79, 42);
             this.bt_ok.TabIndex = 1;
             this.bt_ok.Text = "OK";
             this.bt_ok.UseVisualStyleBackColor = true;
@@ -150,28 +146,32 @@
             // bt_cancel
             // 
             this.bt_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bt_cancel.Location = new System.Drawing.Point(429, 282);
-            this.bt_cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_cancel.Location = new System.Drawing.Point(600, 390);
+            this.bt_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_cancel.Name = "bt_cancel";
-            this.bt_cancel.Size = new System.Drawing.Size(59, 34);
+            this.bt_cancel.Size = new System.Drawing.Size(79, 42);
             this.bt_cancel.TabIndex = 2;
             this.bt_cancel.Text = "Cancel";
             this.bt_cancel.UseVisualStyleBackColor = true;
             // 
+            // TA_CHAMBRE
+            // 
+            this.TA_CHAMBRE.ClearBeforeFill = true;
+            // 
             // LF_ChambreNoCham
             // 
             this.AcceptButton = this.bt_ok;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bt_cancel;
-            this.ClientSize = new System.Drawing.Size(726, 326);
+            this.ClientSize = new System.Drawing.Size(981, 446);
             this.ControlBox = false;
             this.Controls.Add(this.bt_cancel);
             this.Controls.Add(this.bt_ok);
             this.Controls.Add(this.dgv_noCham);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(742, 364);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(983, 437);
             this.Name = "LF_ChambreNoCham";
             this.Text = "Liste de sélection sur No Chambre";
             this.Load += new System.EventHandler(this.LF_ChambreNoCham_Load);
@@ -183,8 +183,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgv_noCham;
         private DS_Master dS_Master;
         private System.Windows.Forms.BindingSource BS_CHAMBRE;
         private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
@@ -197,5 +195,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn memoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codLocDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codTypChamDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgv_noCham;
     }
 }
