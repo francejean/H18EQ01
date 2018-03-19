@@ -20,24 +20,26 @@ namespace PrjEq01_Application.Tabs
 		private void Tab_Arrive_Load(object sender, EventArgs e)
 		{
 			Fill();
+            Link();
+            Sync_ForeignTables();
 		}
 
 		private void Fill()
 		{
 			this.TA_ARRIVE.Fill(this.DS_Master.ARRIVE);
-			this.TA_DEPART.Fill(this.DS_Master.DEPART);
 			this.TA_RESERVATION.FillByARRIVE(this.DS_Master.RESERVATION);
-			this.TA_TRX.Fill(this.DS_Master.TRX);
 			this.TA_CLIENT.Fill(this.DS_Master.CLIENT);
 			this.TA_CHAMBRE.FillByARRIVE(this.DS_Master.CHAMBRE);
-
-			Link_ARRIVE();
-			Link_CLIENT();
-			Link_RESERVATION();
-			Link_CHAMBRE();
-
-            Sync_ForeignTables();
+            this.TA_DE.FillBy(DS_Master.DE);
 		}
+
+        private void Link()
+        {
+            Link_ARRIVE();
+            Link_CLIENT();
+            Link_RESERVATION();
+            Link_CHAMBRE();
+        }
 
 		private void Link_ARRIVE()
 		{
@@ -89,15 +91,16 @@ namespace PrjEq01_Application.Tabs
 
 		private void Link_CHAMBRE()
 		{
-			this.BS_CHAMBRE.DataMember = "CHAMBRE";
-			this.BS_CHAMBRE.DataSource = this.DS_Master;
+            this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
+            this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
 
-			try
-			{
-				ls_chambre.dgv_chambre.DataSource = BS_CHAMBRE;
-			}
-			catch (Exception ee) { MessageBox.Show(ee.Message); }
-		}
+            try
+            {
+                ls_chambre.dgv_chambre.DataSource = BS_CHAMBRE;
+            }
+            catch (Exception e)
+            { MessageBox.Show(e.Message); }
+        }
 
         public void SetReadOnly(bool state)
         {
