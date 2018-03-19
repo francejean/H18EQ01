@@ -28,43 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.label4 = new System.Windows.Forms.Label();
+            this.lb_noChambre = new System.Windows.Forms.Label();
             this.tb_noChambre = new System.Windows.Forms.TextBox();
             this.gb_client.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tb_noCarte
-            // 
-            this.tb_noCarte.ReadOnly = true;
-            // 
-            // tb_nomClient
-            // 
-            this.tb_nomClient.ReadOnly = true;
-            // 
-            // tb_typeCarte
-            // 
-            this.tb_typeCarte.ReadOnly = true;
-            // 
-            // tb_expiration
-            // 
-            this.tb_expiration.ReadOnly = true;
-            // 
-            // tb_telephone
-            // 
-            this.tb_telephone.ReadOnly = true;
-            // 
-            // tb_noClient
-            // 
-            this.tb_noClient.ReadOnly = true;
-            // 
-            // tb_adresse
-            // 
-            this.tb_adresse.ReadOnly = true;
-            // 
             // gb_client
             // 
             this.gb_client.Controls.Add(this.tb_noChambre);
-            this.gb_client.Controls.Add(this.label4);
+            this.gb_client.Controls.Add(this.lb_noChambre);
+            this.gb_client.Controls.SetChildIndex(this.bt_list, 0);
             this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);
             this.gb_client.Controls.SetChildIndex(this.tb_adresse, 0);
             this.gb_client.Controls.SetChildIndex(this.tb_telephone, 0);
@@ -72,17 +45,17 @@
             this.gb_client.Controls.SetChildIndex(this.tb_typeCarte, 0);
             this.gb_client.Controls.SetChildIndex(this.tb_nomClient, 0);
             this.gb_client.Controls.SetChildIndex(this.tb_noCarte, 0);
-            this.gb_client.Controls.SetChildIndex(this.label4, 0);
+            this.gb_client.Controls.SetChildIndex(this.lb_noChambre, 0);
             this.gb_client.Controls.SetChildIndex(this.tb_noChambre, 0);
             // 
-            // label4
+            // lb_noChambre
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(201, 142);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "No. chambre";
+            this.lb_noChambre.AutoSize = true;
+            this.lb_noChambre.Location = new System.Drawing.Point(201, 142);
+            this.lb_noChambre.Name = "lb_noChambre";
+            this.lb_noChambre.Size = new System.Drawing.Size(68, 13);
+            this.lb_noChambre.TabIndex = 14;
+            this.lb_noChambre.Text = "No. chambre";
             // 
             // tb_noChambre
             // 
@@ -104,7 +77,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label lb_noChambre;
 		public System.Windows.Forms.TextBox tb_noChambre;
 	}
 }
