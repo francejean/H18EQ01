@@ -10,12 +10,12 @@ namespace PrjEq01_Application.List_Forms
 {
     public partial class LF_Reservation : PrjEq01_Application.List_Forms.LF_Base
     {
-        public LF_Reservation()
+        public LF_Reservation(BindingSource BS) : base(BS)
         {
             InitializeComponent();
         }
 
-		public UserControls.Inherit_DGV Dgv_noReser
+		public UserControls.Inherit_DGV dgv_noReser
 		{
 			get
 			{

@@ -10,22 +10,12 @@ namespace PrjEq01_Application.List_Forms
 {
     public partial class LF_Client : PrjEq01_Application.List_Forms.LF_Base
     {
-        public LF_Client()
+        public LF_Client(BindingSource BS) : base(BS)
         {
             InitializeComponent();
         }
 
-		public UserControls.Inherit_DGV Dgv_IdCli
-		{
-			get
-			{
-				return dgv_main;
-			}
-			set
-			{
-				dgv_main = value;
-			}
-		}
+		
 
         private void LF_Client_Load(object sender, EventArgs e)
         {
