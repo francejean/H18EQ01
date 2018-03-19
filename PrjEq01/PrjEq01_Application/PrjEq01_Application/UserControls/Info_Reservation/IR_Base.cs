@@ -17,7 +17,7 @@ namespace PrjEq01_Application.UserControls
 			InitializeComponent();
 		}
 
-		private void bt_list_Click(object sender, EventArgs e)
+		protected virtual void bt_list_Click(object sender, EventArgs e)
 		{
 			if (this.Parent is Tabs.UC_Reservation)
 			{
