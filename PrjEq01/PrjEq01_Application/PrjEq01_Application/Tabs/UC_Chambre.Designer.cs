@@ -335,6 +335,7 @@
             // 
             this.bt_listCodeLoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_listCodeLoc.BackgroundImage")));
             this.bt_listCodeLoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_listCodeLoc.Enabled = false;
             this.bt_listCodeLoc.Location = new System.Drawing.Point(455, 72);
             this.bt_listCodeLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_listCodeLoc.Name = "bt_listCodeLoc";
@@ -347,6 +348,7 @@
             // 
             this.bt_listCodeType.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_listCodeType.BackgroundImage")));
             this.bt_listCodeType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_listCodeType.Enabled = false;
             this.bt_listCodeType.Location = new System.Drawing.Point(455, 19);
             this.bt_listCodeType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_listCodeType.Name = "bt_listCodeType";
@@ -384,6 +386,7 @@
             // 
             this.bt_listCommodite.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_listCommodite.BackgroundImage")));
             this.bt_listCommodite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_listCommodite.Enabled = false;
             this.bt_listCommodite.Location = new System.Drawing.Point(6, 21);
             this.bt_listCommodite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_listCommodite.Name = "bt_listCommodite";

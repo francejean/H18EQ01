@@ -33,7 +33,6 @@ namespace PrjEq01_Application.List_Forms
         {
             // TODO: This line of code loads data into the 'dS_Master.CHAMBRE' table. You can move, or remove it, as needed.
             //this.cHAMBRETableAdapter.Fill(this.dS_Master.CHAMBRE);
-
         }
     }
 }
