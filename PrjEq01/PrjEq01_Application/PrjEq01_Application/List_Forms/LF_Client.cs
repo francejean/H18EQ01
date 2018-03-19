@@ -10,9 +10,15 @@ namespace PrjEq01_Application.List_Forms
 {
     public partial class LF_Client : PrjEq01_Application.List_Forms.LF_Base
     {
+        public LF_Client()
+        {
+            InitializeComponent();
+        }
+
         public LF_Client(BindingSource BS) : base(BS)
         {
             InitializeComponent();
+            dgv_main.DataSource = this.BS;
         }
         
         private void LF_Client_Load(object sender, EventArgs e)

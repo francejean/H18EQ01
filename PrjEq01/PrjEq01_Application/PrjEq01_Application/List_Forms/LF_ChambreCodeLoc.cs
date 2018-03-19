@@ -12,9 +12,15 @@ namespace PrjEq01_Application.List_Forms
 {
     public partial class LF_ChambreCodeLoc : PrjEq01_Application.List_Forms.LF_Base
     {
+        public LF_ChambreCodeLoc()
+        {
+            InitializeComponent();
+        }
+
         public LF_ChambreCodeLoc(BindingSource BS) : base(BS)
         {
             InitializeComponent();
+            dgv_main.DataSource = this.BS;
         }
 
         public PrjEq01_Application.UserControls.Inherit_DGV Dgv_main

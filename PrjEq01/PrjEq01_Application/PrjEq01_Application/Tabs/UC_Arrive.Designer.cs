@@ -41,8 +41,8 @@
             this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
             this.ls_chambre = new PrjEq01_Application.UserControls.Liste_Chambre();
-            this.ir_arrive = new PrjEq01_Application.UserControls.Info_Reservation.IR_Arrive(BS_ARRIVE);
-            this.ic_arrive = new PrjEq01_Application.UserControls.Info_Client.IC_Arrive(BS_ARRIVE);
+            this.ir_arrive = new PrjEq01_Application.UserControls.Info_Reservation.IR_Arrive(BS_RESERVATION);
+            this.ic_arrive = new PrjEq01_Application.UserControls.Info_Client.IC_Arrive(BS_CLIENT);
             this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
             this.BS_DE = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
