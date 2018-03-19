@@ -12,7 +12,7 @@ namespace PrjEq01_Application.List_Forms
 {
     public partial class LF_ChambreCodeType : PrjEq01_Application.List_Forms.LF_Base
     {
-        public LF_ChambreCodeType()
+        public LF_ChambreCodeType(BindingSource BS) : base(BS)
         {
             InitializeComponent();
         }

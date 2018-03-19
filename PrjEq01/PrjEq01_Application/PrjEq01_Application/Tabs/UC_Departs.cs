@@ -15,13 +15,16 @@ namespace PrjEq01_Application.Tabs
         public UC_Departs()
         {
             InitializeComponent();
+           //set BS UC_Depart.designer ligne 34-35
         }
 
         public void SetReadOnly(bool state)
         {
-            List<IReadOnly> consult_controls = new List<IReadOnly>();
-            consult_controls.Add(ic_base);
-            consult_controls.Add(ir_departs);
+            List<IReadOnly> consult_controls = new List<IReadOnly>
+            {
+                ic_base,
+                ir_departs
+            };
 
             foreach (IReadOnly consult_control in consult_controls)
             {

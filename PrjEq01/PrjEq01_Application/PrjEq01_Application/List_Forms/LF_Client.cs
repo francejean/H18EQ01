@@ -14,9 +14,7 @@ namespace PrjEq01_Application.List_Forms
         {
             InitializeComponent();
         }
-
-		
-
+        
         private void LF_Client_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS_Master.CLIENT' table. You can move, or remove it, as needed.

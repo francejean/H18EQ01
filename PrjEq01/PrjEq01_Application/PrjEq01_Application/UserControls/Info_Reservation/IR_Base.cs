@@ -12,7 +12,7 @@ namespace PrjEq01_Application.UserControls
 {
 	public partial class IR_Base: UserControl, IReadOnly
 	{
-        private BindingSource BS;
+        protected BindingSource BS;
 
 		public IR_Base(BindingSource BS)
 		{
