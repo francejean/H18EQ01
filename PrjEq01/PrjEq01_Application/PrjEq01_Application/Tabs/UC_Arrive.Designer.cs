@@ -33,13 +33,9 @@
             this.tb_noArrive = new System.Windows.Forms.TextBox();
             this.TA_ARRIVE = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
             this.TA_RESERVATION = new PrjEq01_Application.DS_MasterTableAdapters.RESERVATIONTableAdapter();
-            this.TA_DEPART = new PrjEq01_Application.DS_MasterTableAdapters.DEPARTTableAdapter();
-            this.TA_TRX = new PrjEq01_Application.DS_MasterTableAdapters.TRXTableAdapter();
             this.DS_Master = new PrjEq01_Application.DS_Master();
             this.BS_ARRIVE = new System.Windows.Forms.BindingSource(this.components);
             this.BS_RESERVATION = new System.Windows.Forms.BindingSource(this.components);
-            this.BS_DEPART = new System.Windows.Forms.BindingSource(this.components);
-            this.BS_TRX = new System.Windows.Forms.BindingSource(this.components);
             this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
             this.BS_CLIENT = new System.Windows.Forms.BindingSource(this.components);
             this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
@@ -47,13 +43,14 @@
             this.ls_chambre = new PrjEq01_Application.UserControls.Liste_Chambre();
             this.ir_arrive = new PrjEq01_Application.UserControls.Info_Reservation.IR_Arrive();
             this.ic_arrive = new PrjEq01_Application.UserControls.Info_Client.IC_Arrive();
+            this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
+            this.BS_DE = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_DEPART)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_TRX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CLIENT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_DE)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_noArrive
@@ -81,14 +78,6 @@
             // TA_RESERVATION
             // 
             this.TA_RESERVATION.ClearBeforeFill = true;
-            // 
-            // TA_DEPART
-            // 
-            this.TA_DEPART.ClearBeforeFill = true;
-            // 
-            // TA_TRX
-            // 
-            this.TA_TRX.ClearBeforeFill = true;
             // 
             // DS_Master
             // 
@@ -130,6 +119,10 @@
             this.ic_arrive.Size = new System.Drawing.Size(365, 190);
             this.ic_arrive.TabIndex = 13;
             // 
+            // TA_DE
+            // 
+            this.TA_DE.ClearBeforeFill = true;
+            // 
             // UC_Arrive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,10 +139,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DS_Master)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_DEPART)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS_TRX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CLIENT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_DE)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,13 +152,9 @@
         private System.Windows.Forms.TextBox tb_noArrive;
         private DS_MasterTableAdapters.ARRIVETableAdapter TA_ARRIVE;
         private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
-        private DS_MasterTableAdapters.DEPARTTableAdapter TA_DEPART;
-        private DS_MasterTableAdapters.TRXTableAdapter TA_TRX;
         private DS_Master DS_Master;
         private System.Windows.Forms.BindingSource BS_ARRIVE;
         private System.Windows.Forms.BindingSource BS_RESERVATION;
-        private System.Windows.Forms.BindingSource BS_DEPART;
-        private System.Windows.Forms.BindingSource BS_TRX;
         private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
         private System.Windows.Forms.BindingSource BS_CLIENT;
         private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
@@ -174,5 +162,7 @@
 		private UserControls.Info_Reservation.IR_Arrive ir_arrive;
         private UserControls.Liste_Chambre ls_chambre;
         public System.Windows.Forms.BindingSource BS_CHAMBRE;
+        private DS_MasterTableAdapters.DETableAdapter TA_DE;
+        private System.Windows.Forms.BindingSource BS_DE;
     }
 }
