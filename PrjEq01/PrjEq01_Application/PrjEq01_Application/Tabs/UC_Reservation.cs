@@ -36,7 +36,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void Fill()
 		{
-			TA_DE.Fill(DS_Master.DE);
+			TA_DE.FillBy(DS_Master.DE);
 			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
 			TA_RESERVATION.Fill(DS_Master.RESERVATION);
 			TA_CLIENT.Fill(DS_Master.CLIENT);
@@ -87,8 +87,8 @@ namespace PrjEq01_Application.Tabs
 
 		private void Link_Chamber()
 		{
-			this.BS_CHAMBRE.DataMember = "CHAMBRE";
-			this.BS_CHAMBRE.DataSource = this.DS_Master;
+			this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
+			this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
 
 			try
 			{
@@ -110,7 +110,7 @@ namespace PrjEq01_Application.Tabs
 			ic_Reserv.tb_solde.ReadOnly = state;
 		}
 
-		private bool Sync_ForeignTables()
+		public bool Sync_ForeignTables()
 		{
 			BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position]["IdCli"]);
 			return false;

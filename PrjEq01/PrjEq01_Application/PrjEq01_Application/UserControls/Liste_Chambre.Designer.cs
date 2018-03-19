@@ -31,15 +31,15 @@
 			this.components = new System.ComponentModel.Container();
 			this.GroupBox_ListeChambres = new System.Windows.Forms.GroupBox();
 			this.dgv_chambre = new System.Windows.Forms.DataGridView();
-			this.noChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.descTypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.etatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cHAMBREBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dS_Master = new PrjEq01_Application.DS_Master();
 			this.cHAMBRETableAdapter = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
 			this.aRRIVEFKNoChamBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.aRRIVETableAdapter = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
+			this.noChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.descTypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.etatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.GroupBox_ListeChambres.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cHAMBREBindingSource)).BeginInit();
@@ -84,34 +84,6 @@
 			this.dgv_chambre.Size = new System.Drawing.Size(939, 233);
 			this.dgv_chambre.TabIndex = 2;
 			// 
-			// noChamDataGridViewTextBoxColumn
-			// 
-			this.noChamDataGridViewTextBoxColumn.DataPropertyName = "NoCham";
-			this.noChamDataGridViewTextBoxColumn.HeaderText = "No. chambre";
-			this.noChamDataGridViewTextBoxColumn.Name = "noChamDataGridViewTextBoxColumn";
-			this.noChamDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// descTypDataGridViewTextBoxColumn
-			// 
-			this.descTypDataGridViewTextBoxColumn.DataPropertyName = "DescTyp";
-			this.descTypDataGridViewTextBoxColumn.HeaderText = "Type de chambre";
-			this.descTypDataGridViewTextBoxColumn.Name = "descTypDataGridViewTextBoxColumn";
-			this.descTypDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// prixDataGridViewTextBoxColumn
-			// 
-			this.prixDataGridViewTextBoxColumn.DataPropertyName = "Prix";
-			this.prixDataGridViewTextBoxColumn.HeaderText = "Prix";
-			this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
-			this.prixDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// etatDataGridViewTextBoxColumn
-			// 
-			this.etatDataGridViewTextBoxColumn.DataPropertyName = "Etat";
-			this.etatDataGridViewTextBoxColumn.HeaderText = "Etat";
-			this.etatDataGridViewTextBoxColumn.Name = "etatDataGridViewTextBoxColumn";
-			this.etatDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// cHAMBREBindingSource
 			// 
 			this.cHAMBREBindingSource.DataMember = "CHAMBRE";
@@ -134,6 +106,34 @@
 			// aRRIVETableAdapter
 			// 
 			this.aRRIVETableAdapter.ClearBeforeFill = true;
+			// 
+			// noChamDataGridViewTextBoxColumn
+			// 
+			this.noChamDataGridViewTextBoxColumn.DataPropertyName = "NoCham";
+			this.noChamDataGridViewTextBoxColumn.HeaderText = "No. chambre";
+			this.noChamDataGridViewTextBoxColumn.Name = "noChamDataGridViewTextBoxColumn";
+			this.noChamDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// descTypDataGridViewTextBoxColumn
+			// 
+			this.descTypDataGridViewTextBoxColumn.DataPropertyName = "CodTypCham";
+			this.descTypDataGridViewTextBoxColumn.HeaderText = "Type de chambre";
+			this.descTypDataGridViewTextBoxColumn.Name = "descTypDataGridViewTextBoxColumn";
+			this.descTypDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// prixDataGridViewTextBoxColumn
+			// 
+			this.prixDataGridViewTextBoxColumn.DataPropertyName = "Prix";
+			this.prixDataGridViewTextBoxColumn.HeaderText = "Prix";
+			this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
+			this.prixDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// etatDataGridViewTextBoxColumn
+			// 
+			this.etatDataGridViewTextBoxColumn.DataPropertyName = "Attribuee";
+			this.etatDataGridViewTextBoxColumn.HeaderText = "Etat";
+			this.etatDataGridViewTextBoxColumn.Name = "etatDataGridViewTextBoxColumn";
+			this.etatDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// Liste_Chambre
 			// 
@@ -160,9 +160,9 @@
         private System.Windows.Forms.BindingSource aRRIVEFKNoChamBindingSource;
         private DS_MasterTableAdapters.ARRIVETableAdapter aRRIVETableAdapter;
         public System.Windows.Forms.DataGridView dgv_chambre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noChamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descTypDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn etatDataGridViewTextBoxColumn;
-    }
+		private System.Windows.Forms.DataGridViewTextBoxColumn noChamDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn descTypDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn etatDataGridViewTextBoxColumn;
+	}
 }

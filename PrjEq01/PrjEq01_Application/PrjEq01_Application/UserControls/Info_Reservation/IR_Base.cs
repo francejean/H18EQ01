@@ -32,6 +32,10 @@ namespace PrjEq01_Application.UserControls
 				{
 					BS.Position = tmpPos_BS_RESERVATION;
 				}
+				else
+				{
+					uc_reser.Sync_ForeignTables();
+				}
 			}
 		}
 
