@@ -33,11 +33,5 @@ namespace PrjEq01_Application.List_Forms
 				this.dgv_main = value;
 			}
 		}
-
-        private void LF_Reservation_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dS_Master.RESERVATION' table. You can move, or remove it, as needed.
-            this.TA_RESERVATION.Fill(this.ds_master.RESERVATION);
-        }
     }
 }

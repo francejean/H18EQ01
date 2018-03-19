@@ -20,11 +20,5 @@ namespace PrjEq01_Application.List_Forms
             InitializeComponent();
             dgv_main.DataSource = this.BS;
         }
-        
-        private void LF_Client_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dS_Master.CLIENT' table. You can move, or remove it, as needed.
-            this.TA_CLIENT.Fill(this.ds_master.CLIENT);
-        }
     }
 }

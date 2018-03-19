@@ -65,6 +65,7 @@
             this.dgv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_main.Location = new System.Drawing.Point(12, 12);
             this.dgv_main.Name = "dgv_main";
+            this.dgv_main.ReadOnly = true;
             this.dgv_main.RowHeadersVisible = false;
             this.dgv_main.Size = new System.Drawing.Size(710, 300);
             this.dgv_main.TabIndex = 4;
