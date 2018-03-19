@@ -37,6 +37,7 @@
 			// 
 			this.gb_client.Controls.Add(this.tb_solde);
 			this.gb_client.Controls.Add(this.label4);
+			this.gb_client.Controls.SetChildIndex(this.bt_list, 0);
 			this.gb_client.Controls.SetChildIndex(this.label4, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_solde, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);
@@ -61,6 +62,7 @@
 			this.tb_solde.Location = new System.Drawing.Point(259, 139);
 			this.tb_solde.Mask = "000.00$";
 			this.tb_solde.Name = "tb_solde";
+			this.tb_solde.ReadOnly = true;
 			this.tb_solde.Size = new System.Drawing.Size(100, 20);
 			this.tb_solde.TabIndex = 17;
 			this.tb_solde.Text = "00000";

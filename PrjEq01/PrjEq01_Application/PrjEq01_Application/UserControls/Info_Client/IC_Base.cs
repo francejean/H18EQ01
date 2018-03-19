@@ -17,7 +17,7 @@ namespace PrjEq01_Application.UserControls
 			InitializeComponent();
         }
 
-        private void bt_list_Click(object sender, EventArgs e)
+        protected virtual void bt_list_Click(object sender, EventArgs e)
         {
             List_Forms.LF_Client lf_client = new List_Forms.LF_Client();
             lf_client.ShowDialog();
