@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrjEq01_Application
+namespace PrjEq01_CommonForm
 {
     public static class IButtonsExtension
     {

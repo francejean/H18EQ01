@@ -127,19 +127,16 @@ namespace PrjEq01_Application.Tabs
 
         public void Add()
         {
-            MessageBox.Show(State.ToString());
             SetReadOnly(false);
         }
 
         public void Edit()
         {
-            MessageBox.Show(State.ToString());
             SetReadOnly(false);
         }
 
         public void Delete()
         {
-            MessageBox.Show(State.ToString());
             SetReadOnly(true);
         }
 
