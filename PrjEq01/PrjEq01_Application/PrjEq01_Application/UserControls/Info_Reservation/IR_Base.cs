@@ -14,6 +14,11 @@ namespace PrjEq01_Application.UserControls
 	{
         protected BindingSource BS;
 
+		public IR_Base()
+		{
+			InitializeComponent();
+		}
+
 		public IR_Base(BindingSource BS)
 		{
 			InitializeComponent();
