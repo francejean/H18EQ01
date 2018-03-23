@@ -145,7 +145,6 @@
         private DS_Master ds_master;
         private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
         public System.Windows.Forms.DataGridView dgv_chambre;
-		private System.Windows.Forms.DataGridViewTextBoxColumn etatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noChamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descTypDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;

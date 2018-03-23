@@ -12,20 +12,21 @@ namespace PrjEq01_Application.UserControls
 {
 	public partial class IR_Base: UserControl, IReadOnly
 	{
-		public IR_Base()
+        protected BindingSource BS;
+
+		public IR_Base(BindingSource BS)
 		{
 			InitializeComponent();
+            this.BS = BS;
 		}
 
 		protected virtual void bt_list_Click(object sender, EventArgs e)
 		{
 			if (this.Parent is Tabs.UC_Reservation)
 			{
-				List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation();
+				List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
 				Tabs.UC_Reservation uc_reser = (Tabs.UC_Reservation)this.Parent;
 
-				BindingSource BS = uc_reser.Get_BS_RESERVATION();
-				lf_reservation.Dgv_noReser.DataSource = BS;
 				int tmpPos_BS_RESERVATION = BS.Position;
 
 				if (lf_reservation.ShowDialog() == DialogResult.Cancel)

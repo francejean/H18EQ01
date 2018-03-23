@@ -12,7 +12,9 @@ namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Reservation : UserControl, PrjEq01_CommonForm.IButtons
 	{
-		public UC_Reservation()
+        public int State { get; set; }
+
+        public UC_Reservation()
 		{
 			InitializeComponent();
 		}
@@ -118,19 +120,19 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
-			MessageBox.Show("Fonction en développement.");
+            MessageBox.Show("Fonction en développement.");
 			SetReadOnly(false);
 		}
 
 		public void Edit()
 		{
-			MessageBox.Show("Fonction en développement.");
+            MessageBox.Show("Fonction en développement.");
 			SetReadOnly(false);
 		}
 
 		public void Delete()
 		{
-			MessageBox.Show("Fonction en développement.");
+            MessageBox.Show("Fonction en développement.");
 			SetReadOnly(true);
 		}
 

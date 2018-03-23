@@ -38,8 +38,8 @@ namespace PrjEq01_Application.Tabs
 			this.BS_RESERVATION = new System.Windows.Forms.BindingSource(this.components);
 			this.BS_CLIENT = new System.Windows.Forms.BindingSource(this.components);
 			this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
-			this.ic_Reserv = new PrjEq01_Application.UserControls.Info_Client.IC_Reserv();
-			this.ir_Base = new PrjEq01_Application.UserControls.IR_Base();
+			this.ic_Reserv = new PrjEq01_Application.UserControls.Info_Client.IC_Reserv(BS_CLIENT);
+			this.ir_Base = new PrjEq01_Application.UserControls.IR_Base(BS_RESERVATION);
 			this.ls_chambre = new PrjEq01_Application.UserControls.Liste_Chambre();
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();

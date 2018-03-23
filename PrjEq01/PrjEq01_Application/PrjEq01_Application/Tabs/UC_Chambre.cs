@@ -12,6 +12,7 @@ namespace PrjEq01_Application.Tabs
 {
     public partial class UC_Chambre : UserControl, PrjEq01_CommonForm.IButtons
     {
+        public int State { get; set; }
 
         public UC_Chambre()
         {
@@ -167,38 +168,38 @@ namespace PrjEq01_Application.Tabs
 
         private void bt_listCodeType_Click(object sender, EventArgs e)
         {
-            PrjEq01_Application.List_Forms.LF_ChambreCodeType lf_chambreCodeType = new PrjEq01_Application.List_Forms.LF_ChambreCodeType();
+            /*PrjEq01_Application.List_Forms.LF_ChambreCodeType lf_chambreCodeType = new PrjEq01_Application.List_Forms.LF_ChambreCodeType();
             lf_chambreCodeType.Dgv_main.DataSource = BS_TYPECHAM;
             int tempPositionBS_TYPECHAM = BS_TYPECHAM.Position;
             if (lf_chambreCodeType.ShowDialog() == DialogResult.Cancel)
             {
                 BS_TYPECHAM.Position = tempPositionBS_TYPECHAM;
             }
-            //MessageBox.Show("Fonction en développement.");
+            //MessageBox.Show("Fonction en développement.");*/
         }
 
         private void bt_listCodeLoc_Click(object sender, EventArgs e)
         {
-            PrjEq01_Application.List_Forms.LF_ChambreCodeLoc lf_chambreCodeLoc = new PrjEq01_Application.List_Forms.LF_ChambreCodeLoc();
+            /*PrjEq01_Application.List_Forms.LF_ChambreCodeLoc lf_chambreCodeLoc = new PrjEq01_Application.List_Forms.LF_ChambreCodeLoc();
             lf_chambreCodeLoc.Dgv_main.DataSource = BS_LOCALISATION;
             int tempPositionBS_LOCALISATION = BS_LOCALISATION.Position;
             if (lf_chambreCodeLoc.ShowDialog() == DialogResult.Cancel)
             {
                 BS_TYPECHAM.Position = tempPositionBS_LOCALISATION;
             }
-            //MessageBox.Show("Fonction en développement.");
+            //MessageBox.Show("Fonction en développement.");*/
         }
 
         private void bt_listCommodite_Click(object sender, EventArgs e)
         {
-            PrjEq01_Application.List_Forms.LF_ChambreCommodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_ChambreCommodite();
+            /*PrjEq01_Application.List_Forms.LF_ChambreCommodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_ChambreCommodite();
             lf_chambreCommodite.Dgv_main.DataSource = BS_COMMODITE;
             int tempPositionBS_COMMODITE = BS_COMMODITE.Position;
             if (lf_chambreCommodite.ShowDialog() == DialogResult.Cancel)
             {
                 BS_TYPECHAM.Position = tempPositionBS_COMMODITE;
             }
-            //MessageBox.Show("Fonction en développement.");
+            //MessageBox.Show("Fonction en développement.");*/
         }
     }
 }

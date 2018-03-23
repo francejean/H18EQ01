@@ -21,44 +21,5 @@ namespace PrjEq01_Application.UserControls
         {
             MessageBox.Show("Fonction en développement.");
         }
-
-        private void fillByARRIVEToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByARRIVEToolStripButton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByARRIVEToolStripButton_Click_2(object sender, EventArgs e)
-        {
-            try
-            {
-                this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
     }
 }

@@ -12,7 +12,9 @@ namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
     {
-		public UC_Arrive()
+        public int State { get; set; }
+
+        public UC_Arrive()
 		{
 			InitializeComponent();
 		}
@@ -125,19 +127,16 @@ namespace PrjEq01_Application.Tabs
 
         public void Add()
         {
-            MessageBox.Show("Fonction en développement.");
             SetReadOnly(false);
         }
 
         public void Edit()
         {
-            MessageBox.Show("Fonction en développement.");
             SetReadOnly(false);
         }
 
         public void Delete()
         {
-            MessageBox.Show("Fonction en développement.");
             SetReadOnly(true);
         }
 
