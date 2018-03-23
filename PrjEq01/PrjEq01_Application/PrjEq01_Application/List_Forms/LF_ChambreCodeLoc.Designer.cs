@@ -28,10 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgv_main
+            // 
+            this.dgv_main.RowTemplate.Height = 24;
+            // 
+            // LF_ChambreCodeLoc
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "LF_ChambreCodeLoc";
+            this.ClientSize = new System.Drawing.Size(976, 450);
+            this.Name = "LF_ChambreCodeLoc";
+            this.Text = "Liste de sélection sur la localisation";
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
