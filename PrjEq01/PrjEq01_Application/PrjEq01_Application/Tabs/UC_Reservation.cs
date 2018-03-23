@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Reservation : UserControl, PrjEq01_CommonForm.IButtons
 	{
-        public int State { get; set; }
+        public States State { get; set; }
 
         public UC_Reservation()
 		{
@@ -100,16 +101,14 @@ namespace PrjEq01_Application.Tabs
 			{ MessageBox.Show(e.Message); }
 		}
 
-		public void SetReadOnly(bool state)
+		public void SetReadOnly()
 		{
 			List<IReadOnly> consult_controls = new List<IReadOnly>();
 			consult_controls.Add(ic_Reserv);
 			consult_controls.Add(ir_Base);
 
 			foreach (IReadOnly consult_control in consult_controls)
-			{ consult_control.SetReadOnly(state); }
-
-			ic_Reserv.tb_solde.ReadOnly = state;
+			{ consult_control.SetReadOnly(State); }
 		}
 
 		public bool Sync_ForeignTables()
@@ -121,19 +120,19 @@ namespace PrjEq01_Application.Tabs
 		public void Add()
 		{
             MessageBox.Show("Fonction en développement.");
-			SetReadOnly(false);
+			SetReadOnly();
 		}
 
 		public void Edit()
 		{
             MessageBox.Show("Fonction en développement.");
-			SetReadOnly(false);
+			SetReadOnly();
 		}
 
 		public void Delete()
 		{
             MessageBox.Show("Fonction en développement.");
-			SetReadOnly(true);
+			SetReadOnly();
 		}
 
 		public void Undo()
@@ -144,35 +143,35 @@ namespace PrjEq01_Application.Tabs
 		public void Save()
 		{
 			MessageBox.Show("Fonction en développement.");
-			SetReadOnly(true);
+			SetReadOnly();
 		}
 
 		public void Go_Start()
 		{
 			this.BS_RESERVATION.MoveFirst();
 			Sync_ForeignTables();
-			SetReadOnly(true);
+			SetReadOnly();
 		}
 
 		public void Go_Back()
 		{
 			this.BS_RESERVATION.MovePrevious();
 			Sync_ForeignTables();
-			SetReadOnly(true);
+			SetReadOnly();
 		}
 
 		public void Go_Forward()
 		{
 			this.BS_RESERVATION.MoveNext();
 			Sync_ForeignTables();
-			SetReadOnly(true);
+			SetReadOnly();
 		}
 
 		public void Go_End()
 		{
 			this.BS_RESERVATION.MoveLast();
 			Sync_ForeignTables();
-			SetReadOnly(true);
+			SetReadOnly();
 		}
 	}
 }
