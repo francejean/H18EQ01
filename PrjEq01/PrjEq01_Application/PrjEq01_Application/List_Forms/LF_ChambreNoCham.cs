@@ -10,29 +10,30 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.List_Forms
 {
-    public partial class LF_ChambreNoCham : Form
+    public partial class LF_ChambreNoCham : PrjEq01_Application.List_Forms.LF_Base
     {
         public LF_ChambreNoCham()
         {
             InitializeComponent();
         }
 
-        public DataGridView Dgv_noCham
+        public PrjEq01_Application.UserControls.Inherit_DGV Dgv_main
         {
             get
             {
-                return this.dgv_noCham;
+                return this.dgv_main;
             }
             set
             {
-                dgv_noCham = value;
+                dgv_main = value;
             }
         }
 
         private void LF_ChambreNoCham_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS_Master.CHAMBRE' table. You can move, or remove it, as needed.
-            //this.cHAMBRETableAdapter.Fill(this.dS_Master.CHAMBRE);
+            //this.TA_CHAMBRE.Fill(this.dS_Master.CHAMBRE);
+            //this.dgv_main.AutoGenerateColumns = false;
         }
     }
 }
