@@ -12,6 +12,8 @@ namespace PrjEq01_Application.Tabs
 {
     public partial class UC_Departs : UserControl, PrjEq01_CommonForm.IButtons
     {
+        public int State { get; set; }
+
         public UC_Departs()
         {
             InitializeComponent();

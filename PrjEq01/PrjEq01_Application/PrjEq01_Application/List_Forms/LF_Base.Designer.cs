@@ -36,6 +36,7 @@
             // 
             // bt_ok
             // 
+            this.bt_ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bt_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_ok.Location = new System.Drawing.Point(250, 317);
             this.bt_ok.Margin = new System.Windows.Forms.Padding(2);
@@ -47,6 +48,7 @@
             // 
             // bt_cancel
             // 
+            this.bt_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_cancel.Location = new System.Drawing.Point(450, 317);
             this.bt_cancel.Margin = new System.Windows.Forms.Padding(2);
@@ -62,6 +64,9 @@
             this.dgv_main.AllowUserToDeleteRows = false;
             this.dgv_main.AllowUserToResizeColumns = false;
             this.dgv_main.AllowUserToResizeRows = false;
+            this.dgv_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_main.Location = new System.Drawing.Point(12, 12);
             this.dgv_main.Name = "dgv_main";

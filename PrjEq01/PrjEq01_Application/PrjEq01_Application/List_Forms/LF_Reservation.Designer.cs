@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ds_master = new PrjEq01_Application.DS_Master();
             ((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgv_main
-            // 
             // 
             // ds_master
             // 
@@ -47,7 +43,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(734, 362);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LF_Reservation";
             this.Text = "Liste des réservations";
             ((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();

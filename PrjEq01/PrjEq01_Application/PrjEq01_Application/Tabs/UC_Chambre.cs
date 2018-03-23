@@ -12,6 +12,7 @@ namespace PrjEq01_Application.Tabs
 {
     public partial class UC_Chambre : UserControl, PrjEq01_CommonForm.IButtons
     {
+        public int State { get; set; }
 
         public UC_Chambre()
         {
