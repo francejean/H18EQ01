@@ -15,13 +15,17 @@ namespace PrjEq01_Application.UserControls
 	{
         protected BindingSource BS;
 
-		public IR_Base(BindingSource BS)
+		public IR_Base()
 		{
 			InitializeComponent();
-            this.BS = BS;
 		}
 
-		protected virtual void bt_list_Click(object sender, EventArgs e)
+        public void setBS(BindingSource BS)
+        {
+            this.BS = BS;
+        }
+
+        protected virtual void bt_list_Click(object sender, EventArgs e)
 		{
 			if (this.Parent is Tabs.UC_Reservation)
 			{
