@@ -12,7 +12,7 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 {
     public partial class IR_Depart : PrjEq01_Application.UserControls.IR_Base
     {
-        public IR_Depart(BindingSource BS) : base(BS)
+        public IR_Depart()
         {
             InitializeComponent();
         }

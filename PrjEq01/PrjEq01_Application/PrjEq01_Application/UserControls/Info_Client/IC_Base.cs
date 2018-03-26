@@ -15,9 +15,13 @@ namespace PrjEq01_Application.UserControls
     {
         protected BindingSource BS;
 
-        public IC_Base(BindingSource BS)
+        public IC_Base()
 		{
 			InitializeComponent();
+        }
+
+        public void setBS(BindingSource BS)
+        {
             this.BS = BS;
         }
 

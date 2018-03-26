@@ -10,7 +10,7 @@ namespace PrjEq01_Application.UserControls.Info_Client
 {
 	public partial class IC_Reserv : IC_Base
 	{
-		public IC_Reserv(BindingSource BS) : base(BS)
+		public IC_Reserv()
         {
 			InitializeComponent();
 		}

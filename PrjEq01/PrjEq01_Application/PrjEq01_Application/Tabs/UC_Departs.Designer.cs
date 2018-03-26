@@ -30,8 +30,8 @@
         {
             this.lb_noArrivee = new System.Windows.Forms.Label();
             this.tb_noArrivee = new System.Windows.Forms.TextBox();
-            this.ir_departs = new PrjEq01_Application.UserControls.Info_Reservation.IR_Depart(new System.Windows.Forms.BindingSource());
-            this.ic_base = new PrjEq01_Application.UserControls.IC_Base(new System.Windows.Forms.BindingSource());
+            this.ir_departs = new PrjEq01_Application.UserControls.Info_Reservation.IR_Depart();
+            this.ic_base = new PrjEq01_Application.UserControls.IC_Base();
             this.dS_Master = new PrjEq01_Application.DS_Master();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).BeginInit();
             this.SuspendLayout();

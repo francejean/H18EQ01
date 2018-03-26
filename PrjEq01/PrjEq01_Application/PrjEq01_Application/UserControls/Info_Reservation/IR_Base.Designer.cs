@@ -102,6 +102,7 @@ namespace PrjEq01_Application.UserControls
             this.bt_list.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_list.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_list.BackgroundImage")));
             this.bt_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_list.Enabled = false;
             this.bt_list.Location = new System.Drawing.Point(174, 10);
             this.bt_list.Margin = new System.Windows.Forms.Padding(2);
             this.bt_list.Name = "bt_list";

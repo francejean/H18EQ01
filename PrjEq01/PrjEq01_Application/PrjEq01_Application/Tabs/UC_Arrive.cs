@@ -18,6 +18,8 @@ namespace PrjEq01_Application.Tabs
         public UC_Arrive()
 		{
 			InitializeComponent();
+            ic_arrive.setBS(BS_CLIENT);
+            ir_arrive.setBS(BS_RESERVATION);
 		}
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
