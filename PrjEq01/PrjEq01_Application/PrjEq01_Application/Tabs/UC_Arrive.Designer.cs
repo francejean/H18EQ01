@@ -33,7 +33,7 @@
             this.tb_noArrive = new System.Windows.Forms.TextBox();
             this.TA_ARRIVE = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
             this.TA_RESERVATION = new PrjEq01_Application.DS_MasterTableAdapters.RESERVATIONTableAdapter();
-            this.DS_Master = new PrjEq01_Application.DS_Master();
+            this.ds_master = new PrjEq01_Application.DS_Master();
             this.BS_ARRIVE = new System.Windows.Forms.BindingSource(this.components);
             this.BS_RESERVATION = new System.Windows.Forms.BindingSource(this.components);
             this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
@@ -45,7 +45,7 @@
             this.ic_arrive = new PrjEq01_Application.UserControls.Info_Client.IC_Arrive();
             this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
             this.BS_DE = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CLIENT)).BeginInit();
@@ -79,10 +79,10 @@
             // 
             this.TA_RESERVATION.ClearBeforeFill = true;
             // 
-            // DS_Master
+            // ds_master
             // 
-            this.DS_Master.DataSetName = "DS_Master";
-            this.DS_Master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ds_master.DataSetName = "DS_Master";
+            this.ds_master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TA_CLIENT
             // 
@@ -136,7 +136,7 @@
             this.Name = "UC_Arrive";
             this.Size = new System.Drawing.Size(973, 432);
             this.Load += new System.EventHandler(this.Tab_Arrive_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DS_Master)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CLIENT)).EndInit();
@@ -152,7 +152,7 @@
         private System.Windows.Forms.TextBox tb_noArrive;
         private DS_MasterTableAdapters.ARRIVETableAdapter TA_ARRIVE;
         private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
-        private DS_Master DS_Master;
+        private DS_Master ds_master;
         private System.Windows.Forms.BindingSource BS_ARRIVE;
         private System.Windows.Forms.BindingSource BS_RESERVATION;
         private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
