@@ -18,16 +18,8 @@ namespace PrjEq01_Application.Tabs
         public UC_Reservation()
 		{
 			InitializeComponent();
-		}
-
-		public BindingSource Get_BS_RESERVATION()
-		{
-			return BS_RESERVATION;
-		}
-
-		public BindingSource Get_BS_CLIENT()
-		{
-			return BS_CLIENT;
+			ic_Reserv.setBS(BS_CLIENT);
+			ir_Base.setBS(BS_RESERVATION);
 		}
 
 		private void Tab_Reservation_Load(object sender, EventArgs e)
