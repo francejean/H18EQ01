@@ -8,6 +8,6 @@ namespace PrjEq01_Application
 {
     interface IReadOnly
     {
-        void SetReadOnly(bool state);
+        void SetReadOnly(PrjEq01_CommonForm.States state);
     }
 }

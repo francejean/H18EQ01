@@ -189,6 +189,9 @@
     <EmbeddedResource Include="List_Forms\LF_Base.resx">
       <DependentUpon>LF_Base.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_ChambreCodeLoc.resx">
+      <DependentUpon>LF_ChambreCodeLoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_ChambreCodeType.resx">
       <DependentUpon>LF_ChambreCodeType.cs</DependentUpon>
     </EmbeddedResource>

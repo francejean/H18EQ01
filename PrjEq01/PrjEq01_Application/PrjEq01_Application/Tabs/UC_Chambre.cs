@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.Tabs
 {
     public partial class UC_Chambre : UserControl, PrjEq01_CommonForm.IButtons
     {
-        public int State { get; set; }
+        public States State { get; set; }
 
         public UC_Chambre()
         {
@@ -157,7 +158,9 @@ namespace PrjEq01_Application.Tabs
         private void bt_listNoChambre_Click(object sender, EventArgs e)
         {
             PrjEq01_Application.List_Forms.LF_ChambreNoCham lf_chambreNoCham = new PrjEq01_Application.List_Forms.LF_ChambreNoCham();
-            lf_chambreNoCham.Dgv_noCham.DataSource = BS_CHAMBRE;
+            lf_chambreNoCham.Dgv_main.DataSource = BS_CHAMBRE;
+            lf_chambreNoCham.Dgv_main.Columns["DescLoc"].Visible = false;
+            lf_chambreNoCham.Dgv_main.Columns["DescTyp"].Visible = false;
             int tempPositionBS_CHAMBRE = BS_CHAMBRE.Position;
             if (lf_chambreNoCham.ShowDialog() == DialogResult.Cancel)
             {

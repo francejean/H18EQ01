@@ -41,7 +41,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 450);
             this.Name = "LF_ChambreCommodite";
-            this.Text = "LF_ChambreCommodite";
+            this.Text = "Liste de sélection sur les commodités";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).EndInit();
             this.ResumeLayout(false);
 

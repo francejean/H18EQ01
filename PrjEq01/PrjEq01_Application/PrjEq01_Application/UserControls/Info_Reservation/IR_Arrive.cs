@@ -10,7 +10,7 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 {
     public partial class IR_Arrive : PrjEq01_Application.UserControls.IR_Base
     {
-        public IR_Arrive(BindingSource BS) : base(BS)
+        public IR_Arrive()
         {
             InitializeComponent();
         }

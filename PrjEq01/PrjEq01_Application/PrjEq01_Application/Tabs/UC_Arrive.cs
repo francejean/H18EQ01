@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
     {
-        public int State { get; set; }
+        public States State { get; set; }
 
         public UC_Arrive()
 		{
 			InitializeComponent();
+            ic_arrive.setBS(BS_CLIENT);
+            ir_arrive.setBS(BS_RESERVATION);
 		}
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
@@ -104,7 +107,7 @@ namespace PrjEq01_Application.Tabs
             { MessageBox.Show(e.Message); }
         }
 
-        public void SetReadOnly(bool state)
+        public void SetReadOnly()
         {
             List<IReadOnly> consult_controls = new List<IReadOnly>();
             consult_controls.Add(ic_arrive);
@@ -112,10 +115,27 @@ namespace PrjEq01_Application.Tabs
 
             foreach(IReadOnly consult_control in consult_controls)
             {
-                consult_control.SetReadOnly(state);
+                consult_control.SetReadOnly(State);
             }
 
-            tb_noArrive.ReadOnly = state;
+            switch (State)
+            {
+                case States.ADD:
+                    tb_noArrive.ReadOnly = false; 
+                    break;
+                case States.EDIT:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+                case States.DELETE:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+                case States.SAVE:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+                case States.MOVE:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+            }
         }
 
         public bool Sync_ForeignTables()
@@ -127,17 +147,17 @@ namespace PrjEq01_Application.Tabs
 
         public void Add()
         {
-            SetReadOnly(false);
+            SetReadOnly();
         }
 
         public void Edit()
         {
-            SetReadOnly(false);
+            SetReadOnly();
         }
 
         public void Delete()
         {
-            SetReadOnly(true);
+            SetReadOnly();
         }
 
         public void Undo()
@@ -148,35 +168,35 @@ namespace PrjEq01_Application.Tabs
         public void Save()
         {
             MessageBox.Show("Fonction en développement.");
-            SetReadOnly(true);
+            SetReadOnly();
         }
 
         public void Go_Start()
         {
             BS_ARRIVE.MoveFirst();
             Sync_ForeignTables();
-            SetReadOnly(true);
+            SetReadOnly();
         }
 
         public void Go_Back()
         {
             BS_ARRIVE.MovePrevious();
             Sync_ForeignTables();
-            SetReadOnly(true);
+            SetReadOnly();
         }
 
         public void Go_Forward()
         {
             BS_ARRIVE.MoveNext();
             Sync_ForeignTables();
-            SetReadOnly(true);
+            SetReadOnly();
         }
 
         public void Go_End()
         {
             BS_ARRIVE.MoveLast();
             Sync_ForeignTables();
-            SetReadOnly(true);
+            SetReadOnly();
         }
     }
 }
