@@ -17,8 +17,18 @@ namespace PrjEq01_Application.UserControls.Info_Client
 
         protected override void bt_list_Click(object sender, EventArgs e)
         {
-            List_Forms.LF_Client lf_client = new List_Forms.LF_Client(BS);
-            lf_client.ShowDialog();
+            int BS_pos_backup = BS.Position;
+            List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
+            DialogResult result = lf_reservation.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                tb_noClient.Text = ds_master.Tables["CLIENT"].Rows[BS.Position]["IdCli"].ToString();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                BS.Position = BS_pos_backup;
+            }
         }
     }
 }

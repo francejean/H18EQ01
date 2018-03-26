@@ -18,6 +18,7 @@ namespace PrjEq01_Application.UserControls
         public IC_Base()
 		{
 			InitializeComponent();
+            TA_CLIENT.Fill(ds_master.CLIENT);
         }
 
         public void setBS(BindingSource BS)
@@ -67,9 +68,7 @@ namespace PrjEq01_Application.UserControls
 				else if (ctrl.GetType() == typeof(CheckBox))
 					((CheckBox)ctrl).Enabled = readOnly;
 				else if (ctrl.GetType() == typeof(DateTimePicker))
-					((DateTimePicker)ctrl).Enabled = readOnly;
-				else if (ctrl.GetType() == typeof(Button))
-					((Button)ctrl).Enabled = readOnly;
+					((DateTimePicker)ctrl).Enabled = !readOnly;
 			}
         }
     }
