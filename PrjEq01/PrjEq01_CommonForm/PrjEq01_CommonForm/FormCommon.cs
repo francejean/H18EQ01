@@ -40,37 +40,37 @@ namespace PrjEq01_CommonForm
 		private void Button_Undo_Click(object sender, EventArgs e)
 		{
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Undo();
+            selected_tab.uc_tab.UndoExt();
         }
 
 		private void Button_Save_Click(object sender, EventArgs e)
 		{
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Save();
+            selected_tab.uc_tab.SaveExt();
         }
 
         private void Button_Back_All_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_Start();
+            selected_tab.uc_tab.Go_StartExt();
         }
 
         private void Button_Back_One_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_Back();
+            selected_tab.uc_tab.Go_BackExt();
         }
 
         private void Button_Forward_One_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_Forward();
+            selected_tab.uc_tab.Go_ForwardExt();
         }
 
         private void Button_Forward_All_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_End();
+            selected_tab.uc_tab.Go_EndExt();
         }
     }
 }

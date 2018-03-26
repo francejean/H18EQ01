@@ -31,11 +31,11 @@ namespace PrjEq01_Application.Tabs
 
 		private void Fill()
 		{
-			this.TA_ARRIVE.Fill(this.DS_Master.ARRIVE);
-			this.TA_RESERVATION.FillByARRIVE(this.DS_Master.RESERVATION);
-			this.TA_CLIENT.Fill(this.DS_Master.CLIENT);
-			this.TA_CHAMBRE.FillByARRIVE(this.DS_Master.CHAMBRE);
-            this.TA_DE.FillBy(DS_Master.DE);
+			this.TA_ARRIVE.Fill(this.ds_master.ARRIVE);
+			this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
+			this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
+            this.TA_DE.FillBy(ds_master.DE);
 		}
 
         private void Link()
@@ -49,7 +49,7 @@ namespace PrjEq01_Application.Tabs
 		private void Link_ARRIVE()
 		{
 			this.BS_ARRIVE.DataMember = "ARRIVE";
-			this.BS_ARRIVE.DataSource = this.DS_Master;
+			this.BS_ARRIVE.DataSource = this.ds_master;
 
 			try
 			{
@@ -64,7 +64,7 @@ namespace PrjEq01_Application.Tabs
 		private void Link_CLIENT()
 		{
 			this.BS_CLIENT.DataMember = "CLIENT";
-			this.BS_CLIENT.DataSource = this.DS_Master;
+			this.BS_CLIENT.DataSource = this.ds_master;
 
 			try
 			{
@@ -81,7 +81,7 @@ namespace PrjEq01_Application.Tabs
 		private void Link_RESERVATION()
 		{
 			this.BS_RESERVATION.DataMember = "RESERVATION";
-			this.BS_RESERVATION.DataSource = this.DS_Master;
+			this.BS_RESERVATION.DataSource = this.ds_master;
 
 			try
 			{
@@ -140,8 +140,8 @@ namespace PrjEq01_Application.Tabs
 
         public bool Sync_ForeignTables()
         {
-            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
             return true;
         }
 
