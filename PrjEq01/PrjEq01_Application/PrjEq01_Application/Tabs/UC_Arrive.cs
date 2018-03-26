@@ -127,13 +127,13 @@ namespace PrjEq01_Application.Tabs
                     tb_noArrive.ReadOnly = false;
                     break;
                 case States.DELETE:
-                    tb_noArrive.ReadOnly = false;
+                    tb_noArrive.ReadOnly = true;
                     break;
                 case States.SAVE:
-                    tb_noArrive.ReadOnly = false;
+                    tb_noArrive.ReadOnly = true;
                     break;
                 case States.MOVE:
-                    tb_noArrive.ReadOnly = false;
+                    tb_noArrive.ReadOnly = true;
                     break;
             }
         }
