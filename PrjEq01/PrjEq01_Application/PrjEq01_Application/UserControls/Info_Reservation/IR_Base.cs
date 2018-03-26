@@ -18,6 +18,7 @@ namespace PrjEq01_Application.UserControls
 		public IR_Base()
 		{
 			InitializeComponent();
+            TA_RESERVATION.Fill(ds_master.RESERVATION);
 		}
 
         public void setBS(BindingSource BS)

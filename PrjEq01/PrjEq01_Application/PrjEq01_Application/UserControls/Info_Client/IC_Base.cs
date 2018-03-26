@@ -18,6 +18,7 @@ namespace PrjEq01_Application.UserControls
         public IC_Base()
 		{
 			InitializeComponent();
+            TA_CLIENT.Fill(ds_master.CLIENT);
         }
 
         public void setBS(BindingSource BS)
