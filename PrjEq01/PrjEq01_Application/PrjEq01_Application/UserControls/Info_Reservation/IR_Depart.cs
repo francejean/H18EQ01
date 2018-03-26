@@ -19,21 +19,17 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 
         protected override void bt_list_Click(object sender, EventArgs e)
         {
-            if (this.Parent is Tabs.UC_Reservation)
+            int BS_pos_backup = BS.Position;
+            List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
+            DialogResult result = lf_reservation.ShowDialog();
+
+            if (result == DialogResult.OK)
             {
-                List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
-                Tabs.UC_Reservation uc_reser = (Tabs.UC_Reservation)this.Parent;
 
-                int tmpPos_BS_RESERVATION = BS.Position;
-
-                if (lf_reservation.ShowDialog() == DialogResult.Cancel)
-                {
-                    BS.Position = tmpPos_BS_RESERVATION;
-                }
-                else
-                {
-                    uc_reser.Sync_ForeignTables();
-                }
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                BS.Position = BS_pos_backup;
             }
         }
     }

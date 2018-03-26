@@ -17,12 +17,17 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 
         protected override void bt_list_Click(object sender, EventArgs e)
         {
+            int BS_pos_backup = BS.Position;
             List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
+            DialogResult result = lf_reservation.ShowDialog();
 
-            if (lf_reservation.ShowDialog() == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                //tb_noReserv.Text = ds_master["RESERVATION"].rows[BS.Position]["NO-reserv"]
-                //Faire la meme chose pour la datarow arrive pour le no reserv
+                tb_noReserv.Text = ds_master.Tables["RESERVATION"].Rows[BS.Position]["IdReser"].ToString();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                BS.Position = BS_pos_backup;
             }
         }
     }

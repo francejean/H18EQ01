@@ -27,7 +27,6 @@ namespace PrjEq01_Application.UserControls
 
         protected virtual void bt_list_Click(object sender, EventArgs e)
         {
-
         }
 
         public void SetReadOnly(States state)
