@@ -18,7 +18,12 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
         protected override void bt_list_Click(object sender, EventArgs e)
         {
             List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
-            lf_reservation.ShowDialog();
+
+            if (lf_reservation.ShowDialog() == DialogResult.OK)
+            {
+                //tb_noReserv.Text = ds_master["RESERVATION"].rows[BS.Position]["NO-reserv"]
+                //Faire la meme chose pour la datarow arrive pour le no reserv
+            }
         }
     }
 }

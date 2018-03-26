@@ -22,54 +22,63 @@ namespace PrjEq01_CommonForm
 		private void Button_Add_Click(object sender, EventArgs e)
 		{
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.AddExt();
+            selected_tab.uc_tab.State = States.ADD;
+            selected_tab.uc_tab.Add();
 		}
 
 		private void Button_Edit_Click(object sender, EventArgs e)
 		{
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.EditExt();
+            selected_tab.uc_tab.State = States.EDIT;
+            selected_tab.uc_tab.Edit();
         }
 
 		private void Button_Delete_Click(object sender, EventArgs e)
 		{
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.DeleteExt();
+            selected_tab.uc_tab.State = States.DELETE;
+            selected_tab.uc_tab.Delete();
         }
 
 		private void Button_Undo_Click(object sender, EventArgs e)
 		{
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+            selected_tab.uc_tab.State = States.UNDO;
             selected_tab.uc_tab.Undo();
         }
 
 		private void Button_Save_Click(object sender, EventArgs e)
 		{
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+            selected_tab.uc_tab.State = States.SAVE;
             selected_tab.uc_tab.Save();
         }
 
         private void Button_Back_All_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+            selected_tab.uc_tab.State = States.MOVE;
             selected_tab.uc_tab.Go_Start();
         }
 
         private void Button_Back_One_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+            selected_tab.uc_tab.State = States.MOVE;
             selected_tab.uc_tab.Go_Back();
         }
 
         private void Button_Forward_One_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+            selected_tab.uc_tab.State = States.MOVE;
             selected_tab.uc_tab.Go_Forward();
         }
 
         private void Button_Forward_All_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+            selected_tab.uc_tab.State = States.MOVE;
             selected_tab.uc_tab.Go_End();
         }
     }
