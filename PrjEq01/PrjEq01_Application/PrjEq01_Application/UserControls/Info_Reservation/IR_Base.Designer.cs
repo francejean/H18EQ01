@@ -39,7 +39,10 @@ namespace PrjEq01_Application.UserControls
             this.lb_noReservation = new System.Windows.Forms.Label();
             this.lb_dateReserv = new System.Windows.Forms.Label();
             this.lb_dateDebut = new System.Windows.Forms.Label();
+            this.ds_master = new PrjEq01_Application.DS_Master();
+            this.TA_RESERVATION = new PrjEq01_Application.DS_MasterTableAdapters.RESERVATIONTableAdapter();
             this.gb_reserv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_reserv
@@ -157,6 +160,15 @@ namespace PrjEq01_Application.UserControls
             this.lb_dateDebut.TabIndex = 10;
             this.lb_dateDebut.Text = "Date de début";
             // 
+            // ds_master
+            // 
+            this.ds_master.DataSetName = "DS_Master";
+            this.ds_master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TA_RESERVATION
+            // 
+            this.TA_RESERVATION.ClearBeforeFill = true;
+            // 
             // IR_Base
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +179,7 @@ namespace PrjEq01_Application.UserControls
             this.Size = new System.Drawing.Size(200, 190);
             this.gb_reserv.ResumeLayout(false);
             this.gb_reserv.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -182,5 +195,7 @@ namespace PrjEq01_Application.UserControls
         public System.Windows.Forms.DateTimePicker DTP_Debut;
         public System.Windows.Forms.DateTimePicker DTP_Reserv;
         public System.Windows.Forms.TextBox tb_noReserv;
-	}
+        protected DS_Master ds_master;
+        private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
+    }
 }

@@ -45,7 +45,10 @@
             this.lb_telephone = new System.Windows.Forms.Label();
             this.lb_addresse = new System.Windows.Forms.Label();
             this.lb_noClient = new System.Windows.Forms.Label();
+            this.ds_master = new PrjEq01_Application.DS_Master();
+            this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
             this.gb_client.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_client
@@ -204,6 +207,15 @@
             this.lb_noClient.TabIndex = 0;
             this.lb_noClient.Text = "No. Client";
             // 
+            // ds_master
+            // 
+            this.ds_master.DataSetName = "DS_Master";
+            this.ds_master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TA_CLIENT
+            // 
+            this.TA_CLIENT.ClearBeforeFill = true;
+            // 
             // IC_Base
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +226,7 @@
             this.Size = new System.Drawing.Size(365, 190);
             this.gb_client.ResumeLayout(false);
             this.gb_client.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -235,5 +248,7 @@
 		public System.Windows.Forms.TextBox tb_adresse;
         public System.Windows.Forms.GroupBox gb_client;
 		public PrjEq01_CommonForm.Controls.Button_List bt_list;
-	}
+        protected DS_Master ds_master;
+        private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
+    }
 }
