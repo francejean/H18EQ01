@@ -17,6 +17,12 @@ namespace PrjEq01_Application.List_Forms
             InitializeComponent();
         }
 
+        public LF_ChambreCommodite(BindingSource BS) : base(BS)
+        {
+            InitializeComponent();
+            dgv_main.DataSource = this.BS;
+        }
+
         public PrjEq01_Application.UserControls.Inherit_DGV Dgv_main
         {
             get

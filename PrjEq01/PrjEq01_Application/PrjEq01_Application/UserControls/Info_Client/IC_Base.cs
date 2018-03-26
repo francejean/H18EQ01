@@ -7,37 +7,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls
 {
 	public partial class IC_Base : UserControl, IReadOnly
     {
+        protected BindingSource BS;
+
         public IC_Base()
 		{
 			InitializeComponent();
         }
 
+        public void setBS(BindingSource BS)
+        {
+            this.BS = BS;
+        }
+
         protected virtual void bt_list_Click(object sender, EventArgs e)
         {
-            List_Forms.LF_Client lf_client = new List_Forms.LF_Client();
+            List_Forms.LF_Client lf_client = new List_Forms.LF_Client(BS);
             lf_client.ShowDialog();
         }
 
-        public void SetReadOnly(bool state)
+        public void SetReadOnly(States state)
         {
+            bool readOnly = false;
+
+            switch(state)
+            {
+                case States.ADD:
+                    readOnly = false;
+                    bt_list.Enabled = true;
+                    break;
+                case States.EDIT:
+                    readOnly = false;
+                    bt_list.Enabled = false;
+                    break;
+                case States.DELETE:
+                    readOnly = true;
+                    bt_list.Enabled = false;
+                    break;
+                case States.SAVE:
+                    readOnly = true;
+                    bt_list.Enabled = false;
+                    break;
+                case States.MOVE:
+                    readOnly = true;
+                    bt_list.Enabled = false;
+                    break;
+            }
+
             foreach (Control ctrl in gb_client.Controls)
             {
 				if (ctrl.GetType() == typeof(TextBox))
-					((TextBox)ctrl).ReadOnly = state;
+					((TextBox)ctrl).ReadOnly = readOnly;
 				else if (ctrl.GetType() == typeof(ComboBox))
-					((ComboBox)ctrl).Enabled = state;
+					((ComboBox)ctrl).Enabled = readOnly;
 				else if (ctrl.GetType() == typeof(CheckBox))
-					((CheckBox)ctrl).Enabled = state;
+					((CheckBox)ctrl).Enabled = readOnly;
 				else if (ctrl.GetType() == typeof(DateTimePicker))
-					((DateTimePicker)ctrl).Enabled = state;
+					((DateTimePicker)ctrl).Enabled = readOnly;
 				else if (ctrl.GetType() == typeof(Button))
-					((Button)ctrl).Enabled = state;
-
+					((Button)ctrl).Enabled = readOnly;
 			}
         }
     }

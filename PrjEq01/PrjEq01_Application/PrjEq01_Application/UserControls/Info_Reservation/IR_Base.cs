@@ -7,25 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls
 {
 	public partial class IR_Base: UserControl, IReadOnly
 	{
+        protected BindingSource BS;
+
 		public IR_Base()
 		{
 			InitializeComponent();
 		}
 
-		protected virtual void bt_list_Click(object sender, EventArgs e)
+        public void setBS(BindingSource BS)
+        {
+            this.BS = BS;
+        }
+
+        protected virtual void bt_list_Click(object sender, EventArgs e)
 		{
 			if (this.Parent is Tabs.UC_Reservation)
 			{
-				List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation();
+				List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
 				Tabs.UC_Reservation uc_reser = (Tabs.UC_Reservation)this.Parent;
 
-				BindingSource BS = uc_reser.Get_BS_RESERVATION();
-				lf_reservation.Dgv_noReser.DataSource = BS;
 				int tmpPos_BS_RESERVATION = BS.Position;
 
 				if (lf_reservation.ShowDialog() == DialogResult.Cancel)
@@ -39,19 +45,47 @@ namespace PrjEq01_Application.UserControls
 			}
 		}
 
-		public void SetReadOnly(bool state)
-		{
-			foreach (Control ctrl in gb_reserv.Controls)
-			{
-				if (ctrl.GetType() == typeof(TextBox))
-					((TextBox)ctrl).ReadOnly = state;
-				if (ctrl.GetType() == typeof(ComboBox))
-					((ComboBox)ctrl).Enabled = state;
-				if (ctrl.GetType() == typeof(CheckBox))
-					((CheckBox)ctrl).Enabled = state;
-				if (ctrl.GetType() == typeof(DateTimePicker))
-					((DateTimePicker)ctrl).Enabled = !state;
-			}
-		}
-	}
+        public void SetReadOnly(States state)
+        {
+            bool readOnly = false;
+
+            switch (state)
+            {
+                case States.ADD:
+                    readOnly = false;
+                    bt_list.Enabled = true;
+                    break;
+                case States.EDIT:
+                    readOnly = false;
+                    bt_list.Enabled = false;
+                    break;
+                case States.DELETE:
+                    readOnly = true;
+                    bt_list.Enabled = false;
+                    break;
+                case States.SAVE:
+                    readOnly = true;
+                    bt_list.Enabled = false;
+                    break;
+                case States.MOVE:
+                    readOnly = true;
+                    bt_list.Enabled = false;
+                    break;
+            }
+
+            foreach (Control ctrl in gb_reserv.Controls)
+            {
+                if (ctrl.GetType() == typeof(TextBox))
+                    ((TextBox)ctrl).ReadOnly = readOnly;
+                else if (ctrl.GetType() == typeof(ComboBox))
+                    ((ComboBox)ctrl).Enabled = readOnly;
+                else if (ctrl.GetType() == typeof(CheckBox))
+                    ((CheckBox)ctrl).Enabled = readOnly;
+                else if (ctrl.GetType() == typeof(DateTimePicker))
+                    ((DateTimePicker)ctrl).Enabled = readOnly;
+                else if (ctrl.GetType() == typeof(Button))
+                    ((Button)ctrl).Enabled = readOnly;
+            }
+        }
+    }
 }

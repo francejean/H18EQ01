@@ -7,28 +7,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.Tabs
 {
     public partial class UC_Departs : UserControl, PrjEq01_CommonForm.IButtons
     {
+        public States State { get; set; }
+
         public UC_Departs()
         {
             InitializeComponent();
+           //set BS UC_Depart.designer ligne 34-35
         }
 
-        public void SetReadOnly(bool state)
+        public void SetReadOnly()
         {
-            List<IReadOnly> consult_controls = new List<IReadOnly>();
-            consult_controls.Add(ic_base);
-            consult_controls.Add(ir_departs);
+            List<IReadOnly> consult_controls = new List<IReadOnly>
+            {
+                ic_base,
+                ir_departs
+            };
 
             foreach (IReadOnly consult_control in consult_controls)
             {
-                consult_control.SetReadOnly(state);
+                consult_control.SetReadOnly(State);
             }
 
-            tb_noArrivee.ReadOnly = state;
+            /*switch (State)
+            {
+                case States.ADD:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+                case States.EDIT:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+                case States.DELETE:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+                case States.SAVE:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+                case States.MOVE:
+                    tb_noArrive.ReadOnly = false;
+                    break;
+            }*/
         }
 
         public void Add()

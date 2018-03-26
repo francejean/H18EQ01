@@ -31,20 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.GroupBox_ListeChambres = new System.Windows.Forms.GroupBox();
             this.dgv_chambre = new System.Windows.Forms.DataGridView();
-            this.cHAMBREBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Master = new PrjEq01_Application.DS_Master();
-            this.cHAMBRETableAdapter = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
-            this.aRRIVEFKNoChamBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aRRIVETableAdapter = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
             this.noChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descTypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Etat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
+            this.ds_master = new PrjEq01_Application.DS_Master();
+            this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.GroupBox_ListeChambres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cHAMBREBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aRRIVEFKNoChamBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox_ListeChambres
@@ -75,7 +72,7 @@
             this.descTypDataGridViewTextBoxColumn,
             this.prixDataGridViewTextBoxColumn,
             this.Etat});
-            this.dgv_chambre.DataSource = this.cHAMBREBindingSource;
+            this.dgv_chambre.DataSource = this.BS_CHAMBRE;
             this.dgv_chambre.Location = new System.Drawing.Point(6, 17);
             this.dgv_chambre.Name = "dgv_chambre";
             this.dgv_chambre.ReadOnly = true;
@@ -83,29 +80,6 @@
             this.dgv_chambre.RowHeadersVisible = false;
             this.dgv_chambre.Size = new System.Drawing.Size(939, 233);
             this.dgv_chambre.TabIndex = 2;
-            // 
-            // cHAMBREBindingSource
-            // 
-            this.cHAMBREBindingSource.DataMember = "CHAMBRE";
-            this.cHAMBREBindingSource.DataSource = this.dS_Master;
-            // 
-            // dS_Master
-            // 
-            this.dS_Master.DataSetName = "DS_Master";
-            this.dS_Master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cHAMBRETableAdapter
-            // 
-            this.cHAMBRETableAdapter.ClearBeforeFill = true;
-            // 
-            // aRRIVEFKNoChamBindingSource
-            // 
-            this.aRRIVEFKNoChamBindingSource.DataMember = "ARRIVE_FK_NoCham";
-            this.aRRIVEFKNoChamBindingSource.DataSource = this.cHAMBREBindingSource;
-            // 
-            // aRRIVETableAdapter
-            // 
-            this.aRRIVETableAdapter.ClearBeforeFill = true;
             // 
             // noChamDataGridViewTextBoxColumn
             // 
@@ -135,6 +109,20 @@
             this.Etat.Name = "Etat";
             this.Etat.ReadOnly = true;
             // 
+            // BS_CHAMBRE
+            // 
+            this.BS_CHAMBRE.DataMember = "CHAMBRE";
+            this.BS_CHAMBRE.DataSource = this.ds_master;
+            // 
+            // ds_master
+            // 
+            this.ds_master.DataSetName = "DS_Master";
+            this.ds_master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TA_CHAMBRE
+            // 
+            this.TA_CHAMBRE.ClearBeforeFill = true;
+            // 
             // Liste_Chambre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,22 +133,18 @@
             this.Size = new System.Drawing.Size(951, 256);
             this.GroupBox_ListeChambres.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cHAMBREBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Master)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aRRIVEFKNoChamBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         public System.Windows.Forms.GroupBox GroupBox_ListeChambres;
-        private System.Windows.Forms.BindingSource cHAMBREBindingSource;
-        private DS_Master dS_Master;
-        private DS_MasterTableAdapters.CHAMBRETableAdapter cHAMBRETableAdapter;
-        private System.Windows.Forms.BindingSource aRRIVEFKNoChamBindingSource;
-        private DS_MasterTableAdapters.ARRIVETableAdapter aRRIVETableAdapter;
+        private System.Windows.Forms.BindingSource BS_CHAMBRE;
+        private DS_Master ds_master;
+        private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
         public System.Windows.Forms.DataGridView dgv_chambre;
-		private System.Windows.Forms.DataGridViewTextBoxColumn etatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noChamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descTypDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;

@@ -17,7 +17,7 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 
         protected override void bt_list_Click(object sender, EventArgs e)
         {
-            List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation();
+            List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
             lf_reservation.ShowDialog();
         }
     }

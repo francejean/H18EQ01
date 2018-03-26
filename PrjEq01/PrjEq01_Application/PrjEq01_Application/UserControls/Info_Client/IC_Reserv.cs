@@ -11,7 +11,7 @@ namespace PrjEq01_Application.UserControls.Info_Client
 	public partial class IC_Reserv : IC_Base
 	{
 		public IC_Reserv()
-		{
+        {
 			InitializeComponent();
 		}
 
@@ -19,11 +19,10 @@ namespace PrjEq01_Application.UserControls.Info_Client
 		{
 			if (this.Parent is Tabs.UC_Reservation)
 			{
-				List_Forms.LF_Client lf_client = new List_Forms.LF_Client();
+				List_Forms.LF_Client lf_client = new List_Forms.LF_Client(BS);
 				Tabs.UC_Reservation uc_reser = (Tabs.UC_Reservation)this.Parent;
 
 				BindingSource bs = uc_reser.Get_BS_CLIENT();
-				lf_client.Dgv_IdCli.DataSource = bs;
 				int tmpPos_BS_RESERVATION = bs.Position;
 
 				if (lf_client.ShowDialog() == DialogResult.Cancel)
