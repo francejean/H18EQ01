@@ -14,5 +14,11 @@ namespace PrjEq01_Application.UserControls.Info_Client
 		{
 			InitializeComponent();
 		}
+
+        protected override void bt_list_Click(object sender, EventArgs e)
+        {
+            List_Forms.LF_Client lf_client = new List_Forms.LF_Client(BS);
+            lf_client.ShowDialog();
+        }
     }
 }
