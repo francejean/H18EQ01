@@ -40,7 +40,7 @@ namespace PrjEq01_Application.Tabs
 			this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
 			this.ic_Reserv = new PrjEq01_Application.UserControls.Info_Client.IC_Reserv();
 			this.ir_Base = new PrjEq01_Application.UserControls.IR_Base();
-			this.ls_chambre = new PrjEq01_Application.UserControls.Liste_Chambre();
+			this.ls_chambre = new PrjEq01_Application.UserControls.LC_Base();
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_DE)).BeginInit();
@@ -116,7 +116,7 @@ namespace PrjEq01_Application.Tabs
 		#endregion
 		private DS_MasterTableAdapters.DETableAdapter TA_DE;
 		private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
-		private UserControls.Liste_Chambre ls_chambre;
+		private UserControls.LC_Base ls_chambre;
 		private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
 		private DS_Master DS_Master;
 		private System.Windows.Forms.BindingSource BS_CHAMBRE;

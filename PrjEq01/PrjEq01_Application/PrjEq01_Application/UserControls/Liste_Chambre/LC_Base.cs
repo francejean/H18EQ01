@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.UserControls
 {
-    public partial class Liste_Chambre : UserControl
+    public partial class LC_Base : UserControl
     {
-        public Liste_Chambre()
+        public LC_Base()
         {
             InitializeComponent();
         }
