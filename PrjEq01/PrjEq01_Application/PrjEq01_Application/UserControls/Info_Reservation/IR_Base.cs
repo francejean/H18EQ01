@@ -18,6 +18,7 @@ namespace PrjEq01_Application.UserControls
 		public IR_Base()
 		{
 			InitializeComponent();
+            TA_RESERVATION.Fill(ds_master.RESERVATION);
 		}
 
         public void setBS(BindingSource BS)
@@ -27,7 +28,6 @@ namespace PrjEq01_Application.UserControls
 
         protected virtual void bt_list_Click(object sender, EventArgs e)
         {
-
         }
 
         public void SetReadOnly(States state)
@@ -67,9 +67,7 @@ namespace PrjEq01_Application.UserControls
                 else if (ctrl.GetType() == typeof(CheckBox))
                     ((CheckBox)ctrl).Enabled = readOnly;
                 else if (ctrl.GetType() == typeof(DateTimePicker))
-                    ((DateTimePicker)ctrl).Enabled = readOnly;
-                else if (ctrl.GetType() == typeof(Button))
-                    ((Button)ctrl).Enabled = readOnly;
+                    ((DateTimePicker)ctrl).Enabled = !readOnly;
             }
         }
     }
