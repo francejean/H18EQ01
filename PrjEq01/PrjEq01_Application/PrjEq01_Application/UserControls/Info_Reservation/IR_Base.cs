@@ -32,44 +32,19 @@ namespace PrjEq01_Application.UserControls
 
         public void SetReadOnly(States state)
         {
-            bool readOnly = false;
+            bool readOnly	= !(state == States.ADD || state == States.EDIT);
 
-            switch (state)
-            {
-                case States.ADD:
-                    readOnly = false;
-                    bt_list.Enabled = true;
-                    break;
-                case States.EDIT:
-                    readOnly = false;
-                    bt_list.Enabled = false;
-                    break;
-                case States.DELETE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-                case States.SAVE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-                case States.MOVE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-            }
+			// Different for Reserv and Arrive
+			bt_list.Enabled = (state == States.ADD);
 
-            foreach (Control ctrl in gb_reserv.Controls)
-            {
-                if (ctrl.GetType() == typeof(TextBox))
-                    ((TextBox)ctrl).ReadOnly = readOnly;
-                else if (ctrl.GetType() == typeof(ComboBox))
-                    ((ComboBox)ctrl).Enabled = readOnly;
-                else if (ctrl.GetType() == typeof(CheckBox))
-                    ((CheckBox)ctrl).Enabled = readOnly;
-                else if (ctrl.GetType() == typeof(DateTimePicker))
-                    ((DateTimePicker)ctrl).Enabled = !readOnly;
-            }
-        }
+			foreach (Control ctrl in gb_reserv.Controls)
+			{
+				if (ctrl is TextBox)
+					((TextBox)ctrl).ReadOnly = readOnly;
+				else if (!(ctrl is Label))
+					ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
+			}
+		}
 
 		public virtual void WipeInformation()
 		{
