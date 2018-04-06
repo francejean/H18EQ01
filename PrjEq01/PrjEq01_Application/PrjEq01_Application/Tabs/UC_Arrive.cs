@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
 
@@ -112,6 +106,7 @@ namespace PrjEq01_Application.Tabs
             List<IReadOnly> consult_controls = new List<IReadOnly>();
             consult_controls.Add(ic_arrive);
             consult_controls.Add(ir_arrive);
+            consult_controls.Add(ls_chambre);
 
             foreach(IReadOnly consult_control in consult_controls)
             {
