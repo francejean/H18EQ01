@@ -15,6 +15,8 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
         public IR_Depart()
         {
             InitializeComponent();
+            this.bt_list.Enabled = false;
+            this.bt_list.Visible = false;
         }
 
         protected override void bt_list_Click(object sender, EventArgs e)

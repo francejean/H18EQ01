@@ -61,9 +61,9 @@ namespace PrjEq01_Application.Tabs
                 tb_descLoc.DataBindings.Add("Text", BS_CHAMBRE, "DescLoc");
                 tb_memo.DataBindings.Add("Text", BS_CHAMBRE, "Memo");
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -158,9 +158,8 @@ namespace PrjEq01_Application.Tabs
         private void bt_listNoChambre_Click(object sender, EventArgs e)
         {
             PrjEq01_Application.List_Forms.LF_ChambreNoCham lf_chambreNoCham = new PrjEq01_Application.List_Forms.LF_ChambreNoCham();
+            lf_chambreNoCham.Dgv_main.AutoGenerateColumns = false;
             lf_chambreNoCham.Dgv_main.DataSource = BS_CHAMBRE;
-            lf_chambreNoCham.Dgv_main.Columns["DescLoc"].Visible = false;
-            lf_chambreNoCham.Dgv_main.Columns["DescTyp"].Visible = false;
             int tempPositionBS_CHAMBRE = BS_CHAMBRE.Position;
             if (lf_chambreNoCham.ShowDialog() == DialogResult.Cancel)
             {

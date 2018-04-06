@@ -95,11 +95,11 @@ namespace PrjEq01_Application.Tabs
 
 		public void SetReadOnly()
 		{
-			List<IReadOnly> consult_controls = new List<IReadOnly>();
+			List<IInfoBox> consult_controls = new List<IInfoBox>();
 			consult_controls.Add(ic_Reserv);
 			consult_controls.Add(ir_Base);
 
-			foreach (IReadOnly consult_control in consult_controls)
+			foreach (IInfoBox consult_control in consult_controls)
 			{ consult_control.SetReadOnly(State); }
 		}
 
@@ -111,7 +111,9 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
-            MessageBox.Show("Fonction en développement.");
+			ic_Reserv.WypeInformation();
+			ir_Base.WypeInformation();
+
 			SetReadOnly();
 		}
 
@@ -129,7 +131,9 @@ namespace PrjEq01_Application.Tabs
 
 		public void Undo()
 		{
-			MessageBox.Show("Fonction en développement.");
+			Fill();
+			Link();
+			SetReadOnly();
 		}
 
 		public void Save()

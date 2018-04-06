@@ -11,7 +11,7 @@ using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls
 {
-	public partial class IR_Base: UserControl, IReadOnly
+	public partial class IR_Base: UserControl, IInfoBox
 	{
         protected BindingSource BS;
 
@@ -70,5 +70,13 @@ namespace PrjEq01_Application.UserControls
                     ((DateTimePicker)ctrl).Enabled = !readOnly;
             }
         }
-    }
+
+		public virtual void WypeInformation()
+		{
+			this.tb_noReserv.ResetText();
+			this.DTP_Debut.ResetText();
+			this.DTP_Fin.ResetText();
+			this.DTP_Reserv.ResetText();
+		}
+	}
 }
