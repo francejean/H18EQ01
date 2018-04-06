@@ -64,6 +64,12 @@
       <DependentUpon>FormApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="IInfoBox.cs" />
+    <Compile Include="List_Forms\LF_Arrive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_Forms\LF_Arrive.Designer.cs">
+      <DependentUpon>LF_Arrive.cs</DependentUpon>
+    </Compile>
     <Compile Include="List_Forms\LF_Base.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </Compile>
     <EmbeddedResource Include="FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_Arrive.resx">
+      <DependentUpon>LF_Arrive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_Base.resx">
       <DependentUpon>LF_Base.cs</DependentUpon>
