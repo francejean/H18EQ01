@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace PrjEq01_Application
 {
-    interface IReadOnly
+    interface IInfoBox
     {
         void SetReadOnly(PrjEq01_CommonForm.States state);
+		void WypeInformation();
     }
 }

@@ -11,7 +11,7 @@ using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls
 {
-	public partial class IC_Base : UserControl, IReadOnly
+	public partial class IC_Base : UserControl, IInfoBox
     {
         protected BindingSource BS;
 
@@ -71,5 +71,16 @@ namespace PrjEq01_Application.UserControls
 					((DateTimePicker)ctrl).Enabled = !readOnly;
 			}
         }
-    }
+
+		public virtual void WypeInformation()
+		{
+			this.tb_adresse.ResetText();
+			this.tb_expiration.ResetText();
+			this.tb_noCarte.ResetText();
+			this.tb_noClient.ResetText();
+			this.tb_nomClient.ResetText();
+			this.tb_telephone.ResetText();
+			this.tb_typeCarte.ResetText();
+		}
+	}
 }
