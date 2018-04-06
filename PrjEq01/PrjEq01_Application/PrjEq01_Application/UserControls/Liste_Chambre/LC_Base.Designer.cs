@@ -33,13 +33,13 @@
             this.GroupBox_ListeChambres = new System.Windows.Forms.GroupBox();
             this.bt_listCommodite = new PrjEq01_CommonForm.Controls.Button_List();
             this.dgv_chambre = new System.Windows.Forms.DataGridView();
-            this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
-            this.ds_master = new PrjEq01_Application.DS_Master();
-            this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.noChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descTypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Etat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
+            this.ds_master = new PrjEq01_Application.DS_Master();
+            this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.GroupBox_ListeChambres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
@@ -71,6 +71,7 @@
             this.bt_listCommodite.Size = new System.Drawing.Size(20, 20);
             this.bt_listCommodite.TabIndex = 10;
             this.bt_listCommodite.UseVisualStyleBackColor = true;
+            this.bt_listCommodite.Click += new System.EventHandler(this.bt_list_Click);
             // 
             // dgv_chambre
             // 
@@ -95,20 +96,6 @@
             this.dgv_chambre.RowHeadersVisible = false;
             this.dgv_chambre.Size = new System.Drawing.Size(915, 233);
             this.dgv_chambre.TabIndex = 2;
-            // 
-            // BS_CHAMBRE
-            // 
-            this.BS_CHAMBRE.DataMember = "CHAMBRE";
-            this.BS_CHAMBRE.DataSource = this.ds_master;
-            // 
-            // ds_master
-            // 
-            this.ds_master.DataSetName = "DS_Master";
-            this.ds_master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TA_CHAMBRE
-            // 
-            this.TA_CHAMBRE.ClearBeforeFill = true;
             // 
             // noChamDataGridViewTextBoxColumn
             // 
@@ -137,6 +124,20 @@
             this.Etat.HeaderText = "Attribuée";
             this.Etat.Name = "Etat";
             this.Etat.ReadOnly = true;
+            // 
+            // BS_CHAMBRE
+            // 
+            this.BS_CHAMBRE.DataMember = "CHAMBRE";
+            this.BS_CHAMBRE.DataSource = this.ds_master;
+            // 
+            // ds_master
+            // 
+            this.ds_master.DataSetName = "DS_Master";
+            this.ds_master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TA_CHAMBRE
+            // 
+            this.TA_CHAMBRE.ClearBeforeFill = true;
             // 
             // LC_Base
             // 
