@@ -109,10 +109,21 @@ namespace PrjEq01_Application.Tabs
 			return false;
 		}
 
-		public void Add()
+		private void RestoreFields()
+		{
+			Fill();
+			Sync_ForeignTables();
+		}
+
+		private void EmptyFields()
 		{
 			ic_Reserv.WypeInformation();
 			ir_Base.WypeInformation();
+		}
+
+		public void Add()
+		{
+			EmptyFields();
 
 			SetReadOnly();
 		}
@@ -131,8 +142,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void Undo()
 		{
-			Fill();
-			Link();
+			RestoreFields();
 			SetReadOnly();
 		}
 

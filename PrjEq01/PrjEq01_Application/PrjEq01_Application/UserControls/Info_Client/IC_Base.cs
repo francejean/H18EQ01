@@ -38,10 +38,10 @@ namespace PrjEq01_Application.UserControls
 
 			foreach (Control ctrl in gb_client.Controls)
 			{
-				if (ctrl.GetType() == typeof(TextBox))
+				if (ctrl is TextBox)
 					((TextBox)ctrl).ReadOnly = readOnly;
-				else
-					ctrl.Enabled = (ctrl.GetType() != typeof(DateTimePicker)) ? readOnly : !readOnly;
+				else if(!(ctrl is Label))
+					ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
 			}
 		}
 

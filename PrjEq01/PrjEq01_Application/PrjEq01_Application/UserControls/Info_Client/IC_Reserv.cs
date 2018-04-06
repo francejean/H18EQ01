@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls.Info_Client
 {
@@ -30,6 +31,12 @@ namespace PrjEq01_Application.UserControls.Info_Client
                 BS.Position = BS_pos_backup;
             }
         }
+
+		public override void SetReadOnly(States state)
+		{
+			base.SetReadOnly(state);
+			this.tb_solde.Enabled = (state == States.ADD || state == States.EDIT);
+		}
 
 		public override void WypeInformation()
 		{

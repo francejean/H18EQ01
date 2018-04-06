@@ -33,16 +33,18 @@ namespace PrjEq01_Application.UserControls
         public void SetReadOnly(States state)
         {
             bool readOnly	= !(state == States.ADD || state == States.EDIT);
+
+			// Different for Reserv and Arrive
 			bt_list.Enabled = (state == States.ADD);
 
 			foreach (Control ctrl in gb_reserv.Controls)
-            {
-                if (ctrl.GetType() == typeof(TextBox))
-                    ((TextBox)ctrl).ReadOnly = readOnly;
-				else
-					ctrl.Enabled = (ctrl.GetType() != typeof(DateTimePicker)) ? readOnly : !readOnly;
-            }
-        }
+			{
+				if (ctrl is TextBox)
+					((TextBox)ctrl).ReadOnly = readOnly;
+				else if (!(ctrl is Label))
+					ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
+			}
+		}
 
 		public virtual void WypeInformation()
 		{
