@@ -9,6 +9,6 @@ namespace PrjEq01_Application
     interface IInfoBox
     {
         void SetReadOnly(PrjEq01_CommonForm.States state);
-		void WypeInformation();
+		void WipeInformation();
     }
 }

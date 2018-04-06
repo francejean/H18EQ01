@@ -11,7 +11,7 @@ using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls
 {
-    public partial class LC_Base : UserControl, IReadOnly
+    public partial class LC_Base : UserControl, IInfoBox
     {
         protected BindingSource BS;
 
@@ -80,6 +80,10 @@ namespace PrjEq01_Application.UserControls
                     ((DateTimePicker)ctrl).Enabled = !readOnly;
             }
             
+        }
+
+        public void WipeInformation()
+        {
         }
     }
 }

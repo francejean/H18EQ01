@@ -111,8 +111,8 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
-			ic_Reserv.WypeInformation();
-			ir_Base.WypeInformation();
+			ic_Reserv.WipeInformation();
+			ir_Base.WipeInformation();
 
 			SetReadOnly();
 		}

@@ -31,9 +31,9 @@ namespace PrjEq01_Application.UserControls.Info_Client
             }
         }
 
-		public override void WypeInformation()
+		public override void WipeInformation()
 		{
-			base.WypeInformation();
+			base.WipeInformation();
 
 			this.tb_solde.ResetText();
 		}
