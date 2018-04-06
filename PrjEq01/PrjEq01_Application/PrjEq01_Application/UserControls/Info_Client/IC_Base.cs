@@ -31,46 +31,19 @@ namespace PrjEq01_Application.UserControls
             
         }
 
-        public void SetReadOnly(States state)
+        public virtual void SetReadOnly(States state)
         {
-            bool readOnly = false;
+            bool readOnly	= !(state == States.ADD || state == States.EDIT);
+			bt_list.Enabled = (state == States.ADD);
 
-            switch(state)
-            {
-                case States.ADD:
-                    readOnly = false;
-                    bt_list.Enabled = true;
-                    break;
-                case States.EDIT:
-                    readOnly = false;
-                    bt_list.Enabled = false;
-                    break;
-                case States.DELETE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-                case States.SAVE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-                case States.MOVE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-            }
-
-            foreach (Control ctrl in gb_client.Controls)
-            {
+			foreach (Control ctrl in gb_client.Controls)
+			{
 				if (ctrl.GetType() == typeof(TextBox))
 					((TextBox)ctrl).ReadOnly = readOnly;
-				else if (ctrl.GetType() == typeof(ComboBox))
-					((ComboBox)ctrl).Enabled = readOnly;
-				else if (ctrl.GetType() == typeof(CheckBox))
-					((CheckBox)ctrl).Enabled = readOnly;
-				else if (ctrl.GetType() == typeof(DateTimePicker))
-					((DateTimePicker)ctrl).Enabled = !readOnly;
+				else
+					ctrl.Enabled = (ctrl.GetType() != typeof(DateTimePicker)) ? readOnly : !readOnly;
 			}
-        }
+		}
 
 		public virtual void WypeInformation()
 		{
