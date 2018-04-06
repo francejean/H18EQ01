@@ -109,11 +109,11 @@ namespace PrjEq01_Application.Tabs
 
         public void SetReadOnly()
         {
-            List<IReadOnly> consult_controls = new List<IReadOnly>();
+            List<IInfoBox> consult_controls = new List<IInfoBox>();
             consult_controls.Add(ic_arrive);
             consult_controls.Add(ir_arrive);
 
-            foreach(IReadOnly consult_control in consult_controls)
+            foreach(IInfoBox consult_control in consult_controls)
             {
                 consult_control.SetReadOnly(State);
             }

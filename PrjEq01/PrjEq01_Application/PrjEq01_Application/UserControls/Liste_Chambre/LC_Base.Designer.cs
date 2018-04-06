@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LC_Base));
 			this.GroupBox_ListeChambres = new System.Windows.Forms.GroupBox();
+			this.bt_listCommodite = new PrjEq01_CommonForm.Controls.Button_List();
 			this.dgv_chambre = new System.Windows.Forms.DataGridView();
 			this.noChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.descTypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,7 +40,6 @@
 			this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
 			this.ds_master = new PrjEq01_Application.DS_Master();
 			this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
-			this.bt_listCommodite = new PrjEq01_CommonForm.Controls.Button_List();
 			this.GroupBox_ListeChambres.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
@@ -59,6 +59,18 @@
 			this.GroupBox_ListeChambres.TabIndex = 1;
 			this.GroupBox_ListeChambres.TabStop = false;
 			this.GroupBox_ListeChambres.Text = "Liste des chambres";
+			// 
+			// bt_listCommodite
+			// 
+			this.bt_listCommodite.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_listCommodite.BackgroundImage")));
+			this.bt_listCommodite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.bt_listCommodite.Enabled = false;
+			this.bt_listCommodite.Location = new System.Drawing.Point(5, 18);
+			this.bt_listCommodite.Margin = new System.Windows.Forms.Padding(2);
+			this.bt_listCommodite.Name = "bt_listCommodite";
+			this.bt_listCommodite.Size = new System.Drawing.Size(20, 20);
+			this.bt_listCommodite.TabIndex = 10;
+			this.bt_listCommodite.UseVisualStyleBackColor = true;
 			// 
 			// dgv_chambre
 			// 
@@ -125,18 +137,6 @@
 			// TA_CHAMBRE
 			// 
 			this.TA_CHAMBRE.ClearBeforeFill = true;
-			// 
-			// bt_listCommodite
-			// 
-			this.bt_listCommodite.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_listCommodite.BackgroundImage")));
-			this.bt_listCommodite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.bt_listCommodite.Enabled = false;
-			this.bt_listCommodite.Location = new System.Drawing.Point(5, 18);
-			this.bt_listCommodite.Margin = new System.Windows.Forms.Padding(2);
-			this.bt_listCommodite.Name = "bt_listCommodite";
-			this.bt_listCommodite.Size = new System.Drawing.Size(20, 20);
-			this.bt_listCommodite.TabIndex = 10;
-			this.bt_listCommodite.UseVisualStyleBackColor = true;
 			// 
 			// LC_Base
 			// 

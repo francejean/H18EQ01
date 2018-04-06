@@ -63,7 +63,7 @@
     <Compile Include="FormApplication.Designer.cs">
       <DependentUpon>FormApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="IReadOnly.cs" />
+    <Compile Include="IInfoBox.cs" />
     <Compile Include="List_Forms\LF_Base.cs">
       <SubType>Form</SubType>
     </Compile>

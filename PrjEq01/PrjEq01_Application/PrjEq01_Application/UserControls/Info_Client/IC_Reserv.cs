@@ -30,5 +30,12 @@ namespace PrjEq01_Application.UserControls.Info_Client
                 BS.Position = BS_pos_backup;
             }
         }
+
+		public override void WypeInformation()
+		{
+			base.WypeInformation();
+
+			this.tb_solde.ResetText();
+		}
 	}
 }
