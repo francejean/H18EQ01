@@ -98,6 +98,6 @@
 
         private System.Windows.Forms.Button bt_ok;
         private System.Windows.Forms.Button bt_cancel;
-        public UserControls.Inherit_DGV dgv_main;
+        protected UserControls.Inherit_DGV dgv_main;
     }
 }
