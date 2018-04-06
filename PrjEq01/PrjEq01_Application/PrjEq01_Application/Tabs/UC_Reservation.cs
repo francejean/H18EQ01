@@ -117,14 +117,13 @@ namespace PrjEq01_Application.Tabs
 
 		private void EmptyFields()
 		{
-			ic_Reserv.WypeInformation();
-			ir_Base.WypeInformation();
+			ic_Reserv.WipeInformation();
+			ir_Base.WipeInformation();
 		}
 
 		public void Add()
 		{
 			EmptyFields();
-
 			SetReadOnly();
 		}
 

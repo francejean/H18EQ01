@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
 
@@ -20,6 +14,7 @@ namespace PrjEq01_Application.Tabs
 			InitializeComponent();
             ic_arrive.setBS(BS_CLIENT);
             ir_arrive.setBS(BS_RESERVATION);
+            lc_base.setBS(BS_CHAMBRE);
 		}
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
@@ -101,7 +96,7 @@ namespace PrjEq01_Application.Tabs
 
             try
             {
-                ls_chambre.dgv_chambre.DataSource = BS_CHAMBRE;
+                lc_base.dgv_chambre.DataSource = BS_CHAMBRE;
             }
             catch (Exception e)
             { MessageBox.Show(e.Message); }
@@ -112,6 +107,7 @@ namespace PrjEq01_Application.Tabs
             List<IInfoBox> consult_controls = new List<IInfoBox>();
             consult_controls.Add(ic_arrive);
             consult_controls.Add(ir_arrive);
+            consult_controls.Add(lc_base);
 
             foreach(IInfoBox consult_control in consult_controls)
             {

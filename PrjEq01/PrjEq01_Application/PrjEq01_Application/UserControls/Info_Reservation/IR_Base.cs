@@ -46,7 +46,7 @@ namespace PrjEq01_Application.UserControls
 			}
 		}
 
-		public virtual void WypeInformation()
+		public virtual void WipeInformation()
 		{
 			this.tb_noReserv.ResetText();
 			this.DTP_Debut.ResetText();

@@ -45,7 +45,7 @@ namespace PrjEq01_Application.UserControls
 			}
 		}
 
-		public virtual void WypeInformation()
+		public virtual void WipeInformation()
 		{
 			this.tb_adresse.ResetText();
 			this.tb_expiration.ResetText();

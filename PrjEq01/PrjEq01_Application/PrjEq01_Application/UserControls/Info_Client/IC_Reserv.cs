@@ -38,9 +38,9 @@ namespace PrjEq01_Application.UserControls.Info_Client
 			this.tb_solde.Enabled = (state == States.ADD || state == States.EDIT);
 		}
 
-		public override void WypeInformation()
+		public override void WipeInformation()
 		{
-			base.WypeInformation();
+			base.WipeInformation();
 
 			this.tb_solde.ResetText();
 		}

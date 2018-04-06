@@ -40,7 +40,7 @@
             this.BS_CLIENT = new System.Windows.Forms.BindingSource(this.components);
             this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
-            this.ls_chambre = new PrjEq01_Application.UserControls.LC_Base();
+            this.lc_base = new PrjEq01_Application.UserControls.LC_Base();
             this.ir_arrive = new PrjEq01_Application.UserControls.Info_Reservation.IR_Arrive();
             this.ic_arrive = new PrjEq01_Application.UserControls.Info_Client.IC_Arrive();
             this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
@@ -92,16 +92,16 @@
             // 
             this.TA_CHAMBRE.ClearBeforeFill = true;
             // 
-            // ls_chambre
+            // lc_base
             // 
-            this.ls_chambre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lc_base.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ls_chambre.Location = new System.Drawing.Point(3, 199);
-            this.ls_chambre.MinimumSize = new System.Drawing.Size(850, 230);
-            this.ls_chambre.Name = "ls_chambre";
-            this.ls_chambre.Size = new System.Drawing.Size(967, 230);
-            this.ls_chambre.TabIndex = 15;
+            this.lc_base.Location = new System.Drawing.Point(3, 199);
+            this.lc_base.MinimumSize = new System.Drawing.Size(850, 230);
+            this.lc_base.Name = "lc_base";
+            this.lc_base.Size = new System.Drawing.Size(967, 230);
+            this.lc_base.TabIndex = 15;
             // 
             // ir_arrive
             // 
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ls_chambre);
+            this.Controls.Add(this.lc_base);
             this.Controls.Add(this.ir_arrive);
             this.Controls.Add(this.ic_arrive);
             this.Controls.Add(this.tb_noArrive);
@@ -160,7 +160,7 @@
         private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
 		private UserControls.Info_Client.IC_Arrive ic_arrive;
 		private UserControls.Info_Reservation.IR_Arrive ir_arrive;
-        private UserControls.LC_Base ls_chambre;
+        private UserControls.LC_Base lc_base;
         public System.Windows.Forms.BindingSource BS_CHAMBRE;
         private DS_MasterTableAdapters.DETableAdapter TA_DE;
         private System.Windows.Forms.BindingSource BS_DE;
