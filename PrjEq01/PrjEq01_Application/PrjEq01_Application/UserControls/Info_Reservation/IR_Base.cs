@@ -48,10 +48,11 @@ namespace PrjEq01_Application.UserControls
 
 		public virtual void WipeInformation()
 		{
-			this.tb_noReserv.ResetText();
-			this.DTP_Debut.ResetText();
-			this.DTP_Fin.ResetText();
-			this.DTP_Reserv.ResetText();
-		}
+            foreach (Control ctrl in gb_reserv.Controls)
+            {
+                if (ctrl is TextBox || ctrl is DateTimePicker)
+                    ctrl.ResetText();
+            }
+        }
 	}
 }
