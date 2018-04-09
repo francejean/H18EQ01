@@ -47,13 +47,11 @@ namespace PrjEq01_Application.UserControls
 
 		public virtual void WipeInformation()
 		{
-			this.tb_adresse.ResetText();
-			this.tb_expiration.ResetText();
-			this.tb_noCarte.ResetText();
-			this.tb_noClient.ResetText();
-			this.tb_nomClient.ResetText();
-			this.tb_telephone.ResetText();
-			this.tb_typeCarte.ResetText();
-		}
+            foreach (Control ctrl in gb_client.Controls)
+            {
+                if (ctrl is TextBox || ctrl is DateTimePicker)
+                    ctrl.ResetText();
+            }
+        }
 	}
 }
