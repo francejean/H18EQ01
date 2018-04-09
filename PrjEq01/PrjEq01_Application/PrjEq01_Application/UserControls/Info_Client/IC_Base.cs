@@ -21,48 +21,29 @@ namespace PrjEq01_Application.UserControls
             TA_CLIENT.Fill(ds_master.CLIENT);
         }
 
-        public void setBS(BindingSource BS)
-        {
-            this.BS = BS;
-        }
+    public void setBS(BindingSource BS)
+    {
+        this.BS = BS;
+    }
 
-        protected virtual void bt_list_Click(object sender, EventArgs e)
-        {
-            
-        }
+    protected virtual void bt_list_Click(object sender, EventArgs e)
+    {
 
-        public void SetReadOnly(States state)
-        {
-            bool readOnly = false;
+    }
 
-            switch(state)
-            {
-                case States.ADD:
-                    readOnly = false;
-                    bt_list.Enabled = true;
-                    break;
-                case States.EDIT:
-                    readOnly = false;
-                    bt_list.Enabled = false;
-                    break;
-                case States.CONSULT:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-            }
+    public virtual void SetReadOnly(States state)
+    {
+      bool readOnly	= !(state == States.ADD || state == States.EDIT);
+			bt_list.Enabled = (state == States.ADD);
 
-            foreach (Control ctrl in gb_client.Controls)
-            {
-				if (ctrl.GetType() == typeof(TextBox))
+			foreach (Control ctrl in gb_client.Controls)
+			{
+				if (ctrl is TextBox)
 					((TextBox)ctrl).ReadOnly = readOnly;
-				else if (ctrl.GetType() == typeof(ComboBox))
-					((ComboBox)ctrl).Enabled = readOnly;
-				else if (ctrl.GetType() == typeof(CheckBox))
-					((CheckBox)ctrl).Enabled = readOnly;
-				else if (ctrl.GetType() == typeof(DateTimePicker))
-					((DateTimePicker)ctrl).Enabled = !readOnly;
+				else if(!(ctrl is Label))
+					ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
 			}
-        }
+		}
 
 		public virtual void WipeInformation()
 		{

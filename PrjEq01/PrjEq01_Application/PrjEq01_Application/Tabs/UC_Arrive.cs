@@ -115,19 +115,8 @@ namespace PrjEq01_Application.Tabs
                 consult_control.SetReadOnly(State);
             }
 
-            switch (State)
-            {
-                case States.ADD:
-                    tb_noArrive.ReadOnly = false; 
-                    break;
-                case States.EDIT:
-                    tb_noArrive.ReadOnly = false;
-                    break;
-                case States.CONSULT:
-                    tb_noArrive.ReadOnly = true;
-                    break;
-            }
-        }
+			tb_noArrive.ReadOnly = !(State == States.ADD || State == States.EDIT);
+		}
 
         public bool Sync_ForeignTables()
         {
