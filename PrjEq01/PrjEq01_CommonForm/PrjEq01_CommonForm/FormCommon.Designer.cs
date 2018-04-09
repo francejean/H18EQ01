@@ -29,24 +29,139 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommon));
+            this.ts_main = new System.Windows.Forms.ToolStrip();
+            this.button_add = new System.Windows.Forms.ToolStripButton();
+            this.button_edit = new System.Windows.Forms.ToolStripButton();
+            this.button_delete = new System.Windows.Forms.ToolStripButton();
+            this.button_forwardAll = new System.Windows.Forms.ToolStripButton();
+            this.button_forwardOne = new System.Windows.Forms.ToolStripButton();
+            this.button_backOne = new System.Windows.Forms.ToolStripButton();
+            this.button_backAll = new System.Windows.Forms.ToolStripButton();
+            this.button_undo = new System.Windows.Forms.ToolStripButton();
+            this.button_save = new System.Windows.Forms.ToolStripButton();
             this.tc_main = new System.Windows.Forms.TabControl();
             this.Tab_Chambres = new PrjEq01_CommonForm.Tab_Interface();
             this.Tab_Réservations = new PrjEq01_CommonForm.Tab_Interface();
             this.Tab_Arrivées = new PrjEq01_CommonForm.Tab_Interface();
             this.Tab_Départs = new PrjEq01_CommonForm.Tab_Interface();
-            this.ToolStrip_Main = new System.Windows.Forms.ToolStrip();
-            this.Button_Add = new System.Windows.Forms.ToolStripButton();
-            this.Button_Edit = new System.Windows.Forms.ToolStripButton();
-            this.Button_Delete = new System.Windows.Forms.ToolStripButton();
-            this.Button_Forward_All = new System.Windows.Forms.ToolStripButton();
-            this.Button_Forward_One = new System.Windows.Forms.ToolStripButton();
-            this.Button_Back_One = new System.Windows.Forms.ToolStripButton();
-            this.Button_Back_All = new System.Windows.Forms.ToolStripButton();
-            this.Button_Undo = new System.Windows.Forms.ToolStripButton();
-            this.Button_Save = new System.Windows.Forms.ToolStripButton();
+            this.ts_main.SuspendLayout();
             this.tc_main.SuspendLayout();
-            this.ToolStrip_Main.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // ts_main
+            // 
+            this.ts_main.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ts_main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.button_add,
+            this.button_edit,
+            this.button_delete,
+            this.button_forwardAll,
+            this.button_forwardOne,
+            this.button_backOne,
+            this.button_backAll,
+            this.button_undo,
+            this.button_save});
+            this.ts_main.Location = new System.Drawing.Point(0, 0);
+            this.ts_main.Name = "ts_main";
+            this.ts_main.Size = new System.Drawing.Size(997, 27);
+            this.ts_main.TabIndex = 1;
+            this.ts_main.Text = "ts_main";
+            // 
+            // button_add
+            // 
+            this.button_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_add.Image = global::PrjEq01_CommonForm.Properties.Resources.Add_Hanan_;
+            this.button_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_add.Name = "button_add";
+            this.button_add.Size = new System.Drawing.Size(24, 24);
+            this.button_add.Text = "Ajouter";
+            this.button_add.Click += new System.EventHandler(this.Button_Add_Click);
+            // 
+            // button_edit
+            // 
+            this.button_edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_edit.Image = global::PrjEq01_CommonForm.Properties.Resources.Edit_Freepik_;
+            this.button_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_edit.Name = "button_edit";
+            this.button_edit.Size = new System.Drawing.Size(24, 24);
+            this.button_edit.Text = "Modifier";
+            this.button_edit.Click += new System.EventHandler(this.Button_Edit_Click);
+            // 
+            // button_delete
+            // 
+            this.button_delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_delete.Image = global::PrjEq01_CommonForm.Properties.Resources.Delete_Freepik_;
+            this.button_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(24, 24);
+            this.button_delete.Text = "Supprimer";
+            this.button_delete.Click += new System.EventHandler(this.Button_Delete_Click);
+            // 
+            // button_forwardAll
+            // 
+            this.button_forwardAll.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.button_forwardAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_forwardAll.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Right_Arrow_Dave_Gandy_;
+            this.button_forwardAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_forwardAll.Name = "button_forwardAll";
+            this.button_forwardAll.Size = new System.Drawing.Size(24, 24);
+            this.button_forwardAll.Text = "Fin";
+            this.button_forwardAll.Click += new System.EventHandler(this.Button_Forward_All_Click);
+            // 
+            // button_forwardOne
+            // 
+            this.button_forwardOne.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.button_forwardOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_forwardOne.Image = global::PrjEq01_CommonForm.Properties.Resources.Right_Arrow_Google_;
+            this.button_forwardOne.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_forwardOne.Name = "button_forwardOne";
+            this.button_forwardOne.Size = new System.Drawing.Size(24, 24);
+            this.button_forwardOne.Text = "Avant";
+            this.button_forwardOne.Click += new System.EventHandler(this.Button_Forward_One_Click);
+            // 
+            // button_backOne
+            // 
+            this.button_backOne.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.button_backOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_backOne.Image = global::PrjEq01_CommonForm.Properties.Resources.Left_Arrow_Google_;
+            this.button_backOne.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_backOne.Name = "button_backOne";
+            this.button_backOne.Size = new System.Drawing.Size(24, 24);
+            this.button_backOne.Text = "Arrière";
+            this.button_backOne.Click += new System.EventHandler(this.Button_Back_One_Click);
+            // 
+            // button_backAll
+            // 
+            this.button_backAll.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.button_backAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_backAll.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Left_Arrow_Dave_Gandy_;
+            this.button_backAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_backAll.Name = "button_backAll";
+            this.button_backAll.Size = new System.Drawing.Size(24, 24);
+            this.button_backAll.Text = "Début";
+            this.button_backAll.Click += new System.EventHandler(this.Button_Back_All_Click);
+            // 
+            // button_undo
+            // 
+            this.button_undo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_undo.Enabled = false;
+            this.button_undo.Image = global::PrjEq01_CommonForm.Properties.Resources.Back_Dave_Gandy_;
+            this.button_undo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_undo.Name = "button_undo";
+            this.button_undo.Size = new System.Drawing.Size(24, 24);
+            this.button_undo.Text = "Revenir en arrière";
+            this.button_undo.Click += new System.EventHandler(this.Button_Undo_Click);
+            // 
+            // button_save
+            // 
+            this.button_save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.button_save.Enabled = false;
+            this.button_save.Image = global::PrjEq01_CommonForm.Properties.Resources.Save_Smashicons_;
+            this.button_save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.button_save.Name = "button_save";
+            this.button_save.Size = new System.Drawing.Size(24, 24);
+            this.button_save.Text = "Sauvegarder";
+            this.button_save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
             // tc_main
             // 
@@ -63,6 +178,7 @@
             this.tc_main.SelectedIndex = 0;
             this.tc_main.Size = new System.Drawing.Size(979, 456);
             this.tc_main.TabIndex = 0;
+            this.tc_main.SelectedIndexChanged += new System.EventHandler(this.tc_main_SelectedIndexChanged);
             // 
             // Tab_Chambres
             // 
@@ -109,153 +225,40 @@
             this.Tab_Départs.uc_tab = null;
             this.Tab_Départs.UseVisualStyleBackColor = true;
             // 
-            // ToolStrip_Main
-            // 
-            this.ToolStrip_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ToolStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Button_Add,
-            this.Button_Edit,
-            this.Button_Delete,
-            this.Button_Forward_All,
-            this.Button_Forward_One,
-            this.Button_Back_One,
-            this.Button_Back_All,
-            this.Button_Undo,
-            this.Button_Save});
-            this.ToolStrip_Main.Location = new System.Drawing.Point(0, 0);
-            this.ToolStrip_Main.Name = "ToolStrip_Main";
-            this.ToolStrip_Main.Size = new System.Drawing.Size(997, 27);
-            this.ToolStrip_Main.TabIndex = 1;
-            this.ToolStrip_Main.Text = "toolStrip1";
-            // 
-            // Button_Add
-            // 
-            this.Button_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Add.Image = global::PrjEq01_CommonForm.Properties.Resources.Add_Hanan_;
-            this.Button_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Add.Name = "Button_Add";
-            this.Button_Add.Size = new System.Drawing.Size(24, 24);
-            this.Button_Add.Text = "Ajouter";
-            this.Button_Add.Click += new System.EventHandler(this.Button_Add_Click);
-            // 
-            // Button_Edit
-            // 
-            this.Button_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Edit.Image = global::PrjEq01_CommonForm.Properties.Resources.Edit_Freepik_;
-            this.Button_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Edit.Name = "Button_Edit";
-            this.Button_Edit.Size = new System.Drawing.Size(24, 24);
-            this.Button_Edit.Text = "Modifier";
-            this.Button_Edit.Click += new System.EventHandler(this.Button_Edit_Click);
-            // 
-            // Button_Delete
-            // 
-            this.Button_Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Delete.Image = global::PrjEq01_CommonForm.Properties.Resources.Delete_Freepik_;
-            this.Button_Delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Delete.Name = "Button_Delete";
-            this.Button_Delete.Size = new System.Drawing.Size(24, 24);
-            this.Button_Delete.Text = "Supprimer";
-            this.Button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
-            // 
-            // Button_Forward_All
-            // 
-            this.Button_Forward_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.Button_Forward_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Forward_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Right_Arrow_Dave_Gandy_;
-            this.Button_Forward_All.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Forward_All.Name = "Button_Forward_All";
-            this.Button_Forward_All.Size = new System.Drawing.Size(24, 24);
-            this.Button_Forward_All.Text = "Fin";
-            this.Button_Forward_All.Click += new System.EventHandler(this.Button_Forward_All_Click);
-            // 
-            // Button_Forward_One
-            // 
-            this.Button_Forward_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.Button_Forward_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Forward_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Right_Arrow_Google_;
-            this.Button_Forward_One.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Forward_One.Name = "Button_Forward_One";
-            this.Button_Forward_One.Size = new System.Drawing.Size(24, 24);
-            this.Button_Forward_One.Text = "Avant";
-            this.Button_Forward_One.Click += new System.EventHandler(this.Button_Forward_One_Click);
-            // 
-            // Button_Back_One
-            // 
-            this.Button_Back_One.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.Button_Back_One.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Back_One.Image = global::PrjEq01_CommonForm.Properties.Resources.Left_Arrow_Google_;
-            this.Button_Back_One.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Back_One.Name = "Button_Back_One";
-            this.Button_Back_One.Size = new System.Drawing.Size(24, 24);
-            this.Button_Back_One.Text = "Arrière";
-            this.Button_Back_One.Click += new System.EventHandler(this.Button_Back_One_Click);
-            // 
-            // Button_Back_All
-            // 
-            this.Button_Back_All.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.Button_Back_All.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Back_All.Image = global::PrjEq01_CommonForm.Properties.Resources.Double_Left_Arrow_Dave_Gandy_;
-            this.Button_Back_All.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Back_All.Name = "Button_Back_All";
-            this.Button_Back_All.Size = new System.Drawing.Size(24, 24);
-            this.Button_Back_All.Text = "Début";
-            this.Button_Back_All.Click += new System.EventHandler(this.Button_Back_All_Click);
-            // 
-            // Button_Undo
-            // 
-            this.Button_Undo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Undo.Image = global::PrjEq01_CommonForm.Properties.Resources.Back_Dave_Gandy_;
-            this.Button_Undo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Undo.Name = "Button_Undo";
-            this.Button_Undo.Size = new System.Drawing.Size(24, 24);
-            this.Button_Undo.Text = "Revenir en arrière";
-            this.Button_Undo.Click += new System.EventHandler(this.Button_Undo_Click);
-            // 
-            // Button_Save
-            // 
-            this.Button_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Button_Save.Image = global::PrjEq01_CommonForm.Properties.Resources.Save_Smashicons_;
-            this.Button_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Button_Save.Name = "Button_Save";
-            this.Button_Save.Size = new System.Drawing.Size(24, 24);
-            this.Button_Save.Text = "Sauvegarder";
-            this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
-            // 
             // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 490);
-            this.Controls.Add(this.ToolStrip_Main);
+            this.Controls.Add(this.ts_main);
             this.Controls.Add(this.tc_main);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormCommon";
             this.Text = "FormCommon";
+            this.ts_main.ResumeLayout(false);
+            this.ts_main.PerformLayout();
             this.tc_main.ResumeLayout(false);
-            this.ToolStrip_Main.ResumeLayout(false);
-            this.ToolStrip_Main.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ToolStrip ToolStrip_Main;
-        private System.Windows.Forms.ToolStripButton Button_Add;
-        private System.Windows.Forms.ToolStripButton Button_Delete;
-        private System.Windows.Forms.ToolStripButton Button_Forward_All;
-        private System.Windows.Forms.ToolStripButton Button_Forward_One;
-        private System.Windows.Forms.ToolStripButton Button_Back_One;
-        private System.Windows.Forms.ToolStripButton Button_Back_All;
         protected Tab_Interface Tab_Réservations;
         protected Tab_Interface Tab_Chambres;
         protected Tab_Interface Tab_Arrivées;
         protected Tab_Interface Tab_Départs;
-        private System.Windows.Forms.ToolStripButton Button_Edit;
-        private System.Windows.Forms.ToolStripButton Button_Undo;
-        private System.Windows.Forms.ToolStripButton Button_Save;
         protected System.Windows.Forms.TabControl tc_main;
+        internal System.Windows.Forms.ToolStrip ts_main;
+        internal System.Windows.Forms.ToolStripButton button_add;
+        internal System.Windows.Forms.ToolStripButton button_delete;
+        internal System.Windows.Forms.ToolStripButton button_forwardAll;
+        internal System.Windows.Forms.ToolStripButton button_forwardOne;
+        internal System.Windows.Forms.ToolStripButton button_backOne;
+        internal System.Windows.Forms.ToolStripButton button_backAll;
+        internal System.Windows.Forms.ToolStripButton button_edit;
+        internal System.Windows.Forms.ToolStripButton button_undo;
+        internal System.Windows.Forms.ToolStripButton button_save;
     }
 }

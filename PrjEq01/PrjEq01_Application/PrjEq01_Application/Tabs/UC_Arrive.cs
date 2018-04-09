@@ -15,6 +15,7 @@ namespace PrjEq01_Application.Tabs
             ic_arrive.setBS(BS_CLIENT);
             ir_arrive.setBS(BS_RESERVATION);
             lc_base.setBS(BS_CHAMBRE);
+            State = States.CONSULT;
 		}
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
@@ -122,13 +123,7 @@ namespace PrjEq01_Application.Tabs
                 case States.EDIT:
                     tb_noArrive.ReadOnly = false;
                     break;
-                case States.DELETE:
-                    tb_noArrive.ReadOnly = true;
-                    break;
-                case States.SAVE:
-                    tb_noArrive.ReadOnly = true;
-                    break;
-                case States.MOVE:
+                case States.CONSULT:
                     tb_noArrive.ReadOnly = true;
                     break;
             }
@@ -158,12 +153,11 @@ namespace PrjEq01_Application.Tabs
 
         public void Undo()
         {
-            MessageBox.Show("Fonction en développement.");
+            SetReadOnly();
         }
 
         public void Save()
         {
-            MessageBox.Show("Fonction en développement.");
             SetReadOnly();
         }
 

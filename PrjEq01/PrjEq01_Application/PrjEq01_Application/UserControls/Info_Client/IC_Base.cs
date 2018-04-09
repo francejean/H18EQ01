@@ -45,15 +45,7 @@ namespace PrjEq01_Application.UserControls
                     readOnly = false;
                     bt_list.Enabled = false;
                     break;
-                case States.DELETE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-                case States.SAVE:
-                    readOnly = true;
-                    bt_list.Enabled = false;
-                    break;
-                case States.MOVE:
+                case States.CONSULT:
                     readOnly = true;
                     bt_list.Enabled = false;
                     break;

@@ -19,67 +19,112 @@ namespace PrjEq01_CommonForm
             InitializeComponent();
         }
 
+        private void set_ts_buttons(States state)
+        {
+            List<ToolStripButton> ts_button_list = ts_main.Items.OfType<ToolStripButton>().ToList();
+            if (state == States.ADD || state == States.EDIT)
+            {
+                ts_button_list.Find(x => x.Name == "button_add").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_edit").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_delete").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_undo").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_save").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_backAll").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_backOne").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_forwardOne").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_forwardAll").Enabled = false;
+            }
+            else if(state == States.CONSULT)
+            {
+                ts_button_list.Find(x => x.Name == "button_add").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_edit").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_delete").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_undo").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_save").Enabled = false;
+                ts_button_list.Find(x => x.Name == "button_backAll").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_backOne").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_forwardOne").Enabled = true;
+                ts_button_list.Find(x => x.Name == "button_forwardAll").Enabled = true;
+            }
+        }
+
 		private void Button_Add_Click(object sender, EventArgs e)
 		{
+            States state = States.ADD;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.ADD;
+            selected_tab.uc_tab.State = state;
             selected_tab.uc_tab.Add();
-		}
+            set_ts_buttons(state);
+        }
 
 		private void Button_Edit_Click(object sender, EventArgs e)
 		{
+            States state = States.EDIT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.EDIT;
+            selected_tab.uc_tab.State = state;
             selected_tab.uc_tab.Edit();
+            set_ts_buttons(state);
         }
 
 		private void Button_Delete_Click(object sender, EventArgs e)
 		{
+            States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.DELETE;
+            selected_tab.uc_tab.State = state;
             selected_tab.uc_tab.Delete();
+            set_ts_buttons(state);
         }
 
 		private void Button_Undo_Click(object sender, EventArgs e)
 		{
+            States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.UNDO;
+            selected_tab.uc_tab.State = state;
             selected_tab.uc_tab.Undo();
+            set_ts_buttons(state);
         }
 
 		private void Button_Save_Click(object sender, EventArgs e)
 		{
+            States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.SAVE;
+            selected_tab.uc_tab.State = state;
             selected_tab.uc_tab.Save();
+            set_ts_buttons(state);
         }
 
         private void Button_Back_All_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.MOVE;
+            selected_tab.uc_tab.State = States.CONSULT;
             selected_tab.uc_tab.Go_Start();
         }
 
         private void Button_Back_One_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.MOVE;
+            selected_tab.uc_tab.State = States.CONSULT;
             selected_tab.uc_tab.Go_Back();
         }
 
         private void Button_Forward_One_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.MOVE;
+            selected_tab.uc_tab.State = States.CONSULT;
             selected_tab.uc_tab.Go_Forward();
         }
 
         private void Button_Forward_All_Click(object sender, EventArgs e)
         {
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.State = States.MOVE;
+            selected_tab.uc_tab.State = States.CONSULT;
             selected_tab.uc_tab.Go_End();
+        }
+
+        private void tc_main_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+            set_ts_buttons(selected_tab.uc_tab.State);
         }
     }
 }

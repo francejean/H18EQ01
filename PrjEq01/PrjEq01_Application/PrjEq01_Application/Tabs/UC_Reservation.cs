@@ -20,7 +20,8 @@ namespace PrjEq01_Application.Tabs
 			InitializeComponent();
 			ic_Reserv.setBS(BS_CLIENT);
 			ir_Base.setBS(BS_RESERVATION);
-		}
+            State = States.CONSULT;
+        }
 
 		private void Tab_Reservation_Load(object sender, EventArgs e)
 		{

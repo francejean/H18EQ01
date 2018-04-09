@@ -21,6 +21,7 @@ namespace PrjEq01_Application.Tabs
             //set BS UC_Depart.designer ligne 34-35
             this.ic_base.bt_list.Enabled = false;
             this.ic_base.bt_list.Visible = false;
+            State = States.CONSULT;
         }
 
         private void Tab_Departs_Load(object sender, EventArgs e)
