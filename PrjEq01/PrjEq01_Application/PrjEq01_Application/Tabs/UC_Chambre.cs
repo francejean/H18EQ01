@@ -18,6 +18,7 @@ namespace PrjEq01_Application.Tabs
         public UC_Chambre()
         {
             InitializeComponent();
+            State = States.CONSULT;
         }
 
         private void Tab_Chambre_Load(object sender, EventArgs e)

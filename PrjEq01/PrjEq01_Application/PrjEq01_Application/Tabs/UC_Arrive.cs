@@ -15,6 +15,7 @@ namespace PrjEq01_Application.Tabs
             ic_arrive.setBS(BS_CLIENT);
             ir_arrive.setBS(BS_RESERVATION);
             lc_base.setBS(BS_CHAMBRE);
+            State = States.CONSULT;
 		}
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
@@ -141,12 +142,11 @@ namespace PrjEq01_Application.Tabs
 
         public void Undo()
         {
-            MessageBox.Show("Fonction en développement.");
+            SetReadOnly();
         }
 
         public void Save()
         {
-            MessageBox.Show("Fonction en développement.");
             SetReadOnly();
         }
 

@@ -21,19 +21,19 @@ namespace PrjEq01_Application.UserControls
             TA_CLIENT.Fill(ds_master.CLIENT);
         }
 
-        public void setBS(BindingSource BS)
-        {
-            this.BS = BS;
-        }
+    public void setBS(BindingSource BS)
+    {
+        this.BS = BS;
+    }
 
-        protected virtual void bt_list_Click(object sender, EventArgs e)
-        {
-            
-        }
+    protected virtual void bt_list_Click(object sender, EventArgs e)
+    {
 
-        public virtual void SetReadOnly(States state)
-        {
-            bool readOnly	= !(state == States.ADD || state == States.EDIT);
+    }
+
+    public virtual void SetReadOnly(States state)
+    {
+      bool readOnly	= !(state == States.ADD || state == States.EDIT);
 			bt_list.Enabled = (state == States.ADD);
 
 			foreach (Control ctrl in gb_client.Controls)

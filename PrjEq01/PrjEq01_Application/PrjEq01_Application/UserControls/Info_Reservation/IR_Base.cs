@@ -21,18 +21,18 @@ namespace PrjEq01_Application.UserControls
             TA_RESERVATION.Fill(ds_master.RESERVATION);
 		}
 
-        public void setBS(BindingSource BS)
-        {
-            this.BS = BS;
-        }
+    public void setBS(BindingSource BS)
+    {
+        this.BS = BS;
+    }
 
-        protected virtual void bt_list_Click(object sender, EventArgs e)
-        {
-        }
+    protected virtual void bt_list_Click(object sender, EventArgs e)
+    {
+    }
 
-        public void SetReadOnly(States state)
-        {
-            bool readOnly	= !(state == States.ADD || state == States.EDIT);
+    public void SetReadOnly(States state)
+    {
+      bool readOnly	= !(state == States.ADD || state == States.EDIT);
 
 			// Different for Reserv and Arrive
 			bt_list.Enabled = (state == States.ADD);

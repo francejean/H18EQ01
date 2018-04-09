@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrjEq01_CommonForm
 {
-    public enum States { ADD, EDIT, DELETE, UNDO, SAVE, MOVE };
+    public enum States { ADD, EDIT, CONSULT };
 
 	public interface IButtons
 	{
