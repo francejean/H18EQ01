@@ -15,35 +15,39 @@ namespace PrjEq01_Application.UserControls
 	{
         protected BindingSource BS;
 
-		public IR_Base()
+        private SyncForeignTablesDeleg syncDeleg;
+        public SyncForeignTablesDeleg SyncDeleg { get => syncDeleg; set => syncDeleg = value; }
+
+        public IR_Base()
 		{
 			InitializeComponent();
             TA_RESERVATION.Fill(ds_master.RESERVATION);
 		}
 
-    public void setBS(BindingSource BS)
-    {
-        this.BS = BS;
-    }
+        public void setBS(BindingSource BS)
+        {
+            this.BS = BS;
+        }
 
-    protected virtual void bt_list_Click(object sender, EventArgs e)
-    {
-    }
+        protected virtual void bt_list_Click(object sender, EventArgs e)
+        {
+            syncDeleg();
+        }
 
-    public void SetReadOnly(States state)
-    {
-      bool readOnly	= !(state == States.ADD || state == States.EDIT);
+        public void SetReadOnly(States state)
+        {
+            bool readOnly	= !(state == States.ADD || state == States.EDIT);
 
-			// Different for Reserv and Arrive
-			bt_list.Enabled = (state == States.ADD);
+		    // Different for Reserv and Arrive
+		    bt_list.Enabled = (state == States.ADD);
 
-			foreach (Control ctrl in gb_reserv.Controls)
-			{
-				if (ctrl is TextBox)
-					((TextBox)ctrl).ReadOnly = readOnly;
-				else if (!(ctrl is Label))
-					ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
-			}
+		    foreach (Control ctrl in gb_reserv.Controls)
+		    {
+			    if (ctrl is TextBox)
+				    ((TextBox)ctrl).ReadOnly = readOnly;
+			    else if (!(ctrl is Label))
+				    ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
+		    }
 		}
 
 		public virtual void WipeInformation()

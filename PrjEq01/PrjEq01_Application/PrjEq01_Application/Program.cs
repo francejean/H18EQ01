@@ -6,7 +6,10 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application
 {
-	static class Program
+
+    public delegate void SyncForeignTablesDeleg();
+
+    static class Program
 	{
 		/// <summary>
 		/// Point d'entrée principal de l'application.

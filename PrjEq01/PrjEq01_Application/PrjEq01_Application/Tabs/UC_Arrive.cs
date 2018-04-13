@@ -15,7 +15,9 @@ namespace PrjEq01_Application.Tabs
 		{
 			InitializeComponent();
             ic_arrive.setBS(BS_CLIENT);
+            ic_arrive.SyncDeleg += Sync_ForeignTables;
             ir_arrive.setBS(BS_RESERVATION);
+            ir_arrive.SyncDeleg += Sync_ForeignTables;
             lc_base.setBS(BS_CHAMBRE);
             State = States.CONSULT;
 		}
@@ -184,13 +186,23 @@ namespace PrjEq01_Application.Tabs
 
         public void Sync_ForeignTables()
         {
-            try
+            if(State == States.CONSULT)
             {
-                BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-                BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+                try
+                {
+                    BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+                    BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+                } catch (Exception e){ MessageBox.Show(e.Message); }
             }
-            catch(Exception e)
-            { MessageBox.Show(e.Message); }
+            else if(State == States.ADD || State == States.EDIT)
+            {
+                try
+                {
+                    BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DTR_Arrive["IdCli"]);
+                    BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+                }
+                catch (Exception e) { MessageBox.Show(e.Message); }
+            }
         }
 
         public void Add()
@@ -223,8 +235,12 @@ namespace PrjEq01_Application.Tabs
 
         public void Save()
         {
-            DTR_Arrive.AcceptChanges();
-            Link_All(true);
+            if (State == States.ADD)
+            {
+                DTR_Arrive.AcceptChanges();
+                Link_All(true);
+            }
+            
             SetReadOnly(States.CONSULT);
         }
 
@@ -264,9 +280,9 @@ namespace PrjEq01_Application.Tabs
             DTR_Arrive = ds_master.Tables["Arrive"].NewRow();
             DTR_Arrive["IdArrive"] = (int)ds_master.ARRIVE.Columns["IdArrive"].AutoIncrementSeed;
             DTR_Arrive["DateArrive"] = DateTime.Today;
-            DTR_Arrive["IdCli"] = DBNull.Value;
-            DTR_Arrive["IdReser"] = DBNull.Value;
-            DTR_Arrive["NoCham"] = DBNull.Value;
+            DTR_Arrive["IdCli"] = -1;
+            DTR_Arrive["IdReser"] = -1;
+            DTR_Arrive["NoCham"] = -1;
 
             ds_master.Tables["Arrive"].Rows.Add(DTR_Arrive);
             BS_ARRIVE.Position = BS_ARRIVE.Count - 1;
