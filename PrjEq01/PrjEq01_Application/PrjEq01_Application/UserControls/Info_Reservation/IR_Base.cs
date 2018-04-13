@@ -32,7 +32,7 @@ namespace PrjEq01_Application.UserControls
 
     public void SetReadOnly(States state)
     {
-      bool readOnly	= !(state == States.ADD || state == States.EDIT);
+      bool readOnly	= States.CONSULT == state;
 
 			// Different for Reserv and Arrive
 			bt_list.Enabled = (state == States.ADD);
@@ -42,7 +42,7 @@ namespace PrjEq01_Application.UserControls
 				if (ctrl is TextBox)
 					((TextBox)ctrl).ReadOnly = readOnly;
 				else if (!(ctrl is Label))
-					ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
+					ctrl.Enabled = !readOnly;
 			}
 		}
 
