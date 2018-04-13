@@ -40,11 +40,11 @@
             this.BS_CLIENT = new System.Windows.Forms.BindingSource(this.components);
             this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
             this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
-            this.lc_base = new PrjEq01_Application.UserControls.LC_Base();
             this.ir_arrive = new PrjEq01_Application.UserControls.Info_Reservation.IR_Arrive();
             this.ic_arrive = new PrjEq01_Application.UserControls.Info_Client.IC_Arrive();
             this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
             this.BS_DE = new System.Windows.Forms.BindingSource(this.components);
+            this.lc_base = new PrjEq01_Application.UserControls.LC_Base();
             ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).BeginInit();
@@ -92,17 +92,6 @@
             // 
             this.TA_CHAMBRE.ClearBeforeFill = true;
             // 
-            // lc_base
-            // 
-            this.lc_base.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lc_base.Location = new System.Drawing.Point(3, 199);
-            this.lc_base.MinimumSize = new System.Drawing.Size(850, 230);
-            this.lc_base.Name = "lc_base";
-            this.lc_base.Size = new System.Drawing.Size(967, 230);
-            this.lc_base.TabIndex = 15;
-            // 
             // ir_arrive
             // 
             this.ir_arrive.Location = new System.Drawing.Point(374, 3);
@@ -122,6 +111,14 @@
             // TA_DE
             // 
             this.TA_DE.ClearBeforeFill = true;
+            // 
+            // lc_base
+            // 
+            this.lc_base.Location = new System.Drawing.Point(3, 199);
+            this.lc_base.MinimumSize = new System.Drawing.Size(850, 230);
+            this.lc_base.Name = "lc_base";
+            this.lc_base.Size = new System.Drawing.Size(967, 230);
+            this.lc_base.TabIndex = 15;
             // 
             // UC_Arrive
             // 
@@ -160,9 +157,9 @@
         private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
 		private UserControls.Info_Client.IC_Arrive ic_arrive;
 		private UserControls.Info_Reservation.IR_Arrive ir_arrive;
-        private UserControls.LC_Base lc_base;
         public System.Windows.Forms.BindingSource BS_CHAMBRE;
         private DS_MasterTableAdapters.DETableAdapter TA_DE;
         private System.Windows.Forms.BindingSource BS_DE;
+        private UserControls.LC_Base lc_base;
     }
 }
