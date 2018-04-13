@@ -164,7 +164,7 @@ namespace PrjEq01_Application.Tabs
             Link_RESERVATION(link_state);
         }
 
-        public void SetReadOnly()
+        public void SetReadOnly(States state)
         {
             List<IInfoBox> consult_controls = new List<IInfoBox>
             {
@@ -175,10 +175,10 @@ namespace PrjEq01_Application.Tabs
 
             foreach (IInfoBox consult_control in consult_controls)
             {
-                consult_control.SetReadOnly(State);
+                consult_control.SetReadOnly(state);
             }
 
-			tb_noArrive.ReadOnly = !(State == States.ADD || State == States.EDIT);
+			tb_noArrive.ReadOnly = !(state == States.ADD || state == States.EDIT);
 		}
 
         public void Sync_ForeignTables()
@@ -194,18 +194,18 @@ namespace PrjEq01_Application.Tabs
 
         public void Add()
         {
-            SetReadOnly();
+            SetReadOnly(States.ADD);
             NewArrive();
         }
 
         public void Edit()
         {
-            SetReadOnly();
+            SetReadOnly(States.EDIT);
         }
 
         public void Delete()
         {
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Undo()
@@ -216,40 +216,40 @@ namespace PrjEq01_Application.Tabs
                 BS_ARRIVE.Position = 0;
                 Link_All(true);
             }
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Save()
         {
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_Start()
         {
             BS_ARRIVE.MoveFirst();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_Back()
         {
             BS_ARRIVE.MovePrevious();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_Forward()
         {
             BS_ARRIVE.MoveNext();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_End()
         {
             BS_ARRIVE.MoveLast();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void NewArrive()
