@@ -11,9 +11,13 @@ using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls
 {
+
 	public partial class IC_Base : UserControl, IInfoBox
     {
         protected BindingSource BS;
+
+        private SyncForeignTablesDeleg syncDeleg;
+        public SyncForeignTablesDeleg SyncDeleg { get => syncDeleg; set => syncDeleg = value; }
 
         public IC_Base()
 		{
@@ -21,29 +25,29 @@ namespace PrjEq01_Application.UserControls
             TA_CLIENT.Fill(ds_master.CLIENT);
         }
 
-    public void setBS(BindingSource BS)
-    {
-        this.BS = BS;
-    }
+        public void setBS(BindingSource BS)
+        {
+            this.BS = BS;
+        }
 
-    protected virtual void bt_list_Click(object sender, EventArgs e)
-    {
+        protected virtual void bt_list_Click(object sender, EventArgs e)
+        {
+            SyncDeleg();
+        }
 
-    }
+        public virtual void SetReadOnly(States state)
+        {
+            bool readOnly	= !(state == States.ADD || state == States.EDIT);
+	        bt_list.Enabled = (state == States.ADD);
 
-    public virtual void SetReadOnly(States state)
-    {
-      bool readOnly	= !(state == States.ADD || state == States.EDIT);
-			bt_list.Enabled = (state == States.ADD);
-
-			foreach (Control ctrl in gb_client.Controls)
-			{
-				if (ctrl is TextBox)
-					((TextBox)ctrl).ReadOnly = readOnly;
-				else if(!(ctrl is Label))
-					ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
-			}
-		}
+	        foreach (Control ctrl in gb_client.Controls)
+	        {
+		        if (ctrl is TextBox)
+			        ((TextBox)ctrl).ReadOnly = readOnly;
+		        else if(!(ctrl is Label))
+			        ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
+	        }
+	    }
 
 		public virtual void WipeInformation()
 		{

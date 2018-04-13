@@ -29,6 +29,8 @@ namespace PrjEq01_Application.UserControls.Info_Client
             {
                 BS.Position = BS_pos_backup;
             }
+
+            base.bt_list_Click(sender, e);
         }
     }
 }
