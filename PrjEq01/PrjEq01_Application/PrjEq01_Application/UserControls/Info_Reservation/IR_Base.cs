@@ -15,8 +15,8 @@ namespace PrjEq01_Application.UserControls
 	{
         protected BindingSource BS;
 
-        private SyncForeignTablesDeleg syncDeleg;
-        public SyncForeignTablesDeleg SyncDeleg { get => syncDeleg; set => syncDeleg = value; }
+        private ItemSelectedDeleg reservSelected;
+        public ItemSelectedDeleg ReservSelected { get => reservSelected; set => reservSelected = value; }
 
         public IR_Base()
 		{
@@ -31,7 +31,7 @@ namespace PrjEq01_Application.UserControls
 
         protected virtual void bt_list_Click(object sender, EventArgs e)
         {
-            syncDeleg();
+            reservSelected();
         }
 
         public void SetReadOnly(States state)

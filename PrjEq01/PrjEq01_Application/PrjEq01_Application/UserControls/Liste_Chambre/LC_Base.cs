@@ -48,11 +48,11 @@ namespace PrjEq01_Application.UserControls
             {
                 case States.ADD:
                     readOnly = false;
-                    bt_listCommodite.Enabled = true;
+                    bt_listCommodite.Enabled = false;
                     break;
                 case States.EDIT:
                     readOnly = false;
-                    bt_listCommodite.Enabled = false;
+                    bt_listCommodite.Enabled = true;
                     break;
                 case States.CONSULT:
                     readOnly = true;
@@ -76,6 +76,11 @@ namespace PrjEq01_Application.UserControls
 
         public void WipeInformation()
         {
+        }
+
+        public void SetListButton(bool enabled)
+        {
+            bt_listCommodite.Enabled = enabled;
         }
     }
 }

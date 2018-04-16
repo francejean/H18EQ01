@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace PrjEq01_Application
 {
 
-    public delegate void SyncForeignTablesDeleg();
+    public delegate void ItemSelectedDeleg();
 
     static class Program
 	{
