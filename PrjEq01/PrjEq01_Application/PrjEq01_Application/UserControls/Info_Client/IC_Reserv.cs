@@ -18,8 +18,8 @@ namespace PrjEq01_Application.UserControls.Info_Client
 
 		protected override void bt_list_Click(object sender, EventArgs e)
 		{
-            int BS_pos_backup = BS.Position;
-            List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
+            int BS_pos_backup = bS.Position;
+            List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(bS);
             DialogResult result = lf_reservation.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -28,7 +28,7 @@ namespace PrjEq01_Application.UserControls.Info_Client
             }
             else if (result == DialogResult.Cancel)
             {
-                BS.Position = BS_pos_backup;
+                bS.Position = BS_pos_backup;
             }
 
             base.bt_list_Click(sender, e);

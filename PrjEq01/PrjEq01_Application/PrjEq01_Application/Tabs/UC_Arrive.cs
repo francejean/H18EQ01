@@ -28,9 +28,9 @@ namespace PrjEq01_Application.Tabs
         public UC_Arrive()
 		{
 			InitializeComponent();
-            ic_arrive.setBS(BS_CLIENT);
+            ic_arrive.BS = BS_CLIENT;
             ic_arrive.ClientSelected += OnClientSelected;
-            ir_arrive.setBS(BS_RESERVATION);
+            ir_arrive.BS = BS_RESERVATION;
             ir_arrive.ReservSelected += OnReservSelected;
             lc_base.setBS(BS_CHAMBRE);
             State = States.CONSULT;

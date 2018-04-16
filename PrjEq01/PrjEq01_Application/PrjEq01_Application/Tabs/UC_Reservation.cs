@@ -18,8 +18,8 @@ namespace PrjEq01_Application.Tabs
         public UC_Reservation()
 		{
 			InitializeComponent();
-			ic_Reserv.setBS(BS_CLIENT);
-			ir_Base.setBS(BS_RESERVATION);
+			ic_Reserv.BS = BS_CLIENT;
+			ir_Base.BS = BS_RESERVATION;
             State = States.CONSULT;
         }
 
