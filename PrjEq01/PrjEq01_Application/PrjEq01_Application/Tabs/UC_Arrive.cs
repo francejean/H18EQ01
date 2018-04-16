@@ -4,6 +4,18 @@ using System.Data;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
 
+
+
+/*
+ Doit unlink all on Add()
+ et seulement relink quand choisit dans LF
+ ex : choisi client, Link_CLIENT(true)
+
+ reservation doit etre choisi pour selectionner lc_base.list_button
+
+ doit update table et non acceptChanges
+     
+     */
 namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
@@ -11,13 +23,15 @@ namespace PrjEq01_Application.Tabs
         public States State { get; set; }
         private DataRow DTR_Arrive;
 
+        private bool LinkArrive_State, LinkClient_State, LinkReservation_State, LinkChambre_State;
+
         public UC_Arrive()
 		{
 			InitializeComponent();
             ic_arrive.setBS(BS_CLIENT);
-            ic_arrive.SyncDeleg += Sync_ForeignTables;
+            ic_arrive.ClientSelected += OnClientSelected;
             ir_arrive.setBS(BS_RESERVATION);
-            ir_arrive.SyncDeleg += Sync_ForeignTables;
+            ir_arrive.ReservSelected += OnReservSelected;
             lc_base.setBS(BS_CHAMBRE);
             State = States.CONSULT;
 		}
@@ -37,127 +51,6 @@ namespace PrjEq01_Application.Tabs
 			this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
             this.TA_DE.FillBy(ds_master.DE);
 		}
-        
-
-		private void Link_ARRIVE(bool link_state)
-		{
-			this.BS_ARRIVE.DataMember = "ARRIVE";
-			this.BS_ARRIVE.DataSource = this.ds_master;
-            if(link_state == true)
-            {
-                try
-                {
-                    tb_noArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
-                    ic_arrive.tb_noClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
-                    ir_arrive.tb_noReserv.DataBindings.Add("Text", BS_ARRIVE, "IdReser");
-                    ic_arrive.tb_noChambre.DataBindings.Add("Text", BS_ARRIVE, "NoCham");
-                }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-            else
-            {
-                try
-                {
-                    tb_noArrive.DataBindings.Clear();
-                    ic_arrive.tb_noClient.DataBindings.Clear();
-                    ir_arrive.tb_noReserv.DataBindings.Clear();
-                    ic_arrive.tb_noChambre.DataBindings.Clear();
-                }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-		}
-
-		private void Link_CLIENT(bool link_state)
-		{
-			this.BS_CLIENT.DataMember = "CLIENT";
-			this.BS_CLIENT.DataSource = this.ds_master;
-
-            if(link_state == true)
-            {
-                try
-                {
-                    ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
-                    ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
-                    ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
-                    ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
-                    ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
-                    ic_arrive.tb_expiration.DataBindings.Add("Text", BS_CLIENT, "DatExp");
-                }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-            else
-            {
-                try
-                {
-                    ic_arrive.tb_nomClient.DataBindings.Clear();
-                    ic_arrive.tb_adresse.DataBindings.Clear();
-                    ic_arrive.tb_telephone.DataBindings.Clear();
-                    ic_arrive.tb_typeCarte.DataBindings.Clear();
-                    ic_arrive.tb_noCarte.DataBindings.Clear();
-                    ic_arrive.tb_expiration.DataBindings.Clear();
-                }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-			
-		}
-
-		private void Link_RESERVATION(bool link_state)
-		{
-			this.BS_RESERVATION.DataMember = "RESERVATION";
-			this.BS_RESERVATION.DataSource = this.ds_master;
-
-            if(link_state == true)
-            {
-                try
-                {
-                    ir_arrive.DTP_Reserv.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
-                    ir_arrive.DTP_Debut.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
-                    ir_arrive.DTP_Fin.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
-                    ir_arrive.tb_noClient.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
-                    ir_arrive.tb_nom.DataBindings.Add("Text", BS_RESERVATION, "Nom");
-                }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-            else
-            {
-                try
-                {
-                    ir_arrive.DTP_Reserv.DataBindings.Clear();
-                    ir_arrive.DTP_Debut.DataBindings.Clear();
-                    ir_arrive.DTP_Fin.DataBindings.Clear();
-                    ir_arrive.tb_noClient.DataBindings.Clear();
-                    ir_arrive.tb_nom.DataBindings.Clear();
-                }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-			
-		}
-
-		private void Link_CHAMBRE(bool link_state)
-		{
-            this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
-            this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
-
-            if(link_state)
-            {
-                try
-                {
-                    lc_base.dgv_chambre.DataSource = BS_CHAMBRE;
-                }
-                catch (Exception e)
-                { MessageBox.Show(e.Message); }
-            }
-            else
-            {
-                try
-                {
-                    lc_base.dgv_chambre.DataSource = null;
-                }
-                catch (Exception e)
-                { MessageBox.Show(e.Message); }
-            }
-            
-        }
 
         private void Link_All(bool link_state)
         {
@@ -165,6 +58,142 @@ namespace PrjEq01_Application.Tabs
             Link_RESERVATION(link_state);
             Link_ARRIVE(link_state);
             Link_CHAMBRE(link_state);
+        }
+
+        private void Link_ARRIVE(bool link_state)
+		{
+			this.BS_ARRIVE.DataMember = "ARRIVE";
+			this.BS_ARRIVE.DataSource = this.ds_master;
+
+            if(LinkArrive_State != link_state)
+            {
+                if (link_state == true)
+                {
+                    try
+                    {
+                        tb_noArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
+                        ic_arrive.tb_noClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
+                        ir_arrive.tb_noReserv.DataBindings.Add("Text", BS_ARRIVE, "IdReser");
+                        ic_arrive.tb_noChambre.DataBindings.Add("Text", BS_ARRIVE, "NoCham");
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
+                }
+                else
+                {
+                    try
+                    {
+                        tb_noArrive.DataBindings.Clear();
+                        ic_arrive.tb_noClient.DataBindings.Clear();
+                        ir_arrive.tb_noReserv.DataBindings.Clear();
+                        ic_arrive.tb_noChambre.DataBindings.Clear();
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
+                }
+                LinkArrive_State = link_state;
+            }
+            
+		}
+
+		private void Link_CLIENT(bool link_state)
+		{
+			this.BS_CLIENT.DataMember = "CLIENT";
+			this.BS_CLIENT.DataSource = this.ds_master;
+
+            if(LinkClient_State != link_state)
+            {
+                if (link_state == true)
+                {
+                    try
+                    {
+                        ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
+                        ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
+                        ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
+                        ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+                        ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
+                        ic_arrive.tb_expiration.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
+                }
+                else
+                {
+                    try
+                    {
+                        ic_arrive.tb_nomClient.DataBindings.Clear();
+                        ic_arrive.tb_adresse.DataBindings.Clear();
+                        ic_arrive.tb_telephone.DataBindings.Clear();
+                        ic_arrive.tb_typeCarte.DataBindings.Clear();
+                        ic_arrive.tb_noCarte.DataBindings.Clear();
+                        ic_arrive.tb_expiration.DataBindings.Clear();
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
+                }
+                LinkClient_State = link_state;
+            }
+		}
+
+		private void Link_RESERVATION(bool link_state)
+		{
+			this.BS_RESERVATION.DataMember = "RESERVATION";
+			this.BS_RESERVATION.DataSource = this.ds_master;
+
+            if(LinkReservation_State != link_state)
+            {
+                if (link_state == true)
+                {
+                    try
+                    {
+                        ir_arrive.DTP_Reserv.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
+                        ir_arrive.DTP_Debut.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
+                        ir_arrive.DTP_Fin.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
+                        ir_arrive.tb_noClient.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
+                        ir_arrive.tb_nom.DataBindings.Add("Text", BS_RESERVATION, "Nom");
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
+                }
+                else
+                {
+                    try
+                    {
+                        ir_arrive.DTP_Reserv.DataBindings.Clear();
+                        ir_arrive.DTP_Debut.DataBindings.Clear();
+                        ir_arrive.DTP_Fin.DataBindings.Clear();
+                        ir_arrive.tb_noClient.DataBindings.Clear();
+                        ir_arrive.tb_nom.DataBindings.Clear();
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
+                }
+                LinkReservation_State = link_state;
+            }			
+		}
+
+		private void Link_CHAMBRE(bool link_state)
+		{
+            this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
+            this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
+
+            if(LinkChambre_State != link_state)
+            {
+
+                if (link_state)
+                {
+                    try
+                    {
+                        lc_base.dgv_chambre.DataSource = BS_CHAMBRE;
+                    }
+                    catch (Exception e)
+                    { MessageBox.Show(e.Message); }
+                }
+                else
+                {
+                    try
+                    {
+                        lc_base.dgv_chambre.DataSource = null;
+                    }
+                    catch (Exception e)
+                    { MessageBox.Show(e.Message); }
+                }
+                LinkChambre_State = link_state;
+            }
         }
 
         public void SetReadOnly(States state)
@@ -290,9 +319,23 @@ namespace PrjEq01_Application.Tabs
             DTR_Arrive.BeginEdit();
 
             Link_All(false);
+            Link_ARRIVE(true);
 
             ic_arrive.WipeInformation();
             ir_arrive.WipeInformation();
+        }
+
+        public void OnClientSelected()
+        {
+            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ic_arrive.tb_noClient.Text);
+            Link_CLIENT(true);
+        }
+
+        public void OnReservSelected()
+        {
+            lc_base.SetListButton(true);
+            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ir_arrive.tb_noReserv.Text);
+            Link_RESERVATION(true);
         }
     }
 }
