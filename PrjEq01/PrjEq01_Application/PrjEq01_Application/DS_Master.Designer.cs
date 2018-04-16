@@ -50,6 +50,8 @@ namespace PrjEq01_Application {
         
         private DE_CHAMBRE_LIBRESDataTable tableDE_CHAMBRE_LIBRES;
         
+        private BK_CHAMBREDataTable tableBK_CHAMBRE;
+        
         private global::System.Data.DataRelation relationARRIVE_FK_IdCli;
         
         private global::System.Data.DataRelation relationARRIVE_FK_IdReser;
@@ -156,6 +158,9 @@ namespace PrjEq01_Application {
                 }
                 if ((ds.Tables["DE_CHAMBRE_LIBRES"] != null)) {
                     base.Tables.Add(new DE_CHAMBRE_LIBRESDataTable(ds.Tables["DE_CHAMBRE_LIBRES"]));
+                }
+                if ((ds.Tables["BK_CHAMBRE"] != null)) {
+                    base.Tables.Add(new BK_CHAMBREDataTable(ds.Tables["BK_CHAMBRE"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -307,6 +312,16 @@ namespace PrjEq01_Application {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public BK_CHAMBREDataTable BK_CHAMBRE {
+            get {
+                return this.tableBK_CHAMBRE;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -410,6 +425,9 @@ namespace PrjEq01_Application {
                 }
                 if ((ds.Tables["DE_CHAMBRE_LIBRES"] != null)) {
                     base.Tables.Add(new DE_CHAMBRE_LIBRESDataTable(ds.Tables["DE_CHAMBRE_LIBRES"]));
+                }
+                if ((ds.Tables["BK_CHAMBRE"] != null)) {
+                    base.Tables.Add(new BK_CHAMBREDataTable(ds.Tables["BK_CHAMBRE"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -522,6 +540,12 @@ namespace PrjEq01_Application {
                     this.tableDE_CHAMBRE_LIBRES.InitVars();
                 }
             }
+            this.tableBK_CHAMBRE = ((BK_CHAMBREDataTable)(base.Tables["BK_CHAMBRE"]));
+            if ((initTable == true)) {
+                if ((this.tableBK_CHAMBRE != null)) {
+                    this.tableBK_CHAMBRE.InitVars();
+                }
+            }
             this.relationARRIVE_FK_IdCli = this.Relations["ARRIVE_FK_IdCli"];
             this.relationARRIVE_FK_IdReser = this.Relations["ARRIVE_FK_IdReser"];
             this.relationARRIVE_FK_NoCham = this.Relations["ARRIVE_FK_NoCham"];
@@ -578,6 +602,8 @@ namespace PrjEq01_Application {
             base.Tables.Add(this.tableTYPETRX);
             this.tableDE_CHAMBRE_LIBRES = new DE_CHAMBRE_LIBRESDataTable();
             base.Tables.Add(this.tableDE_CHAMBRE_LIBRES);
+            this.tableBK_CHAMBRE = new BK_CHAMBREDataTable();
+            base.Tables.Add(this.tableBK_CHAMBRE);
             this.relationARRIVE_FK_IdCli = new global::System.Data.DataRelation("ARRIVE_FK_IdCli", new global::System.Data.DataColumn[] {
                         this.tableCLIENT.IdCliColumn}, new global::System.Data.DataColumn[] {
                         this.tableARRIVE.IdCliColumn}, false);
@@ -740,6 +766,12 @@ namespace PrjEq01_Application {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeBK_CHAMBRE() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -831,6 +863,9 @@ namespace PrjEq01_Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void DE_CHAMBRE_LIBRESRowChangeEventHandler(object sender, DE_CHAMBRE_LIBRESRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void BK_CHAMBRERowChangeEventHandler(object sender, BK_CHAMBRERowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5018,6 +5053,381 @@ namespace PrjEq01_Application {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class BK_CHAMBREDataTable : global::System.Data.TypedTableBase<BK_CHAMBRERow> {
+            
+            private global::System.Data.DataColumn columnNoCham;
+            
+            private global::System.Data.DataColumn columnEtage;
+            
+            private global::System.Data.DataColumn columnPrix;
+            
+            private global::System.Data.DataColumn columnEtat;
+            
+            private global::System.Data.DataColumn columnMemo;
+            
+            private global::System.Data.DataColumn columnCodLoc;
+            
+            private global::System.Data.DataColumn columnCodTypCham;
+            
+            private global::System.Data.DataColumn columnDescLoc;
+            
+            private global::System.Data.DataColumn columnDescTyp;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BK_CHAMBREDataTable() {
+                this.TableName = "BK_CHAMBRE";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal BK_CHAMBREDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected BK_CHAMBREDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NoChamColumn {
+                get {
+                    return this.columnNoCham;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EtageColumn {
+                get {
+                    return this.columnEtage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PrixColumn {
+                get {
+                    return this.columnPrix;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EtatColumn {
+                get {
+                    return this.columnEtat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MemoColumn {
+                get {
+                    return this.columnMemo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CodLocColumn {
+                get {
+                    return this.columnCodLoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CodTypChamColumn {
+                get {
+                    return this.columnCodTypCham;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DescLocColumn {
+                get {
+                    return this.columnDescLoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DescTypColumn {
+                get {
+                    return this.columnDescTyp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BK_CHAMBRERow this[int index] {
+                get {
+                    return ((BK_CHAMBRERow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BK_CHAMBRERowChangeEventHandler BK_CHAMBRERowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BK_CHAMBRERowChangeEventHandler BK_CHAMBRERowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BK_CHAMBRERowChangeEventHandler BK_CHAMBRERowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BK_CHAMBRERowChangeEventHandler BK_CHAMBRERowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddBK_CHAMBRERow(BK_CHAMBRERow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BK_CHAMBRERow AddBK_CHAMBRERow(string NoCham, string Etage, decimal Prix, byte Etat, string Memo, string CodLoc, string CodTypCham, string DescLoc, string DescTyp) {
+                BK_CHAMBRERow rowBK_CHAMBRERow = ((BK_CHAMBRERow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        NoCham,
+                        Etage,
+                        Prix,
+                        Etat,
+                        Memo,
+                        CodLoc,
+                        CodTypCham,
+                        DescLoc,
+                        DescTyp};
+                rowBK_CHAMBRERow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBK_CHAMBRERow);
+                return rowBK_CHAMBRERow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BK_CHAMBRERow FindByNoCham(string NoCham) {
+                return ((BK_CHAMBRERow)(this.Rows.Find(new object[] {
+                            NoCham})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                BK_CHAMBREDataTable cln = ((BK_CHAMBREDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new BK_CHAMBREDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnNoCham = base.Columns["NoCham"];
+                this.columnEtage = base.Columns["Etage"];
+                this.columnPrix = base.Columns["Prix"];
+                this.columnEtat = base.Columns["Etat"];
+                this.columnMemo = base.Columns["Memo"];
+                this.columnCodLoc = base.Columns["CodLoc"];
+                this.columnCodTypCham = base.Columns["CodTypCham"];
+                this.columnDescLoc = base.Columns["DescLoc"];
+                this.columnDescTyp = base.Columns["DescTyp"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnNoCham = new global::System.Data.DataColumn("NoCham", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoCham);
+                this.columnEtage = new global::System.Data.DataColumn("Etage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEtage);
+                this.columnPrix = new global::System.Data.DataColumn("Prix", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrix);
+                this.columnEtat = new global::System.Data.DataColumn("Etat", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEtat);
+                this.columnMemo = new global::System.Data.DataColumn("Memo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMemo);
+                this.columnCodLoc = new global::System.Data.DataColumn("CodLoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodLoc);
+                this.columnCodTypCham = new global::System.Data.DataColumn("CodTypCham", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodTypCham);
+                this.columnDescLoc = new global::System.Data.DataColumn("DescLoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescLoc);
+                this.columnDescTyp = new global::System.Data.DataColumn("DescTyp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescTyp);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnNoCham}, true));
+                this.columnNoCham.AllowDBNull = false;
+                this.columnNoCham.Unique = true;
+                this.columnNoCham.MaxLength = 3;
+                this.columnEtage.MaxLength = 2;
+                this.columnMemo.MaxLength = 2147483647;
+                this.columnCodLoc.MaxLength = 2;
+                this.columnCodTypCham.MaxLength = 2;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BK_CHAMBRERow NewBK_CHAMBRERow() {
+                return ((BK_CHAMBRERow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new BK_CHAMBRERow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(BK_CHAMBRERow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.BK_CHAMBRERowChanged != null)) {
+                    this.BK_CHAMBRERowChanged(this, new BK_CHAMBRERowChangeEvent(((BK_CHAMBRERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.BK_CHAMBRERowChanging != null)) {
+                    this.BK_CHAMBRERowChanging(this, new BK_CHAMBRERowChangeEvent(((BK_CHAMBRERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.BK_CHAMBRERowDeleted != null)) {
+                    this.BK_CHAMBRERowDeleted(this, new BK_CHAMBRERowChangeEvent(((BK_CHAMBRERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.BK_CHAMBRERowDeleting != null)) {
+                    this.BK_CHAMBRERowDeleting(this, new BK_CHAMBRERowChangeEvent(((BK_CHAMBRERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveBK_CHAMBRERow(BK_CHAMBRERow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DS_Master ds = new DS_Master();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "BK_CHAMBREDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ARRIVERow : global::System.Data.DataRow {
@@ -5050,7 +5460,7 @@ namespace PrjEq01_Application {
                         return ((global::System.DateTime)(this[this.tableARRIVE.DateArriveColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DateArrive\' in table \'ARRIVE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateArrive\' dans la table \'ARRIVE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5066,7 +5476,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableARRIVE.IdCliColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdCli\' in table \'ARRIVE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdCli\' dans la table \'ARRIVE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5082,7 +5492,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableARRIVE.IdReserColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdReser\' in table \'ARRIVE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdReser\' dans la table \'ARRIVE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5098,7 +5508,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableARRIVE.NoChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoCham\' in table \'ARRIVE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NoCham\' dans la table \'ARRIVE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5221,7 +5631,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableAYANT.NoChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoCham\' in table \'AYANT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NoCham\' dans la table \'AYANT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5237,7 +5647,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableAYANT.CodComColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodCom\' in table \'AYANT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodCom\' dans la table \'AYANT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5253,7 +5663,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableAYANT.DescComColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescCom\' in table \'AYANT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescCom\' dans la table \'AYANT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5353,7 +5763,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCHAMBRE.EtageColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Etage\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Etage\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5369,7 +5779,7 @@ namespace PrjEq01_Application {
                         return ((decimal)(this[this.tableCHAMBRE.PrixColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Prix\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Prix\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5385,7 +5795,7 @@ namespace PrjEq01_Application {
                         return ((byte)(this[this.tableCHAMBRE.EtatColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Etat\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Etat\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5401,7 +5811,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCHAMBRE.MemoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Memo\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Memo\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5417,7 +5827,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCHAMBRE.CodLocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodLoc\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodLoc\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5433,7 +5843,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCHAMBRE.CodTypChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodTypCham\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodTypCham\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5449,7 +5859,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCHAMBRE.DescLocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescLoc\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescLoc\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5465,7 +5875,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCHAMBRE.DescTypColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescTyp\' in table \'CHAMBRE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescTyp\' dans la table \'CHAMBRE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5691,7 +6101,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCLIENT.NomColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nom\' in table \'CLIENT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Nom\' dans la table \'CLIENT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5707,7 +6117,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCLIENT.AdresseColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Adresse\' in table \'CLIENT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Adresse\' dans la table \'CLIENT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5723,7 +6133,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCLIENT.TelephoneColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Telephone\' in table \'CLIENT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Telephone\' dans la table \'CLIENT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5739,7 +6149,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCLIENT.NoCarteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoCarte\' in table \'CLIENT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NoCarte\' dans la table \'CLIENT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5755,7 +6165,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCLIENT.TypeCarteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TypeCarte\' in table \'CLIENT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'TypeCarte\' dans la table \'CLIENT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5771,7 +6181,7 @@ namespace PrjEq01_Application {
                         return ((global::System.DateTime)(this[this.tableCLIENT.DatExpColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DatExp\' in table \'CLIENT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DatExp\' dans la table \'CLIENT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5787,7 +6197,7 @@ namespace PrjEq01_Application {
                         return ((decimal)(this[this.tableCLIENT.SoldeDuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SoldeDu\' in table \'CLIENT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'SoldeDu\' dans la table \'CLIENT\' est DBNull.", e);
                     }
                 }
                 set {
@@ -5957,7 +6367,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableCOMMODITE.DescComColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescCom\' in table \'COMMODITE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescCom\' dans la table \'COMMODITE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6011,7 +6421,7 @@ namespace PrjEq01_Application {
                         return ((bool)(this[this.tableDE.AttribueeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Attribuee\' in table \'DE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Attribuee\' dans la table \'DE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6027,7 +6437,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableDE.IdReserColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdReser\' in table \'DE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdReser\' dans la table \'DE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6043,7 +6453,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDE.NoChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoCham\' in table \'DE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NoCham\' dans la table \'DE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6059,7 +6469,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDE.CodTypChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodTypCham\' in table \'DE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodTypCham\' dans la table \'DE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6075,7 +6485,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDE.PrixColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Prix\' in table \'DE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Prix\' dans la table \'DE\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6199,7 +6609,7 @@ namespace PrjEq01_Application {
                         return ((global::System.DateTime)(this[this.tableDEPART.DateDepartColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DateDepart\' in table \'DEPART\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateDepart\' dans la table \'DEPART\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6215,7 +6625,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDEPART.ConfirmerParColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ConfirmerPar\' in table \'DEPART\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ConfirmerPar\' dans la table \'DEPART\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6231,7 +6641,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableDEPART.IdReserColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdReser\' in table \'DEPART\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdReser\' dans la table \'DEPART\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6247,7 +6657,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDEPART.NoChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoCham\' in table \'DEPART\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NoCham\' dans la table \'DEPART\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6263,7 +6673,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableDEPART.IdCliColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdCli\' in table \'DEPART\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdCli\' dans la table \'DEPART\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6279,7 +6689,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDEPART.NomColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nom\' in table \'DEPART\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Nom\' dans la table \'DEPART\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6426,7 +6836,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableLOCALISATION.DescLocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescLoc\' in table \'LOCALISATION\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescLoc\' dans la table \'LOCALISATION\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6491,7 +6901,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableRESERVATION.IdCliColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdCli\' in table \'RESERVATION\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdCli\' dans la table \'RESERVATION\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6507,7 +6917,7 @@ namespace PrjEq01_Application {
                         return ((global::System.DateTime)(this[this.tableRESERVATION.DateReserColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DateReser\' in table \'RESERVATION\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateReser\' dans la table \'RESERVATION\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6523,7 +6933,7 @@ namespace PrjEq01_Application {
                         return ((global::System.DateTime)(this[this.tableRESERVATION.DateDebutColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DateDebut\' in table \'RESERVATION\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateDebut\' dans la table \'RESERVATION\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6539,7 +6949,7 @@ namespace PrjEq01_Application {
                         return ((global::System.DateTime)(this[this.tableRESERVATION.DateFinColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DateFin\' in table \'RESERVATION\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateFin\' dans la table \'RESERVATION\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6555,7 +6965,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableRESERVATION.NomColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nom\' in table \'RESERVATION\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Nom\' dans la table \'RESERVATION\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6723,7 +7133,7 @@ namespace PrjEq01_Application {
                         return ((global::System.DateTime)(this[this.tableTRX.DateTrxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DateTrx\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateTrx\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6739,7 +7149,7 @@ namespace PrjEq01_Application {
                         return ((decimal)(this[this.tableTRX.MontantTrxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MontantTrx\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'MontantTrx\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6755,7 +7165,7 @@ namespace PrjEq01_Application {
                         return ((bool)(this[this.tableTRX.ReporteeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Reportee\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Reportee\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6771,7 +7181,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableTRX.CodTypTrxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodTypTrx\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodTypTrx\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6787,7 +7197,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableTRX.IdReserColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdReser\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdReser\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6803,7 +7213,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableTRX.NoChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoCham\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NoCham\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6819,7 +7229,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableTRX.IdCliColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdCli\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdCli\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -6835,7 +7245,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableTRX.IdArriveColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdArrive\' in table \'TRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdArrive\' dans la table \'TRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -7028,7 +7438,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableTYPECHAM.DescTypColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescTyp\' in table \'TYPECHAM\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescTyp\' dans la table \'TYPECHAM\' est DBNull.", e);
                     }
                 }
                 set {
@@ -7044,7 +7454,7 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableTYPECHAM.NbDispoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NbDispo\' in table \'TYPECHAM\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NbDispo\' dans la table \'TYPECHAM\' est DBNull.", e);
                     }
                 }
                 set {
@@ -7121,7 +7531,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableTYPETRX.DescTrxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescTrx\' in table \'TYPETRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescTrx\' dans la table \'TYPETRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -7137,7 +7547,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableTYPETRX.NatureColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nature\' in table \'TYPETRX\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Nature\' dans la table \'TYPETRX\' est DBNull.", e);
                     }
                 }
                 set {
@@ -7203,7 +7613,8 @@ namespace PrjEq01_Application {
                         return ((bool)(this[this.tableDE_CHAMBRE_LIBRES.AttribueeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Attribuee\' in table \'DE_CHAMBRE_LIBRES\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Attribuee\' dans la table \'DE_CHAMBRE_LIBRES\' est DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
@@ -7219,7 +7630,8 @@ namespace PrjEq01_Application {
                         return ((int)(this[this.tableDE_CHAMBRE_LIBRES.IdReserColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IdReser\' in table \'DE_CHAMBRE_LIBRES\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IdReser\' dans la table \'DE_CHAMBRE_LIBRES\' est DBNull." +
+                                "", e);
                     }
                 }
                 set {
@@ -7235,7 +7647,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDE_CHAMBRE_LIBRES.NoChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoCham\' in table \'DE_CHAMBRE_LIBRES\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'NoCham\' dans la table \'DE_CHAMBRE_LIBRES\' est DBNull.", e);
                     }
                 }
                 set {
@@ -7251,7 +7663,8 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDE_CHAMBRE_LIBRES.CodTypChamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodTypCham\' in table \'DE_CHAMBRE_LIBRES\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodTypCham\' dans la table \'DE_CHAMBRE_LIBRES\' est DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
@@ -7267,7 +7680,7 @@ namespace PrjEq01_Application {
                         return ((string)(this[this.tableDE_CHAMBRE_LIBRES.PrixColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Prix\' in table \'DE_CHAMBRE_LIBRES\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Prix\' dans la table \'DE_CHAMBRE_LIBRES\' est DBNull.", e);
                     }
                 }
                 set {
@@ -7355,6 +7768,256 @@ namespace PrjEq01_Application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPrixNull() {
                 this[this.tableDE_CHAMBRE_LIBRES.PrixColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class BK_CHAMBRERow : global::System.Data.DataRow {
+            
+            private BK_CHAMBREDataTable tableBK_CHAMBRE;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal BK_CHAMBRERow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableBK_CHAMBRE = ((BK_CHAMBREDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string NoCham {
+                get {
+                    return ((string)(this[this.tableBK_CHAMBRE.NoChamColumn]));
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.NoChamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Etage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBK_CHAMBRE.EtageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Etage\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.EtageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Prix {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBK_CHAMBRE.PrixColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Prix\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.PrixColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public byte Etat {
+                get {
+                    try {
+                        return ((byte)(this[this.tableBK_CHAMBRE.EtatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Etat\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.EtatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Memo {
+                get {
+                    try {
+                        return ((string)(this[this.tableBK_CHAMBRE.MemoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Memo\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.MemoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CodLoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableBK_CHAMBRE.CodLocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodLoc\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.CodLocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CodTypCham {
+                get {
+                    try {
+                        return ((string)(this[this.tableBK_CHAMBRE.CodTypChamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'CodTypCham\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.CodTypChamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DescLoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableBK_CHAMBRE.DescLocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescLoc\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.DescLocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DescTyp {
+                get {
+                    try {
+                        return ((string)(this[this.tableBK_CHAMBRE.DescTypColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DescTyp\' dans la table \'BK_CHAMBRE\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBK_CHAMBRE.DescTypColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEtageNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.EtageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEtageNull() {
+                this[this.tableBK_CHAMBRE.EtageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPrixNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.PrixColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPrixNull() {
+                this[this.tableBK_CHAMBRE.PrixColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEtatNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.EtatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEtatNull() {
+                this[this.tableBK_CHAMBRE.EtatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMemoNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.MemoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMemoNull() {
+                this[this.tableBK_CHAMBRE.MemoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCodLocNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.CodLocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCodLocNull() {
+                this[this.tableBK_CHAMBRE.CodLocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCodTypChamNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.CodTypChamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCodTypChamNull() {
+                this[this.tableBK_CHAMBRE.CodTypChamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDescLocNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.DescLocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDescLocNull() {
+                this[this.tableBK_CHAMBRE.DescLocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDescTypNull() {
+                return this.IsNull(this.tableBK_CHAMBRE.DescTypColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDescTypNull() {
+                this[this.tableBK_CHAMBRE.DescTypColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7786,6 +8449,40 @@ namespace PrjEq01_Application {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DE_CHAMBRE_LIBRESRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class BK_CHAMBRERowChangeEvent : global::System.EventArgs {
+            
+            private BK_CHAMBRERow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BK_CHAMBRERowChangeEvent(BK_CHAMBRERow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BK_CHAMBRERow Row {
                 get {
                     return this.eventRow;
                 }
@@ -13071,6 +13768,551 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class BK_CHAMBRETableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public BK_CHAMBRETableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "BK_CHAMBRE";
+            tableMapping.ColumnMappings.Add("NoCham", "NoCham");
+            tableMapping.ColumnMappings.Add("Etage", "Etage");
+            tableMapping.ColumnMappings.Add("Prix", "Prix");
+            tableMapping.ColumnMappings.Add("Etat", "Etat");
+            tableMapping.ColumnMappings.Add("Memo", "Memo");
+            tableMapping.ColumnMappings.Add("CodLoc", "CodLoc");
+            tableMapping.ColumnMappings.Add("CodTypCham", "CodTypCham");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CHAMBRE] WHERE (([NoCham] = @Original_NoCham) AND ((@IsNull_Etage = 1 AND [Etage] IS NULL) OR ([Etage] = @Original_Etage)) AND ((@IsNull_Prix = 1 AND [Prix] IS NULL) OR ([Prix] = @Original_Prix)) AND ((@IsNull_Etat = 1 AND [Etat] IS NULL) OR ([Etat] = @Original_Etat)) AND ((@IsNull_CodLoc = 1 AND [CodLoc] IS NULL) OR ([CodLoc] = @Original_CodLoc)) AND ((@IsNull_CodTypCham = 1 AND [CodTypCham] IS NULL) OR ([CodTypCham] = @Original_CodTypCham)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NoCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoCham", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Etage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Etage", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Prix", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Prix", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Prix", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Prix", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Etat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Etat", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodLoc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodLoc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodLoc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodLoc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodTypCham", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodTypCham", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodTypCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodTypCham", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CHAMBRE] ([NoCham], [Etage], [Prix], [Etat], [Memo], [CodLoc], [CodTypCham]) VALUES (@NoCham, @Etage, @Prix, @Etat, @Memo, @CodLoc, @CodTypCham);
+SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (NoCham = @NoCham)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NoCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoCham", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Etage", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Prix", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Prix", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Etat", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Memo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodLoc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodLoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodTypCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodTypCham", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CHAMBRE] SET [NoCham] = @NoCham, [Etage] = @Etage, [Prix] = @Prix, [Etat] = @Etat, [Memo] = @Memo, [CodLoc] = @CodLoc, [CodTypCham] = @CodTypCham WHERE (([NoCham] = @Original_NoCham) AND ((@IsNull_Etage = 1 AND [Etage] IS NULL) OR ([Etage] = @Original_Etage)) AND ((@IsNull_Prix = 1 AND [Prix] IS NULL) OR ([Prix] = @Original_Prix)) AND ((@IsNull_Etat = 1 AND [Etat] IS NULL) OR ([Etat] = @Original_Etat)) AND ((@IsNull_CodLoc = 1 AND [CodLoc] IS NULL) OR ([CodLoc] = @Original_CodLoc)) AND ((@IsNull_CodTypCham = 1 AND [CodTypCham] IS NULL) OR ([CodTypCham] = @Original_CodTypCham)));
+SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (NoCham = @NoCham)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NoCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoCham", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Etage", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Prix", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Prix", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Etat", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Memo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodLoc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodLoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodTypCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodTypCham", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NoCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoCham", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Etage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Etage", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Prix", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Prix", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Prix", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Prix", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Etat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Etat", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Etat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodLoc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodLoc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodLoc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodLoc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodTypCham", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodTypCham", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodTypCham", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodTypCham", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::PrjEq01_Application.Properties.Settings.Default.h18equipe1ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham
+FROM          CHAMBRE
+WHERE        NoCham NOT IN
+                             (SELECT        NoCham
+                               FROM          DE
+                               WHERE        NoCham = @NoCham)))";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NoCham", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DS_Master.BK_CHAMBREDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DS_Master.BK_CHAMBREDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DS_Master.BK_CHAMBREDataTable dataTable = new DS_Master.BK_CHAMBREDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DS_Master.BK_CHAMBREDataTable dataTable, string NoCham) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((NoCham == null)) {
+                throw new global::System.ArgumentNullException("NoCham");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NoCham));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DS_Master.BK_CHAMBREDataTable GetDataBy(string NoCham) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((NoCham == null)) {
+                throw new global::System.ArgumentNullException("NoCham");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NoCham));
+            }
+            DS_Master.BK_CHAMBREDataTable dataTable = new DS_Master.BK_CHAMBREDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DS_Master.BK_CHAMBREDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DS_Master dataSet) {
+            return this.Adapter.Update(dataSet, "BK_CHAMBRE");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_NoCham, string Original_Etage, global::System.Nullable<decimal> Original_Prix, global::System.Nullable<byte> Original_Etat, string Original_CodLoc, string Original_CodTypCham) {
+            if ((Original_NoCham == null)) {
+                throw new global::System.ArgumentNullException("Original_NoCham");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_NoCham));
+            }
+            if ((Original_Etage == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Etage));
+            }
+            if ((Original_Prix.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_Prix.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Etat.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((byte)(Original_Etat.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CodLoc == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_CodLoc));
+            }
+            if ((Original_CodTypCham == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_CodTypCham));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string NoCham, string Etage, global::System.Nullable<decimal> Prix, global::System.Nullable<byte> Etat, string Memo, string CodLoc, string CodTypCham) {
+            if ((NoCham == null)) {
+                throw new global::System.ArgumentNullException("NoCham");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NoCham));
+            }
+            if ((Etage == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Etage));
+            }
+            if ((Prix.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Prix.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Etat.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((byte)(Etat.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Memo == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Memo));
+            }
+            if ((CodLoc == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CodLoc));
+            }
+            if ((CodTypCham == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(CodTypCham));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string NoCham, string Etage, global::System.Nullable<decimal> Prix, global::System.Nullable<byte> Etat, string Memo, string CodLoc, string CodTypCham, string Original_NoCham, string Original_Etage, global::System.Nullable<decimal> Original_Prix, global::System.Nullable<byte> Original_Etat, string Original_CodLoc, string Original_CodTypCham) {
+            if ((NoCham == null)) {
+                throw new global::System.ArgumentNullException("NoCham");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NoCham));
+            }
+            if ((Etage == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Etage));
+            }
+            if ((Prix.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Prix.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Etat.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((byte)(Etat.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Memo == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Memo));
+            }
+            if ((CodLoc == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CodLoc));
+            }
+            if ((CodTypCham == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(CodTypCham));
+            }
+            if ((Original_NoCham == null)) {
+                throw new global::System.ArgumentNullException("Original_NoCham");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_NoCham));
+            }
+            if ((Original_Etage == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Etage));
+            }
+            if ((Original_Prix.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_Prix.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Etat.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((byte)(Original_Etat.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CodLoc == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_CodLoc));
+            }
+            if ((Original_CodTypCham == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_CodTypCham));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Etage, global::System.Nullable<decimal> Prix, global::System.Nullable<byte> Etat, string Memo, string CodLoc, string CodTypCham, string Original_NoCham, string Original_Etage, global::System.Nullable<decimal> Original_Prix, global::System.Nullable<byte> Original_Etat, string Original_CodLoc, string Original_CodTypCham) {
+            return this.Update(Original_NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham, Original_NoCham, Original_Etage, Original_Prix, Original_Etat, Original_CodLoc, Original_CodTypCham);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -13105,6 +14347,8 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
         private TYPETRXTableAdapter _tYPETRXTableAdapter;
         
         private DE_CHAMBRE_LIBRESTableAdapter _dE_CHAMBRE_LIBRESTableAdapter;
+        
+        private BK_CHAMBRETableAdapter _bK_CHAMBRETableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -13291,6 +14535,20 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public BK_CHAMBRETableAdapter BK_CHAMBRETableAdapter {
+            get {
+                return this._bK_CHAMBRETableAdapter;
+            }
+            set {
+                this._bK_CHAMBRETableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -13356,6 +14614,10 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                             && (this._dE_CHAMBRE_LIBRESTableAdapter.Connection != null))) {
                     return this._dE_CHAMBRE_LIBRESTableAdapter.Connection;
                 }
+                if (((this._bK_CHAMBRETableAdapter != null) 
+                            && (this._bK_CHAMBRETableAdapter.Connection != null))) {
+                    return this._bK_CHAMBRETableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -13403,6 +14665,9 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                     count = (count + 1);
                 }
                 if ((this._dE_CHAMBRE_LIBRESTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._bK_CHAMBRETableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -13524,6 +14789,15 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._bK_CHAMBRETableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BK_CHAMBRE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._bK_CHAMBRETableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -13630,6 +14904,14 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._bK_CHAMBRETableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BK_CHAMBRE.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._bK_CHAMBRETableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -13640,6 +14922,14 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(DS_Master dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._bK_CHAMBRETableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BK_CHAMBRE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._bK_CHAMBRETableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._dE_CHAMBRE_LIBRESTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.DE_CHAMBRE_LIBRES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -13777,68 +15067,74 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
             }
             if (((this._aRRIVETableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._aRRIVETableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._cHAMBRETableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._cHAMBRETableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._cLIENTTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._cLIENTTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._cOMMODITETableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._cOMMODITETableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._dETableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._dETableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._dEPARTTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._dEPARTTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._lOCALISATIONTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._lOCALISATIONTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._rESERVATIONTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._rESERVATIONTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._tRXTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tRXTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._tYPECHAMTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tYPECHAMTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._tYPETRXTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tYPETRXTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             if (((this._dE_CHAMBRE_LIBRESTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._dE_CHAMBRE_LIBRESTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
+            }
+            if (((this._bK_CHAMBRETableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._bK_CHAMBRETableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
-                throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
-                        "ger TableAdapter property to a valid TableAdapter instance.");
+                throw new global::System.ApplicationException("TableAdapterManager ne contient pas d\'informations de connexion. Définissez chaqu" +
+                        "e propriété TableAdapterManager TableAdapter à une instance valide de TableAdapt" +
+                        "er.");
             }
             bool workConnOpened = false;
             if (((workConnection.State & global::System.Data.ConnectionState.Broken) 
@@ -13851,8 +15147,9 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
             }
             global::System.Data.IDbTransaction workTransaction = workConnection.BeginTransaction();
             if ((workTransaction == null)) {
-                throw new global::System.ApplicationException("The transaction cannot begin. The current data connection does not support transa" +
-                        "ctions or the current state is not allowing the transaction to begin.");
+                throw new global::System.ApplicationException("La transaction ne peut pas commencer. La connexion de données actuelle ne prend p" +
+                        "as en charge les transactions ou l\'état actuel n\'autorise pas le début de la tra" +
+                        "nsaction.");
             }
             global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
             global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
@@ -13975,6 +15272,15 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._dE_CHAMBRE_LIBRESTableAdapter.Adapter);
                     }
                 }
+                if ((this._bK_CHAMBRETableAdapter != null)) {
+                    revertConnections.Add(this._bK_CHAMBRETableAdapter, this._bK_CHAMBRETableAdapter.Connection);
+                    this._bK_CHAMBRETableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._bK_CHAMBRETableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._bK_CHAMBRETableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._bK_CHAMBRETableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._bK_CHAMBRETableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -14080,6 +15386,10 @@ SELECT CodTypTrx, DescTrx, Nature FROM TYPETRX WHERE (CodTypTrx = @CodTypTrx)";
                 if ((this._dE_CHAMBRE_LIBRESTableAdapter != null)) {
                     this._dE_CHAMBRE_LIBRESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dE_CHAMBRE_LIBRESTableAdapter]));
                     this._dE_CHAMBRE_LIBRESTableAdapter.Transaction = null;
+                }
+                if ((this._bK_CHAMBRETableAdapter != null)) {
+                    this._bK_CHAMBRETableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._bK_CHAMBRETableAdapter]));
+                    this._bK_CHAMBRETableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
