@@ -14,20 +14,20 @@ namespace PrjEq01_Application.UserControls
 
 	public partial class IC_Base : UserControl, IInfoBox
     {
-        protected BindingSource BS;
-
+        protected BindingSource bS;
+        protected DataRow dataRow;
         private ItemSelectedDeleg clientSelected;
+
+        public BindingSource BS { set => bS = value; }
+        public DataRow DataRow { set => dataRow = value; }
         public ItemSelectedDeleg ClientSelected { get => clientSelected; set => clientSelected = value; }
+        
+        
 
         public IC_Base()
 		{
 			InitializeComponent();
             TA_CLIENT.Fill(ds_master.CLIENT);
-        }
-
-        public void setBS(BindingSource BS)
-        {
-            this.BS = BS;
         }
 
         protected virtual void bt_list_Click(object sender, EventArgs e)
