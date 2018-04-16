@@ -209,8 +209,6 @@ namespace PrjEq01_Application.Tabs
             {
                 consult_control.SetReadOnly(state);
             }
-
-			tb_noArrive.ReadOnly = !(state == States.ADD || state == States.EDIT);
 		}
 
         public void Sync_ForeignTables()
@@ -336,6 +334,7 @@ namespace PrjEq01_Application.Tabs
             lc_base.SetListButton(true);
             BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ir_arrive.tb_noReserv.Text);
             Link_RESERVATION(true);
+            Link_CHAMBRE(true);
         }
     }
 }

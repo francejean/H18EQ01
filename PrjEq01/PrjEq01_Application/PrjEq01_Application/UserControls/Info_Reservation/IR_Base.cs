@@ -34,24 +34,25 @@ namespace PrjEq01_Application.UserControls
 			reservSelected();
 		}
 
-		public void SetReadOnly(States state)
+        public virtual void SetReadOnly(States state)
 		{
 			bool readOnly = States.CONSULT == state;
+            // Different for Reserv and Arrive
+            bt_list.Enabled = (state == States.ADD);
 
-			// Different for Reserv and Arrive
-			bt_list.Enabled = (state == States.ADD);
 
-			foreach (Control ctrl in gb_reserv.Controls)
-			{
-				if (ctrl is TextBox)
-					((TextBox)ctrl).ReadOnly = readOnly;
-				else if (!(ctrl is Label))
-					ctrl.Enabled = !readOnly;
-			}
+            //A mettre dans IR_Reservation
+            /*foreach (Control ctrl in gb_reserv.Controls)
+            {
+              if (ctrl is TextBox)
+                ((TextBox)ctrl).ReadOnly = readOnly;
+              else if (!(ctrl is Label))
+                ctrl.Enabled = !readOnly;
+            }*/
 		}
 
-		public virtual void WipeInformation()
-		{
+	    public virtual void WipeInformation()
+	    {
 			foreach (Control ctrl in gb_reserv.Controls)
 			{
 				if (ctrl is TextBox || ctrl is DateTimePicker)

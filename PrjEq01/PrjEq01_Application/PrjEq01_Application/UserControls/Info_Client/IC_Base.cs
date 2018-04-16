@@ -40,13 +40,13 @@ namespace PrjEq01_Application.UserControls
             bool readOnly	= !(state == States.ADD || state == States.EDIT);
 	        bt_list.Enabled = (state == States.ADD);
 
-	        foreach (Control ctrl in gb_client.Controls)
+	        /*foreach (Control ctrl in gb_client.Controls)
 	        {
 		        if (ctrl is TextBox)
 			        ((TextBox)ctrl).ReadOnly = readOnly;
 		        else if(!(ctrl is Label))
 			        ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
-	        }
+	        }*/
 	    }
 
 		public virtual void WipeInformation()
