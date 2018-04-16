@@ -39,16 +39,6 @@ namespace PrjEq01_Application.UserControls
 			bool readOnly = States.CONSULT == state;
             // Different for Reserv and Arrive
             bt_list.Enabled = (state == States.ADD);
-
-
-            //A mettre dans IR_Reservation
-            /*foreach (Control ctrl in gb_reserv.Controls)
-            {
-              if (ctrl is TextBox)
-                ((TextBox)ctrl).ReadOnly = readOnly;
-              else if (!(ctrl is Label))
-                ctrl.Enabled = !readOnly;
-            }*/
 		}
 
 	    public virtual void WipeInformation()
