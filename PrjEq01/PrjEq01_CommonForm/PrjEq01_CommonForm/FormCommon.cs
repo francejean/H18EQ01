@@ -37,8 +37,17 @@ namespace PrjEq01_CommonForm
             else if(state == States.CONSULT)
             {
                 ts_button_list.Find(x => x.Name == "button_add").Enabled = true;
-                ts_button_list.Find(x => x.Name == "button_edit").Enabled = true;
-                ts_button_list.Find(x => x.Name == "button_delete").Enabled = true;
+                if (tc_main.SelectedIndex != 3)
+                {
+                    ts_button_list.Find(x => x.Name == "button_edit").Enabled = true;
+                    ts_button_list.Find(x => x.Name == "button_delete").Enabled = true;
+
+                }
+                else
+                {
+                    ts_button_list.Find(x => x.Name == "button_edit").Enabled = false;
+                    ts_button_list.Find(x => x.Name == "button_delete").Enabled = false;
+                }
                 ts_button_list.Find(x => x.Name == "button_undo").Enabled = false;
                 ts_button_list.Find(x => x.Name == "button_save").Enabled = false;
                 ts_button_list.Find(x => x.Name == "button_backAll").Enabled = true;

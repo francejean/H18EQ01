@@ -93,42 +93,59 @@ namespace PrjEq01_Application.Tabs
             BS_COMMODITE.DataSource = dS_Master;
         }
 
-        public void SetReadOnly(bool state)
+        public void SetReadOnly(States state)
         {
-            foreach (Control ctrl in gb_infoChambre.Controls)
+            bool stateBoolValue = true;
+            switch (state)
             {
-                if (ctrl.GetType() == typeof(TextBox))
-                    ((TextBox)ctrl).ReadOnly = state;
-                if (ctrl.GetType() == typeof(MaskedTextBox))
-                    ((MaskedTextBox)ctrl).ReadOnly = state;
+                case States.ADD:
+                    stateBoolValue = false;
+                    break;
+                case States.CONSULT:
+                    stateBoolValue = true;
+                    break;
+                case States.EDIT:
+                    stateBoolValue = false;
+                    break;
             }
-            bt_listCodeLoc.Enabled = !state;
-            bt_listCodeType.Enabled = !state;
-            bt_listCommodite.Enabled = !state;
+            mtb_prix.ReadOnly = stateBoolValue;
+            tb_etat.ReadOnly = stateBoolValue;
+            tb_noCham.ReadOnly = stateBoolValue;
+            tb_memo.ReadOnly = stateBoolValue;
+            tb_etage.ReadOnly = stateBoolValue;
+            bt_listNoChambre.Enabled = stateBoolValue;
+            bt_listCodeLoc.Enabled = !stateBoolValue;
+            bt_listCodeType.Enabled = !stateBoolValue;
+            bt_listCommodite.Enabled = !stateBoolValue;
         }
 
         public void Add()
         {
+            SetReadOnly(States.ADD);
             MessageBox.Show("Fonction en développement.");
         }
 
         public void Edit()
         {
+            SetReadOnly(States.EDIT);
             MessageBox.Show("Fonction en développement.");
         }
 
         public void Delete()
         {
+            SetReadOnly(States.CONSULT);
             MessageBox.Show("Fonction en développement.");
         }
 
         public void Undo()
         {
-            MessageBox.Show("Fonction en développement.");
+            SetReadOnly(States.CONSULT);
+            //MessageBox.Show("Fonction en développement.");
         }
 
         public void Save()
         {
+            SetReadOnly(States.CONSULT);
             MessageBox.Show("Fonction en développement.");
         }
 

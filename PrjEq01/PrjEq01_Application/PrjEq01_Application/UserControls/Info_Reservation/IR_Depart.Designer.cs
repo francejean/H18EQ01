@@ -31,12 +31,14 @@
             this.tb_confirmerPar = new System.Windows.Forms.TextBox();
             this.lb_confirmerPar = new System.Windows.Forms.Label();
             this.gb_reserv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_reserv
             // 
             this.gb_reserv.Controls.Add(this.tb_confirmerPar);
             this.gb_reserv.Controls.Add(this.lb_confirmerPar);
+            this.gb_reserv.Controls.SetChildIndex(this.bt_list, 0);
             this.gb_reserv.Controls.SetChildIndex(this.tb_noReserv, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Reserv, 0);
             this.gb_reserv.Controls.SetChildIndex(this.DTP_Debut, 0);
@@ -51,7 +53,6 @@
             this.tb_confirmerPar.Location = new System.Drawing.Point(129, 169);
             this.tb_confirmerPar.Margin = new System.Windows.Forms.Padding(4);
             this.tb_confirmerPar.Name = "tb_confirmerPar";
-            this.tb_confirmerPar.ReadOnly = true;
             this.tb_confirmerPar.Size = new System.Drawing.Size(128, 22);
             this.tb_confirmerPar.TabIndex = 27;
             // 
@@ -72,6 +73,7 @@
             this.Name = "IR_Depart";
             this.gb_reserv.ResumeLayout(false);
             this.gb_reserv.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
             this.ResumeLayout(false);
 
         }
