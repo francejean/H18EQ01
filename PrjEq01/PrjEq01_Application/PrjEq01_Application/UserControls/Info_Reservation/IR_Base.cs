@@ -14,9 +14,13 @@ namespace PrjEq01_Application.UserControls
 	public partial class IR_Base : UserControl, IInfoBox
 	{
 		protected BindingSource BS;
-
+		protected DataRow dataRow;
 		private ItemSelectedDeleg reservSelected;
+
+		public BindingSource BS { get => bS; set => bS = value; }
+		public DataRow DataRow { set => dataRow = value; }
 		public ItemSelectedDeleg ReservSelected { get => reservSelected; set => reservSelected = value; }
+	
 
 		public IR_Base()
 		{
@@ -24,25 +28,20 @@ namespace PrjEq01_Application.UserControls
 			TA_RESERVATION.Fill(ds_master.RESERVATION);
 		}
 
-		public void setBS(BindingSource BS)
-		{
-			this.BS = BS;
-		}
-
 		protected virtual void bt_list_Click(object sender, EventArgs e)
 		{
 			reservSelected();
 		}
 
-        public virtual void SetReadOnly(States state)
+	public virtual void SetReadOnly(States state)
 		{
 			bool readOnly = States.CONSULT == state;
-            // Different for Reserv and Arrive
-            bt_list.Enabled = (state == States.ADD);
+			// Different for Reserv and Arrive
+			bt_list.Enabled = (state == States.ADD);
 		}
 
-	    public virtual void WipeInformation()
-	    {
+		public virtual void WipeInformation()
+		{
 			foreach (Control ctrl in gb_reserv.Controls)
 			{
 				if (ctrl is TextBox || ctrl is DateTimePicker)
