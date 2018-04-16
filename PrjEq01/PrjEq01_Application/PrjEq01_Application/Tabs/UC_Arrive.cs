@@ -4,17 +4,34 @@ using System.Data;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
 
+
+
+/*
+ Doit unlink all on Add()
+ et seulement relink quand choisit dans LF
+ ex : choisi client, Link_CLIENT(true)
+
+ reservation doit etre choisi pour selectionner lc_base.list_button
+
+ doit update table et non acceptChanges
+     
+     */
 namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
     {
         public States State { get; set; }
+        private DataRow DTR_Arrive;
+
+        private bool LinkArrive_State, LinkClient_State, LinkReservation_State, LinkChambre_State;
 
         public UC_Arrive()
 		{
 			InitializeComponent();
             ic_arrive.setBS(BS_CLIENT);
+            ic_arrive.ClientSelected += OnClientSelected;
             ir_arrive.setBS(BS_RESERVATION);
+            ir_arrive.ReservSelected += OnReservSelected;
             lc_base.setBS(BS_CHAMBRE);
             State = States.CONSULT;
 		}
@@ -34,34 +51,47 @@ namespace PrjEq01_Application.Tabs
 			this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
             this.TA_DE.FillBy(ds_master.DE);
 		}
-        
 
-		private void Link_ARRIVE(bool link_state)
+        private void Link_All(bool link_state)
+        {
+            Link_CLIENT(link_state);
+            Link_RESERVATION(link_state);
+            Link_ARRIVE(link_state);
+            Link_CHAMBRE(link_state);
+        }
+
+        private void Link_ARRIVE(bool link_state)
 		{
 			this.BS_ARRIVE.DataMember = "ARRIVE";
 			this.BS_ARRIVE.DataSource = this.ds_master;
-            if(link_state == true)
+
+            if(LinkArrive_State != link_state)
             {
-                try
+                if (link_state == true)
                 {
-                    tb_noArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
-                    ic_arrive.tb_noClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
-                    ir_arrive.tb_noReserv.DataBindings.Add("Text", BS_ARRIVE, "IdReser");
-                    ic_arrive.tb_noChambre.DataBindings.Add("Text", BS_ARRIVE, "NoCham");
+                    try
+                    {
+                        tb_noArrive.DataBindings.Add("Text", BS_ARRIVE, "IdArrive");
+                        ic_arrive.tb_noClient.DataBindings.Add("Text", BS_ARRIVE, "IdCli");
+                        ir_arrive.tb_noReserv.DataBindings.Add("Text", BS_ARRIVE, "IdReser");
+                        ic_arrive.tb_noChambre.DataBindings.Add("Text", BS_ARRIVE, "NoCham");
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
                 }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-            else
-            {
-                try
+                else
                 {
-                    tb_noArrive.DataBindings.Clear();
-                    ic_arrive.tb_noClient.DataBindings.Clear();
-                    ir_arrive.tb_noReserv.DataBindings.Clear();
-                    ic_arrive.tb_noChambre.DataBindings.Clear();
+                    try
+                    {
+                        tb_noArrive.DataBindings.Clear();
+                        ic_arrive.tb_noClient.DataBindings.Clear();
+                        ir_arrive.tb_noReserv.DataBindings.Clear();
+                        ic_arrive.tb_noChambre.DataBindings.Clear();
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
                 }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
+                LinkArrive_State = link_state;
             }
+            
 		}
 
 		private void Link_CLIENT(bool link_state)
@@ -69,33 +99,36 @@ namespace PrjEq01_Application.Tabs
 			this.BS_CLIENT.DataMember = "CLIENT";
 			this.BS_CLIENT.DataSource = this.ds_master;
 
-            if(link_state == true)
+            if(LinkClient_State != link_state)
             {
-                try
+                if (link_state == true)
                 {
-                    ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
-                    ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
-                    ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
-                    ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
-                    ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
-                    ic_arrive.tb_expiration.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+                    try
+                    {
+                        ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
+                        ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
+                        ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
+                        ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+                        ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
+                        ic_arrive.tb_expiration.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
                 }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-            else
-            {
-                try
+                else
                 {
-                    ic_arrive.tb_nomClient.DataBindings.Clear();
-                    ic_arrive.tb_adresse.DataBindings.Clear();
-                    ic_arrive.tb_telephone.DataBindings.Clear();
-                    ic_arrive.tb_typeCarte.DataBindings.Clear();
-                    ic_arrive.tb_noCarte.DataBindings.Clear();
-                    ic_arrive.tb_expiration.DataBindings.Clear();
+                    try
+                    {
+                        ic_arrive.tb_nomClient.DataBindings.Clear();
+                        ic_arrive.tb_adresse.DataBindings.Clear();
+                        ic_arrive.tb_telephone.DataBindings.Clear();
+                        ic_arrive.tb_typeCarte.DataBindings.Clear();
+                        ic_arrive.tb_noCarte.DataBindings.Clear();
+                        ic_arrive.tb_expiration.DataBindings.Clear();
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
                 }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
+                LinkClient_State = link_state;
             }
-			
 		}
 
 		private void Link_RESERVATION(bool link_state)
@@ -103,31 +136,34 @@ namespace PrjEq01_Application.Tabs
 			this.BS_RESERVATION.DataMember = "RESERVATION";
 			this.BS_RESERVATION.DataSource = this.ds_master;
 
-            if(link_state == true)
+            if(LinkReservation_State != link_state)
             {
-                try
+                if (link_state == true)
                 {
-                    ir_arrive.DTP_Reserv.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
-                    ir_arrive.DTP_Debut.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
-                    ir_arrive.DTP_Fin.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
-                    ir_arrive.tb_noClient.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
-                    ir_arrive.tb_nom.DataBindings.Add("Text", BS_RESERVATION, "Nom");
+                    try
+                    {
+                        ir_arrive.DTP_Reserv.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
+                        ir_arrive.DTP_Debut.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
+                        ir_arrive.DTP_Fin.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
+                        ir_arrive.tb_noClient.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
+                        ir_arrive.tb_nom.DataBindings.Add("Text", BS_RESERVATION, "Nom");
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
                 }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-            else
-            {
-                try
+                else
                 {
-                    ir_arrive.DTP_Reserv.DataBindings.Clear();
-                    ir_arrive.DTP_Debut.DataBindings.Clear();
-                    ir_arrive.DTP_Fin.DataBindings.Clear();
-                    ir_arrive.tb_noClient.DataBindings.Clear();
-                    ir_arrive.tb_nom.DataBindings.Clear();
+                    try
+                    {
+                        ir_arrive.DTP_Reserv.DataBindings.Clear();
+                        ir_arrive.DTP_Debut.DataBindings.Clear();
+                        ir_arrive.DTP_Fin.DataBindings.Clear();
+                        ir_arrive.tb_noClient.DataBindings.Clear();
+                        ir_arrive.tb_nom.DataBindings.Clear();
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); }
                 }
-                catch (Exception ee) { MessageBox.Show(ee.Message); }
-            }
-			
+                LinkReservation_State = link_state;
+            }			
 		}
 
 		private void Link_CHAMBRE(bool link_state)
@@ -135,36 +171,32 @@ namespace PrjEq01_Application.Tabs
             this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
             this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
 
-            if(link_state)
+            if(LinkChambre_State != link_state)
             {
-                try
+
+                if (link_state)
                 {
-                    lc_base.dgv_chambre.DataSource = BS_CHAMBRE;
+                    try
+                    {
+                        lc_base.dgv_chambre.DataSource = BS_CHAMBRE;
+                    }
+                    catch (Exception e)
+                    { MessageBox.Show(e.Message); }
                 }
-                catch (Exception e)
-                { MessageBox.Show(e.Message); }
-            }
-            else
-            {
-                try
+                else
                 {
-                    lc_base.dgv_chambre.DataSource = null;
+                    try
+                    {
+                        lc_base.dgv_chambre.DataSource = null;
+                    }
+                    catch (Exception e)
+                    { MessageBox.Show(e.Message); }
                 }
-                catch (Exception e)
-                { MessageBox.Show(e.Message); }
+                LinkChambre_State = link_state;
             }
-            
         }
 
-        private void Link_All(bool link_state)
-        {
-            Link_ARRIVE(link_state);
-            Link_CHAMBRE(link_state);
-            Link_CLIENT(link_state);
-            Link_RESERVATION(link_state);
-        }
-
-        public void SetReadOnly()
+        public void SetReadOnly(States state)
         {
             List<IInfoBox> consult_controls = new List<IInfoBox>
             {
@@ -175,37 +207,47 @@ namespace PrjEq01_Application.Tabs
 
             foreach (IInfoBox consult_control in consult_controls)
             {
-                consult_control.SetReadOnly(State);
+                consult_control.SetReadOnly(state);
             }
 
-			tb_noArrive.ReadOnly = !(State == States.ADD || State == States.EDIT);
+			tb_noArrive.ReadOnly = !(state == States.ADD || state == States.EDIT);
 		}
 
         public void Sync_ForeignTables()
         {
-            try
+            if(State == States.CONSULT)
             {
-                BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-                BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+                try
+                {
+                    BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+                    BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+                } catch (Exception e){ MessageBox.Show(e.Message); }
             }
-            catch(Exception e)
-            { MessageBox.Show(e.Message); }
+            else if(State == States.ADD || State == States.EDIT)
+            {
+                try
+                {
+                    BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DTR_Arrive["IdCli"]);
+                    BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+                }
+                catch (Exception e) { MessageBox.Show(e.Message); }
+            }
         }
 
         public void Add()
         {
-            SetReadOnly();
+            SetReadOnly(States.ADD);
             NewArrive();
         }
 
         public void Edit()
         {
-            SetReadOnly();
+            SetReadOnly(States.EDIT);
         }
 
         public void Delete()
         {
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Undo()
@@ -213,43 +255,50 @@ namespace PrjEq01_Application.Tabs
             if(State == States.ADD)
             {
                 ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
+                DTR_Arrive.CancelEdit();
                 BS_ARRIVE.Position = 0;
                 Link_All(true);
             }
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Save()
         {
-            SetReadOnly();
+            if (State == States.ADD)
+            {
+                DTR_Arrive.AcceptChanges();
+                Link_All(true);
+            }
+            
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_Start()
         {
             BS_ARRIVE.MoveFirst();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_Back()
         {
             BS_ARRIVE.MovePrevious();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_Forward()
         {
             BS_ARRIVE.MoveNext();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void Go_End()
         {
             BS_ARRIVE.MoveLast();
             Sync_ForeignTables();
-            SetReadOnly();
+            SetReadOnly(States.CONSULT);
         }
 
         public void NewArrive()
@@ -257,12 +306,12 @@ namespace PrjEq01_Application.Tabs
             BS_ARRIVE.Position = BS_ARRIVE.Count - 1;
             ds_master.ARRIVE.Columns["IdArrive"].AutoIncrementSeed = (int)ds_master.ARRIVE.Rows[BS_ARRIVE.Position]["IdArrive"] + 1;
 
-            DataRow DTR_Arrive = ds_master.Tables["Arrive"].NewRow();
+            DTR_Arrive = ds_master.Tables["Arrive"].NewRow();
             DTR_Arrive["IdArrive"] = (int)ds_master.ARRIVE.Columns["IdArrive"].AutoIncrementSeed;
             DTR_Arrive["DateArrive"] = DateTime.Today;
-            DTR_Arrive["IdCli"] = DBNull.Value;
-            DTR_Arrive["IdReser"] = DBNull.Value;
-            DTR_Arrive["NoCham"] = DBNull.Value;
+            DTR_Arrive["IdCli"] = -1;
+            DTR_Arrive["IdReser"] = -1;
+            DTR_Arrive["NoCham"] = -1;
 
             ds_master.Tables["Arrive"].Rows.Add(DTR_Arrive);
             BS_ARRIVE.Position = BS_ARRIVE.Count - 1;
@@ -270,9 +319,23 @@ namespace PrjEq01_Application.Tabs
             DTR_Arrive.BeginEdit();
 
             Link_All(false);
+            Link_ARRIVE(true);
 
             ic_arrive.WipeInformation();
             ir_arrive.WipeInformation();
+        }
+
+        public void OnClientSelected()
+        {
+            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ic_arrive.tb_noClient.Text);
+            Link_CLIENT(true);
+        }
+
+        public void OnReservSelected()
+        {
+            lc_base.SetListButton(true);
+            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ir_arrive.tb_noReserv.Text);
+            Link_RESERVATION(true);
         }
     }
 }

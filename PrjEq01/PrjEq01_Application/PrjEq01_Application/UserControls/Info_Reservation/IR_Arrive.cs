@@ -24,6 +24,7 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
             if (result == DialogResult.OK)
             {
                 tb_noReserv.Text = ds_master.Tables["RESERVATION"].Rows[BS.Position]["IdReser"].ToString();
+                base.bt_list_Click(sender, e);
             }
             else if (result == DialogResult.Cancel)
             {

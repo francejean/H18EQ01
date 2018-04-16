@@ -24,6 +24,7 @@ namespace PrjEq01_Application.UserControls.Info_Client
             if (result == DialogResult.OK)
             {
                 tb_noClient.Text = ds_master.Tables["CLIENT"].Rows[BS.Position]["IdCli"].ToString();
+                base.bt_list_Click(sender, e);
             }
             else if (result == DialogResult.Cancel)
             {
