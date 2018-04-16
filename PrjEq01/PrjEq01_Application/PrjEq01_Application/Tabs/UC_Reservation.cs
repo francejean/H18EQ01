@@ -11,7 +11,7 @@ using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.Tabs
 {
-	public partial class UC_Reservation : UserControl, PrjEq01_CommonForm.IButtons
+	public partial class UC_Reservation : UserControl, IButtons
 	{
         public States State { get; set; }
 
@@ -94,14 +94,14 @@ namespace PrjEq01_Application.Tabs
 			{ MessageBox.Show(e.Message); }
 		}
 
-		public void SetReadOnly()
+		public void SetReadOnly(States state)
 		{
 			List<IInfoBox> consult_controls = new List<IInfoBox>();
 			consult_controls.Add(ic_Reserv);
 			consult_controls.Add(ir_Base);
 
 			foreach (IInfoBox consult_control in consult_controls)
-			{ consult_control.SetReadOnly(State); }
+			{ consult_control.SetReadOnly(state); }
 		}
 
 		public bool Sync_ForeignTables()
@@ -125,59 +125,59 @@ namespace PrjEq01_Application.Tabs
 		public void Add()
 		{
 			EmptyFields();
-			SetReadOnly();
+			SetReadOnly(States.ADD);
 		}
 
 		public void Edit()
 		{
             MessageBox.Show("Fonction en développement.");
-			SetReadOnly();
+			//SetReadOnly(States.EDIT);
 		}
 
 		public void Delete()
 		{
             MessageBox.Show("Fonction en développement.");
-			SetReadOnly();
+			//SetReadOnly(States.CONSULT);
 		}
 
 		public void Undo()
 		{
 			RestoreFields();
-			SetReadOnly();
+			SetReadOnly(States.CONSULT);
 		}
 
 		public void Save()
 		{
 			MessageBox.Show("Fonction en développement.");
-			SetReadOnly();
+			//SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_Start()
 		{
 			this.BS_RESERVATION.MoveFirst();
 			Sync_ForeignTables();
-			SetReadOnly();
+			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_Back()
 		{
 			this.BS_RESERVATION.MovePrevious();
 			Sync_ForeignTables();
-			SetReadOnly();
+			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_Forward()
 		{
 			this.BS_RESERVATION.MoveNext();
 			Sync_ForeignTables();
-			SetReadOnly();
+			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_End()
 		{
 			this.BS_RESERVATION.MoveLast();
 			Sync_ForeignTables();
-			SetReadOnly();
+			SetReadOnly(States.CONSULT);
 		}
 	}
 }

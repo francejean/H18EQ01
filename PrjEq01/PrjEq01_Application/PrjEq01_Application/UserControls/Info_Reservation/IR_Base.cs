@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -24,41 +24,39 @@ namespace PrjEq01_Application.UserControls
             TA_RESERVATION.Fill(ds_master.RESERVATION);
 		}
 
-        public void setBS(BindingSource BS)
+    public void setBS(BindingSource BS)
+    {
+        this.BS = BS;
+    }
+
+    protected virtual void bt_list_Click(object sender, EventArgs e)
+    {
+        reservSelected();
+    }
+
+    public virtual void SetReadOnly(States state)
+    {
+        bool readOnly	= States.CONSULT == state;
+        // Different for Reserv and Arrive
+        bt_list.Enabled = (state == States.ADD);
+
+
+        //A mettre dans IR_Reservation
+        /*foreach (Control ctrl in gb_reserv.Controls)
         {
-            this.BS = BS;
-        }
-
-        protected virtual void bt_list_Click(object sender, EventArgs e)
-        {
-            reservSelected();
-        }
-
-        public virtual void SetReadOnly(States state)
-        {
-            bool readOnly	= !(state == States.ADD || state == States.EDIT);
-
-		    // Different for Reserv and Arrive
-		    bt_list.Enabled = (state == States.ADD);
-
-
-            //A mettre dans IR_Reservation
-		    /*foreach (Control ctrl in gb_reserv.Controls)
-		    {
-			    if (ctrl is TextBox)
-				    ((TextBox)ctrl).ReadOnly = readOnly;
-			    else if (!(ctrl is Label))
-				    ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
-		    }*/
+          if (ctrl is TextBox)
+            ((TextBox)ctrl).ReadOnly = readOnly;
+          else if (!(ctrl is Label))
+            ctrl.Enabled = !readOnly;
+        }*/
 		}
 
 		public virtual void WipeInformation()
 		{
-            foreach (Control ctrl in gb_reserv.Controls)
-            {
-                if (ctrl is TextBox || ctrl is DateTimePicker)
-                    ctrl.ResetText();
-            }
-        }
-	}
+      foreach (Control ctrl in gb_reserv.Controls)
+      {
+        if (ctrl is TextBox || ctrl is DateTimePicker)
+          ctrl.ResetText();
+    }
+  }
 }
