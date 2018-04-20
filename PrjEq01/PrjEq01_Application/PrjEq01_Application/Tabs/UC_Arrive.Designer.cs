@@ -117,10 +117,13 @@
             // 
             // lc_arrive
             // 
-            this.lc_arrive.Location = new System.Drawing.Point(0, 199);
+            this.lc_arrive.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lc_arrive.Location = new System.Drawing.Point(3, 197);
             this.lc_arrive.MinimumSize = new System.Drawing.Size(850, 230);
             this.lc_arrive.Name = "lc_arrive";
-            this.lc_arrive.Size = new System.Drawing.Size(970, 233);
+            this.lc_arrive.Size = new System.Drawing.Size(967, 233);
             this.lc_arrive.TabIndex = 15;
             // 
             // UC_Arrive

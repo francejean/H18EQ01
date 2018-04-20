@@ -18,6 +18,7 @@ namespace PrjEq01_Application.UserControls
         public LC_Base()
         {
             InitializeComponent();
+            dgv_chambre.AutoGenerateColumns = false;
         }
 
         public void setBS(BindingSource BS)
