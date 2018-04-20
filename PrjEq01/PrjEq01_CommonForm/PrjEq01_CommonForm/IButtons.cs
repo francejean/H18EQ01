@@ -14,7 +14,7 @@ namespace PrjEq01_CommonForm
 		void Edit();
 		void Delete();
 		void Undo();
-		void Save();
+		bool Save();
 
 		void Go_Start();
 		void Go_Back();

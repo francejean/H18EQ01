@@ -97,9 +97,11 @@ namespace PrjEq01_CommonForm
 		{
             States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Save();
-            selected_tab.uc_tab.State = state;
-            set_ts_buttons(state);
+            if (selected_tab.uc_tab.Save())
+            {
+                selected_tab.uc_tab.State = state;
+                set_ts_buttons(state);
+            }
         }
 
         private void Button_Back_All_Click(object sender, EventArgs e)

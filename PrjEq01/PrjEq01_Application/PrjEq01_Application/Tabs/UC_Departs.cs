@@ -109,16 +109,15 @@ namespace PrjEq01_Application.Tabs
             dgv_departs.DataSource = BS_DEPART;
         }
 
-        public void SetReadOnly(States state)
+        private void SetReadOnly(States state)
         {
-            ir_departs.tb_confirmerPar.Enabled = (state == States.ADD || state == States.EDIT);
+            ir_departs.tb_confirmerPar.Enabled = (state == States.ADD);
         }
 
-        public bool Sync_ForeignTables()
+        private void Sync_ForeignTables()
         {
             BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
             BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
-            return true;
         }
 
         public void Add()
@@ -129,26 +128,29 @@ namespace PrjEq01_Application.Tabs
 
         public void Edit()
         {
-            SetReadOnly(States.EDIT);
-            MessageBox.Show("Fonction en développement.");
+            //SetReadOnly(States.EDIT);
+            MessageBox.Show("Vous ne pouvez pas modifier un départ.");
         }
 
         public void Delete()
         {
-            SetReadOnly(States.CONSULT);
-            MessageBox.Show("Fonction en développement.");
+            //SetReadOnly(States.CONSULT);
+            MessageBox.Show("Vous ne pouvez pas effacer un départ.");
         }
 
         public void Undo()
         {
             SetReadOnly(States.CONSULT);
+            ir_departs.tb_confirmerPar.ResetText();
             //MessageBox.Show("Fonction en développement.");
         }
 
-        public void Save()
+        public bool Save()
         {
             SetReadOnly(States.CONSULT);
+            ir_departs.tb_confirmerPar.ResetText();
             MessageBox.Show("Fonction en développement.");
+            return true;
         }
 
         public void Go_Start()
