@@ -157,7 +157,7 @@
             this.ir_departs.MinimumSize = new System.Drawing.Size(267, 234);
             this.ir_departs.Name = "ir_departs";
             this.ir_departs.Size = new System.Drawing.Size(267, 234);
-            this.ir_departs.SyncDeleg = null;
+            this.ir_departs.ReservSelected = null;
             this.ir_departs.TabIndex = 15;
             // 
             // ic_base
@@ -167,7 +167,7 @@
             this.ic_base.MinimumSize = new System.Drawing.Size(487, 234);
             this.ic_base.Name = "ic_base";
             this.ic_base.Size = new System.Drawing.Size(487, 234);
-            this.ic_base.SyncDeleg = null;
+            this.ic_base.ClientSelected = null;
             this.ic_base.TabIndex = 14;
             // 
             // IdDepart

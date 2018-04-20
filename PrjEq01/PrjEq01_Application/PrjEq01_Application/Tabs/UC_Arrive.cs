@@ -260,7 +260,7 @@ namespace PrjEq01_Application.Tabs
             SetReadOnly(States.CONSULT);
         }
 
-        public void Save()
+        public bool Save()
         {
             if (State == States.ADD)
             {
@@ -269,6 +269,7 @@ namespace PrjEq01_Application.Tabs
             }
             
             SetReadOnly(States.CONSULT);
+            return true;
         }
 
         public void Go_Start()

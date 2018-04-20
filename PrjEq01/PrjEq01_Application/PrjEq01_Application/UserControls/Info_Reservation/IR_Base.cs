@@ -13,7 +13,7 @@ namespace PrjEq01_Application.UserControls
 {
 	public partial class IR_Base : UserControl, IInfoBox
 	{
-		protected BindingSource BS;
+		protected BindingSource bS;
 		protected DataRow dataRow;
 		private ItemSelectedDeleg reservSelected;
 

@@ -146,10 +146,11 @@ namespace PrjEq01_Application.Tabs
 			SetReadOnly(States.CONSULT);
 		}
 
-		public void Save()
+		public bool Save()
 		{
 			MessageBox.Show("Fonction en développement.");
-			//SetReadOnly(States.CONSULT);
+            //SetReadOnly(States.CONSULT);
+            return true;
 		}
 
 		public void Go_Start()
