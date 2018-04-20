@@ -28,22 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GroupBox_ListeChambres.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // dgv_chambre
-            // 
-            this.dgv_chambre.DataSource = null;
-            // 
-            // LC_Arrive
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.Name = "LC_Arrive";
-            this.GroupBox_ListeChambres.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).EndInit();
-            this.ResumeLayout(false);
-
+            this.components = new System.ComponentModel.Container();
         }
 
         #endregion
