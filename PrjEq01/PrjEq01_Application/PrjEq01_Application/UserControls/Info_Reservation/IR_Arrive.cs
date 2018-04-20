@@ -8,27 +8,27 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.UserControls.Info_Reservation
 {
-    public partial class IR_Arrive : PrjEq01_Application.UserControls.IR_Base
-    {
-        public IR_Arrive()
-        {
-            InitializeComponent();
-        }
+	public partial class IR_Arrive : PrjEq01_Application.UserControls.IR_Base
+	{
+		public IR_Arrive()
+		{
+			InitializeComponent();
+		}
 
-        protected override void bt_list_Click(object sender, EventArgs e)
-        {
-            int BS_pos_backup = BS.Position;
-            List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
-            DialogResult result = lf_reservation.ShowDialog();
+		protected override void bt_list_Click(object sender, EventArgs e)
+		{
+			int BS_pos_backup = BS.Position;
+			List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(BS);
+			DialogResult result = lf_reservation.ShowDialog();
 
-            if (result == DialogResult.OK)
-            {
-                ReservSelected((int)ds_master.Tables["RESERVATION"].Rows[BS.Position]["IdReser"]);
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                BS.Position = BS_pos_backup;
-            }
-        }
-    }
+			if (result == DialogResult.OK)
+			{
+				ReservSelected((int)ds_master.Tables["RESERVATION"].Rows[BS.Position]["IdReser"]);
+			}
+			else if (result == DialogResult.Cancel)
+			{
+				BS.Position = BS_pos_backup;
+			}
+		}
+	}
 }

@@ -8,17 +8,17 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.List_Forms
 {
-    public partial class LF_Chambres : PrjEq01_Application.List_Forms.LF_Base
-    {
-        public LF_Chambres()
-        {
-            InitializeComponent();
-        }
+	public partial class LF_Chambres : PrjEq01_Application.List_Forms.LF_Base
+	{
+		public LF_Chambres()
+		{
+			InitializeComponent();
+		}
 
-        public LF_Chambres(BindingSource BS) : base(BS)
-        {
-            InitializeComponent();
-            dgv_main.DataSource = this.BS;
-        }
-    }
+		public LF_Chambres(BindingSource BS) : base(BS)
+		{
+			InitializeComponent();
+			dgv_main.DataSource = this.BS;
+		}
+	}
 }

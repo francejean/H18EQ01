@@ -13,15 +13,15 @@ namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Reservation : UserControl, IButtons
 	{
-        public States State { get; set; }
+		public States State { get; set; }
 
-        public UC_Reservation()
+		public UC_Reservation()
 		{
 			InitializeComponent();
 			ic_Reserv.BS = BS_CLIENT;
 			ir_Base.BS = BS_RESERVATION;
-            State = States.CONSULT;
-        }
+			State = States.CONSULT;
+		}
 
 		private void Tab_Reservation_Load(object sender, EventArgs e)
 		{
@@ -130,13 +130,13 @@ namespace PrjEq01_Application.Tabs
 
 		public void Edit()
 		{
-            MessageBox.Show("Fonction en développement.");
+			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.EDIT);
 		}
 
 		public void Delete()
 		{
-            MessageBox.Show("Fonction en développement.");
+			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.CONSULT);
 		}
 
@@ -149,8 +149,8 @@ namespace PrjEq01_Application.Tabs
 		public bool Save()
 		{
 			MessageBox.Show("Fonction en développement.");
-            //SetReadOnly(States.CONSULT);
-            return true;
+			//SetReadOnly(States.CONSULT);
+			return true;
 		}
 
 		public void Go_Start()

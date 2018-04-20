@@ -8,11 +8,20 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.UserControls.Liste_Chambre
 {
-    public partial class LC_Arrive : PrjEq01_Application.UserControls.LC_Base
-    {
-        public LC_Arrive()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class LC_Arrive : PrjEq01_Application.UserControls.LC_Base
+	{
+		private ItemSelectedDeleg chambreSelected;
+
+		public ItemSelectedDeleg ChambreSelected { get => chambreSelected; set => chambreSelected = value; }
+
+		public LC_Arrive()
+		{
+			InitializeComponent();
+		}
+
+		private void dgv_chambre_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			chambreSelected(Convert.ToInt16(dgv_chambre.Rows[e.RowIndex].Cells[0].Value));
+		}
+	}
 }

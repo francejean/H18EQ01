@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.UserControls.Liste_Chambre
 {
-    public partial class LC_Reserv : PrjEq01_Application.UserControls.LC_Base
-    {
-        public LC_Reserv()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class LC_Reserv : PrjEq01_Application.UserControls.LC_Base
+	{
+		public LC_Reserv()
+		{
+			InitializeComponent();
+		}
+	}
 }
