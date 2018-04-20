@@ -47,9 +47,9 @@ namespace PrjEq01_Application.UserControls
 			// 
 			// gb_reserv
 			// 
-			this.gb_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.gb_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.gb_reserv.Controls.Add(this.DTP_Fin);
 			this.gb_reserv.Controls.Add(this.DTP_Debut);
 			this.gb_reserv.Controls.Add(this.DTP_Reserv);
@@ -69,8 +69,8 @@ namespace PrjEq01_Application.UserControls
 			// 
 			// DTP_Fin
 			// 
-			this.DTP_Fin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.DTP_Fin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.DTP_Fin.Enabled = false;
 			this.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.DTP_Fin.Location = new System.Drawing.Point(97, 113);
@@ -80,8 +80,8 @@ namespace PrjEq01_Application.UserControls
 			// 
 			// DTP_Debut
 			// 
-			this.DTP_Debut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.DTP_Debut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.DTP_Debut.Enabled = false;
 			this.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.DTP_Debut.Location = new System.Drawing.Point(97, 87);
@@ -91,8 +91,8 @@ namespace PrjEq01_Application.UserControls
 			// 
 			// DTP_Reserv
 			// 
-			this.DTP_Reserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.DTP_Reserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.DTP_Reserv.Enabled = false;
 			this.DTP_Reserv.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.DTP_Reserv.Location = new System.Drawing.Point(97, 61);
@@ -116,8 +116,8 @@ namespace PrjEq01_Application.UserControls
 			// 
 			// tb_noReserv
 			// 
-			this.tb_noReserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tb_noReserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.tb_noReserv.Location = new System.Drawing.Point(97, 35);
 			this.tb_noReserv.Name = "tb_noReserv";
 			this.tb_noReserv.ReadOnly = true;
@@ -189,13 +189,13 @@ namespace PrjEq01_Application.UserControls
 		private System.Windows.Forms.Label lb_dateReserv;
 		private System.Windows.Forms.Label lb_dateDebut;
 		private System.Windows.Forms.Label lb_dateFin;
-        public System.Windows.Forms.GroupBox gb_reserv;
-        public System.Windows.Forms.DateTimePicker DTP_Fin;
-        public System.Windows.Forms.DateTimePicker DTP_Debut;
-        public System.Windows.Forms.DateTimePicker DTP_Reserv;
-        public System.Windows.Forms.TextBox tb_noReserv;
-        protected DS_Master ds_master;
-        private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
-        protected PrjEq01_CommonForm.Controls.Button_List bt_list;
-    }
+		public System.Windows.Forms.GroupBox gb_reserv;
+		public System.Windows.Forms.DateTimePicker DTP_Fin;
+		public System.Windows.Forms.DateTimePicker DTP_Debut;
+		public System.Windows.Forms.DateTimePicker DTP_Reserv;
+		public System.Windows.Forms.TextBox tb_noReserv;
+		protected DS_Master ds_master;
+		private DS_MasterTableAdapters.RESERVATIONTableAdapter TA_RESERVATION;
+		protected PrjEq01_CommonForm.Controls.Button_List bt_list;
+	}
 }

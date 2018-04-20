@@ -276,6 +276,9 @@
     <EmbeddedResource Include="UserControls\Info_Reservation\IR_Depart.resx">
       <DependentUpon>IR_Depart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Arrive.resx">
+      <DependentUpon>LC_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Base.resx">
       <DependentUpon>LC_Base.cs</DependentUpon>
     </EmbeddedResource>

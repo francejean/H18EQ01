@@ -18,7 +18,7 @@ namespace PrjEq01_Application.UserControls
 
 		public BindingSource BS { get => bS; set => bS = value; }
 		public ItemSelectedDeleg ReservSelected { get => reservSelected; set => reservSelected = value; }
-	
+
 
 		public IR_Base()
 		{
@@ -30,7 +30,7 @@ namespace PrjEq01_Application.UserControls
 		{
 		}
 
-	    public virtual void SetReadOnly(States state)
+		public virtual void SetReadOnly(States state)
 		{
 			bool readOnly = States.CONSULT == state;
 			// Different for Reserv and Arrive
