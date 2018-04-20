@@ -1,0 +1,10 @@
+Tout read-only a part no chambre?
+Est ce que l'on doit mettre dans DataRow quand selectionner
+Comment prendre liste de chambre
+Databindings de arrivee, tout le temps set true
+
+DE update, parce qu'on set la chambre occuppée
+
+pour update ligne 878 bon
+
+cancel -> rejectChanges ligne 937

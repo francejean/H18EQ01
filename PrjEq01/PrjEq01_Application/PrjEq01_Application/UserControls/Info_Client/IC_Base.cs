@@ -14,10 +14,15 @@ namespace PrjEq01_Application.UserControls
 
 	public partial class IC_Base : UserControl, IInfoBox
     {
-        protected BindingSource BS;
+        protected BindingSource bS;
+        protected DataRow dataRow;
+        private ItemSelectedDeleg clientSelected;
 
-        private SyncForeignTablesDeleg syncDeleg;
-        public SyncForeignTablesDeleg SyncDeleg { get => syncDeleg; set => syncDeleg = value; }
+        public BindingSource BS { set => bS = value; }
+        public DataRow DataRow { set => dataRow = value; }
+        public ItemSelectedDeleg ClientSelected { get => clientSelected; set => clientSelected = value; }
+        
+        
 
         public IC_Base()
 		{
@@ -25,14 +30,9 @@ namespace PrjEq01_Application.UserControls
             TA_CLIENT.Fill(ds_master.CLIENT);
         }
 
-        public void setBS(BindingSource BS)
-        {
-            this.BS = BS;
-        }
-
         protected virtual void bt_list_Click(object sender, EventArgs e)
         {
-            SyncDeleg();
+            ClientSelected();
         }
 
         public virtual void SetReadOnly(States state)
@@ -40,13 +40,13 @@ namespace PrjEq01_Application.UserControls
             bool readOnly	= !(state == States.ADD || state == States.EDIT);
 	        bt_list.Enabled = (state == States.ADD);
 
-	        foreach (Control ctrl in gb_client.Controls)
+	        /*foreach (Control ctrl in gb_client.Controls)
 	        {
 		        if (ctrl is TextBox)
 			        ((TextBox)ctrl).ReadOnly = readOnly;
 		        else if(!(ctrl is Label))
 			        ctrl.Enabled = (ctrl is DateTimePicker) ? readOnly : !readOnly;
-	        }
+	        }*/
 	    }
 
 		public virtual void WipeInformation()

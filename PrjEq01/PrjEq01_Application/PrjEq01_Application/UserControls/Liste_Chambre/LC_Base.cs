@@ -42,40 +42,27 @@ namespace PrjEq01_Application.UserControls
 
         public void SetReadOnly(States state)
         {
-            bool readOnly = false;
-
             switch (state)
             {
                 case States.ADD:
-                    readOnly = false;
-                    bt_listCommodite.Enabled = true;
+                    bt_listCommodite.Enabled = false;
                     break;
                 case States.EDIT:
-                    readOnly = false;
-                    bt_listCommodite.Enabled = false;
+                    bt_listCommodite.Enabled = true;
                     break;
                 case States.CONSULT:
-                    readOnly = true;
                     bt_listCommodite.Enabled = false;
                     break;
             }
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl.GetType() == typeof(TextBox))
-                    ((TextBox)ctrl).ReadOnly = readOnly;
-                else if (ctrl.GetType() == typeof(ComboBox))
-                    ((ComboBox)ctrl).Enabled = readOnly;
-                else if (ctrl.GetType() == typeof(CheckBox))
-                    ((CheckBox)ctrl).Enabled = readOnly;
-                else if (ctrl.GetType() == typeof(DateTimePicker))
-                    ((DateTimePicker)ctrl).Enabled = !readOnly;
-            }
-            
         }
 
         public void WipeInformation()
         {
+        }
+
+        public void SetListButton(bool enabled)
+        {
+            bt_listCommodite.Enabled = enabled;
         }
     }
 }
