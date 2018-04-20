@@ -28,8 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.GroupBox_ListeChambres.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // bt_listCommodite
+            // 
+            this.bt_listCommodite.Visible = true;
+            // 
+            // LC_Reserv
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "LC_Reserv";
+            this.GroupBox_ListeChambres.ResumeLayout(false);
+            this.ResumeLayout(false);
+
 		}
 
 		#endregion

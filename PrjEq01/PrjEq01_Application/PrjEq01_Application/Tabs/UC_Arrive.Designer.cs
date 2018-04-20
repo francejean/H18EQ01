@@ -44,7 +44,7 @@
             this.ic_arrive = new PrjEq01_Application.UserControls.Info_Client.IC_Arrive();
             this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
             this.BS_DE = new System.Windows.Forms.BindingSource(this.components);
-            this.lc_base = new PrjEq01_Application.UserControls.LC_Base();
+            this.lc_arrive = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Arrive();
             ((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).BeginInit();
@@ -94,14 +94,17 @@
             // 
             // ir_arrive
             // 
+            this.ir_arrive.BS = null;
             this.ir_arrive.Location = new System.Drawing.Point(374, 3);
             this.ir_arrive.MinimumSize = new System.Drawing.Size(200, 190);
             this.ir_arrive.Name = "ir_arrive";
+            this.ir_arrive.ReservSelected = null;
             this.ir_arrive.Size = new System.Drawing.Size(200, 190);
             this.ir_arrive.TabIndex = 14;
             // 
             // ic_arrive
             // 
+            this.ic_arrive.ClientSelected = null;
             this.ic_arrive.Location = new System.Drawing.Point(3, 3);
             this.ic_arrive.MinimumSize = new System.Drawing.Size(365, 190);
             this.ic_arrive.Name = "ic_arrive";
@@ -112,19 +115,19 @@
             // 
             this.TA_DE.ClearBeforeFill = true;
             // 
-            // lc_base
+            // lc_arrive
             // 
-            this.lc_base.Location = new System.Drawing.Point(3, 199);
-            this.lc_base.MinimumSize = new System.Drawing.Size(850, 230);
-            this.lc_base.Name = "lc_base";
-            this.lc_base.Size = new System.Drawing.Size(967, 230);
-            this.lc_base.TabIndex = 15;
+            this.lc_arrive.Location = new System.Drawing.Point(0, 199);
+            this.lc_arrive.MinimumSize = new System.Drawing.Size(850, 230);
+            this.lc_arrive.Name = "lc_arrive";
+            this.lc_arrive.Size = new System.Drawing.Size(970, 233);
+            this.lc_arrive.TabIndex = 15;
             // 
             // UC_Arrive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lc_base);
+            this.Controls.Add(this.lc_arrive);
             this.Controls.Add(this.ir_arrive);
             this.Controls.Add(this.ic_arrive);
             this.Controls.Add(this.tb_noArrive);
@@ -160,6 +163,6 @@
         public System.Windows.Forms.BindingSource BS_CHAMBRE;
         private DS_MasterTableAdapters.DETableAdapter TA_DE;
         private System.Windows.Forms.BindingSource BS_DE;
-        private UserControls.LC_Base lc_base;
+        private UserControls.Liste_Chambre.LC_Arrive lc_arrive;
     }
 }

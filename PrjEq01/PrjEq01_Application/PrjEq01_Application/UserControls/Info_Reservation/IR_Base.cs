@@ -14,11 +14,9 @@ namespace PrjEq01_Application.UserControls
 	public partial class IR_Base : UserControl, IInfoBox
 	{
 		protected BindingSource bS;
-		protected DataRow dataRow;
 		private ItemSelectedDeleg reservSelected;
 
 		public BindingSource BS { get => bS; set => bS = value; }
-		public DataRow DataRow { set => dataRow = value; }
 		public ItemSelectedDeleg ReservSelected { get => reservSelected; set => reservSelected = value; }
 	
 
@@ -30,10 +28,9 @@ namespace PrjEq01_Application.UserControls
 
 		protected virtual void bt_list_Click(object sender, EventArgs e)
 		{
-			reservSelected();
 		}
 
-	public virtual void SetReadOnly(States state)
+	    public virtual void SetReadOnly(States state)
 		{
 			bool readOnly = States.CONSULT == state;
 			// Different for Reserv and Arrive

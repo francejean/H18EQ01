@@ -11,7 +11,7 @@ using PrjEq01_CommonForm;
  et seulement relink quand choisit dans LF
  ex : choisi client, Link_CLIENT(true)
 
- reservation doit etre choisi pour selectionner lc_base.list_button
+ reservation doit etre choisi pour selectionner lC_Arrive1.list_button
 
  doit update table et non acceptChanges
      
@@ -32,7 +32,7 @@ namespace PrjEq01_Application.Tabs
             ic_arrive.ClientSelected += OnClientSelected;
             ir_arrive.BS = BS_RESERVATION;
             ir_arrive.ReservSelected += OnReservSelected;
-            lc_base.setBS(BS_CHAMBRE);
+            lc_arrive.setBS(BS_CHAMBRE);
             State = States.CONSULT;
 		}
 
@@ -178,7 +178,7 @@ namespace PrjEq01_Application.Tabs
                 {
                     try
                     {
-                        lc_base.dgv_chambre.DataSource = BS_CHAMBRE;
+                        lc_arrive.dgv_chambre.DataSource = BS_CHAMBRE;
                     }
                     catch (Exception e)
                     { MessageBox.Show(e.Message); }
@@ -187,7 +187,7 @@ namespace PrjEq01_Application.Tabs
                 {
                     try
                     {
-                        lc_base.dgv_chambre.DataSource = null;
+                        lc_arrive.dgv_chambre.DataSource = null;
                     }
                     catch (Exception e)
                     { MessageBox.Show(e.Message); }
@@ -202,7 +202,7 @@ namespace PrjEq01_Application.Tabs
             {
                 ic_arrive,
                 ir_arrive,
-                lc_base
+                lc_arrive
             };
 
             foreach (IInfoBox consult_control in consult_controls)
@@ -324,18 +324,22 @@ namespace PrjEq01_Application.Tabs
             ir_arrive.WipeInformation();
         }
 
-        public void OnClientSelected()
+        public void OnClientSelected(int IdCli)
         {
-            BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ic_arrive.tb_noClient.Text);
+            DTR_Arrive["IdCli"] = IdCli;
+            DTR_Arrive.AcceptChanges();
             Link_CLIENT(true);
+            Sync_ForeignTables();
         }
 
-        public void OnReservSelected()
+        public void OnReservSelected(int IdReser)
         {
-            lc_base.SetListButton(true);
-            BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ir_arrive.tb_noReserv.Text);
+            lc_arrive.SetListButton(true);
+            DTR_Arrive["IdReser"] = IdReser;
+            DTR_Arrive.AcceptChanges();
             Link_RESERVATION(true);
             Link_CHAMBRE(true);
+            Sync_ForeignTables();
         }
     }
 }
