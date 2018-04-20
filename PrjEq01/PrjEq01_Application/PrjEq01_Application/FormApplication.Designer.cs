@@ -42,7 +42,6 @@ namespace PrjEq01_Application
             // Tab_Réservations
             // 
             this.Tab_Réservations.Controls.Add(this.uc_reservation);
-            this.Tab_Réservations.Size = new System.Drawing.Size(1220, 522);
             // 
             // Tab_Chambres
             // 
@@ -67,6 +66,7 @@ namespace PrjEq01_Application
             this.uc_chambre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uc_chambre.Name = "uc_chambre";
             this.uc_chambre.Size = new System.Drawing.Size(1297, 532);
+            this.uc_chambre.State = PrjEq01_CommonForm.States.CONSULT;
             this.uc_chambre.TabIndex = 0;
             // 
             // uc_departs
@@ -78,6 +78,7 @@ namespace PrjEq01_Application
             this.uc_departs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uc_departs.Name = "uc_departs";
             this.uc_departs.Size = new System.Drawing.Size(1297, 532);
+            this.uc_departs.State = PrjEq01_CommonForm.States.CONSULT;
             this.uc_departs.TabIndex = 0;
             // 
             // uc_reservation
@@ -87,14 +88,19 @@ namespace PrjEq01_Application
             this.uc_reservation.Margin = new System.Windows.Forms.Padding(2);
             this.uc_reservation.Name = "uc_reservation";
             this.uc_reservation.Size = new System.Drawing.Size(1142, 522);
+            this.uc_reservation.State = PrjEq01_CommonForm.States.CONSULT;
             this.uc_reservation.TabIndex = 0;
             // 
             // uc_arrive
             // 
-            this.uc_arrive.Location = new System.Drawing.Point(-2, 0);
+            this.uc_arrive.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uc_arrive.Location = new System.Drawing.Point(0, 0);
             this.uc_arrive.Margin = new System.Windows.Forms.Padding(2);
             this.uc_arrive.Name = "uc_arrive";
             this.uc_arrive.Size = new System.Drawing.Size(973, 432);
+            this.uc_arrive.State = PrjEq01_CommonForm.States.CONSULT;
             this.uc_arrive.TabIndex = 0;
             // 
             // FormApplication
@@ -113,6 +119,7 @@ namespace PrjEq01_Application
             this.tc_main.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+
 		}
 
         #endregion

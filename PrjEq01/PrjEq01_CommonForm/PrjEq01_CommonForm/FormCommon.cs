@@ -134,8 +134,12 @@ namespace PrjEq01_CommonForm
 
         private void tc_main_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            set_ts_buttons(selected_tab.uc_tab.State);
+            try
+            {
+                Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+                set_ts_buttons(selected_tab.uc_tab.State);
+            }
+            catch (Exception exc) { };
         }
     }
 }

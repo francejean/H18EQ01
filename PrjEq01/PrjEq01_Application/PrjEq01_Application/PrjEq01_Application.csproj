@@ -186,6 +186,12 @@
     <Compile Include="UserControls\Inherit_DGV.Designer.cs">
       <DependentUpon>Inherit_DGV.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Liste_Chambre\LC_Base.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Liste_Chambre\LC_Base.Designer.cs">
+      <DependentUpon>LC_Base.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Liste_Chambre\LC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,12 +203,6 @@
     </Compile>
     <Compile Include="UserControls\Liste_Chambre\LC_Reserv.Designer.cs">
       <DependentUpon>LC_Reserv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Liste_Chambre\LC_Base.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Liste_Chambre\LC_Base.Designer.cs">
-      <DependentUpon>LC_Base.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PlaceHolderTextBox.cs">
       <SubType>Component</SubType>
@@ -284,9 +284,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Base.resx">
       <DependentUpon>IC_Base.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Reserv.resx">
-      <DependentUpon>LC_Reserv.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_Master.xsc">
       <DependentUpon>DS_Master.xsd</DependentUpon>

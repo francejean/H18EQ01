@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.GroupBox_ListeChambres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
             this.SuspendLayout();
             // 
-            // bt_listCommodite
+            // dgv_chambre
             // 
-            this.bt_listCommodite.Visible = false;
+            this.dgv_chambre.DataSource = null;
             // 
             // LC_Arrive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "LC_Arrive";
             this.GroupBox_ListeChambres.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).EndInit();
             this.ResumeLayout(false);
 
         }
