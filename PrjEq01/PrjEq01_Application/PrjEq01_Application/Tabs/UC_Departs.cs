@@ -18,9 +18,9 @@ namespace PrjEq01_Application.Tabs
         public UC_Departs()
         {
             InitializeComponent();
-            //set BS UC_Depart.designer ligne 34-35
-            this.ic_base.bt_list.Enabled = false;
-            this.ic_base.bt_list.Visible = false;
+            ic_base.bt_list.Enabled = false;
+            ic_base.bt_list.Visible = false;
+            ir_departs.tb_confirmerPar.Enabled = false;
             State = States.CONSULT;
         }
 
@@ -29,7 +29,6 @@ namespace PrjEq01_Application.Tabs
             Fill();
             LinkAll();
             Sync_ForeignTables();
-            ir_departs.tb_confirmerPar.Enabled = false;
         }
 
         private void Fill()
@@ -110,69 +109,48 @@ namespace PrjEq01_Application.Tabs
             dgv_departs.DataSource = BS_DEPART;
         }
 
-        public void SetReadOnly()
+        private void SetReadOnly(States state)
         {
-            List<IInfoBox> consult_controls = new List<IInfoBox>
-            {
-                ic_base,
-                ir_departs
-            };
-
-            foreach (IInfoBox consult_control in consult_controls)
-            {
-                consult_control.SetReadOnly(State);
-            }
-
-            /*switch (State)
-            {
-                case States.ADD:
-                    tb_noArrive.ReadOnly = false;
-                    break;
-                case States.EDIT:
-                    tb_noArrive.ReadOnly = false;
-                    break;
-                case States.DELETE:
-                    tb_noArrive.ReadOnly = false;
-                    break;
-                case States.SAVE:
-                    tb_noArrive.ReadOnly = false;
-                    break;
-                case States.MOVE:
-                    tb_noArrive.ReadOnly = false;
-                    break;
-            }*/
+            ir_departs.tb_confirmerPar.Enabled = (state == States.ADD);
         }
 
-        public bool Sync_ForeignTables()
+        private void Sync_ForeignTables()
         {
             BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
             BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
-            return true;
         }
 
         public void Add()
         {
+            SetReadOnly(States.ADD);
             MessageBox.Show("Fonction en développement.");
         }
 
         public void Edit()
         {
-            MessageBox.Show("Fonction en développement.");
+            //SetReadOnly(States.EDIT);
+            MessageBox.Show("Vous ne pouvez pas modifier un départ.");
         }
 
         public void Delete()
         {
-            MessageBox.Show("Fonction en développement.");
+            //SetReadOnly(States.CONSULT);
+            MessageBox.Show("Vous ne pouvez pas effacer un départ.");
         }
 
         public void Undo()
         {
-            MessageBox.Show("Fonction en développement.");
+            SetReadOnly(States.CONSULT);
+            ir_departs.tb_confirmerPar.ResetText();
+            //MessageBox.Show("Fonction en développement.");
         }
 
-        public void Save()
+        public bool Save()
         {
+            SetReadOnly(States.CONSULT);
+            ir_departs.tb_confirmerPar.ResetText();
             MessageBox.Show("Fonction en développement.");
+            return true;
         }
 
         public void Go_Start()
