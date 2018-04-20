@@ -23,8 +23,7 @@ namespace PrjEq01_Application.UserControls.Info_Client
 
             if (result == DialogResult.OK)
             {
-                tb_noClient.Text = ds_master.Tables["CLIENT"].Rows[bS.Position]["IdCli"].ToString();
-                base.bt_list_Click(sender, e);
+                ClientSelected((int)ds_master.Tables["CLIENT"].Rows[bS.Position]["IdCli"]);
             }
             else if (result == DialogResult.Cancel)
             {

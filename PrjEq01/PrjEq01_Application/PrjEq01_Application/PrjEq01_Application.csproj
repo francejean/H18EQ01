@@ -186,6 +186,12 @@
     <Compile Include="UserControls\Inherit_DGV.Designer.cs">
       <DependentUpon>Inherit_DGV.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Liste_Chambre\LC_Arrive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Liste_Chambre\LC_Arrive.Designer.cs">
+      <DependentUpon>LC_Arrive.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Liste_Chambre\LC_Reserv.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -270,11 +276,17 @@
     <EmbeddedResource Include="UserControls\Info_Reservation\IR_Depart.resx">
       <DependentUpon>IR_Depart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Arrive.resx">
+      <DependentUpon>LC_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Base.resx">
       <DependentUpon>LC_Base.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Base.resx">
       <DependentUpon>IC_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Reserv.resx">
+      <DependentUpon>LC_Reserv.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_Master.xsc">
       <DependentUpon>DS_Master.xsd</DependentUpon>
