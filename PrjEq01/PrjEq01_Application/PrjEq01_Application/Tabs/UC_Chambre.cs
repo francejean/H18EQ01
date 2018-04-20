@@ -218,7 +218,7 @@ namespace PrjEq01_Application.Tabs
         {
             if (validationCase == 1)
                 errorProvider.SetError(tb_etat, string.Empty);
-            if (tb_etat.Text.Length != 1 || !IsNumeric(tb_etat.Text))
+            if ((tb_etat.Text != "0" && tb_etat.Text != "1") || !IsNumeric(tb_etat.Text))
             {
                 errorProvider.SetError(tb_etat, "Vous devez entrez un etat pour la chambre (1 = en état et 0 = hors d'état)");
                 return false;
@@ -327,7 +327,6 @@ namespace PrjEq01_Application.Tabs
             }
             mtb_prix.ReadOnly = stateBoolValue;
             tb_etat.ReadOnly = stateBoolValue;
-            tb_noCham.ReadOnly = stateBoolValue;
             tb_memo.ReadOnly = stateBoolValue;
             bt_listNoChambre.Enabled = stateBoolValue;
             bt_listCodeLoc.Enabled = !stateBoolValue;
@@ -359,13 +358,13 @@ namespace PrjEq01_Application.Tabs
             UnLinkTextData();
             WipeInformation();
             mustFocusNoCham = true;
+            tb_noCham.ReadOnly = false;
             tb_noCham.Focus();
         }
 
         public void Add()
         {
             State = States.ADD; //NEEDTO CHANGE??
-            SetReadOnly(States.ADD);
             NewChambre();
             //MessageBox.Show("Fonction en développement.");
         }
@@ -567,6 +566,7 @@ namespace PrjEq01_Application.Tabs
                 {
                     mustFocusNoCham = false;
                     tb_noCham.ReadOnly = true;
+                    SetReadOnly(States.ADD);
                     tb_etage.Text = tb_noCham.Text.ToCharArray().GetValue(0).ToString();
                     IsEtageValide(0);
                 }
