@@ -28,50 +28,52 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.lb_noChambre = new System.Windows.Forms.Label();
-            this.tb_noChambre = new System.Windows.Forms.TextBox();
-            this.gb_client.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // gb_client
-            // 
-            this.gb_client.Controls.Add(this.tb_noChambre);
-            this.gb_client.Controls.Add(this.lb_noChambre);
-            this.gb_client.Controls.SetChildIndex(this.bt_list, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_adresse, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_telephone, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_expiration, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_typeCarte, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_nomClient, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_noCarte, 0);
-            this.gb_client.Controls.SetChildIndex(this.lb_noChambre, 0);
-            this.gb_client.Controls.SetChildIndex(this.tb_noChambre, 0);
-            // 
-            // lb_noChambre
-            // 
-            this.lb_noChambre.AutoSize = true;
-            this.lb_noChambre.Location = new System.Drawing.Point(201, 142);
-            this.lb_noChambre.Name = "lb_noChambre";
-            this.lb_noChambre.Size = new System.Drawing.Size(68, 13);
-            this.lb_noChambre.TabIndex = 14;
-            this.lb_noChambre.Text = "No. chambre";
-            // 
-            // tb_noChambre
-            // 
-            this.tb_noChambre.Location = new System.Drawing.Point(278, 139);
-            this.tb_noChambre.Name = "tb_noChambre";
-            this.tb_noChambre.ReadOnly = true;
-            this.tb_noChambre.Size = new System.Drawing.Size(81, 20);
-            this.tb_noChambre.TabIndex = 15;
-            // 
-            // IC_Arrive
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.Name = "IC_Arrive";
-            this.gb_client.ResumeLayout(false);
-            this.gb_client.PerformLayout();
-            this.ResumeLayout(false);
+			this.lb_noChambre = new System.Windows.Forms.Label();
+			this.tb_noChambre = new System.Windows.Forms.TextBox();
+			this.gb_client.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// gb_client
+			// 
+			this.gb_client.Controls.Add(this.tb_noChambre);
+			this.gb_client.Controls.Add(this.lb_noChambre);
+			this.gb_client.Controls.SetChildIndex(this.dtp_datExp, 0);
+			this.gb_client.Controls.SetChildIndex(this.bt_list, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_adresse, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_telephone, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_typeCarte, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_nomClient, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_noCarte, 0);
+			this.gb_client.Controls.SetChildIndex(this.lb_noChambre, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_noChambre, 0);
+			// 
+			// lb_noChambre
+			// 
+			this.lb_noChambre.AutoSize = true;
+			this.lb_noChambre.Location = new System.Drawing.Point(201, 142);
+			this.lb_noChambre.Name = "lb_noChambre";
+			this.lb_noChambre.Size = new System.Drawing.Size(68, 13);
+			this.lb_noChambre.TabIndex = 14;
+			this.lb_noChambre.Text = "No. chambre";
+			// 
+			// tb_noChambre
+			// 
+			this.tb_noChambre.Location = new System.Drawing.Point(278, 139);
+			this.tb_noChambre.Name = "tb_noChambre";
+			this.tb_noChambre.ReadOnly = true;
+			this.tb_noChambre.Size = new System.Drawing.Size(89, 20);
+			this.tb_noChambre.TabIndex = 15;
+			// 
+			// IC_Arrive
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.Name = "IC_Arrive";
+			this.gb_client.ResumeLayout(false);
+			this.gb_client.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
+			this.ResumeLayout(false);
 
 		}
 

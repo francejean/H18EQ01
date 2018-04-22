@@ -30,7 +30,12 @@
 		{
 			this.GroupBox_ListeChambres.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// bt_listCommodite
+			// 
+			this.bt_listCommodite.Visible = false;
 			// 
 			// dgv_chambre
 			// 
@@ -42,6 +47,7 @@
 			this.Name = "LC_Arrive";
 			this.GroupBox_ListeChambres.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
 			this.ResumeLayout(false);
 
 		}
