@@ -37,7 +37,6 @@
 			this.lb_nom = new System.Windows.Forms.Label();
 			this.tb_typeCarte = new System.Windows.Forms.TextBox();
 			this.lb_typeCarte = new System.Windows.Forms.Label();
-			this.tb_expiration = new System.Windows.Forms.TextBox();
 			this.tb_telephone = new System.Windows.Forms.TextBox();
 			this.tb_adresse = new System.Windows.Forms.TextBox();
 			this.tb_noClient = new System.Windows.Forms.TextBox();
@@ -47,12 +46,14 @@
 			this.lb_noClient = new System.Windows.Forms.Label();
 			this.ds_master = new PrjEq01_Application.DS_Master();
 			this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
+			this.dtp_datExp = new System.Windows.Forms.DateTimePicker();
 			this.gb_client.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// gb_client
 			// 
+			this.gb_client.Controls.Add(this.dtp_datExp);
 			this.gb_client.Controls.Add(this.bt_list);
 			this.gb_client.Controls.Add(this.tb_noCarte);
 			this.gb_client.Controls.Add(this.lb_noCarte);
@@ -60,7 +61,6 @@
 			this.gb_client.Controls.Add(this.lb_nom);
 			this.gb_client.Controls.Add(this.tb_typeCarte);
 			this.gb_client.Controls.Add(this.lb_typeCarte);
-			this.gb_client.Controls.Add(this.tb_expiration);
 			this.gb_client.Controls.Add(this.tb_telephone);
 			this.gb_client.Controls.Add(this.tb_adresse);
 			this.gb_client.Controls.Add(this.tb_noClient);
@@ -70,7 +70,7 @@
 			this.gb_client.Controls.Add(this.lb_noClient);
 			this.gb_client.Location = new System.Drawing.Point(0, 0);
 			this.gb_client.Name = "gb_client";
-			this.gb_client.Size = new System.Drawing.Size(365, 190);
+			this.gb_client.Size = new System.Drawing.Size(395, 190);
 			this.gb_client.TabIndex = 1;
 			this.gb_client.TabStop = false;
 			this.gb_client.Text = "Informations du client";
@@ -80,7 +80,7 @@
 			this.bt_list.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_list.BackgroundImage")));
 			this.bt_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.bt_list.Enabled = false;
-			this.bt_list.Location = new System.Drawing.Point(339, 10);
+			this.bt_list.Location = new System.Drawing.Point(370, 10);
 			this.bt_list.Margin = new System.Windows.Forms.Padding(2);
 			this.bt_list.Name = "bt_list";
 			this.bt_list.Size = new System.Drawing.Size(20, 20);
@@ -93,7 +93,7 @@
 			this.tb_noCarte.Location = new System.Drawing.Point(259, 113);
 			this.tb_noCarte.Name = "tb_noCarte";
 			this.tb_noCarte.ReadOnly = true;
-			this.tb_noCarte.Size = new System.Drawing.Size(100, 20);
+			this.tb_noCarte.Size = new System.Drawing.Size(108, 20);
 			this.tb_noCarte.TabIndex = 13;
 			// 
 			// lb_noCarte
@@ -110,7 +110,7 @@
 			this.tb_nomClient.Location = new System.Drawing.Point(259, 35);
 			this.tb_nomClient.Name = "tb_nomClient";
 			this.tb_nomClient.ReadOnly = true;
-			this.tb_nomClient.Size = new System.Drawing.Size(100, 20);
+			this.tb_nomClient.Size = new System.Drawing.Size(108, 20);
 			this.tb_nomClient.TabIndex = 11;
 			// 
 			// lb_nom
@@ -139,14 +139,6 @@
 			this.lb_typeCarte.TabIndex = 8;
 			this.lb_typeCarte.Text = "Type de Carte";
 			// 
-			// tb_expiration
-			// 
-			this.tb_expiration.Location = new System.Drawing.Point(87, 139);
-			this.tb_expiration.Name = "tb_expiration";
-			this.tb_expiration.ReadOnly = true;
-			this.tb_expiration.Size = new System.Drawing.Size(100, 20);
-			this.tb_expiration.TabIndex = 7;
-			// 
 			// tb_telephone
 			// 
 			this.tb_telephone.Location = new System.Drawing.Point(87, 87);
@@ -160,7 +152,7 @@
 			this.tb_adresse.Location = new System.Drawing.Point(87, 61);
 			this.tb_adresse.Name = "tb_adresse";
 			this.tb_adresse.ReadOnly = true;
-			this.tb_adresse.Size = new System.Drawing.Size(272, 20);
+			this.tb_adresse.Size = new System.Drawing.Size(280, 20);
 			this.tb_adresse.TabIndex = 5;
 			// 
 			// tb_noClient
@@ -216,14 +208,23 @@
 			// 
 			this.TA_CLIENT.ClearBeforeFill = true;
 			// 
+			// dtp_datExp
+			// 
+			this.dtp_datExp.Enabled = false;
+			this.dtp_datExp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtp_datExp.Location = new System.Drawing.Point(87, 139);
+			this.dtp_datExp.Name = "dtp_datExp";
+			this.dtp_datExp.Size = new System.Drawing.Size(100, 20);
+			this.dtp_datExp.TabIndex = 14;
+			// 
 			// IC_Base
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.gb_client);
-			this.MinimumSize = new System.Drawing.Size(365, 190);
+			this.MinimumSize = new System.Drawing.Size(395, 190);
 			this.Name = "IC_Base";
-			this.Size = new System.Drawing.Size(365, 190);
+			this.Size = new System.Drawing.Size(395, 190);
 			this.gb_client.ResumeLayout(false);
 			this.gb_client.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
@@ -235,7 +236,6 @@
 		public System.Windows.Forms.TextBox tb_noCarte;
 		public System.Windows.Forms.TextBox tb_nomClient;
 		public System.Windows.Forms.TextBox tb_typeCarte;
-		public System.Windows.Forms.TextBox tb_expiration;
 		public System.Windows.Forms.TextBox tb_telephone;
 		public System.Windows.Forms.TextBox tb_noClient;
 		private System.Windows.Forms.Label lb_noCarte;
@@ -250,5 +250,6 @@
 		public PrjEq01_CommonForm.Controls.Button_List bt_list;
 		protected DS_Master ds_master;
 		private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
+		public System.Windows.Forms.DateTimePicker dtp_datExp;
 	}
 }

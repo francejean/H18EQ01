@@ -15,7 +15,7 @@ using PrjEq01_CommonForm;
 
  doit update table et non acceptChanges
      
-     */
+*/
 namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
@@ -111,7 +111,7 @@ namespace PrjEq01_Application.Tabs
 						ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
 						ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
 						ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
-						ic_arrive.tb_expiration.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+						ic_arrive.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 					}
 					catch (Exception ee) { MessageBox.Show(ee.Message); }
 				}
@@ -124,7 +124,7 @@ namespace PrjEq01_Application.Tabs
 						ic_arrive.tb_telephone.DataBindings.Clear();
 						ic_arrive.tb_typeCarte.DataBindings.Clear();
 						ic_arrive.tb_noCarte.DataBindings.Clear();
-						ic_arrive.tb_expiration.DataBindings.Clear();
+						ic_arrive.dtp_datExp.DataBindings.Clear();
 					}
 					catch (Exception ee) { MessageBox.Show(ee.Message); }
 				}
@@ -337,6 +337,18 @@ namespace PrjEq01_Application.Tabs
 		public void OnReservSelected(int IdReser)
 		{
 			//lc_arrive.SetListButton(true);
+
+			if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
+			{
+				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
+				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham",DTR_Arrive["NoCham"])];
+				De.BeginEdit();
+				De["Attribuee"] = false;
+				De.EndEdit();
+				DTR_Arrive["NoCham"] = -1;
+				DTR_Arrive.AcceptChanges();
+			}
+
 			DTR_Arrive["IdReser"] = IdReser;
 			DTR_Arrive.AcceptChanges();
 			Link_RESERVATION(true);
@@ -348,9 +360,32 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD)
 			{
-				DTR_Arrive["NoCham"] = NoCham;
-				DTR_Arrive.AcceptChanges();
-				Sync_ForeignTables();
+				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", NoCham)];
+				if(Convert.ToInt16(De["NoCham"]) != Convert.ToInt16(DTR_Arrive["NoCham"]))
+				{
+					if (Convert.ToBoolean(De["Attribuee"]) == false)
+					{
+						De.BeginEdit();
+						De["Attribuee"] = true;
+						De.EndEdit();
+
+						if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
+						{
+							De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", Convert.ToInt16(DTR_Arrive["NoCham"]))];
+							De.BeginEdit();
+							De["Attribuee"] = false;
+							De.EndEdit();
+						}
+
+						DTR_Arrive["NoCham"] = NoCham;
+						DTR_Arrive.AcceptChanges();
+						Sync_ForeignTables();
+					}
+					else
+					{
+						MessageBox.Show("Chambre déja attribuée", "Erreur chambre", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
 			}
 		}
 	}
