@@ -197,7 +197,7 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public void SetReadOnly(States state)
+		public void SetReadOnly()
 		{
 			List<IInfoBox> consult_controls = new List<IInfoBox>
 			{
@@ -208,7 +208,7 @@ namespace PrjEq01_Application.Tabs
 
 			foreach (IInfoBox consult_control in consult_controls)
 			{
-				consult_control.SetReadOnly(state);
+				consult_control.SetReadOnly(State);
 			}
 		}
 
@@ -236,70 +236,72 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
-			SetReadOnly(States.ADD);
 			NewArrive();
 		}
 
 		public void Edit()
 		{
-			SetReadOnly(States.EDIT);
 		}
 
 		public void Delete()
 		{
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Undo()
 		{
 			if (State == States.ADD)
 			{
+				if(Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
+				{
+					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
+					DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
+					De.BeginEdit();
+					De["Attribuee"] = false;
+					De.EndEdit();
+				}
+
 				ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
 				DTR_Arrive.CancelEdit();
 				BS_ARRIVE.Position = 0;
 				Link_All(true);
 			}
-			SetReadOnly(States.CONSULT);
 		}
 
 		public bool Save()
 		{
+			bool hasErrors = true;
 			if (State == States.ADD)
 			{
 				DTR_Arrive.AcceptChanges();
 				Link_All(true);
+				hasErrors = CheckSaveErrors();
 			}
-
-			SetReadOnly(States.CONSULT);
-			return true;
+			
+			return hasErrors;
 		}
 
 		public void Go_Start()
 		{
 			BS_ARRIVE.MoveFirst();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_Back()
 		{
 			BS_ARRIVE.MovePrevious();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_Forward()
 		{
 			BS_ARRIVE.MoveNext();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_End()
 		{
 			BS_ARRIVE.MoveLast();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void NewArrive()
@@ -311,8 +313,11 @@ namespace PrjEq01_Application.Tabs
 			DTR_Arrive["IdArrive"] = (int)ds_master.ARRIVE.Columns["IdArrive"].AutoIncrementSeed;
 			DTR_Arrive["DateArrive"] = DateTime.Today;
 			DTR_Arrive["IdCli"] = -1;
+			DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdCli"], "IdCli is empty");
 			DTR_Arrive["IdReser"] = -1;
+			DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdReser"], "IdReser is empty");
 			DTR_Arrive["NoCham"] = -1;
+			DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["NoCham"], "NoCham is empty");
 
 			ds_master.Tables["Arrive"].Rows.Add(DTR_Arrive);
 			BS_ARRIVE.Position = BS_ARRIVE.Count - 1;
@@ -330,6 +335,12 @@ namespace PrjEq01_Application.Tabs
 		{
 			DTR_Arrive["IdCli"] = IdCli;
 			DTR_Arrive.AcceptChanges();
+
+			if(DTR_Arrive.GetColumnError("IdCli") != "")
+			{
+				DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdCli"], "");
+			}
+
 			Link_CLIENT(true);
 			Sync_ForeignTables();
 		}
@@ -351,6 +362,12 @@ namespace PrjEq01_Application.Tabs
 
 			DTR_Arrive["IdReser"] = IdReser;
 			DTR_Arrive.AcceptChanges();
+
+			if (DTR_Arrive.GetColumnError("IdReser") != "")
+			{
+				DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdReser"], "");
+			}
+
 			Link_RESERVATION(true);
 			Link_CHAMBRE(true);
 			Sync_ForeignTables();
@@ -379,6 +396,12 @@ namespace PrjEq01_Application.Tabs
 
 						DTR_Arrive["NoCham"] = NoCham;
 						DTR_Arrive.AcceptChanges();
+
+						if (DTR_Arrive.GetColumnError("NoCham") != "")
+						{
+							DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["NoCham"], "");
+						}
+
 						Sync_ForeignTables();
 					}
 					else
@@ -387,6 +410,15 @@ namespace PrjEq01_Application.Tabs
 					}
 				}
 			}
+		}
+
+		public bool CheckSaveErrors()
+		{
+			if (DTR_Arrive.HasErrors)
+			{
+				return false;
+			}
+			return true;
 		}
 	}
 }
