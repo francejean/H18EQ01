@@ -52,7 +52,7 @@
 			// lb_noChambre
 			// 
 			this.lb_noChambre.AutoSize = true;
-			this.lb_noChambre.Location = new System.Drawing.Point(201, 142);
+			this.lb_noChambre.Location = new System.Drawing.Point(214, 142);
 			this.lb_noChambre.Name = "lb_noChambre";
 			this.lb_noChambre.Size = new System.Drawing.Size(68, 13);
 			this.lb_noChambre.TabIndex = 14;
@@ -60,10 +60,10 @@
 			// 
 			// tb_noChambre
 			// 
-			this.tb_noChambre.Location = new System.Drawing.Point(278, 139);
+			this.tb_noChambre.Location = new System.Drawing.Point(288, 139);
 			this.tb_noChambre.Name = "tb_noChambre";
 			this.tb_noChambre.ReadOnly = true;
-			this.tb_noChambre.Size = new System.Drawing.Size(89, 20);
+			this.tb_noChambre.Size = new System.Drawing.Size(92, 20);
 			this.tb_noChambre.TabIndex = 15;
 			// 
 			// IC_Arrive

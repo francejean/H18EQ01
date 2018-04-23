@@ -11,7 +11,7 @@ using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.Tabs
 {
-	public partial class UC_Departs : UserControl, PrjEq01_CommonForm.IButtons
+	public partial class UC_Departs : UserControl, IButtons
 	{
 		public States State { get; set; }
 
@@ -109,9 +109,9 @@ namespace PrjEq01_Application.Tabs
 			dgv_departs.DataSource = BS_DEPART;
 		}
 
-		private void SetReadOnly(States state)
+		public void SetReadOnly()
 		{
-			ir_departs.tb_confirmerPar.Enabled = (state == States.ADD);
+			ir_departs.tb_confirmerPar.Enabled = (State == States.ADD);
 		}
 
 		private void Sync_ForeignTables()
@@ -122,7 +122,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
-			SetReadOnly(States.ADD);
+			SetReadOnly();
 			MessageBox.Show("Fonction en développement.");
 		}
 
@@ -140,14 +140,14 @@ namespace PrjEq01_Application.Tabs
 
 		public void Undo()
 		{
-			SetReadOnly(States.CONSULT);
+			SetReadOnly();
 			ir_departs.tb_confirmerPar.ResetText();
 			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public bool Save()
 		{
-			SetReadOnly(States.CONSULT);
+			SetReadOnly();
 			ir_departs.tb_confirmerPar.ResetText();
 			MessageBox.Show("Fonction en développement.");
 			return true;

@@ -47,9 +47,9 @@ namespace PrjEq01_Application.UserControls
 			// 
 			// gb_reserv
 			// 
-			this.gb_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.gb_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.gb_reserv.Controls.Add(this.DTP_Fin);
 			this.gb_reserv.Controls.Add(this.DTP_Debut);
 			this.gb_reserv.Controls.Add(this.DTP_Reserv);
@@ -62,42 +62,42 @@ namespace PrjEq01_Application.UserControls
 			this.gb_reserv.Location = new System.Drawing.Point(0, 0);
 			this.gb_reserv.MinimumSize = new System.Drawing.Size(194, 170);
 			this.gb_reserv.Name = "gb_reserv";
-			this.gb_reserv.Size = new System.Drawing.Size(200, 190);
+			this.gb_reserv.Size = new System.Drawing.Size(224, 190);
 			this.gb_reserv.TabIndex = 0;
 			this.gb_reserv.TabStop = false;
 			this.gb_reserv.Text = "Information sur la réservation";
 			// 
 			// DTP_Fin
 			// 
-			this.DTP_Fin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.DTP_Fin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.DTP_Fin.Enabled = false;
 			this.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.DTP_Fin.Location = new System.Drawing.Point(97, 113);
 			this.DTP_Fin.Name = "DTP_Fin";
-			this.DTP_Fin.Size = new System.Drawing.Size(97, 20);
+			this.DTP_Fin.Size = new System.Drawing.Size(98, 20);
 			this.DTP_Fin.TabIndex = 21;
 			// 
 			// DTP_Debut
 			// 
-			this.DTP_Debut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.DTP_Debut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.DTP_Debut.Enabled = false;
 			this.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.DTP_Debut.Location = new System.Drawing.Point(97, 87);
 			this.DTP_Debut.Name = "DTP_Debut";
-			this.DTP_Debut.Size = new System.Drawing.Size(97, 20);
+			this.DTP_Debut.Size = new System.Drawing.Size(98, 20);
 			this.DTP_Debut.TabIndex = 20;
 			// 
 			// DTP_Reserv
 			// 
-			this.DTP_Reserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.DTP_Reserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.DTP_Reserv.Enabled = false;
 			this.DTP_Reserv.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.DTP_Reserv.Location = new System.Drawing.Point(97, 61);
 			this.DTP_Reserv.Name = "DTP_Reserv";
-			this.DTP_Reserv.Size = new System.Drawing.Size(97, 20);
+			this.DTP_Reserv.Size = new System.Drawing.Size(98, 20);
 			this.DTP_Reserv.TabIndex = 19;
 			// 
 			// bt_list
@@ -106,8 +106,8 @@ namespace PrjEq01_Application.UserControls
 			this.bt_list.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_list.BackgroundImage")));
 			this.bt_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.bt_list.Enabled = false;
-			this.bt_list.Location = new System.Drawing.Point(174, 10);
-			this.bt_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.bt_list.Location = new System.Drawing.Point(198, 10);
+			this.bt_list.Margin = new System.Windows.Forms.Padding(2);
 			this.bt_list.Name = "bt_list";
 			this.bt_list.Size = new System.Drawing.Size(20, 20);
 			this.bt_list.TabIndex = 1;
@@ -116,12 +116,12 @@ namespace PrjEq01_Application.UserControls
 			// 
 			// tb_noReserv
 			// 
-			this.tb_noReserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.tb_noReserv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tb_noReserv.Location = new System.Drawing.Point(97, 35);
 			this.tb_noReserv.Name = "tb_noReserv";
 			this.tb_noReserv.ReadOnly = true;
-			this.tb_noReserv.Size = new System.Drawing.Size(97, 20);
+			this.tb_noReserv.Size = new System.Drawing.Size(98, 20);
 			this.tb_noReserv.TabIndex = 18;
 			// 
 			// lb_dateFin
@@ -176,7 +176,7 @@ namespace PrjEq01_Application.UserControls
 			this.Controls.Add(this.gb_reserv);
 			this.MinimumSize = new System.Drawing.Size(200, 190);
 			this.Name = "IR_Base";
-			this.Size = new System.Drawing.Size(200, 190);
+			this.Size = new System.Drawing.Size(224, 190);
 			this.gb_reserv.ResumeLayout(false);
 			this.gb_reserv.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();

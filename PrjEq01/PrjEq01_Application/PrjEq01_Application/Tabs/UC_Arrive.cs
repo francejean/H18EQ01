@@ -22,6 +22,7 @@ namespace PrjEq01_Application.Tabs
 	{
 		public States State { get; set; }
 		private DataRow DTR_Arrive;
+		private ErrorProvider errorProvider;
 
 		private bool LinkArrive_State, LinkClient_State, LinkReservation_State, LinkChambre_State;
 
@@ -35,6 +36,8 @@ namespace PrjEq01_Application.Tabs
 			lc_arrive.setBS(BS_CHAMBRE);
 			lc_arrive.ChambreSelected += OnChambreSelected;
 			State = States.CONSULT;
+
+			errorProvider = new ErrorProvider();
 		}
 
 		private void Tab_Arrive_Load(object sender, EventArgs e)
@@ -197,7 +200,7 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public void SetReadOnly(States state)
+		public void SetReadOnly()
 		{
 			List<IInfoBox> consult_controls = new List<IInfoBox>
 			{
@@ -208,8 +211,11 @@ namespace PrjEq01_Application.Tabs
 
 			foreach (IInfoBox consult_control in consult_controls)
 			{
-				consult_control.SetReadOnly(state);
+				consult_control.SetReadOnly(State);
 			}
+
+			if (State == States.CONSULT)
+				errorProvider.Clear();
 		}
 
 		public void Sync_ForeignTables()
@@ -236,70 +242,78 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
-			SetReadOnly(States.ADD);
 			NewArrive();
 		}
 
 		public void Edit()
 		{
-			SetReadOnly(States.EDIT);
 		}
 
 		public void Delete()
 		{
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Undo()
 		{
 			if (State == States.ADD)
 			{
+				if(Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
+				{
+					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
+					DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
+					De.BeginEdit();
+					De["Attribuee"] = false;
+					De.EndEdit();
+				}
+
 				ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
 				DTR_Arrive.CancelEdit();
 				BS_ARRIVE.Position = 0;
 				Link_All(true);
 			}
-			SetReadOnly(States.CONSULT);
 		}
 
 		public bool Save()
 		{
+			bool hasErrors = true;
 			if (State == States.ADD)
 			{
-				DTR_Arrive.AcceptChanges();
-				Link_All(true);
+				hasErrors = CheckSaveErrors();
+				if(!hasErrors)
+				{
+					DTR_Arrive.AcceptChanges();
+					Link_All(true);
+				}
+				else
+				{
+					MessageBox.Show("Fix errors", "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
-
-			SetReadOnly(States.CONSULT);
-			return true;
+			return !hasErrors;
 		}
 
 		public void Go_Start()
 		{
 			BS_ARRIVE.MoveFirst();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_Back()
 		{
 			BS_ARRIVE.MovePrevious();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_Forward()
 		{
 			BS_ARRIVE.MoveNext();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void Go_End()
 		{
 			BS_ARRIVE.MoveLast();
 			Sync_ForeignTables();
-			SetReadOnly(States.CONSULT);
 		}
 
 		public void NewArrive()
@@ -311,8 +325,11 @@ namespace PrjEq01_Application.Tabs
 			DTR_Arrive["IdArrive"] = (int)ds_master.ARRIVE.Columns["IdArrive"].AutoIncrementSeed;
 			DTR_Arrive["DateArrive"] = DateTime.Today;
 			DTR_Arrive["IdCli"] = -1;
+			DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdCli"], "Un client doit être sélectionné.");
 			DTR_Arrive["IdReser"] = -1;
+			DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdReser"], "Une réservation doit être sélectionnée.");
 			DTR_Arrive["NoCham"] = -1;
+			DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["NoCham"], "Une chambre doit être sélectionnée.");
 
 			ds_master.Tables["Arrive"].Rows.Add(DTR_Arrive);
 			BS_ARRIVE.Position = BS_ARRIVE.Count - 1;
@@ -330,6 +347,14 @@ namespace PrjEq01_Application.Tabs
 		{
 			DTR_Arrive["IdCli"] = IdCli;
 			DTR_Arrive.AcceptChanges();
+
+			if(DTR_Arrive.GetColumnError("IdCli") != "")
+			{
+				DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdCli"], "");
+			}
+
+			errorProvider.SetError(ic_arrive.tb_noClient,"");
+
 			Link_CLIENT(true);
 			Sync_ForeignTables();
 		}
@@ -351,6 +376,14 @@ namespace PrjEq01_Application.Tabs
 
 			DTR_Arrive["IdReser"] = IdReser;
 			DTR_Arrive.AcceptChanges();
+
+			if (DTR_Arrive.GetColumnError("IdReser") != "")
+			{
+				DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdReser"], "");
+			}
+
+			errorProvider.SetError(ir_arrive.tb_noReserv, "");
+
 			Link_RESERVATION(true);
 			Link_CHAMBRE(true);
 			Sync_ForeignTables();
@@ -379,6 +412,14 @@ namespace PrjEq01_Application.Tabs
 
 						DTR_Arrive["NoCham"] = NoCham;
 						DTR_Arrive.AcceptChanges();
+
+						if (DTR_Arrive.GetColumnError("NoCham") != "")
+						{
+							DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["NoCham"], "");
+						}
+
+						errorProvider.SetError(ic_arrive.tb_noChambre, "");
+
 						Sync_ForeignTables();
 					}
 					else
@@ -387,6 +428,30 @@ namespace PrjEq01_Application.Tabs
 					}
 				}
 			}
+		}
+
+		public bool CheckSaveErrors()
+		{
+			if (DTR_Arrive.HasErrors)
+			{
+				foreach(DataColumn column in DTR_Arrive.GetColumnsInError())
+				{
+					switch (column.ColumnName)
+					{
+						case "IdCli":
+							errorProvider.SetError(ic_arrive.tb_noClient, DTR_Arrive.GetColumnError(column));
+							break;
+						case "IdReser":
+							errorProvider.SetError(ir_arrive.tb_noReserv, DTR_Arrive.GetColumnError(column));
+							break;
+						case "NoCham":
+							errorProvider.SetError(ic_arrive.tb_noChambre, DTR_Arrive.GetColumnError(column));
+							break;
+					}
+				}
+				return true;
+			}
+			return false;
 		}
 	}
 }

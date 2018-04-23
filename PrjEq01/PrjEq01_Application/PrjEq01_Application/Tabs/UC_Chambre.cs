@@ -11,7 +11,7 @@ using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.Tabs
 {
-	public partial class UC_Chambre : UserControl, PrjEq01_CommonForm.IButtons
+	public partial class UC_Chambre : UserControl, IButtons
 	{
 		public States State { get; set; }
 
@@ -310,10 +310,10 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		private void SetReadOnly(States state)
+		public void SetReadOnly()
 		{
 			bool stateBoolValue = true;
-			switch (state)
+			switch (State)
 			{
 				case States.ADD:
 					stateBoolValue = false;
@@ -332,7 +332,7 @@ namespace PrjEq01_Application.Tabs
 			bt_listCodeLoc.Enabled = !stateBoolValue;
 			bt_listCodeType.Enabled = !stateBoolValue;
 			bt_listCommodite.Enabled = !stateBoolValue;
-			if ((state == States.ADD || state == States.EDIT) && dgv_commodite.RowCount > 0)
+			if ((State == States.ADD || State == States.EDIT) && dgv_commodite.RowCount > 0)
 			{
 				bt_deleteCommodite.Enabled = true;
 			}
@@ -372,13 +372,13 @@ namespace PrjEq01_Application.Tabs
 
 		public void Edit()
 		{
-			SetReadOnly(States.EDIT);
+			SetReadOnly();
 			MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Delete()
 		{
-			SetReadOnly(States.CONSULT);
+			SetReadOnly();
 			MessageBox.Show("Fonction en développement.");
 		}
 
@@ -391,7 +391,7 @@ namespace PrjEq01_Application.Tabs
 				State = States.CONSULT; //NEEDTO CHANGE??
 				LinkTextData();
 			}
-			SetReadOnly(States.CONSULT);
+			SetReadOnly();
 			//MessageBox.Show("Fonction en développement.");
 		}
 
@@ -403,7 +403,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					errorProvider.Clear();
 					State = States.CONSULT;
-					SetReadOnly(States.CONSULT); //NEEDTO CHANGE??
+					SetReadOnly(); //NEEDTO CHANGE??
 					MessageBox.Show("Fonction en développement.");
 					return true;
 				}
@@ -567,7 +567,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					mustFocusNoCham = false;
 					tb_noCham.ReadOnly = true;
-					SetReadOnly(States.ADD);
+					SetReadOnly();
 					tb_etage.Text = tb_noCham.Text.ToCharArray().GetValue(0).ToString();
 					IsEtageValide(0);
 				}
