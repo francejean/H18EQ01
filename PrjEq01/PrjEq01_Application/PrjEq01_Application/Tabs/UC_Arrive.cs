@@ -289,6 +289,7 @@ namespace PrjEq01_Application.Tabs
 					MessageBox.Show("Fix errors", "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
+			this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
 			return !hasErrors;
 		}
 
@@ -338,6 +339,8 @@ namespace PrjEq01_Application.Tabs
 
 			Link_All(false);
 			Link_ARRIVE(true);
+
+			this.TA_RESERVATION.FillByArriveDate(this.ds_master.RESERVATION, DTR_Arrive["DateArrive"].ToString());
 
 			ic_arrive.WipeInformation();
 			ir_arrive.WipeInformation();
