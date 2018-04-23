@@ -102,7 +102,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.lc_arrive.ChambreSelected = null;
-			this.lc_arrive.Location = new System.Drawing.Point(3, 197);
+			this.lc_arrive.Location = new System.Drawing.Point(3, 199);
 			this.lc_arrive.MinimumSize = new System.Drawing.Size(850, 230);
 			this.lc_arrive.Name = "lc_arrive";
 			this.lc_arrive.Size = new System.Drawing.Size(967, 233);
@@ -111,7 +111,7 @@
 			// ir_arrive
 			// 
 			this.ir_arrive.BS = null;
-			this.ir_arrive.Location = new System.Drawing.Point(417, 8);
+			this.ir_arrive.Location = new System.Drawing.Point(417, 3);
 			this.ir_arrive.MinimumSize = new System.Drawing.Size(200, 190);
 			this.ir_arrive.Name = "ir_arrive";
 			this.ir_arrive.ReservSelected = null;
@@ -121,7 +121,7 @@
 			// ic_arrive
 			// 
 			this.ic_arrive.ClientSelected = null;
-			this.ic_arrive.Location = new System.Drawing.Point(3, 8);
+			this.ic_arrive.Location = new System.Drawing.Point(3, 3);
 			this.ic_arrive.MinimumSize = new System.Drawing.Size(395, 190);
 			this.ic_arrive.Name = "ic_arrive";
 			this.ic_arrive.Size = new System.Drawing.Size(408, 190);
