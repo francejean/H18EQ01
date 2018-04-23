@@ -25,7 +25,7 @@ namespace PrjEq01_Application.Tabs
 			ir_Base.BS = BS_RESERVATION;
 			State = States.CONSULT;
 
-			ic_Reserv.ClientSelected = this.OnClientSelected;
+			//ic_Reserv.ClientSelected = this.OnClientSelected;
 		}
 
 		private void Tab_Reservation_Load(object sender, EventArgs e)
@@ -74,11 +74,11 @@ namespace PrjEq01_Application.Tabs
 				{
 					try
 					{
-						ic_Reserv.DataBindings.Clear();
-						ir_Base.DataBindings.Clear();
-						ir_Base.DataBindings.Clear();
-						ir_Base.DataBindings.Clear();
-						ir_Base.DataBindings.Clear();
+						ic_Reserv.tb_noClient.DataBindings.Clear();
+						ir_Base.tb_noReserv.DataBindings.Clear();
+						ir_Base.DTP_Reserv.DataBindings.Clear();
+						ir_Base.DTP_Debut.DataBindings.Clear();
+						ir_Base.DTP_Fin.DataBindings.Clear();
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -118,7 +118,7 @@ namespace PrjEq01_Application.Tabs
 						ic_Reserv.tb_telephone.DataBindings.Clear();
 						ic_Reserv.tb_noCarte.DataBindings.Clear();
 						ic_Reserv.tb_typeCarte.DataBindings.Clear();
-						ic_Reserv.tb_expiration.DataBindings.Clear();
+						ic_Reserv.dtp_datExp.DataBindings.Clear();
 						ic_Reserv.tb_solde.DataBindings.Clear();
 					}
 					catch (Exception e)

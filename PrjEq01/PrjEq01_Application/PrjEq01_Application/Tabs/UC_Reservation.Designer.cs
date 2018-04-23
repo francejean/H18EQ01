@@ -77,13 +77,13 @@ namespace PrjEq01_Application.Tabs
 			this.ic_Reserv.Location = new System.Drawing.Point(3, 3);
 			this.ic_Reserv.MinimumSize = new System.Drawing.Size(365, 190);
 			this.ic_Reserv.Name = "ic_Reserv";
-			this.ic_Reserv.Size = new System.Drawing.Size(365, 190);
+			this.ic_Reserv.Size = new System.Drawing.Size(395, 190);
 			this.ic_Reserv.TabIndex = 22;
 			// 
 			// ir_Base
 			// 
 			this.ir_Base.BS = null;
-			this.ir_Base.Location = new System.Drawing.Point(374, 3);
+			this.ir_Base.Location = new System.Drawing.Point(404, 3);
 			this.ir_Base.MinimumSize = new System.Drawing.Size(200, 190);
 			this.ir_Base.Name = "ir_Base";
 			this.ir_Base.ReservSelected = null;
