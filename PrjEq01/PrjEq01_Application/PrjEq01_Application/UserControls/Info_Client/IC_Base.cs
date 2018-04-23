@@ -17,7 +17,7 @@ namespace PrjEq01_Application.UserControls
 		protected BindingSource bS;
 		private ItemSelectedDeleg clientSelected;
 
-		public BindingSource BS { set => bS = value; }
+		public BindingSource BS { get => bS; set => bS = value; }
 		public ItemSelectedDeleg ClientSelected { get => clientSelected; set => clientSelected = value; }
 
 

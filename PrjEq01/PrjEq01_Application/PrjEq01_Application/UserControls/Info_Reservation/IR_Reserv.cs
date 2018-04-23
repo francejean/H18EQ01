@@ -21,15 +21,17 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 		public override void SetReadOnly(States state)
 		{
 			base.SetReadOnly(state);
-			bool readOnly = States.CONSULT == state;
+			bool readOnly = States.CONSULT != state;
 
-			foreach (Control ctrl in gb_reserv.Controls)
-			{
-				if (ctrl is TextBox)
-					((TextBox)ctrl).ReadOnly = readOnly;
-				else if (!(ctrl is Label))
-					ctrl.Enabled = !readOnly;
-			}
+			DTP_Debut.Enabled = readOnly;
+			DTP_Fin.Enabled = readOnly;
 		}
+
+		public override void WipeInformation()
+		{
+			DTP_Reserv.ResetText();
+			DTP_Debut.ResetText();
+			DTP_Fin.ResetText();
+		}	
 	}
 }

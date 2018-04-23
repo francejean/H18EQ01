@@ -22,10 +22,10 @@ namespace PrjEq01_Application.Tabs
 		{
 			InitializeComponent();
 			ic_Reserv.BS = BS_CLIENT;
-			ir_Base.BS = BS_RESERVATION;
+			ir_Reserv.BS = BS_RESERVATION;
 			State = States.CONSULT;
 
-			//ic_Reserv.ClientSelected = this.OnClientSelected;
+			ic_Reserv.ClientSelected = this.OnClientSelected;
 		}
 
 		private void Tab_Reservation_Load(object sender, EventArgs e)
@@ -62,10 +62,10 @@ namespace PrjEq01_Application.Tabs
 					try
 					{
 						ic_Reserv.tb_noClient.DataBindings.Add("Text", BS_RESERVATION, "IdCli");
-						ir_Base.tb_noReserv.DataBindings.Add("Text", BS_RESERVATION, "IdReser");
-						ir_Base.DTP_Reserv.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
-						ir_Base.DTP_Debut.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
-						ir_Base.DTP_Fin.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
+						ir_Reserv.tb_noReserv.DataBindings.Add("Text", BS_RESERVATION, "IdReser");
+						ir_Reserv.DTP_Reserv.DataBindings.Add("Text", BS_RESERVATION, "DateReser");
+						ir_Reserv.DTP_Debut.DataBindings.Add("Text", BS_RESERVATION, "DateDebut");
+						ir_Reserv.DTP_Fin.DataBindings.Add("Text", BS_RESERVATION, "DateFin");
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -75,10 +75,10 @@ namespace PrjEq01_Application.Tabs
 					try
 					{
 						ic_Reserv.tb_noClient.DataBindings.Clear();
-						ir_Base.tb_noReserv.DataBindings.Clear();
-						ir_Base.DTP_Reserv.DataBindings.Clear();
-						ir_Base.DTP_Debut.DataBindings.Clear();
-						ir_Base.DTP_Fin.DataBindings.Clear();
+						ir_Reserv.tb_noReserv.DataBindings.Clear();
+						ir_Reserv.DTP_Reserv.DataBindings.Clear();
+						ir_Reserv.DTP_Debut.DataBindings.Clear();
+						ir_Reserv.DTP_Fin.DataBindings.Clear();
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -103,7 +103,7 @@ namespace PrjEq01_Application.Tabs
 						ic_Reserv.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
 						ic_Reserv.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
 						ic_Reserv.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
-				ic_Reserv.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+						ic_Reserv.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 						ic_Reserv.tb_solde.DataBindings.Add("Text", BS_CLIENT, "SoldeDu");
 					}
 					catch (Exception e)
@@ -158,7 +158,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void SetReadOnly(States state)
 		{
-			List<IInfoBox> consult_controls = new List<IInfoBox> { ic_Reserv, ir_Base };
+			List<IInfoBox> consult_controls = new List<IInfoBox> { ic_Reserv, ir_Reserv };
 
 			foreach (IInfoBox consult_control in consult_controls)
 			{ consult_control.SetReadOnly(state); }
@@ -170,21 +170,18 @@ namespace PrjEq01_Application.Tabs
 			return false;
 		}
 
-		private void RestoreFields()
-		{
-			Fill();
-			Sync_ForeignTables();
-		}
-
 		private void EmptyFields()
 		{
 			ic_Reserv.WipeInformation();
-			ir_Base.WipeInformation();
+			ir_Reserv.WipeInformation();
 		}
 
-		private void OnClientSelected()
+		public void OnClientSelected(int IdCli)
 		{
-
+			DTR_RESERV["IdCli"] = IdCli;
+			DTR_RESERV.AcceptChanges();
+			Link_Client(true);
+			Sync_ForeignTables();
 		}
 
 		public void Add()
@@ -207,7 +204,13 @@ namespace PrjEq01_Application.Tabs
 
 		public void Undo()
 		{
-			RestoreFields();
+			if(State == States.ADD)
+			{
+				DS_Master.Tables["Reservation"].Rows.RemoveAt(DS_Master.RESERVATION.Rows.Count - 1);
+				DTR_RESERV.CancelEdit();
+				BS_RESERVATION.Position = 0;
+				Link_All(true);
+			}
 			SetReadOnly(States.CONSULT);
 		}
 
