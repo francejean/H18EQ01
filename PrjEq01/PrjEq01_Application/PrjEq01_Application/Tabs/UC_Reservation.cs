@@ -13,15 +13,15 @@ namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Reservation : UserControl, IButtons
 	{
-        public States State { get; set; }
+		public States State { get; set; }
 
-        public UC_Reservation()
+		public UC_Reservation()
 		{
 			InitializeComponent();
 			ic_Reserv.BS = BS_CLIENT;
 			ir_Base.BS = BS_RESERVATION;
-            State = States.CONSULT;
-        }
+			State = States.CONSULT;
+		}
 
 		private void Tab_Reservation_Load(object sender, EventArgs e)
 		{
@@ -74,7 +74,7 @@ namespace PrjEq01_Application.Tabs
 				ic_Reserv.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
 				ic_Reserv.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
 				ic_Reserv.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
-				ic_Reserv.tb_expiration.DataBindings.Add("Text", BS_CLIENT, "DatExp");
+				ic_Reserv.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 				ic_Reserv.tb_solde.DataBindings.Add("Text", BS_CLIENT, "SoldeDu");
 			}
 			catch (Exception e)
@@ -130,13 +130,13 @@ namespace PrjEq01_Application.Tabs
 
 		public void Edit()
 		{
-            MessageBox.Show("Fonction en développement.");
+			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.EDIT);
 		}
 
 		public void Delete()
 		{
-            MessageBox.Show("Fonction en développement.");
+			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.CONSULT);
 		}
 
@@ -149,8 +149,8 @@ namespace PrjEq01_Application.Tabs
 		public bool Save()
 		{
 			MessageBox.Show("Fonction en développement.");
-            //SetReadOnly(States.CONSULT);
-            return true;
+			//SetReadOnly(States.CONSULT);
+			return true;
 		}
 
 		public void Go_Start()
