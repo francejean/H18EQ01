@@ -1,6 +1,6 @@
-﻿namespace PrjEq01_Application.List_Forms
+﻿namespace PrjEq01_Application.UserControls.Liste_Chambre
 {
-	partial class LF_Client
+	partial class LC_Arrive
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,36 +28,30 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.ds_master = new PrjEq01_Application.DS_Master();
-			((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
+			this.GroupBox_ListeChambres.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dgv_main
+			// bt_listCommodite
 			// 
+			this.bt_listCommodite.Visible = false;
 			// 
-			// ds_master
+			// dgv_chambre
 			// 
-			this.ds_master.DataSetName = "DS_Master";
-			this.ds_master.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			this.dgv_chambre.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_chambre_CellDoubleClick);
 			// 
-			// LF_Client
+			// LC_Arrive
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.ClientSize = new System.Drawing.Size(734, 362);
-			this.Name = "LF_Client";
-			this.Text = "Liste des clients";
-			((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgv_main)).EndInit();
+			this.Name = "LC_Arrive";
+			this.GroupBox_ListeChambres.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private DS_Master ds_master;
 	}
 }

@@ -7,9 +7,9 @@ using System.Windows.Forms;
 namespace PrjEq01_Application
 {
 
-    public delegate void ItemSelectedDeleg();
+	public delegate void ItemSelectedDeleg(int PK);
 
-    static class Program
+	static class Program
 	{
 		/// <summary>
 		/// Point d'entrée principal de l'application.

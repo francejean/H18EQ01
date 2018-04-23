@@ -24,12 +24,12 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 			bool readOnly = States.CONSULT == state;
 
 			foreach (Control ctrl in gb_reserv.Controls)
-            {
-              if (ctrl is TextBox)
-                ((TextBox)ctrl).ReadOnly = readOnly;
-              else if (!(ctrl is Label))
-                ctrl.Enabled = !readOnly;
-            }
+			{
+				if (ctrl is TextBox)
+					((TextBox)ctrl).ReadOnly = readOnly;
+				else if (!(ctrl is Label))
+					ctrl.Enabled = !readOnly;
+			}
 		}
 	}
 }
