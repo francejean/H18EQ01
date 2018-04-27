@@ -17,6 +17,7 @@ namespace PrjEq01_Application.Tabs
 
 		private bool mustFocusNoCham = false;
 		private bool leaving = false;
+		private bool prixAjust = false; //NEEDTO ASK is a better way?
 
 		private DataRow DTR_Chambre;
 		private DataRow DTR_Ayant;
@@ -289,7 +290,7 @@ namespace PrjEq01_Application.Tabs
 			}
 			if (!fivenumber || mtb_prix.Text.Length < 5)
 			{
-				errorProvider.SetError(mtb_prix, "Vous devez entrer un prix de 5 chiffre (minimum 001,00$)");
+				errorProvider.SetError(mtb_prix, "Vous devez entrer un prix de 5 chiffre en incluant les '0' (minimum 001,00$)");
 				return false;
 			}
 			else
@@ -421,6 +422,7 @@ namespace PrjEq01_Application.Tabs
 					BS_CHAMBRE.ResetCurrentItem();
 				}
 				mustFocusNoCham = false;
+				prixAjust = false;
 				BS_CHAMBRE.Position = 0;
 			}
 			State = States.CONSULT; //NEEDTO CHANGE??
@@ -439,6 +441,7 @@ namespace PrjEq01_Application.Tabs
 					BS_CHAMBRE.Position = 0;
 					float.TryParse(DTR_Chambre["Prix"].ToString(), out float prix);
 					DTR_Chambre["Prix"] = prix / 100;
+					prixAjust = false;
 					DTR_Chambre.EndEdit();
 					TA_CHAMBRE.Update(dS_Master.CHAMBRE);
 					TA_AYANT.Update(dS_Master.AYANT);
@@ -447,7 +450,6 @@ namespace PrjEq01_Application.Tabs
 						ajustNbDispoInTypeCham(); //NEEDTO DO IT
 					}
 					BS_CHAMBRE.Sort = "NoCham";
-					MessageBox.Show(BS_CHAMBRE.Count.ToString());
 					SetReadOnly();
 					return true;
 				}
@@ -537,7 +539,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void bt_deleteCommodite_Click(object sender, EventArgs e)
 		{
-			if (BS_AYANT.Count > 0)
+			if (dgv_commodite.RowCount > 0)
 			{
 				DataRow foundRow = dS_Master.Tables["COMMODITE"].Rows.Find(dgv_commodite.Rows[BS_AYANT.Position].Cells[dgv_commodite.Columns[1].Index].Value);
 				DTR_BK_Commodite = dS_Master.Tables["BK_COMMODITE"].NewRow();
@@ -651,6 +653,7 @@ namespace PrjEq01_Application.Tabs
 			if ((State == States.ADD || State == States.EDIT) && !mustFocusNoCham && !leaving)
 			{
 				IsPrixValide(0);
+				prixAjust = true;
 			}
 		}
 
@@ -664,7 +667,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void mtb_prix_TextChanged(object sender, EventArgs e)
 		{
-			if (mtb_prix.Text.Length < 5 && State == States.CONSULT)
+			if (mtb_prix.Text.Length < 5 && (State == States.CONSULT || prixAjust))
 			{
 				while (mtb_prix.Text.Length < 5)
 				{
