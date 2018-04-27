@@ -37,7 +37,7 @@ namespace PrjEq01_CommonForm
             else if(state == States.CONSULT)
             {
                 ts_button_list.Find(x => x.Name == "button_add").Enabled = true;
-                if (tc_main.SelectedIndex != 3)
+                if (tc_main.SelectedTab.Name != "Tab_Départs")
                 {
                     ts_button_list.Find(x => x.Name == "button_edit").Enabled = true;
                     ts_button_list.Find(x => x.Name == "button_delete").Enabled = true;

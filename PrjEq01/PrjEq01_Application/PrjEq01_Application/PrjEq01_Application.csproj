@@ -144,6 +144,12 @@
     <Compile Include="Tabs\UC_Departs.Designer.cs">
       <DependentUpon>UC_Departs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tabs\UC_Clients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tabs\UC_Clients.Designer.cs">
+      <DependentUpon>UC_Clients.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Info_Client\IC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     </Compile>
     <EmbeddedResource Include="Tabs\UC_Arrive.resx">
       <DependentUpon>UC_Arrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabs\UC_Clients.resx">
+      <DependentUpon>UC_Clients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tabs\UC_Reservation.resx">
       <DependentUpon>UC_Reservation.cs</DependentUpon>
