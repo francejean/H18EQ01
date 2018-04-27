@@ -21,7 +21,10 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 
 		private void dgv_chambre_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			chambreSelected(Convert.ToInt16(dgv_chambre.Rows[e.RowIndex].Cells[0].Value));
+			if(e.RowIndex != -1)
+			{
+				chambreSelected(Convert.ToInt16(dgv_chambre.Rows[e.RowIndex].Cells[0].Value));
+			}
 		}
 	}
 }
