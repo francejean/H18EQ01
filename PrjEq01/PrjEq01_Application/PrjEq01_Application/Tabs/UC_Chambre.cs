@@ -15,10 +15,14 @@ namespace PrjEq01_Application.Tabs
 	{
 		public States State { get; set; }
 
-		private DataRow DTR_Chambre;
-		private DataRow DTR_Ayant;
 		private bool mustFocusNoCham = false;
 		private bool leaving = false;
+
+		private DataRow DTR_Chambre;
+		private DataRow DTR_Ayant;
+
+		private BindingSource BS_BK_AYANT = new BindingSource();
+
 		private ErrorProvider errorProvider = new ErrorProvider();
 
 		public UC_Chambre()
@@ -36,7 +40,7 @@ namespace PrjEq01_Application.Tabs
 		private void Fill()
 		{
 			TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
-			TA_AYANT.Fill(this.dS_Master.AYANT);
+			TA_AYANT.FillBy(this.dS_Master.AYANT);
 			TA_COMMODITE.Fill(this.dS_Master.COMMODITE);
 			TA_TYPECHAM.Fill(this.dS_Master.TYPECHAM);
 			TA_LOCALISATION.Fill(this.dS_Master.LOCALISATION);
@@ -48,6 +52,7 @@ namespace PrjEq01_Application.Tabs
 			LinkTypeCham();
 			LinkLocalisation();
 			LinkCommodite();
+			LinkBKAyant();
 		}
 
 		private void LinkTextData()
@@ -128,6 +133,11 @@ namespace PrjEq01_Application.Tabs
 			BS_COMMODITE.DataSource = dS_Master;
 		}
 
+		private void LinkBKAyant()
+		{
+
+		}
+
 		private bool IsNumeric(string nomber)
 		{
 			bool isNumeric = int.TryParse(nomber, out int temp);
@@ -184,10 +194,15 @@ namespace PrjEq01_Application.Tabs
 				}
 				else
 				{
-					if (State == States.ADD)
+					if (State == States.ADD && validationCase == 0)
 					{
 						errorProvider.SetError(tb_noCham, "Vous devez entrez un numéro de chambre qui n'existe pas");
 						return false;
+					}
+					else if (State == States.ADD && validationCase == 1)
+					{
+						errorProvider.SetError(tb_noCham, string.Empty);
+						return true;
 					}
 					else
 					{
@@ -233,15 +248,15 @@ namespace PrjEq01_Application.Tabs
 		private bool IsCodeTypeValide(int validationCase)
 		{
 			if (validationCase == 1)
-				errorProvider.SetError(tb_codeType, string.Empty);
+				errorProvider.SetError(bt_listCodeType, string.Empty);
 			if (tb_codeType.Text.Length == 0)
 			{
-				errorProvider.SetError(tb_codeType, "Vous devez sélectionner un type de chambre");
+				errorProvider.SetError(bt_listCodeType, "Vous devez sélectionner un type de chambre");
 				return false;
 			}
 			else
 			{
-				errorProvider.SetError(tb_codeType, string.Empty);
+				errorProvider.SetError(bt_listCodeType, string.Empty);
 				return true;
 			}
 		}
@@ -249,15 +264,15 @@ namespace PrjEq01_Application.Tabs
 		private bool IsCodeLocValide(int validationCase)
 		{
 			if (validationCase == 1)
-				errorProvider.SetError(tb_codeLoc, string.Empty);
+				errorProvider.SetError(bt_listCodeLoc, string.Empty);
 			if (tb_codeLoc.Text.Length == 0)
 			{
-				errorProvider.SetError(tb_codeLoc, "Vous devez sélectionner une location pour la chambre");
+				errorProvider.SetError(bt_listCodeLoc, "Vous devez sélectionner une location pour la chambre");
 				return false;
 			}
 			else
 			{
-				errorProvider.SetError(tb_codeLoc, string.Empty);
+				errorProvider.SetError(bt_listCodeLoc, string.Empty);
 				return true;
 			}
 		}
@@ -363,6 +378,11 @@ namespace PrjEq01_Application.Tabs
 			tb_noCham.Focus();
 		}
 
+		private void ajustNbDispoInTypeCham()
+		{
+
+		}
+
 		public void Add()
 		{
 			State = States.ADD; //NEEDTO CHANGE??
@@ -386,11 +406,22 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD)
 			{
-				mustFocusNoCham = false;
 				errorProvider.Clear();
-				State = States.CONSULT; //NEEDTO CHANGE??
-				LinkTextData();
+				if (mustFocusNoCham)
+				{
+					tb_noCham.ReadOnly = true;
+					LinkTextData();
+				}
+				else
+				{
+					DTR_Chambre.EndEdit();
+					dS_Master.Tables["CHAMBRE"].RejectChanges();
+					BS_CHAMBRE.ResetCurrentItem();
+				}
+				mustFocusNoCham = false;
+				BS_CHAMBRE.Position = 0;
 			}
+			State = States.CONSULT; //NEEDTO CHANGE??
 			SetReadOnly();
 			//MessageBox.Show("Fonction en développement.");
 		}
@@ -402,13 +433,17 @@ namespace PrjEq01_Application.Tabs
 				if (IsAllInfoChambreValide())
 				{
 					errorProvider.Clear();
-					State = States.CONSULT;
-					SetReadOnly(); //NEEDTO CHANGE??
-					MessageBox.Show("Fonction en développement.");
+					State = States.CONSULT; //NEEDTO CHANGE??
+					BS_CHAMBRE.Position = 0;
+					DTR_Chambre.EndEdit();
+					DTR_Ayant.EndEdit();
+					TA_CHAMBRE.Update(dS_Master.CHAMBRE);
+					TA_AYANT.Update(dS_Master.AYANT);
+					ajustNbDispoInTypeCham(); //NEEDTO DO IT
+					SetReadOnly();
 					return true;
 				}
 			}
-			MessageBox.Show("Fonction en développement.");
 			return false;
 		}
 
@@ -457,17 +492,8 @@ namespace PrjEq01_Application.Tabs
 				lf_chambreCodeType.Dgv_main.DataSource = BS_TYPECHAM;
 				if (lf_chambreCodeType.ShowDialog() == DialogResult.OK)
 				{
-					try
-					{
-						tb_codeType.DataBindings.Add("Text", BS_TYPECHAM, "CodTypCham");
-						tb_descType.DataBindings.Add("Text", BS_TYPECHAM, "DescTyp");
-						tb_codeType.DataBindings.Clear();
-						tb_descType.DataBindings.Clear();
-					}
-					catch (Exception ex)
-					{
-						MessageBox.Show(ex.Message);
-					}
+					tb_codeType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["CodTypCham"].ToString();
+					tb_descType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["DescTyp"].ToString();
 					IsCodeTypeValide(0);
 				}
 			}
@@ -482,17 +508,8 @@ namespace PrjEq01_Application.Tabs
 				lf_chambreCodeLoc.Dgv_main.DataSource = BS_LOCALISATION;
 				if (lf_chambreCodeLoc.ShowDialog() == DialogResult.OK)
 				{
-					try
-					{
-						tb_codeLoc.DataBindings.Add("Text", BS_LOCALISATION, "CodLoc");
-						tb_descLoc.DataBindings.Add("Text", BS_LOCALISATION, "DescLoc");
-						tb_codeLoc.DataBindings.Clear();
-						tb_descLoc.DataBindings.Clear();
-					}
-					catch (Exception ex)
-					{
-						MessageBox.Show(ex.Message);
-					}
+					tb_codeLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["CodLoc"].ToString();
+					tb_descLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["DescLoc"].ToString();
 					IsCodeLocValide(0);
 				}
 			}
@@ -565,6 +582,15 @@ namespace PrjEq01_Application.Tabs
 			{
 				if (IsNoChamValide(0))
 				{
+					DTR_Chambre = dS_Master.Tables["CHAMBRE"].NewRow();
+					DTR_Chambre["NoCham"] = tb_noCham.Text;
+
+					dS_Master.Tables["CHAMBRE"].Rows.Add(DTR_Chambre);
+					BS_CHAMBRE.Position = BS_CHAMBRE.Count - 1;
+					DTR_Chambre.BeginEdit();
+
+					LinkTextData();
+
 					mustFocusNoCham = false;
 					tb_noCham.ReadOnly = true;
 					SetReadOnly();
@@ -634,6 +660,14 @@ namespace PrjEq01_Application.Tabs
 				{
 					mtb_prix.Text = 0 + mtb_prix.Text;
 				}
+			}
+		}
+
+		private void tb_noCham_KeyDown(object sender, KeyEventArgs e)
+		{
+			if(mustFocusNoCham && e.KeyCode == Keys.Enter)
+			{
+				tb_etat.Focus();
 			}
 		}
 	}
