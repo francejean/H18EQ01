@@ -20,9 +20,8 @@ namespace PrjEq01_Application.Tabs
 
 		private DataRow DTR_Chambre;
 		private DataRow DTR_Ayant;
-
-		private BindingSource BS_BK_AYANT = new BindingSource();
-
+		private DataRow DTR_BK_Commodite;
+		
 		private ErrorProvider errorProvider = new ErrorProvider();
 
 		public UC_Chambre()
@@ -52,7 +51,7 @@ namespace PrjEq01_Application.Tabs
 			LinkTypeCham();
 			LinkLocalisation();
 			LinkCommodite();
-			LinkBKAyant();
+			LinkBKCommodite();
 		}
 
 		private void LinkTextData()
@@ -133,9 +132,10 @@ namespace PrjEq01_Application.Tabs
 			BS_COMMODITE.DataSource = dS_Master;
 		}
 
-		private void LinkBKAyant()
+		private void LinkBKCommodite()
 		{
-
+			BS_BK_COMMODITE.DataMember = "BK_COMMODITE";
+			BS_BK_COMMODITE.DataSource = dS_Master;
 		}
 
 		private bool IsNumeric(string nomber)
@@ -373,6 +373,7 @@ namespace PrjEq01_Application.Tabs
 			UnLinkTextData();
 			WipeInformation();
 			bt_listNoChambre.Enabled = false;
+			TA_BK_COMMODITE.Fill(this.dS_Master.BK_COMMODITE);
 			mustFocusNoCham = true;
 			tb_noCham.ReadOnly = false;
 			tb_noCham.Focus();
@@ -380,7 +381,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void ajustNbDispoInTypeCham()
 		{
-
+			MessageBox.Show("Ajout nombre de chambre disponible en développement.");
 		}
 
 		public void Add()
@@ -393,6 +394,7 @@ namespace PrjEq01_Application.Tabs
 		public void Edit()
 		{
 			SetReadOnly();
+			TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);//NEEDTO CHANGE PLACE
 			MessageBox.Show("Fonction en développement.");
 		}
 
@@ -435,11 +437,17 @@ namespace PrjEq01_Application.Tabs
 					errorProvider.Clear();
 					State = States.CONSULT; //NEEDTO CHANGE??
 					BS_CHAMBRE.Position = 0;
+					float.TryParse(DTR_Chambre["Prix"].ToString(), out float prix);
+					DTR_Chambre["Prix"] = prix / 100;
 					DTR_Chambre.EndEdit();
-					DTR_Ayant.EndEdit();
 					TA_CHAMBRE.Update(dS_Master.CHAMBRE);
 					TA_AYANT.Update(dS_Master.AYANT);
-					ajustNbDispoInTypeCham(); //NEEDTO DO IT
+					if(DTR_Chambre["Etat"].ToString() == "1")
+					{
+						ajustNbDispoInTypeCham(); //NEEDTO DO IT
+					}
+					BS_CHAMBRE.Sort = "NoCham";
+					MessageBox.Show(BS_CHAMBRE.Count.ToString());
 					SetReadOnly();
 					return true;
 				}
@@ -486,57 +494,58 @@ namespace PrjEq01_Application.Tabs
 
 		private void bt_listCodeType_Click(object sender, EventArgs e)
 		{
-			if (!mustFocusNoCham)
+			PrjEq01_Application.List_Forms.LF_ChambreCodeType lf_chambreCodeType = new PrjEq01_Application.List_Forms.LF_ChambreCodeType();
+			lf_chambreCodeType.Dgv_main.DataSource = BS_TYPECHAM;
+			if (lf_chambreCodeType.ShowDialog() == DialogResult.OK)
 			{
-				PrjEq01_Application.List_Forms.LF_ChambreCodeType lf_chambreCodeType = new PrjEq01_Application.List_Forms.LF_ChambreCodeType();
-				lf_chambreCodeType.Dgv_main.DataSource = BS_TYPECHAM;
-				if (lf_chambreCodeType.ShowDialog() == DialogResult.OK)
-				{
-					tb_codeType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["CodTypCham"].ToString();
-					tb_descType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["DescTyp"].ToString();
-					IsCodeTypeValide(0);
-				}
+				tb_codeType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["CodTypCham"].ToString();
+				tb_descType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["DescTyp"].ToString();
+				IsCodeTypeValide(0);
 			}
 			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCodeLoc_Click(object sender, EventArgs e)
 		{
-			if (!mustFocusNoCham)
+			PrjEq01_Application.List_Forms.LF_ChambreCodeLoc lf_chambreCodeLoc = new PrjEq01_Application.List_Forms.LF_ChambreCodeLoc();
+			lf_chambreCodeLoc.Dgv_main.DataSource = BS_LOCALISATION;
+			if (lf_chambreCodeLoc.ShowDialog() == DialogResult.OK)
 			{
-				PrjEq01_Application.List_Forms.LF_ChambreCodeLoc lf_chambreCodeLoc = new PrjEq01_Application.List_Forms.LF_ChambreCodeLoc();
-				lf_chambreCodeLoc.Dgv_main.DataSource = BS_LOCALISATION;
-				if (lf_chambreCodeLoc.ShowDialog() == DialogResult.OK)
-				{
-					tb_codeLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["CodLoc"].ToString();
-					tb_descLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["DescLoc"].ToString();
-					IsCodeLocValide(0);
-				}
+				tb_codeLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["CodLoc"].ToString();
+				tb_descLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["DescLoc"].ToString();
+				IsCodeLocValide(0);
 			}
 			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCommodite_Click(object sender, EventArgs e)
 		{
-			if (!mustFocusNoCham)
-			{
-				/*PrjEq01_Application.List_Forms.LF_ChambreCommodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_ChambreCommodite();
-                lf_chambreCommodite.Dgv_main.DataSource = BS_COMMODITE;
-                int tempPositionBS_COMMODITE = BS_COMMODITE.Position;
-                if (lf_chambreCommodite.ShowDialog() == DialogResult.Cancel)
-                {
-                    BS_TYPECHAM.Position = tempPositionBS_COMMODITE;
-                }*/
-				MessageBox.Show("Fonction en développement.");
+			PrjEq01_Application.List_Forms.LF_ChambreCommodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_ChambreCommodite();
+            lf_chambreCommodite.Dgv_main.DataSource = BS_BK_COMMODITE;
+            if (lf_chambreCommodite.ShowDialog() == DialogResult.OK)
+            {
+                DTR_Ayant = dS_Master.Tables["AYANT"].NewRow();
+				DTR_Ayant["NoCham"] = tb_noCham.Text;
+				DTR_Ayant["CodCom"] = dS_Master.Tables["BK_COMMODITE"].Rows[BS_BK_COMMODITE.Position]["CodCom"];
+				DTR_Ayant["DescCom"] = dS_Master.Tables["BK_COMMODITE"].Rows[BS_BK_COMMODITE.Position]["DescCom"];
+				dS_Master.Tables["AYANT"].Rows.Add(DTR_Ayant);
+				BS_BK_COMMODITE.RemoveCurrent();
+				dS_Master.Tables["BK_COMMODITE"].AcceptChanges();
 			}
+			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_deleteCommodite_Click(object sender, EventArgs e)
 		{
-			if (!mustFocusNoCham)
+			if (BS_AYANT.Count > 0)
 			{
-				MessageBox.Show("Fonction en développement.");
+				DataRow foundRow = dS_Master.Tables["COMMODITE"].Rows.Find(dgv_commodite.Rows[BS_AYANT.Position].Cells[dgv_commodite.Columns[1].Index].Value);
+				DTR_BK_Commodite = dS_Master.Tables["BK_COMMODITE"].NewRow();
+				DTR_BK_Commodite.ItemArray = foundRow.ItemArray;
+				dS_Master.Tables["BK_COMMODITE"].Rows.Add(DTR_BK_Commodite);
+				BS_AYANT.RemoveCurrent();
 			}
+			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void dgv_commodite_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -584,8 +593,9 @@ namespace PrjEq01_Application.Tabs
 				{
 					DTR_Chambre = dS_Master.Tables["CHAMBRE"].NewRow();
 					DTR_Chambre["NoCham"] = tb_noCham.Text;
-
+					BS_CHAMBRE.Sort = null;
 					dS_Master.Tables["CHAMBRE"].Rows.Add(DTR_Chambre);
+
 					BS_CHAMBRE.Position = BS_CHAMBRE.Count - 1;
 					DTR_Chambre.BeginEdit();
 

@@ -1255,6 +1255,8 @@ namespace PrjEq01_Application {
             
             private global::System.Data.DataColumn columnCodCom;
             
+            private global::System.Data.DataColumn columnDescCom;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AYANTDataTable() {
@@ -1306,6 +1308,14 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DescComColumn {
+                get {
+                    return this.columnDescCom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1341,11 +1351,12 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AYANTRow AddAYANTRow(CHAMBRERow parentCHAMBRERowByAYANT_FK_NoCham, COMMODITERow parentCOMMODITERowByAYANT_FK_CodCom) {
+            public AYANTRow AddAYANTRow(CHAMBRERow parentCHAMBRERowByAYANT_FK_NoCham, COMMODITERow parentCOMMODITERowByAYANT_FK_CodCom, string DescCom) {
                 AYANTRow rowAYANTRow = ((AYANTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null};
+                        null,
+                        DescCom};
                 if ((parentCHAMBRERowByAYANT_FK_NoCham != null)) {
                     columnValuesArray[0] = parentCHAMBRERowByAYANT_FK_NoCham[0];
                 }
@@ -1384,6 +1395,7 @@ namespace PrjEq01_Application {
             internal void InitVars() {
                 this.columnNoCham = base.Columns["NoCham"];
                 this.columnCodCom = base.Columns["CodCom"];
+                this.columnDescCom = base.Columns["DescCom"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1393,6 +1405,8 @@ namespace PrjEq01_Application {
                 base.Columns.Add(this.columnNoCham);
                 this.columnCodCom = new global::System.Data.DataColumn("CodCom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodCom);
+                this.columnDescCom = new global::System.Data.DataColumn("DescCom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescCom);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNoCham,
                                 this.columnCodCom}, true));
@@ -5969,6 +5983,22 @@ namespace PrjEq01_Application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DescCom {
+                get {
+                    try {
+                        return ((string)(this[this.tableAYANT.DescComColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DescCom\' in table \'AYANT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAYANT.DescComColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public COMMODITERow COMMODITERow {
                 get {
                     return ((COMMODITERow)(this.GetParentRow(this.Table.ParentRelations["AYANT_FK_CodCom"])));
@@ -6009,6 +6039,18 @@ namespace PrjEq01_Application {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["AYANT_FK_NoCham1"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDescComNull() {
+                return this.IsNull(this.tableAYANT.DescComColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDescComNull() {
+                this[this.tableAYANT.DescComColumn] = global::System.Convert.DBNull;
             }
         }
         
