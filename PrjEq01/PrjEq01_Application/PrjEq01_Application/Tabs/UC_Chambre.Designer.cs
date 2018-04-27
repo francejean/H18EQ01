@@ -55,7 +55,6 @@
 			this.mtb_prix = new System.Windows.Forms.MaskedTextBox();
 			this.dS_Master = new PrjEq01_Application.DS_Master();
 			this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
-			this.TA_AYANT = new PrjEq01_Application.DS_MasterTableAdapters.AYANTTableAdapter();
 			this.TA_COMMODITE = new PrjEq01_Application.DS_MasterTableAdapters.COMMODITETableAdapter();
 			this.TA_TYPECHAM = new PrjEq01_Application.DS_MasterTableAdapters.TYPECHAMTableAdapter();
 			this.gb_infoChambre = new System.Windows.Forms.GroupBox();
@@ -70,6 +69,7 @@
 			this.BS_COMMODITE = new System.Windows.Forms.BindingSource(this.components);
 			this.BS_TYPECHAM = new System.Windows.Forms.BindingSource(this.components);
 			this.BS_LOCALISATION = new System.Windows.Forms.BindingSource(this.components);
+			this.TA_AYANT = new PrjEq01_Application.DS_MasterTableAdapters.AYANTTableAdapter();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_commodite)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_AYANT)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dS_Master)).BeginInit();
@@ -150,14 +150,15 @@
 			// 
 			this.dgv_commodite.AllowUserToAddRows = false;
 			this.dgv_commodite.AllowUserToDeleteRows = false;
-			this.dgv_commodite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)));
+			this.dgv_commodite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.dgv_commodite.AutoGenerateColumns = false;
 			this.dgv_commodite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgv_commodite.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-			this.Column1,
-			this.Column2,
-			this.Description});
+            this.Column1,
+            this.Column2,
+            this.Description});
 			this.dgv_commodite.DataSource = this.BS_AYANT;
 			this.dgv_commodite.Location = new System.Drawing.Point(39, 21);
 			this.dgv_commodite.Name = "dgv_commodite";
@@ -205,6 +206,7 @@
 			this.tb_noCham.ReadOnly = true;
 			this.tb_noCham.Size = new System.Drawing.Size(90, 22);
 			this.tb_noCham.TabIndex = 14;
+			this.tb_noCham.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_noCham_KeyDown);
 			this.tb_noCham.Validating += new System.ComponentModel.CancelEventHandler(this.tb_noCham_Validating);
 			// 
 			// lb_prix
@@ -248,7 +250,7 @@
 			this.tb_codeLoc.Location = new System.Drawing.Point(368, 75);
 			this.tb_codeLoc.Name = "tb_codeLoc";
 			this.tb_codeLoc.ReadOnly = true;
-			this.tb_codeLoc.Size = new System.Drawing.Size(81, 22);
+			this.tb_codeLoc.Size = new System.Drawing.Size(91, 22);
 			this.tb_codeLoc.TabIndex = 19;
 			this.tb_codeLoc.Validating += new System.ComponentModel.CancelEventHandler(this.tb_codeLoc_Validating);
 			// 
@@ -257,7 +259,7 @@
 			this.tb_codeType.Location = new System.Drawing.Point(325, 22);
 			this.tb_codeType.Name = "tb_codeType";
 			this.tb_codeType.ReadOnly = true;
-			this.tb_codeType.Size = new System.Drawing.Size(124, 22);
+			this.tb_codeType.Size = new System.Drawing.Size(134, 22);
 			this.tb_codeType.TabIndex = 20;
 			this.tb_codeType.Validating += new System.ComponentModel.CancelEventHandler(this.tb_codeType_Validating);
 			// 
@@ -306,10 +308,6 @@
 			// TA_CHAMBRE
 			// 
 			this.TA_CHAMBRE.ClearBeforeFill = true;
-			// 
-			// TA_AYANT
-			// 
-			this.TA_AYANT.ClearBeforeFill = true;
 			// 
 			// TA_COMMODITE
 			// 
@@ -389,8 +387,9 @@
 			// 
 			// gb_commodite
 			// 
-			this.gb_commodite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)));
+			this.gb_commodite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.gb_commodite.Controls.Add(this.bt_deleteCommodite);
 			this.gb_commodite.Controls.Add(this.bt_listCommodite);
 			this.gb_commodite.Controls.Add(this.dgv_commodite);
@@ -431,6 +430,10 @@
 			// 
 			this.TA_LOCALISATION.ClearBeforeFill = true;
 			// 
+			// TA_AYANT
+			// 
+			this.TA_AYANT.ClearBeforeFill = true;
+			// 
 			// UC_Chambre
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -460,7 +463,6 @@
 
 		private DS_Master dS_Master;
 		private DS_MasterTableAdapters.CHAMBRETableAdapter TA_CHAMBRE;
-		private DS_MasterTableAdapters.AYANTTableAdapter TA_AYANT;
 		private DS_MasterTableAdapters.COMMODITETableAdapter TA_COMMODITE;
 		private DS_MasterTableAdapters.TYPECHAMTableAdapter TA_TYPECHAM;
 		private System.Windows.Forms.Label lb_noCham;
@@ -498,5 +500,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Description;
 		private PrjEq01_CommonForm.Controls.Button_List bt_deleteCommodite;
+		private DS_MasterTableAdapters.AYANTTableAdapter TA_AYANT;
 	}
 }
