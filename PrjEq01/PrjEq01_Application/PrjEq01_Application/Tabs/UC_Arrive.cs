@@ -261,9 +261,10 @@ namespace PrjEq01_Application.Tabs
 				{
 					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
 					DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
-					De.BeginEdit();
-					De["Attribuee"] = false;
-					De.EndEdit();
+					DTR_De = De.Row;
+					DTR_De.BeginEdit();
+					DTR_De["Attribuee"] = false;
+					DTR_De.EndEdit();
 				}
 
 				ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
@@ -284,12 +285,17 @@ namespace PrjEq01_Application.Tabs
 					try
 					{
 						DTR_Arrive.EndEdit();
+						DTR_De.EndEdit();
 						TA_ARRIVE.Update(ds_master.ARRIVE);
 						TA_DE.Update(ds_master.DE);
 						Link_All(true);
 						this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
 					}
-					catch (Exception e) { MessageBox.Show("Error saving to database"); }
+					catch (Exception e)
+					{
+						hasErrors = true;
+						MessageBox.Show(e.Message);
+					}
 				}
 				else
 				{
@@ -383,8 +389,6 @@ namespace PrjEq01_Application.Tabs
 			}
 
 			DTR_Arrive["IdReser"] = IdReser;
-			DTR_Arrive.EndEdit();
-			DTR_Arrive.BeginEdit();
 
 			if (DTR_Arrive.GetColumnError("IdReser") != "")
 			{
