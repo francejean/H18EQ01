@@ -203,8 +203,9 @@ namespace PrjEq01_Application.Tabs
 
 		public void Undo()
 		{
-			if(State == States.ADD)
-			SetReadOnly();
+			if (State == States.ADD)
+			{
+				SetReadOnly();
 				DS_Master.Tables["Reservation"].Rows.RemoveAt(DS_Master.RESERVATION.Rows.Count - 1);
 				DTR_RESERV.CancelEdit();
 				BS_RESERVATION.Position = 0;
@@ -216,9 +217,9 @@ namespace PrjEq01_Application.Tabs
 		{
 			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.CONSULT);
-			return true;
+			return false;
 		}
-
+		
 		public void Go_Start()
 		{
 			this.BS_RESERVATION.MoveFirst();
