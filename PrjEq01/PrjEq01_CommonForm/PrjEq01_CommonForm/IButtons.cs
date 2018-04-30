@@ -21,7 +21,7 @@ namespace PrjEq01_CommonForm
 		void Go_Forward();
 		void Go_End();
 
-		void SetReadOnly();
+		void SetReadOnly(States state);
 
         States State { get; set; }
 	}

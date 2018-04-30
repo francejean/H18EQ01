@@ -188,7 +188,7 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public void SetReadOnly()
+		public void SetReadOnly(States state)
 		{
 			List<IInfoBox> consult_controls = new List<IInfoBox>
 			{
@@ -199,10 +199,10 @@ namespace PrjEq01_Application.Tabs
 
 			foreach (IInfoBox consult_control in consult_controls)
 			{
-				consult_control.SetReadOnly(State);
+				consult_control.SetReadOnly(state);
 			}
 
-			if (State == States.CONSULT)
+			if (state == States.CONSULT)
 				errorProvider.Clear();
 		}
 

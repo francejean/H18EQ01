@@ -109,9 +109,9 @@ namespace PrjEq01_Application.Tabs
 			dgv_departs.DataSource = BS_DEPART;
 		}
 
-		public void SetReadOnly()
+		public void SetReadOnly(States state)
 		{
-			ir_departs.tb_confirmerPar.Enabled = (State == States.ADD);
+			ir_departs.tb_confirmerPar.Enabled = (state == States.ADD);
 		}
 
 		private void Sync_ForeignTables()
@@ -122,7 +122,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
-			SetReadOnly();
+			SetReadOnly(State);
 			MessageBox.Show("Fonction en développement.");
 		}
 
@@ -140,14 +140,12 @@ namespace PrjEq01_Application.Tabs
 
 		public void Undo()
 		{
-			SetReadOnly();
 			ir_departs.tb_confirmerPar.ResetText();
 			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public bool Save()
 		{
-			SetReadOnly();
 			ir_departs.tb_confirmerPar.ResetText();
 			MessageBox.Show("Fonction en développement.");
 			return true;
