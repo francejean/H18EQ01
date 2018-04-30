@@ -122,20 +122,19 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
+      State = States.ADD;
 			SetReadOnly(State);
 			MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Edit()
 		{
-			//SetReadOnly(States.EDIT);
 			MessageBox.Show("Vous ne pouvez pas modifier un départ.");
 		}
 
 		public void Delete()
 		{
-			//SetReadOnly(States.CONSULT);
-			MessageBox.Show("Vous ne pouvez pas effacer un départ.");
+			MessageBox.Show("Vous ne pouvez pas supprimer un départ.");
 		}
 
 		public void Undo()
