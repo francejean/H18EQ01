@@ -301,6 +301,8 @@
 			this.mtb_prix.TabIndex = 24;
 			this.mtb_prix.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			this.mtb_prix.TextChanged += new System.EventHandler(this.mtb_prix_TextChanged);
+			this.mtb_prix.Enter += new System.EventHandler(this.mtb_prix_Enter);
+			this.mtb_prix.Leave += new System.EventHandler(this.mtb_prix_Leave);
 			this.mtb_prix.Validating += new System.ComponentModel.CancelEventHandler(this.mtb_prix_Validating);
 			// 
 			// gb_infoChambre
