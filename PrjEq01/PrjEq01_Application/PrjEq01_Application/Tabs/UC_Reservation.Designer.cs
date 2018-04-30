@@ -39,7 +39,7 @@ namespace PrjEq01_Application.Tabs
 			this.BS_CLIENT = new System.Windows.Forms.BindingSource(this.components);
 			this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
 			this.ic_Reserv = new PrjEq01_Application.UserControls.Info_Client.IC_Reserv();
-			this.ir_Base = new PrjEq01_Application.UserControls.IR_Base();
+			this.ir_Reserv = new PrjEq01_Application.UserControls.Info_Reservation.IR_Reserv();
 			this.lc_chambre = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Reserv();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
@@ -80,15 +80,15 @@ namespace PrjEq01_Application.Tabs
 			this.ic_Reserv.Size = new System.Drawing.Size(395, 190);
 			this.ic_Reserv.TabIndex = 22;
 			// 
-			// ir_Base
+			// ir_Reserv
 			// 
-			this.ir_Base.BS = null;
-			this.ir_Base.Location = new System.Drawing.Point(404, 3);
-			this.ir_Base.MinimumSize = new System.Drawing.Size(200, 190);
-			this.ir_Base.Name = "ir_Base";
-			this.ir_Base.ReservSelected = null;
-			this.ir_Base.Size = new System.Drawing.Size(200, 190);
-			this.ir_Base.TabIndex = 21;
+			this.ir_Reserv.BS = null;
+			this.ir_Reserv.Location = new System.Drawing.Point(404, 3);
+			this.ir_Reserv.MinimumSize = new System.Drawing.Size(200, 190);
+			this.ir_Reserv.Name = "ir_Reserv";
+			this.ir_Reserv.ReservSelected = null;
+			this.ir_Reserv.Size = new System.Drawing.Size(200, 190);
+			this.ir_Reserv.TabIndex = 21;
 			// 
 			// lc_chambre
 			// 
@@ -109,7 +109,7 @@ namespace PrjEq01_Application.Tabs
 			this.AutoSize = true;
 			this.Controls.Add(this.lc_chambre);
 			this.Controls.Add(this.ic_Reserv);
-			this.Controls.Add(this.ir_Base);
+			this.Controls.Add(this.ir_Reserv);
 			this.Name = "UC_Reservation";
 			this.Size = new System.Drawing.Size(971, 458);
 			this.Load += new System.EventHandler(this.Tab_Reservation_Load);
@@ -131,7 +131,7 @@ namespace PrjEq01_Application.Tabs
 		private System.Windows.Forms.BindingSource BS_CHAMBRE;
 		private System.Windows.Forms.BindingSource BS_DE;
 		private System.Windows.Forms.BindingSource BS_RESERVATION;
-		private UserControls.IR_Base ir_Base;
+		private UserControls.Info_Reservation.IR_Reserv ir_Reserv;
 		private UserControls.Info_Client.IC_Reserv ic_Reserv;
 		private System.Windows.Forms.BindingSource BS_CLIENT;
 		private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
