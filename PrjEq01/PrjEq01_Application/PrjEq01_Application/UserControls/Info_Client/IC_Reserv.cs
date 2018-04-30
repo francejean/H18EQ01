@@ -19,25 +19,23 @@ namespace PrjEq01_Application.UserControls.Info_Client
 		protected override void bt_list_Click(object sender, EventArgs e)
 		{
 			int BS_pos_backup = bS.Position;
-			List_Forms.LF_Reservation lf_reservation = new List_Forms.LF_Reservation(bS);
-			DialogResult result = lf_reservation.ShowDialog();
+			List_Forms.LF_Client lf_client = new List_Forms.LF_Client(bS);
+			DialogResult result = lf_client.ShowDialog();
 
 			if (result == DialogResult.OK)
 			{
-
+				ClientSelected((int)ds_master.Tables["CLIENT"].Rows[bS.Position]["IdCli"]);
 			}
 			else if (result == DialogResult.Cancel)
 			{
 				bS.Position = BS_pos_backup;
 			}
-
-			base.bt_list_Click(sender, e);
 		}
 
 		public override void SetReadOnly(States state)
 		{
 			base.SetReadOnly(state);
-			this.tb_solde.Enabled = (state == States.ADD || state == States.EDIT);
+			this.tb_solde.ReadOnly = state == States.CONSULT;
 		}
 
 		public override void WipeInformation()
