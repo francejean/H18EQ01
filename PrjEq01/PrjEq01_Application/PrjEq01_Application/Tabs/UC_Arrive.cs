@@ -4,18 +4,6 @@ using System.Data;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
 
-
-
-/*
- Doit unlink all on Add()
- et seulement relink quand choisit dans LF
- ex : choisi client, Link_CLIENT(true)
-
- reservation doit etre choisi pour selectionner lC_Arrive1.list_button
-
- doit update table et non acceptChanges
-     
-*/
 namespace PrjEq01_Application.Tabs
 {
 	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
@@ -290,6 +278,7 @@ namespace PrjEq01_Application.Tabs
 						TA_DE.Update(ds_master.DE);
 						Link_All(true);
 						this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+						Sync_ForeignTables();
 					}
 					catch (Exception e)
 					{
@@ -299,7 +288,7 @@ namespace PrjEq01_Application.Tabs
 				}
 				else
 				{
-					//MessageBox.Show("Fix errors", "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 				}
 			}
 			return !hasErrors;
