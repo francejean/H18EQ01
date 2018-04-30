@@ -31,12 +31,15 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.tb_solde = new System.Windows.Forms.MaskedTextBox();
 			this.gb_client.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// gb_client
 			// 
 			this.gb_client.Controls.Add(this.tb_solde);
 			this.gb_client.Controls.Add(this.label4);
+			this.gb_client.Controls.SetChildIndex(this.dtp_datExp, 0);
 			this.gb_client.Controls.SetChildIndex(this.bt_list, 0);
 			this.gb_client.Controls.SetChildIndex(this.label4, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_solde, 0);
@@ -46,6 +49,10 @@
 			this.gb_client.Controls.SetChildIndex(this.tb_typeCarte, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_nomClient, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_noCarte, 0);
+			// 
+			// bt_list
+			// 
+			this.bt_list.Location = new System.Drawing.Point(360, 10);
 			// 
 			// label4
 			// 
@@ -72,6 +79,8 @@
 			this.Name = "IC_Reserv";
 			this.gb_client.ResumeLayout(false);
 			this.gb_client.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}

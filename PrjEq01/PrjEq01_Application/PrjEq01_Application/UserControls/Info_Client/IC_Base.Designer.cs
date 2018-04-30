@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IC_Base));
 			this.gb_client = new System.Windows.Forms.GroupBox();
 			this.dtp_datExp = new System.Windows.Forms.DateTimePicker();
@@ -47,8 +48,10 @@
 			this.lb_noClient = new System.Windows.Forms.Label();
 			this.ds_master = new PrjEq01_Application.DS_Master();
 			this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.gb_client.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// gb_client
@@ -217,6 +220,10 @@
 			// 
 			this.TA_CLIENT.ClearBeforeFill = true;
 			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
+			// 
 			// IC_Base
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +235,7 @@
 			this.gb_client.ResumeLayout(false);
 			this.gb_client.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -251,5 +259,6 @@
 		protected DS_Master ds_master;
 		private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
 		public System.Windows.Forms.DateTimePicker dtp_datExp;
+		protected System.Windows.Forms.ErrorProvider errorProvider;
 	}
 }

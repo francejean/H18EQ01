@@ -44,5 +44,22 @@ namespace PrjEq01_Application.UserControls.Info_Client
 
 			this.tb_solde.ResetText();
 		}
+
+		public void ResetErrors()
+		{
+			errorProvider.SetError(bt_list, "");
+		}
+
+		// Returns true if there is any errors
+		public bool CheckErrors()
+		{
+			if (tb_noClient.Text.Length == 0)
+			{
+				errorProvider.SetError(bt_list, "Vous devez sélectionner un client.");
+				return true;
+			}
+			errorProvider.SetError(bt_list, "");
+			return false;
+		}
 	}
 }

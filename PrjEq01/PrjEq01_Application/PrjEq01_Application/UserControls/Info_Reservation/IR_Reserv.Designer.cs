@@ -28,8 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
+			this.gb_reserv.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// bt_list
+			// 
+			this.bt_list.Enabled = true;
+			// 
+			// IR_Reserv
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Name = "IR_Reserv";
+			this.gb_reserv.ResumeLayout(false);
+			this.gb_reserv.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion
