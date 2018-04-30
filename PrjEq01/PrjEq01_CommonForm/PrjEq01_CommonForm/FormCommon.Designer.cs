@@ -169,9 +169,9 @@
 			this.tc_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tc_main.Controls.Add(this.Tab_Clients);
 			this.tc_main.Controls.Add(this.Tab_Chambres);
 			this.tc_main.Controls.Add(this.Tab_Réservations);
+			this.tc_main.Controls.Add(this.Tab_Clients);
 			this.tc_main.Controls.Add(this.Tab_Arrivées);
 			this.tc_main.Controls.Add(this.Tab_Départs);
 			this.tc_main.Location = new System.Drawing.Point(9, 24);
@@ -189,6 +189,7 @@
 			this.Tab_Clients.Size = new System.Drawing.Size(971, 430);
 			this.Tab_Clients.TabIndex = 5;
 			this.Tab_Clients.Text = "Clients";
+			this.Tab_Clients.uc_tab = null;
 			this.Tab_Clients.UseVisualStyleBackColor = true;
 			// 
 			// Tab_Chambres
