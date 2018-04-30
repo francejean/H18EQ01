@@ -156,12 +156,12 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public void SetReadOnly()
+		public void SetReadOnly(States state)
 		{
 			List<IInfoBox> consult_controls = new List<IInfoBox> { ic_Reserv, ir_Reserv };
 
 			foreach (IInfoBox consult_control in consult_controls)
-			{ consult_control.SetReadOnly(State); }
+			{ consult_control.SetReadOnly(state); }
 		}
 
 		public bool Sync_ForeignTables()
@@ -205,7 +205,6 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD)
 			{
-				SetReadOnly();
 				DS_Master.Tables["Reservation"].Rows.RemoveAt(DS_Master.RESERVATION.Rows.Count - 1);
 				DTR_RESERV.CancelEdit();
 				BS_RESERVATION.Position = 0;
@@ -224,28 +223,24 @@ namespace PrjEq01_Application.Tabs
 		{
 			this.BS_RESERVATION.MoveFirst();
 			Sync_ForeignTables();
-			SetReadOnly();
 		}
 
 		public void Go_Back()
 		{
 			this.BS_RESERVATION.MovePrevious();
 			Sync_ForeignTables();
-			SetReadOnly();
 		}
 
 		public void Go_Forward()
 		{
 			this.BS_RESERVATION.MoveNext();
 			Sync_ForeignTables();
-			SetReadOnly();
 		}
 
 		public void Go_End()
 		{
 			this.BS_RESERVATION.MoveLast();
 			Sync_ForeignTables();
-			SetReadOnly();
 		}
 
 		private void NewReserv()

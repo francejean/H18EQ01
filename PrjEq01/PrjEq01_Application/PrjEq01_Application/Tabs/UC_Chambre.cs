@@ -326,10 +326,10 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public void SetReadOnly()
+		public void SetReadOnly(States state)
 		{
 			bool stateBoolValue = true;
-			switch (State)
+			switch (state)
 			{
 				case States.ADD:
 					stateBoolValue = false;
@@ -348,7 +348,7 @@ namespace PrjEq01_Application.Tabs
 			bt_listCodeLoc.Enabled = !stateBoolValue;
 			bt_listCodeType.Enabled = !stateBoolValue;
 			bt_listCommodite.Enabled = !stateBoolValue;
-			if ((State == States.ADD || State == States.EDIT) && dgv_commodite.RowCount > 0)
+			if ((state == States.ADD || state == States.EDIT) && dgv_commodite.RowCount > 0)
 			{
 				bt_deleteCommodite.Enabled = true;
 			}
@@ -407,14 +407,12 @@ namespace PrjEq01_Application.Tabs
 
 		public void Edit()
 		{
-			SetReadOnly();
 			TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);//NEEDTO CHANGE PLACE
 			MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Delete()
 		{
-			SetReadOnly();
 			MessageBox.Show("Fonction en développement.");
 		}
 
@@ -438,8 +436,6 @@ namespace PrjEq01_Application.Tabs
 				prixAjust = false;
 				BS_CHAMBRE.Position = 0;
 			}
-			State = States.CONSULT; //NEEDTO CHANGE??
-			SetReadOnly();
 			//MessageBox.Show("Fonction en développement.");
 		}
 
@@ -463,7 +459,7 @@ namespace PrjEq01_Application.Tabs
 					TA_AYANT.Update(dS_Master.AYANT);
 					AjustNbDispoInTypeCham();//NEEDTO DO IT
 					BS_CHAMBRE.Sort = "NoCham";
-					SetReadOnly();
+					MessageBox.Show(BS_CHAMBRE.Count.ToString());
 					return true;
 				}
 			}
@@ -598,7 +594,7 @@ namespace PrjEq01_Application.Tabs
 
 					mustFocusNoCham = false;
 					tb_noCham.ReadOnly = true;
-					SetReadOnly();
+					SetReadOnly(State);
 					tb_etage.Text = tb_noCham.Text.ToCharArray().GetValue(0).ToString();
 					IsEtageValide(0);
 				}

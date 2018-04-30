@@ -61,7 +61,7 @@ namespace PrjEq01_Application.Tabs
 			throw new NotImplementedException();
 		}
 
-		public void SetReadOnly()
+		public void SetReadOnly(States state)
 		{
 			throw new NotImplementedException();
 		}
