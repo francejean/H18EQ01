@@ -23,7 +23,10 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 
 			if (result == DialogResult.OK)
 			{
-				ReservSelected((int)ds_master.Tables["RESERVATION"].Rows[BS.Position]["IdReser"]);
+				DataRowView DTR = (DataRowView)BS[BS.Position];
+				int index = (int)DTR["IdReser"];
+				ReservSelected(index);
+
 			}
 			else if (result == DialogResult.Cancel)
 			{

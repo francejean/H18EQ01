@@ -28,14 +28,16 @@ namespace PrjEq01_Application
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.uc_chambre = new PrjEq01_Application.Tabs.UC_Chambre();
-			this.uc_departs = new PrjEq01_Application.Tabs.UC_Departs();
 			this.uc_reservation = new PrjEq01_Application.Tabs.UC_Reservation();
+			this.uc_chambre = new PrjEq01_Application.Tabs.UC_Chambre();
 			this.uc_arrive = new PrjEq01_Application.Tabs.UC_Arrive();
+			this.uc_departs = new PrjEq01_Application.Tabs.UC_Departs();
+			this.uc_client = new PrjEq01_Application.Tabs.UC_Clients();
 			this.Tab_Réservations.SuspendLayout();
 			this.Tab_Chambres.SuspendLayout();
 			this.Tab_Arrivées.SuspendLayout();
 			this.Tab_Départs.SuspendLayout();
+			this.Tab_Clients.SuspendLayout();
 			this.tc_main.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -57,29 +59,9 @@ namespace PrjEq01_Application
 			this.Tab_Départs.Controls.Add(this.uc_departs);
 			this.Tab_Départs.Margin = new System.Windows.Forms.Padding(3);
 			// 
-			// uc_chambre
+			// Tab_Clients
 			// 
-			this.uc_chambre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
-			this.uc_chambre.Location = new System.Drawing.Point(0, 0);
-			this.uc_chambre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.uc_chambre.Name = "uc_chambre";
-			this.uc_chambre.Size = new System.Drawing.Size(1297, 532);
-			this.uc_chambre.State = PrjEq01_CommonForm.States.CONSULT;
-			this.uc_chambre.TabIndex = 0;
-			// 
-			// uc_departs
-			// 
-			this.uc_departs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
-			this.uc_departs.Location = new System.Drawing.Point(0, 0);
-			this.uc_departs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.uc_departs.Name = "uc_departs";
-			this.uc_departs.Size = new System.Drawing.Size(1297, 532);
-			this.uc_departs.State = PrjEq01_CommonForm.States.CONSULT;
-			this.uc_departs.TabIndex = 0;
+			this.Tab_Clients.Controls.Add(this.uc_client);
 			// 
 			// uc_reservation
 			// 
@@ -87,21 +69,53 @@ namespace PrjEq01_Application
 			this.uc_reservation.Location = new System.Drawing.Point(0, 0);
 			this.uc_reservation.Margin = new System.Windows.Forms.Padding(2);
 			this.uc_reservation.Name = "uc_reservation";
-			this.uc_reservation.Size = new System.Drawing.Size(1142, 522);
+			this.uc_reservation.Size = new System.Drawing.Size(973, 458);
 			this.uc_reservation.State = PrjEq01_CommonForm.States.CONSULT;
 			this.uc_reservation.TabIndex = 0;
 			// 
+			// uc_chambre
+			// 
+			this.uc_chambre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.uc_chambre.Location = new System.Drawing.Point(0, 0);
+			this.uc_chambre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.uc_chambre.Name = "uc_chambre";
+			this.uc_chambre.Size = new System.Drawing.Size(973, 432);
+			this.uc_chambre.State = PrjEq01_CommonForm.States.CONSULT;
+			this.uc_chambre.TabIndex = 0;
+			// 
 			// uc_arrive
 			// 
-			this.uc_arrive.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.uc_arrive.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.uc_arrive.Location = new System.Drawing.Point(0, 0);
 			this.uc_arrive.Margin = new System.Windows.Forms.Padding(2);
 			this.uc_arrive.Name = "uc_arrive";
 			this.uc_arrive.Size = new System.Drawing.Size(973, 432);
 			this.uc_arrive.State = PrjEq01_CommonForm.States.CONSULT;
 			this.uc_arrive.TabIndex = 0;
+			// 
+			// uc_departs
+			// 
+			this.uc_departs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.uc_departs.Location = new System.Drawing.Point(0, 0);
+			this.uc_departs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.uc_departs.Name = "uc_departs";
+			this.uc_departs.Size = new System.Drawing.Size(1297, 532);
+			this.uc_departs.State = PrjEq01_CommonForm.States.CONSULT;
+			this.uc_departs.TabIndex = 0;
+			// 
+			// uc_client
+			// 
+			this.uc_client.Location = new System.Drawing.Point(0, 0);
+			this.uc_client.Name = "uc_client";
+			this.uc_client.Size = new System.Drawing.Size(973, 432);
+			this.uc_client.State = PrjEq01_CommonForm.States.ADD;
+			this.uc_client.TabIndex = 0;
 			// 
 			// FormApplication
 			// 
@@ -116,6 +130,7 @@ namespace PrjEq01_Application
 			this.Tab_Chambres.ResumeLayout(false);
 			this.Tab_Arrivées.ResumeLayout(false);
 			this.Tab_Départs.ResumeLayout(false);
+			this.Tab_Clients.ResumeLayout(false);
 			this.tc_main.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -128,5 +143,6 @@ namespace PrjEq01_Application
 		private Tabs.UC_Chambre uc_chambre;
 		private Tabs.UC_Departs uc_departs;
 		private Tabs.UC_Arrive uc_arrive;
+		private Tabs.UC_Clients uc_client;
 	}
 }

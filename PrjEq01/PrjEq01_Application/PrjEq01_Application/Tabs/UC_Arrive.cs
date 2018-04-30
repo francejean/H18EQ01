@@ -21,7 +21,7 @@ namespace PrjEq01_Application.Tabs
 	public partial class UC_Arrive : UserControl, PrjEq01_CommonForm.IButtons
 	{
 		public States State { get; set; }
-		private DataRow DTR_Arrive;
+		private DataRow DTR_Arrive, DTR_De;
 		private ErrorProvider errorProvider;
 
 		private bool LinkArrive_State, LinkClient_State, LinkReservation_State, LinkChambre_State;
@@ -234,7 +234,7 @@ namespace PrjEq01_Application.Tabs
 				try
 				{
 					BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DTR_Arrive["IdCli"]);
-					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
 				}
 				catch (Exception e) { MessageBox.Show(e.Message); }
 			}
@@ -261,9 +261,10 @@ namespace PrjEq01_Application.Tabs
 				{
 					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
 					DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
-					De.BeginEdit();
-					De["Attribuee"] = false;
-					De.EndEdit();
+					DTR_De = De.Row;
+					DTR_De.BeginEdit();
+					DTR_De["Attribuee"] = false;
+					DTR_De.EndEdit();
 				}
 
 				ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
@@ -281,12 +282,24 @@ namespace PrjEq01_Application.Tabs
 				hasErrors = CheckSaveErrors();
 				if(!hasErrors)
 				{
-					DTR_Arrive.AcceptChanges();
-					Link_All(true);
+					try
+					{
+						DTR_Arrive.EndEdit();
+						DTR_De.EndEdit();
+						TA_ARRIVE.Update(ds_master.ARRIVE);
+						TA_DE.Update(ds_master.DE);
+						Link_All(true);
+						this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+					}
+					catch (Exception e)
+					{
+						hasErrors = true;
+						MessageBox.Show(e.Message);
+					}
 				}
 				else
 				{
-					MessageBox.Show("Fix errors", "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					//MessageBox.Show("Fix errors", "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			return !hasErrors;
@@ -339,6 +352,8 @@ namespace PrjEq01_Application.Tabs
 			Link_All(false);
 			Link_ARRIVE(true);
 
+			this.TA_RESERVATION.FillByArriveDate(this.ds_master.RESERVATION, ds_master.ARRIVE[BS_ARRIVE.Position].DateArrive.ToString());
+
 			ic_arrive.WipeInformation();
 			ir_arrive.WipeInformation();
 		}
@@ -346,7 +361,6 @@ namespace PrjEq01_Application.Tabs
 		public void OnClientSelected(int IdCli)
 		{
 			DTR_Arrive["IdCli"] = IdCli;
-			DTR_Arrive.AcceptChanges();
 
 			if(DTR_Arrive.GetColumnError("IdCli") != "")
 			{
@@ -362,20 +376,19 @@ namespace PrjEq01_Application.Tabs
 		public void OnReservSelected(int IdReser)
 		{
 			//lc_arrive.SetListButton(true);
+			ir_arrive.BS = BS_RESERVATION;
 
 			if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 			{
 				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
-				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham",DTR_Arrive["NoCham"])];
-				De.BeginEdit();
-				De["Attribuee"] = false;
-				De.EndEdit();
+				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
+				DTR_De = De.Row;
+				DTR_De.BeginEdit();
+				DTR_De["Attribuee"] = false;
 				DTR_Arrive["NoCham"] = -1;
-				DTR_Arrive.AcceptChanges();
 			}
 
 			DTR_Arrive["IdReser"] = IdReser;
-			DTR_Arrive.AcceptChanges();
 
 			if (DTR_Arrive.GetColumnError("IdReser") != "")
 			{
@@ -394,24 +407,25 @@ namespace PrjEq01_Application.Tabs
 			if (State == States.ADD)
 			{
 				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", NoCham)];
-				if(Convert.ToInt16(De["NoCham"]) != Convert.ToInt16(DTR_Arrive["NoCham"]))
+				DTR_De = De.Row;
+				if(Convert.ToInt16(DTR_De["NoCham"]) != Convert.ToInt16(DTR_Arrive["NoCham"]))
 				{
-					if (Convert.ToBoolean(De["Attribuee"]) == false)
+					if (Convert.ToBoolean(DTR_De["Attribuee"]) == false)
 					{
-						De.BeginEdit();
-						De["Attribuee"] = true;
-						De.EndEdit();
+						DTR_De.BeginEdit();
+						DTR_De["Attribuee"] = true;
+						DTR_De.EndEdit();
 
 						if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 						{
 							De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", Convert.ToInt16(DTR_Arrive["NoCham"]))];
-							De.BeginEdit();
-							De["Attribuee"] = false;
-							De.EndEdit();
+							DTR_De = De.Row;
+							DTR_De.BeginEdit();
+							DTR_De["Attribuee"] = false;
+							DTR_De.EndEdit();
 						}
 
 						DTR_Arrive["NoCham"] = NoCham;
-						DTR_Arrive.AcceptChanges();
 
 						if (DTR_Arrive.GetColumnError("NoCham") != "")
 						{
