@@ -380,14 +380,27 @@ namespace PrjEq01_Application.Tabs
 			tb_noCham.Focus();
 		}
 
-		private void ajustNbDispoInTypeCham()
+		private void AjustNbDispoInTypeCham()
 		{
-			MessageBox.Show("Ajout nombre de chambre disponible en développement.");
+			int totalDispo = 0; 
+
+			DataRow DTR_TypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"]);
+
+			foreach (DataRow DTR_Cham in DTR_TypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
+			{
+				if(DTR_Cham["Etat"].ToString() == "1")
+				{
+					totalDispo++;
+				}
+			}
+
+			dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"])["NbDispo"] = totalDispo;
+			TA_TYPECHAM.Update(dS_Master.TYPECHAM);
 		}
 
 		public void Add()
 		{
-			State = States.ADD; //NEEDTO CHANGE??
+			State = States.ADD;
 			NewChambre();
 			//MessageBox.Show("Fonction en développement.");
 		}
@@ -434,6 +447,9 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD)
 			{
+				tb_noCham.Focus();
+				tb_noCham.DeselectAll();
+				mtb_prixToFull();
 				if (IsAllInfoChambreValide())
 				{
 					errorProvider.Clear();
@@ -445,10 +461,7 @@ namespace PrjEq01_Application.Tabs
 					DTR_Chambre.EndEdit();
 					TA_CHAMBRE.Update(dS_Master.CHAMBRE);
 					TA_AYANT.Update(dS_Master.AYANT);
-					if(DTR_Chambre["Etat"].ToString() == "1")
-					{
-						ajustNbDispoInTypeCham(); //NEEDTO DO IT
-					}
+					AjustNbDispoInTypeCham();//NEEDTO DO IT
 					BS_CHAMBRE.Sort = "NoCham";
 					SetReadOnly();
 					return true;
@@ -550,26 +563,6 @@ namespace PrjEq01_Application.Tabs
 			//MessageBox.Show("Fonction en développement.");
 		}
 
-		private void dgv_commodite_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-		{
-			if (State == States.ADD || State == States.EDIT)
-			{
-				bt_deleteCommodite.Enabled = true;
-			}
-		}
-
-		private void dgv_commodite_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-		{
-			if ((State == States.ADD || State == States.EDIT) && dgv_commodite.RowCount > 0)
-			{
-				bt_deleteCommodite.Enabled = true;
-			}
-			else
-			{
-				bt_deleteCommodite.Enabled = false;
-			}
-		}
-
 		private void UC_Chambre_Leave(object sender, EventArgs e)
 		{
 			mustFocusNoCham = false;
@@ -616,6 +609,14 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
+		private void tb_noCham_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (mustFocusNoCham && e.KeyCode == Keys.Enter)
+			{
+				tb_etat.Focus();
+			}
+		}
+
 		private void tb_etage_Validating(object sender, CancelEventArgs e)
 		{
 			if ((State == States.ADD || State == States.EDIT) && !mustFocusNoCham && !leaving)
@@ -653,7 +654,39 @@ namespace PrjEq01_Application.Tabs
 			if ((State == States.ADD || State == States.EDIT) && !mustFocusNoCham && !leaving)
 			{
 				IsPrixValide(0);
+			}
+		}
+
+		private void mtb_prix_Leave(object sender, EventArgs e)
+		{
+			if (State == States.ADD || State == States.EDIT)
+			{
 				prixAjust = true;
+			}
+		}
+
+		private void mtb_prix_Enter(object sender, EventArgs e)
+		{
+			if (State == States.ADD || State == States.EDIT)
+			{
+				prixAjust = false;
+			}
+		}
+
+		private void mtb_prix_TextChanged(object sender, EventArgs e)
+		{
+			if (mtb_prix.Text.Length < 5 && (State == States.CONSULT || prixAjust))
+			{
+				mtb_prixToFull();
+				IsPrixValide(0);
+			}
+		}
+
+		private void mtb_prixToFull()
+		{
+			while (mtb_prix.Text.Length < 5)
+			{
+				mtb_prix.Text = 0 + mtb_prix.Text;
 			}
 		}
 
@@ -664,23 +697,23 @@ namespace PrjEq01_Application.Tabs
 				IsCommoditeValide(0);
 			}
 		}
-
-		private void mtb_prix_TextChanged(object sender, EventArgs e)
+		private void dgv_commodite_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
 		{
-			if (mtb_prix.Text.Length < 5 && (State == States.CONSULT || prixAjust))
+			if (State == States.ADD || State == States.EDIT)
 			{
-				while (mtb_prix.Text.Length < 5)
-				{
-					mtb_prix.Text = 0 + mtb_prix.Text;
-				}
+				bt_deleteCommodite.Enabled = true;
 			}
 		}
 
-		private void tb_noCham_KeyDown(object sender, KeyEventArgs e)
+		private void dgv_commodite_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
 		{
-			if(mustFocusNoCham && e.KeyCode == Keys.Enter)
+			if ((State == States.ADD || State == States.EDIT) && dgv_commodite.RowCount > 0)
 			{
-				tb_etat.Focus();
+				bt_deleteCommodite.Enabled = true;
+			}
+			else
+			{
+				bt_deleteCommodite.Enabled = false;
 			}
 		}
 	}

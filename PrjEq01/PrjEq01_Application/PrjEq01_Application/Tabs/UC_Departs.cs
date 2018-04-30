@@ -109,9 +109,9 @@ namespace PrjEq01_Application.Tabs
 			dgv_departs.DataSource = BS_DEPART;
 		}
 
-		public void SetReadOnly()
+		private void SetReadOnly()
 		{
-			ir_departs.tb_confirmerPar.Enabled = (State == States.ADD);
+				ir_departs.tb_confirmerPar.Enabled = (State == States.ADD);
 		}
 
 		private void Sync_ForeignTables()
@@ -122,24 +122,24 @@ namespace PrjEq01_Application.Tabs
 
 		public void Add()
 		{
+			State = States.ADD;
 			SetReadOnly();
 			MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Edit()
 		{
-			//SetReadOnly(States.EDIT);
 			MessageBox.Show("Vous ne pouvez pas modifier un départ.");
 		}
 
 		public void Delete()
 		{
-			//SetReadOnly(States.CONSULT);
-			MessageBox.Show("Vous ne pouvez pas effacer un départ.");
+			MessageBox.Show("Vous ne pouvez pas supprimer un départ.");
 		}
 
 		public void Undo()
 		{
+			State = States.CONSULT;			
 			SetReadOnly();
 			ir_departs.tb_confirmerPar.ResetText();
 			//MessageBox.Show("Fonction en développement.");
@@ -147,6 +147,7 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Save()
 		{
+			State = States.CONSULT;
 			SetReadOnly();
 			ir_departs.tb_confirmerPar.ResetText();
 			MessageBox.Show("Fonction en développement.");
