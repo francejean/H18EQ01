@@ -112,6 +112,7 @@ namespace PrjEq01_Application.Tabs
 		public void SetReadOnly(States state)
 		{
 			ir_departs.tb_confirmerPar.Enabled = (state == States.ADD);
+			bt_listArrivee.Enabled = (state == States.CONSULT);
 		}
 
 		private void Sync_ForeignTables()
@@ -120,27 +121,35 @@ namespace PrjEq01_Application.Tabs
 			BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
 		}
 
-		public void Add()
+		public bool Add()
 		{
-      State = States.ADD;
-			SetReadOnly(State);
 			MessageBox.Show("Fonction en développement.");
+			
+			PrjEq01_Application.List_Forms.LF_Arrive lf_arrive = new PrjEq01_Application.List_Forms.LF_Arrive(BS_ARRIVE);
+			int tempPositionBS_ARRIVE = BS_ARRIVE.Position;
+			if (lf_arrive.ShowDialog() == DialogResult.Cancel)
+			{
+				BS_ARRIVE.Position = tempPositionBS_ARRIVE;
+			}
+			return true;
 		}
 
-		public void Edit()
+		public bool Edit()
 		{
 			MessageBox.Show("Vous ne pouvez pas modifier un départ.");
+			return false;
 		}
 
-		public void Delete()
+		public bool Delete()
 		{
 			MessageBox.Show("Vous ne pouvez pas supprimer un départ.");
+			return false;
 		}
 
-		public void Undo()
+		public bool Undo()
 		{
 			ir_departs.tb_confirmerPar.ResetText();
-			//MessageBox.Show("Fonction en développement.");
+			return true;
 		}
 
 		public bool Save()

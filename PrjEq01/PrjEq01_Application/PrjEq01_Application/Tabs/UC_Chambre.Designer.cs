@@ -381,7 +381,7 @@
 			this.gb_commodite.Controls.Add(this.bt_deleteCommodite);
 			this.gb_commodite.Controls.Add(this.bt_listCommodite);
 			this.gb_commodite.Controls.Add(this.dgv_commodite);
-			this.gb_commodite.Location = new System.Drawing.Point(3, 201);
+			this.gb_commodite.Location = new System.Drawing.Point(3, 187);
 			this.gb_commodite.Name = "gb_commodite";
 			this.gb_commodite.Size = new System.Drawing.Size(985, 328);
 			this.gb_commodite.TabIndex = 26;
