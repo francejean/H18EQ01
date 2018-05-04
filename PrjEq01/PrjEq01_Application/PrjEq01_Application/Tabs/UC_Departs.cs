@@ -166,12 +166,20 @@ namespace PrjEq01_Application.Tabs
 
 		private void AjustDe()
 		{
-			//if(Date < date) // NEEDTO DO IT
-			//{
-				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(DTR_Depart["NoCham"]);
-				DTR_De["ATTRIBUEE"] = 0;
-				TA_DE.Update(DTR_De);
-			//}
+			if(DateTime.Today < ir_departs.DTP_Fin.Value) // NEEDTO ASK
+			{
+				Object[] pk = new object[2];
+				pk[0] = DTR_Depart["IdReser"];
+				pk[1] = DTR_Depart["NoCham"];
+				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(pk);
+				if(DTR_De != null)
+				{
+					DTR_De.BeginEdit();
+					DTR_De["Attribuee"] = false;
+					DTR_De.EndEdit();
+					TA_DE.Update(dS_Master.DE);
+				}
+			}
 		}
 
 		public bool Add()
