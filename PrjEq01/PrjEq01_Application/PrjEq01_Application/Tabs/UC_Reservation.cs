@@ -14,7 +14,10 @@ namespace PrjEq01_Application.Tabs
 	public partial class UC_Reservation : UserControl, IButtons
 	{
 		public States State { get; set; }
+
 		private DataRow DTR_RESERV;
+
+		private BindingSource BS_BK_CHAMBRE = new BindingSource();
 
 		private bool LinkReser_State, LinkClient_State, LinkChambre_State;
 
@@ -34,6 +37,10 @@ namespace PrjEq01_Application.Tabs
 		{
 			Fill();
 			Link_All(true);
+
+			BS_BK_CHAMBRE.DataSource = DS_Master;
+			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
+			
 			Sync_ForeignTables();
 		}
 
@@ -203,14 +210,14 @@ namespace PrjEq01_Application.Tabs
 		{
 			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.EDIT);
-			return true;
+			return false;
 		}
 
 		public bool Delete()
 		{
 			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.CONSULT);
-			return true;
+			return false;
 		}
 
 		public bool Undo()
@@ -266,19 +273,18 @@ namespace PrjEq01_Application.Tabs
 		private void NewReserv()
 		{
 			BS_RESERVATION.Position = BS_RESERVATION.Count - 1;
+			BS_BK_CHAMBRE.Position = BS_BK_CHAMBRE.Count - 1;
 			DS_Master.RESERVATION.Columns["IdReser"].AutoIncrementSeed = (int)DS_Master.RESERVATION.Rows[BS_RESERVATION.Position]["IdReser"] + 1;
-
+			
 			DTR_RESERV = DS_Master.Tables["Reservation"].NewRow();
 			DTR_RESERV["IdReser"] = (int)DS_Master.RESERVATION.Columns["IdReser"].AutoIncrementSeed;
 			DTR_RESERV["IdCli"] = -1;
 			DTR_RESERV["DateReser"] = DateTime.Today;
 			DTR_RESERV["DateDebut"] = DateTime.Today;
 			DTR_RESERV["DateFin"] = DateTime.Today.AddDays(3);
-
 			DS_Master.Tables["Reservation"].Rows.Add(DTR_RESERV);
-			BS_RESERVATION.Position = BS_RESERVATION.Count - 1;
 
-			DTR_RESERV.BeginEdit();
+			BS_RESERVATION.Position = BS_RESERVATION.Count - 1;
 
 			Link_All(false);
 			Link_Reservation(true);
@@ -288,6 +294,7 @@ namespace PrjEq01_Application.Tabs
 
 		private bool CheckErrors()
 		{
+			// We need the two functions to execute
 			bool result1 = this.ic_Reserv.CheckErrors(),
 				 result2 = this.lc_chambre.CheckErrors();
 			return result1 || result2;

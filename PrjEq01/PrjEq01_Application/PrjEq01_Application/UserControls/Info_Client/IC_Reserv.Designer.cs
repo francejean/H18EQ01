@@ -57,7 +57,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(201, 142);
+			this.label4.Location = new System.Drawing.Point(217, 142);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(49, 13);
 			this.label4.TabIndex = 16;
@@ -65,17 +65,18 @@
 			// 
 			// tb_solde
 			// 
-			this.tb_solde.Location = new System.Drawing.Point(259, 139);
+			this.tb_solde.Location = new System.Drawing.Point(272, 139);
 			this.tb_solde.Mask = "000.00$";
 			this.tb_solde.Name = "tb_solde";
 			this.tb_solde.ReadOnly = true;
-			this.tb_solde.Size = new System.Drawing.Size(100, 20);
+			this.tb_solde.Size = new System.Drawing.Size(108, 20);
 			this.tb_solde.TabIndex = 17;
 			this.tb_solde.Text = "00000";
 			// 
 			// IC_Reserv
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.MinimumSize = new System.Drawing.Size(408, 190);
 			this.Name = "IC_Reserv";
 			this.gb_client.ResumeLayout(false);
 			this.gb_client.PerformLayout();

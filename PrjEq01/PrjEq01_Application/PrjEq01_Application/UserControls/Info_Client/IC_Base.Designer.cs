@@ -229,7 +229,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.gb_client);
-			this.MinimumSize = new System.Drawing.Size(395, 190);
+			this.MinimumSize = new System.Drawing.Size(408, 190);
 			this.Name = "IC_Base";
 			this.Size = new System.Drawing.Size(408, 190);
 			this.gb_client.ResumeLayout(false);
