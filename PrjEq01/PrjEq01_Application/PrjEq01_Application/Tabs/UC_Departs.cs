@@ -37,11 +37,23 @@ namespace PrjEq01_Application.Tabs
 
 		public void Fill()
 		{
-			TA_ARRIVE.Fill(this.dS_Master.ARRIVE);
+			int posBS_ARRIVE = BS_ARRIVE.Position;
+			if(State == States.ADD)
+			{
+				TA_ARRIVE.FillBy(this.dS_Master.ARRIVE);
+			}
+			else
+			{
+				TA_ARRIVE.Fill(this.dS_Master.ARRIVE);
+			}
 			TA_CLIENT.Fill(this.dS_Master.CLIENT);
-			TA_DEPART.FillByDEPART(this.dS_Master.DEPART);
 			TA_RESERVATION.Fill(this.dS_Master.RESERVATION);
 			TA_DE.Fill(this.dS_Master.DE);
+			if (State == States.CONSULT)
+			{
+				TA_DEPART.FillByDEPART(this.dS_Master.DEPART);
+			}
+			Sync_ForeignTables();
 		}
 
 		private void LinkAll()
@@ -143,8 +155,10 @@ namespace PrjEq01_Application.Tabs
 
 		private void Sync_ForeignTables()
 		{
-			BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-			BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			if (BS_CLIENT.DataSource != null)
+				BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+			if (BS_RESERVATION.DataSource != null)
+				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
 		}
 
 		private void NewDepart()

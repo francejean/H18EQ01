@@ -39,11 +39,31 @@ namespace PrjEq01_Application.Tabs
 
 		public void Fill()
 		{
-			TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
-			TA_AYANT.FillBy(this.dS_Master.AYANT);
+			string safeNoCham = tb_noCham.Text;
+			if(State == States.CONSULT)
+			{
+				TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
+				TA_AYANT.FillBy(this.dS_Master.AYANT);
+			}
+			if(State == States.EDIT)
+			{
+				TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);
+			}
+			if(State == States.ADD)
+			{
+				if(tb_noCham.ReadOnly)
+					TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);
+				else
+					TA_BK_COMMODITE.Fill(this.dS_Master.BK_COMMODITE);
+			}
 			TA_COMMODITE.Fill(this.dS_Master.COMMODITE);
 			TA_TYPECHAM.Fill(this.dS_Master.TYPECHAM);
 			TA_LOCALISATION.Fill(this.dS_Master.LOCALISATION);
+			if (tb_noCham.ReadOnly)
+			{
+				if (BS_CHAMBRE.DataSource != null)
+					BS_CHAMBRE.Position = BS_CHAMBRE.Find("NoCham", safeNoCham);
+			}
 		}
 
 		private void LinkAll()
