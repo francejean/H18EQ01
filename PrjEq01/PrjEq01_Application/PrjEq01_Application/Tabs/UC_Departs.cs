@@ -46,7 +46,7 @@ namespace PrjEq01_Application.Tabs
 
 			if (State == States.ADD)
 			{
-				TA_ARRIVE.FillBy(this.dS_Master.ARRIVE);
+				TA_ARRIVE.FillBy(this.dS_Master.ARRIVE, DateTime.Today.ToString());
 			}
 			else
 			{
@@ -219,7 +219,7 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Add()
 		{
-			TA_ARRIVE.FillBy(dS_Master.ARRIVE);
+			TA_ARRIVE.FillBy(dS_Master.ARRIVE, DateTime.Today.ToString());
 			if(dS_Master.Tables["ARRIVE"].Rows.Count <= 0)
 			{
 				MessageBox.Show("Toute les arrivées enregistré sont déjà associées à un départ, vous ne pouvez donc pas ajouter de départ");
