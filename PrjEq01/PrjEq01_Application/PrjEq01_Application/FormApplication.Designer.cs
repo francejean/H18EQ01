@@ -114,7 +114,7 @@ namespace PrjEq01_Application
 			this.uc_client.Location = new System.Drawing.Point(0, 0);
 			this.uc_client.Name = "uc_client";
 			this.uc_client.Size = new System.Drawing.Size(973, 432);
-			this.uc_client.State = PrjEq01_CommonForm.States.ADD;
+			this.uc_client.State = PrjEq01_CommonForm.States.CONSULT;
 			this.uc_client.TabIndex = 0;
 			// 
 			// FormApplication
