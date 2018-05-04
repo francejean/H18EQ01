@@ -35,7 +35,7 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		private void Fill()
+		public void Fill()
 		{
 			this.TA_ARRIVE.Fill(this.ds_master.ARRIVE);
 			this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
@@ -269,44 +269,39 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Save()
 		{
-			DialogResult result = MessageBox.Show("Do you want to save the information?","Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			switch (result)
+			bool hasErrors = CheckSaveErrors();
+			if (State == States.ADD)
 			{
-				case DialogResult.Yes:
-					bool hasErrors = true;
-					if (State == States.ADD)
+				if (!hasErrors)
+				{
+					DialogResult result = MessageBox.Show("Do you want to save the information?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					switch (result)
 					{
-						hasErrors = CheckSaveErrors();
-						if (!hasErrors)
-						{
+						case DialogResult.Yes:
 							try
-							{
-								DTR_Arrive.EndEdit();
-								DTR_De.EndEdit();
-								TA_ARRIVE.Update(ds_master.ARRIVE);
-								TA_DE.Update(ds_master.DE);
-								Link_All(true);
-								this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
-								Sync_ForeignTables();
-							}
-							catch (Exception e)
-							{
-								hasErrors = true;
-								MessageBox.Show(e.Message);
-							}
-						}
-						else
-						{
-
-						}
+								{
+									DTR_Arrive.EndEdit();
+									DTR_De.EndEdit();
+									TA_ARRIVE.Update(ds_master.ARRIVE);
+									TA_DE.Update(ds_master.DE);
+									Link_All(true);
+									this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+									Sync_ForeignTables();
+								}
+								catch (Exception e)
+								{
+									hasErrors = true;
+									MessageBox.Show(e.Message);
+								}
+							return true;
+						case DialogResult.No:
+							return false;
+						default:
+							return false;
 					}
-					return !hasErrors;
-
-				case DialogResult.No:
-					return false;
-				default:
-					return false;
+				}
 			}
+			return !hasErrors;
 		}
 
 		public void Go_Start()
@@ -450,26 +445,34 @@ namespace PrjEq01_Application.Tabs
 
 		public bool CheckSaveErrors()
 		{
-			if (DTR_Arrive.HasErrors)
+			if(State == States.ADD)
 			{
-				foreach(DataColumn column in DTR_Arrive.GetColumnsInError())
+				if (DTR_Arrive.HasErrors)
 				{
-					switch (column.ColumnName)
-					{
-						case "IdCli":
-							errorProvider.SetError(ic_arrive.tb_noClient, DTR_Arrive.GetColumnError(column));
-							break;
-						case "IdReser":
-							errorProvider.SetError(ir_arrive.tb_noReserv, DTR_Arrive.GetColumnError(column));
-							break;
-						case "NoCham":
-							errorProvider.SetError(ic_arrive.tb_noChambre, DTR_Arrive.GetColumnError(column));
-							break;
-					}
+					SetErrors();
+					return true;
 				}
-				return true;
 			}
 			return false;
+		}
+
+		public void SetErrors()
+		{
+			foreach (DataColumn column in DTR_Arrive.GetColumnsInError())
+			{
+				switch (column.ColumnName)
+				{
+					case "IdCli":
+						errorProvider.SetError(ic_arrive.tb_noClient, DTR_Arrive.GetColumnError(column));
+						break;
+					case "IdReser":
+						errorProvider.SetError(ir_arrive.tb_noReserv, DTR_Arrive.GetColumnError(column));
+						break;
+					case "NoCham":
+						errorProvider.SetError(ic_arrive.tb_noChambre, DTR_Arrive.GetColumnError(column));
+						break;
+				}
+			}
 		}
 	}
 }

@@ -35,7 +35,7 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		private void Fill()
+		public void Fill()
 		{
 			TA_ARRIVE.Fill(this.dS_Master.ARRIVE);
 			TA_CLIENT.Fill(this.dS_Master.CLIENT);

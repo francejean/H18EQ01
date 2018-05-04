@@ -37,7 +37,7 @@ namespace PrjEq01_Application.Tabs
 			LinkAll();
 		}
 
-		private void Fill()
+		public void Fill()
 		{
 			TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
 			TA_AYANT.FillBy(this.dS_Master.AYANT);
