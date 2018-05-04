@@ -358,7 +358,6 @@ namespace PrjEq01_Application.Tabs
 
 		private void NewChambre()
 		{
-			SetReadOnly(States.CONSULT);
 			UnLinkTextData();
 			WipeInformation();
 			bt_listNoChambre.Enabled = false;
@@ -401,14 +400,14 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Add()
 		{
-			State = States.ADD;
+			State = States.ADD;//STATE?
 			NewChambre();
 			return true;
 		}
 
 		public bool Edit()
 		{
-			TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);//NEEDTO CHANGE PLACE
+			TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);//NEEDTO CHANGE PLACE WHEN DO EDIT
 			MessageBox.Show("Fonction en développement.");
 			return true;
 		}
@@ -423,7 +422,7 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD)
 			{
-				State = States.CONSULT;
+				State = States.CONSULT; //STATE??
 				prixAjust = false;
 				errorProvider.Clear();
 				if (mustFocusNoCham)
@@ -452,7 +451,7 @@ namespace PrjEq01_Application.Tabs
 				mtb_prixToFull();
 				if (IsAllInfoChambreValide())
 				{
-					State = States.CONSULT;
+					State = States.CONSULT;//STATE?
 					errorProvider.Clear();
 					BS_CHAMBRE.Position = 0;
 					float.TryParse(DTR_Chambre["Prix"].ToString(), out float prix);
@@ -467,14 +466,6 @@ namespace PrjEq01_Application.Tabs
 				}
 				else
 				{
-					if (mustFocusNoCham)
-					{
-						tb_noCham.ReadOnly = false;
-					}
-					else
-					{
-						SetReadOnly(States.ADD);
-					}
 					return false;
 				}
 			}
@@ -484,25 +475,21 @@ namespace PrjEq01_Application.Tabs
 		public void Go_Start()
 		{
 			BS_CHAMBRE.MoveFirst();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_Back()
 		{
 			BS_CHAMBRE.MovePrevious();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_Forward()
 		{
 			BS_CHAMBRE.MoveNext();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_End()
 		{
 			BS_CHAMBRE.MoveLast();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listNoChambre_Click(object sender, EventArgs e)
@@ -515,7 +502,6 @@ namespace PrjEq01_Application.Tabs
 			{
 				BS_CHAMBRE.Position = tempPositionBS_CHAMBRE;
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCodeType_Click(object sender, EventArgs e)
@@ -528,7 +514,6 @@ namespace PrjEq01_Application.Tabs
 				tb_descType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["DescTyp"].ToString();
 				IsCodeTypeValide(0);
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCodeLoc_Click(object sender, EventArgs e)
@@ -541,7 +526,6 @@ namespace PrjEq01_Application.Tabs
 				tb_descLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["DescLoc"].ToString();
 				IsCodeLocValide(0);
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCommodite_Click(object sender, EventArgs e)
@@ -558,7 +542,6 @@ namespace PrjEq01_Application.Tabs
 				BS_BK_COMMODITE.RemoveCurrent();
 				dS_Master.Tables["BK_COMMODITE"].AcceptChanges();
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_deleteCommodite_Click(object sender, EventArgs e)
@@ -571,7 +554,6 @@ namespace PrjEq01_Application.Tabs
 				dS_Master.Tables["BK_COMMODITE"].Rows.Add(DTR_BK_Commodite);
 				BS_AYANT.RemoveCurrent();
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void UC_Chambre_Leave(object sender, EventArgs e)
