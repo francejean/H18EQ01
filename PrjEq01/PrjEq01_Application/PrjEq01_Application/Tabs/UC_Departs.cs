@@ -37,8 +37,14 @@ namespace PrjEq01_Application.Tabs
 
 		public void Fill()
 		{
-			int posBS_ARRIVE = BS_ARRIVE.Position;
-			if(State == States.ADD)
+			string idArrive = null;
+			try
+			{
+				idArrive = dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"].ToString();
+			}
+			catch (Exception ex){ }
+
+			if (State == States.ADD)
 			{
 				TA_ARRIVE.FillBy(this.dS_Master.ARRIVE);
 			}
@@ -52,6 +58,14 @@ namespace PrjEq01_Application.Tabs
 			if (State == States.CONSULT)
 			{
 				TA_DEPART.FillByDEPART(this.dS_Master.DEPART);
+			}
+			if (BS_ARRIVE != null && idArrive != null)
+			{
+				BS_ARRIVE.Position = BS_ARRIVE.Find("IdArrive", idArrive);
+			}
+			else
+			{
+				BS_ARRIVE.Position = 0;
 			}
 			Sync_ForeignTables();
 		}
@@ -191,7 +205,14 @@ namespace PrjEq01_Application.Tabs
 					DTR_De.BeginEdit();
 					DTR_De["Attribuee"] = false;
 					DTR_De.EndEdit();
-					TA_DE.Update(dS_Master.DE);
+					try
+					{
+						TA_DE.Update(dS_Master.DE);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+					}
 				}
 			}
 		}
@@ -253,7 +274,14 @@ namespace PrjEq01_Application.Tabs
 					DTR_Depart["ConfirmerPar"] = ir_departs.tb_confirmerPar.Text;
 					DTR_Depart.EndEdit();
 					AjustDe();
-					TA_DEPART.Update(dS_Master.DEPART);
+					try
+					{
+						TA_DEPART.Update(dS_Master.DEPART);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+					}
 					TA_ARRIVE.Fill(dS_Master.ARRIVE);
 					Sync_ForeignTables();
 					ir_departs.tb_confirmerPar.ResetText();
