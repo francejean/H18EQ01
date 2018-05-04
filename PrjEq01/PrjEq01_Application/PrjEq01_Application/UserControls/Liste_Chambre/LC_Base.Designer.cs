@@ -37,11 +37,6 @@
 			this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Attribuee = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.bt_listCommodite = new PrjEq01_CommonForm.Controls.Button_List();
-			this.dgv_chambre = new Inherit_DGV();
-			this.noChamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.descTypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Attribuee = new System.Windows.Forms.DataGridViewTextBoxColumn();
 //			this.BS_CHAMBRE = new System.Windows.Forms.BindingSource(this.components);
 			this.ds_master = new PrjEq01_Application.DS_Master();
 //			this.TA_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.CHAMBRETableAdapter();
