@@ -228,20 +228,23 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public void Add()
+		public bool Add()
 		{
 			NewArrive();
+			return true;
 		}
 
-		public void Edit()
+		public bool Edit()
 		{
+			return true;
 		}
 
-		public void Delete()
+		public bool Delete()
 		{
+			return true;
 		}
 
-		public void Undo()
+		public bool Undo()
 		{
 			if (State == States.ADD)
 			{
@@ -260,6 +263,7 @@ namespace PrjEq01_Application.Tabs
 				BS_ARRIVE.Position = 0;
 				Link_All(true);
 			}
+			return true;
 		}
 
 		public bool Save()
