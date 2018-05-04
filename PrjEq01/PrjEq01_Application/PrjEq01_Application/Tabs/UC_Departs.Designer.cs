@@ -52,6 +52,8 @@
 			this.TA_ARRIVE = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
 			this.ir_departs = new PrjEq01_Application.UserControls.Info_Reservation.IR_Depart();
 			this.ic_base = new PrjEq01_Application.UserControls.IC_Base();
+			this.TA_DE = new PrjEq01_Application.DS_MasterTableAdapters.DETableAdapter();
+			this.BS_DE = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dS_Master)).BeginInit();
 			this.gb_infoDeparts.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_departs)).BeginInit();
@@ -59,6 +61,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CLIENT)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.BS_DE)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lb_noArrivee
@@ -216,6 +219,10 @@
 			this.ic_base.Size = new System.Drawing.Size(544, 235);
 			this.ic_base.TabIndex = 14;
 			// 
+			// TA_DE
+			// 
+			this.TA_DE.ClearBeforeFill = true;
+			// 
 			// UC_Departs
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -236,6 +243,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.BS_ARRIVE)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CLIENT)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_RESERVATION)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.BS_DE)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -264,5 +272,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn NoCham;
 		private System.Windows.Forms.DataGridViewTextBoxColumn IdCli;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
+		private DS_MasterTableAdapters.DETableAdapter TA_DE;
+		private System.Windows.Forms.BindingSource BS_DE;
 	}
 }

@@ -15,6 +15,10 @@ namespace PrjEq01_Application.Tabs
 	{
 		public States State { get; set; }
 
+		private DataRow DTR_Depart;
+
+		private ErrorProvider errorProvider = new ErrorProvider();
+
 		public UC_Departs()
 		{
 			InitializeComponent();
@@ -37,6 +41,7 @@ namespace PrjEq01_Application.Tabs
 			TA_CLIENT.Fill(this.dS_Master.CLIENT);
 			TA_DEPART.FillByDEPART(this.dS_Master.DEPART);
 			TA_RESERVATION.Fill(this.dS_Master.RESERVATION);
+			TA_DE.Fill(this.dS_Master.DE);
 		}
 
 		private void LinkAll()
@@ -45,6 +50,7 @@ namespace PrjEq01_Application.Tabs
 			LinkClient();
 			LinkReservation();
 			LinkDepart();
+			LinkDe();
 		}
 
 		private void LinkArrive()
@@ -109,6 +115,26 @@ namespace PrjEq01_Application.Tabs
 			dgv_departs.DataSource = BS_DEPART;
 		}
 
+		private void LinkDe()
+		{
+			BS_DE.DataMember = "DE";
+			BS_DE.DataSource = dS_Master;
+		}
+
+		private bool IsConfirmerParValide()
+		{
+			errorProvider.SetError(ir_departs.tb_confirmerPar, string.Empty);
+			if (ir_departs.tb_confirmerPar.Text.Length == 0)
+			{
+				errorProvider.SetError(ir_departs.tb_confirmerPar, "Vous devez confirmer un départ en entrant vos initials");
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+
 		public void SetReadOnly(States state)
 		{
 			ir_departs.tb_confirmerPar.Enabled = (state == States.ADD);
@@ -121,16 +147,54 @@ namespace PrjEq01_Application.Tabs
 			BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
 		}
 
+		private void NewDepart()
+		{
+			dS_Master.DEPART.Columns["IdDepart"].AutoIncrementSeed = (int)dS_Master.DEPART.Rows.Count + 1;
+
+			DTR_Depart = dS_Master.Tables["DEPART"].NewRow();
+
+			DTR_Depart["IdDepart"] = (int)dS_Master.DEPART.Columns["IdDepart"].AutoIncrementSeed;
+			DTR_Depart["DateDepart"] = DateTime.Today;
+			DTR_Depart["IdCli"] = ic_base.tb_noClient.Text;
+			DTR_Depart["IdReser"] = ir_departs.tb_noReserv.Text;
+			DTR_Depart["NoCham"] = dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["NoCham"];
+			DTR_Depart["ConfirmerPar"] = null;
+			DTR_Depart["Nom"] = ic_base.tb_nomClient.Text;
+			dS_Master.Tables["DEPART"].Rows.Add(DTR_Depart);
+			BS_DEPART.Position = BS_DEPART.Count - 1;
+		}
+
+		private void AjustDe()
+		{
+			//if(Date < date) // NEEDTO DO IT
+			//{
+				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(DTR_Depart["NoCham"]);
+				DTR_De["ATTRIBUEE"] = 0;
+				TA_DE.Update(DTR_De);
+			//}
+		}
+
 		public bool Add()
 		{
-			MessageBox.Show("Fonction en développement.");
-			
+			TA_ARRIVE.FillBy(dS_Master.ARRIVE);
+			if(dS_Master.Tables["ARRIVE"].Rows.Count <= 0)
+			{
+				MessageBox.Show("Toute les arrivées enregistré sont déjà associées à un départ, vous ne pouvez donc pas ajouter de départ");
+				SetReadOnly(States.CONSULT);
+				TA_ARRIVE.Fill(dS_Master.ARRIVE);
+				Sync_ForeignTables();
+				return false;
+			}
 			PrjEq01_Application.List_Forms.LF_Arrive lf_arrive = new PrjEq01_Application.List_Forms.LF_Arrive(BS_ARRIVE);
-			int tempPositionBS_ARRIVE = BS_ARRIVE.Position;
 			if (lf_arrive.ShowDialog() == DialogResult.Cancel)
 			{
-				BS_ARRIVE.Position = tempPositionBS_ARRIVE;
+				SetReadOnly(States.CONSULT);
+				TA_ARRIVE.Fill(dS_Master.ARRIVE);
+				Sync_ForeignTables();
+				return false;
 			}
+			Sync_ForeignTables();
+			NewDepart();
 			return true;
 		}
 
@@ -148,43 +212,65 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Undo()
 		{
+			if (State == States.ADD)
+			{
+				dS_Master.Tables["DEPART"].RejectChanges();
+				BS_DEPART.ResetCurrentItem();
+				TA_ARRIVE.Fill(dS_Master.ARRIVE);
+				Sync_ForeignTables();
+			}
 			ir_departs.tb_confirmerPar.ResetText();
 			return true;
 		}
 
 		public bool Save()
 		{
-			ir_departs.tb_confirmerPar.ResetText();
-			MessageBox.Show("Fonction en développement.");
-			return true;
+			if (State == States.ADD)
+			{
+				if (IsConfirmerParValide())
+				{
+					DTR_Depart.BeginEdit();
+					DTR_Depart["ConfirmerPar"] = ir_departs.tb_confirmerPar.Text;
+					DTR_Depart.EndEdit();
+					AjustDe();
+					TA_DEPART.Update(dS_Master.DEPART);
+					TA_ARRIVE.Fill(dS_Master.ARRIVE);
+					Sync_ForeignTables();
+					ir_departs.tb_confirmerPar.ResetText();
+					return true;
+				}
+				else
+				{
+					SetReadOnly(States.ADD);
+					ir_departs.tb_confirmerPar.Focus();
+					return false;
+				}
+			}
+			return false;
 		}
 
 		public void Go_Start()
 		{
 			BS_ARRIVE.MoveFirst();
-			Sync_ForeignTables();
-			//MessageBox.Show("Fonction en développement.");
+			Sync_ForeignTables();	
 		}
 
 		public void Go_Back()
 		{
 			BS_ARRIVE.MovePrevious();
 			Sync_ForeignTables();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_Forward()
 		{
 			BS_ARRIVE.MoveNext();
 			Sync_ForeignTables();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_End()
 		{
 			BS_ARRIVE.MoveLast();
 			Sync_ForeignTables();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_list_Click(object sender, EventArgs e)
