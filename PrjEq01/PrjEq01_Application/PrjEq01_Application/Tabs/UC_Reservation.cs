@@ -184,24 +184,27 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		public void Add()
+		public bool Add()
 		{
 			NewReserv();
+			return true;
 		}
 
-		public void Edit()
+		public bool Edit()
 		{
 			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.EDIT);
+			return true;
 		}
 
-		public void Delete()
+		public bool Delete()
 		{
 			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.CONSULT);
+			return true;
 		}
 
-		public void Undo()
+		public bool Undo()
 		{
 			if (State == States.ADD)
 			{
@@ -210,6 +213,7 @@ namespace PrjEq01_Application.Tabs
 				BS_RESERVATION.Position = 0;
 				Link_All(true);
 			}
+			return true;
 		}
 
 		public bool Save()
