@@ -1,0 +1,32 @@
+---------------------------------AJOUT----------------------------------------------
+
+Unicité de la clé primaire
+	- Add(), nouvel arrive avec IdArrive = 4
+
+Liste de sélection sur les clients
+	- Bouton liste IC_Arrive
+
+Liste de sélection sur les réservations 
+	- Bouton liste IR_Arrive, 
+	- reserv seulement avec Reserv.DateDebut <= Arrive.DateArrive <= Reserv.DateFin
+
+Sélection sur les chambres de la réservation(DE)
+	- DGV_Chambre
+	- Peut changer reserv et desattribue
+	- Indique si deja attribue
+
+Ajustement de DE.ATTRIBUÉE à 'o'
+	- Double-clique sur le row pour attribuee
+
+Fonctionnel dans la base de données
+	- Redemmarrer application, information toujours la
+
+========================================================================================
+
+--------------------------------Saisie et messages--------------------------------------
+
+On ne peut saisir les informations du client, folio et chambre
+	- Tout est en read-only
+
+Le num_cham choisi est affiché à l'usager
+	- Dans IC_Arrive, No. chambre

@@ -231,6 +231,7 @@ namespace PrjEq01_Application.Tabs
 		public bool Add()
 		{
 			NewArrive();
+			MessageBox.Show("DateArrive : " + DTR_Arrive["DateArrive"].ToString());
 			return true;
 		}
 
@@ -268,34 +269,44 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Save()
 		{
-			bool hasErrors = true;
-			if (State == States.ADD)
+			DialogResult result = MessageBox.Show("Do you want to save the information?","Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			switch (result)
 			{
-				hasErrors = CheckSaveErrors();
-				if(!hasErrors)
-				{
-					try
+				case DialogResult.Yes:
+					bool hasErrors = true;
+					if (State == States.ADD)
 					{
-						DTR_Arrive.EndEdit();
-						DTR_De.EndEdit();
-						TA_ARRIVE.Update(ds_master.ARRIVE);
-						TA_DE.Update(ds_master.DE);
-						Link_All(true);
-						this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
-						Sync_ForeignTables();
-					}
-					catch (Exception e)
-					{
-						hasErrors = true;
-						MessageBox.Show(e.Message);
-					}
-				}
-				else
-				{
+						hasErrors = CheckSaveErrors();
+						if (!hasErrors)
+						{
+							try
+							{
+								DTR_Arrive.EndEdit();
+								DTR_De.EndEdit();
+								TA_ARRIVE.Update(ds_master.ARRIVE);
+								TA_DE.Update(ds_master.DE);
+								Link_All(true);
+								this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+								Sync_ForeignTables();
+							}
+							catch (Exception e)
+							{
+								hasErrors = true;
+								MessageBox.Show(e.Message);
+							}
+						}
+						else
+						{
 
-				}
+						}
+					}
+					return !hasErrors;
+
+				case DialogResult.No:
+					return false;
+				default:
+					return false;
 			}
-			return !hasErrors;
 		}
 
 		public void Go_Start()
@@ -329,7 +340,7 @@ namespace PrjEq01_Application.Tabs
 
 			DTR_Arrive = ds_master.Tables["Arrive"].NewRow();
 			DTR_Arrive["IdArrive"] = (int)ds_master.ARRIVE.Columns["IdArrive"].AutoIncrementSeed;
-			DTR_Arrive["DateArrive"] = DateTime.Today;
+			DTR_Arrive["DateArrive"] = DateTime.Now.ToLocalTime();
 			DTR_Arrive["IdCli"] = -1;
 			DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdCli"], "Un client doit être sélectionné.");
 			DTR_Arrive["IdReser"] = -1;
