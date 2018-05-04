@@ -159,6 +159,7 @@ namespace PrjEq01_CommonForm
             {
                 Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
                 set_ts_buttons(selected_tab.uc_tab.State);
+				selected_tab.uc_tab.Fill();
             }
             catch (Exception exc) { };
         }

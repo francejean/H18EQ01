@@ -35,7 +35,7 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		private void Fill()
+		public void Fill()
 		{
 			TA_DE.FillBy(DS_Master.DE);
 			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);

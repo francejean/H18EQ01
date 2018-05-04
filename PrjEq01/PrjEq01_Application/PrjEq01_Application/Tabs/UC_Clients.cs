@@ -70,5 +70,10 @@ namespace PrjEq01_Application.Tabs
 		{
 			throw new NotImplementedException();
 		}
+
+		public void Fill()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

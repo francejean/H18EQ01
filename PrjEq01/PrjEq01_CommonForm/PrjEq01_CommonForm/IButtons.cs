@@ -23,6 +23,8 @@ namespace PrjEq01_CommonForm
 
 		void SetReadOnly(States state);
 
+		void Fill();
+
         States State { get; set; }
 	}
 }
