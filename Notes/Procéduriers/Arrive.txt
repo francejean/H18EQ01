@@ -30,3 +30,5 @@ On ne peut saisir les informations du client, folio et chambre
 
 Le num_cham choisi est affiché à l'usager
 	- Dans IC_Arrive, No. chambre
+
+Des messages de validation sont affichés à l'usager
