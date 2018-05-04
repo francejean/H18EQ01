@@ -183,7 +183,7 @@ INSERT INTO DE VALUES (1, 5, '207');
 
 /*<DEPART>*/
 INSERT INTO DEPART (DateDepart, ConfirmerPar, IdReser, NoCham, IdCli)
-VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP), 'O.L.P.', 5, '101', 5);
+VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP), 'O.L.P.', 5, '207', 5);
 /*</DEPART>*/
 
 /*<ARRIVE>*/

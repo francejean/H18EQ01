@@ -238,13 +238,13 @@
     <value>1203, 17</value>
   </metadata>
   <metadata name="BS_LOCALISATION.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>395, 60</value>
+    <value>712, 61</value>
   </metadata>
   <metadata name="BS_BK_COMMODITE.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>891, 63</value>
   </metadata>
   <metadata name="dS_Master.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>565, 66</value>
+    <value>580, 61</value>
   </metadata>
   <metadata name="TA_CHAMBRE.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>167, 17</value>
@@ -262,7 +262,7 @@
     <value>318, 17</value>
   </metadata>
   <metadata name="TA_BK_COMMODITE.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>694, 76</value>
+    <value>387, 63</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>89</value>
