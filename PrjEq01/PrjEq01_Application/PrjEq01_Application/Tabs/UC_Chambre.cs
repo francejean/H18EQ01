@@ -17,7 +17,7 @@ namespace PrjEq01_Application.Tabs
 
 		private bool mustFocusNoCham = false;
 		private bool leaving = false;
-		private bool prixAjust = false; //NEEDTO ASK is a better way?
+		private bool prixAjust = false;
 
 		private DataRow DTR_Chambre;
 		private DataRow DTR_Ayant;
@@ -328,26 +328,13 @@ namespace PrjEq01_Application.Tabs
 
 		public void SetReadOnly(States state)
 		{
-			bool stateBoolValue = true;
-			switch (state)
-			{
-				case States.ADD:
-					stateBoolValue = false;
-					break;
-				case States.CONSULT:
-					stateBoolValue = true;
-					break;
-				case States.EDIT:
-					stateBoolValue = false;
-					break;
-			}
-			mtb_prix.ReadOnly = stateBoolValue;
-			tb_etat.ReadOnly = stateBoolValue;
-			tb_memo.ReadOnly = stateBoolValue;
-			bt_listNoChambre.Enabled = stateBoolValue;
-			bt_listCodeLoc.Enabled = !stateBoolValue;
-			bt_listCodeType.Enabled = !stateBoolValue;
-			bt_listCommodite.Enabled = !stateBoolValue;
+			mtb_prix.ReadOnly = (state == States.CONSULT);
+			tb_etat.ReadOnly = (state == States.CONSULT);
+			tb_memo.ReadOnly = (state == States.CONSULT);
+			bt_listNoChambre.Enabled = (state == States.CONSULT);
+			bt_listCodeLoc.Enabled = (state == States.ADD || state == States.EDIT);
+			bt_listCodeType.Enabled = (state == States.ADD || state == States.EDIT);
+			bt_listCommodite.Enabled = (state == States.ADD || state == States.EDIT);
 			if ((state == States.ADD || state == States.EDIT) && dgv_commodite.RowCount > 0)
 			{
 				bt_deleteCommodite.Enabled = true;
@@ -371,21 +358,21 @@ namespace PrjEq01_Application.Tabs
 
 		private void NewChambre()
 		{
+			SetReadOnly(States.CONSULT);
 			UnLinkTextData();
 			WipeInformation();
 			bt_listNoChambre.Enabled = false;
 			TA_BK_COMMODITE.Fill(this.dS_Master.BK_COMMODITE);
 			mustFocusNoCham = true;
+			prixAjust = false;
 			tb_noCham.ReadOnly = false;
 			tb_noCham.Focus();
 		}
 
-		private void AjustNbDispoInTypeCham()
+		private void AjustNbDispoInTypeCham(string lastTypeCham)
 		{
-			int totalDispo = 0; 
-
+			int totalDispo = 0;
 			DataRow DTR_TypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"]);
-
 			foreach (DataRow DTR_Cham in DTR_TypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
 			{
 				if(DTR_Cham["Etat"].ToString() == "1")
@@ -393,33 +380,51 @@ namespace PrjEq01_Application.Tabs
 					totalDispo++;
 				}
 			}
-
 			dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"])["NbDispo"] = totalDispo;
+
+			if(lastTypeCham != null && lastTypeCham != DTR_Chambre["CodTypCham"].ToString()) //***** NEEDTO test this in edit
+			{
+				int totalLast = 0;
+				DataRow DTR_LastTypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(lastTypeCham);
+				foreach (DataRow DTR_Cham in DTR_LastTypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
+				{
+					if (DTR_Cham["Etat"].ToString() == "1")
+					{
+						totalLast++;
+					}
+				}
+				dS_Master.Tables["TYPECHAM"].Rows.Find(lastTypeCham)["NbDispo"] = totalLast;
+			}//************************************************************************************ NEEDTO test this in edit
+
 			TA_TYPECHAM.Update(dS_Master.TYPECHAM);
 		}
 
-		public void Add()
+		public bool Add()
 		{
 			State = States.ADD;
 			NewChambre();
-			//MessageBox.Show("Fonction en développement.");
+			return true;
 		}
 
-		public void Edit()
+		public bool Edit()
 		{
 			TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);//NEEDTO CHANGE PLACE
 			MessageBox.Show("Fonction en développement.");
+			return true;
 		}
 
-		public void Delete()
+		public bool Delete()
 		{
 			MessageBox.Show("Fonction en développement.");
+			return true;
 		}
 
-		public void Undo()
+		public bool Undo()
 		{
 			if (State == States.ADD)
 			{
+				State = States.CONSULT;
+				prixAjust = false;
 				errorProvider.Clear();
 				if (mustFocusNoCham)
 				{
@@ -433,10 +438,9 @@ namespace PrjEq01_Application.Tabs
 					BS_CHAMBRE.ResetCurrentItem();
 				}
 				mustFocusNoCham = false;
-				prixAjust = false;
 				BS_CHAMBRE.Position = 0;
 			}
-			//MessageBox.Show("Fonction en développement.");
+			return true;
 		}
 
 		public bool Save()
@@ -448,8 +452,8 @@ namespace PrjEq01_Application.Tabs
 				mtb_prixToFull();
 				if (IsAllInfoChambreValide())
 				{
+					State = States.CONSULT;
 					errorProvider.Clear();
-					State = States.CONSULT; //NEEDTO CHANGE??
 					BS_CHAMBRE.Position = 0;
 					float.TryParse(DTR_Chambre["Prix"].ToString(), out float prix);
 					DTR_Chambre["Prix"] = prix / 100;
@@ -457,10 +461,21 @@ namespace PrjEq01_Application.Tabs
 					DTR_Chambre.EndEdit();
 					TA_CHAMBRE.Update(dS_Master.CHAMBRE);
 					TA_AYANT.Update(dS_Master.AYANT);
-					AjustNbDispoInTypeCham();//NEEDTO DO IT
+					AjustNbDispoInTypeCham(null);
 					BS_CHAMBRE.Sort = "NoCham";
-					MessageBox.Show(BS_CHAMBRE.Count.ToString());
 					return true;
+				}
+				else
+				{
+					if (mustFocusNoCham)
+					{
+						tb_noCham.ReadOnly = false;
+					}
+					else
+					{
+						SetReadOnly(States.ADD);
+					}
+					return false;
 				}
 			}
 			return false;
@@ -674,7 +689,8 @@ namespace PrjEq01_Application.Tabs
 			if (mtb_prix.Text.Length < 5 && (State == States.CONSULT || prixAjust))
 			{
 				mtb_prixToFull();
-				IsPrixValide(0);
+				if(State != States.CONSULT)
+					IsPrixValide(0);
 			}
 		}
 
@@ -698,6 +714,10 @@ namespace PrjEq01_Application.Tabs
 			if (State == States.ADD || State == States.EDIT)
 			{
 				bt_deleteCommodite.Enabled = true;
+			}
+			else
+			{
+				bt_deleteCommodite.Enabled = false;
 			}
 		}
 

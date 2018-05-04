@@ -48,10 +48,11 @@
 			// 
 			// tb_confirmerPar
 			// 
-			this.tb_confirmerPar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.tb_confirmerPar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tb_confirmerPar.Location = new System.Drawing.Point(129, 169);
 			this.tb_confirmerPar.Margin = new System.Windows.Forms.Padding(4);
+			this.tb_confirmerPar.MaxLength = 6;
 			this.tb_confirmerPar.Name = "tb_confirmerPar";
 			this.tb_confirmerPar.Size = new System.Drawing.Size(128, 22);
 			this.tb_confirmerPar.TabIndex = 27;
