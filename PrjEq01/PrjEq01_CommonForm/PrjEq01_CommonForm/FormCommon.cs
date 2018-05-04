@@ -61,9 +61,9 @@ namespace PrjEq01_CommonForm
 		{
             States state = States.ADD;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-			selected_tab.uc_tab.SetReadOnly(state);
 			if (selected_tab.uc_tab.Add())
 			{
+				selected_tab.uc_tab.SetReadOnly(state);
 				selected_tab.uc_tab.State = state;
 				set_ts_buttons(state);
 			}
@@ -73,9 +73,9 @@ namespace PrjEq01_CommonForm
 		{
             States state = States.EDIT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-			selected_tab.uc_tab.SetReadOnly(state);
 			if (selected_tab.uc_tab.Edit())
 			{
+				selected_tab.uc_tab.SetReadOnly(state);
 				selected_tab.uc_tab.State = state;
 				set_ts_buttons(state);
 			}
@@ -85,9 +85,9 @@ namespace PrjEq01_CommonForm
 		{
             States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-			selected_tab.uc_tab.SetReadOnly(state);
 			if (selected_tab.uc_tab.Delete())
 			{
+				selected_tab.uc_tab.SetReadOnly(state);
 				selected_tab.uc_tab.State = state;
 				set_ts_buttons(state);
 			}
@@ -97,9 +97,9 @@ namespace PrjEq01_CommonForm
 		{
             States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-			selected_tab.uc_tab.SetReadOnly(state);
 			if (selected_tab.uc_tab.Undo())
 			{
+				selected_tab.uc_tab.SetReadOnly(state);
 				selected_tab.uc_tab.State = state;
 				set_ts_buttons(state);
 			}
@@ -109,9 +109,9 @@ namespace PrjEq01_CommonForm
 		{
             States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-			selected_tab.uc_tab.SetReadOnly(state);
 			if (selected_tab.uc_tab.Save())
             {
+				selected_tab.uc_tab.SetReadOnly(state);
                 selected_tab.uc_tab.State = state;
 				set_ts_buttons(state);
             }
