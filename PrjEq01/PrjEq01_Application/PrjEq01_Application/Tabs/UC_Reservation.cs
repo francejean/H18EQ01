@@ -193,6 +193,7 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
+		public bool Add()
 		{
 			NewReserv();
 			return true;
