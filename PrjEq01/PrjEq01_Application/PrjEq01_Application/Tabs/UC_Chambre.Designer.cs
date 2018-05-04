@@ -301,6 +301,8 @@
 			this.mtb_prix.TabIndex = 24;
 			this.mtb_prix.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			this.mtb_prix.TextChanged += new System.EventHandler(this.mtb_prix_TextChanged);
+			this.mtb_prix.Enter += new System.EventHandler(this.mtb_prix_Enter);
+			this.mtb_prix.Leave += new System.EventHandler(this.mtb_prix_Leave);
 			this.mtb_prix.Validating += new System.ComponentModel.CancelEventHandler(this.mtb_prix_Validating);
 			// 
 			// gb_infoChambre
@@ -379,7 +381,7 @@
 			this.gb_commodite.Controls.Add(this.bt_deleteCommodite);
 			this.gb_commodite.Controls.Add(this.bt_listCommodite);
 			this.gb_commodite.Controls.Add(this.dgv_commodite);
-			this.gb_commodite.Location = new System.Drawing.Point(3, 201);
+			this.gb_commodite.Location = new System.Drawing.Point(3, 187);
 			this.gb_commodite.Name = "gb_commodite";
 			this.gb_commodite.Size = new System.Drawing.Size(985, 328);
 			this.gb_commodite.TabIndex = 26;

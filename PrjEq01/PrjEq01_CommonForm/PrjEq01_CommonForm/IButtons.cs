@@ -10,10 +10,10 @@ namespace PrjEq01_CommonForm
 
 	public interface IButtons
 	{
-		void Add();
-		void Edit();
-		void Delete();
-		void Undo();
+		bool Add();
+		bool Edit();
+		bool Delete();
+		bool Undo();
 		bool Save();
 
 		void Go_Start();
@@ -21,7 +21,7 @@ namespace PrjEq01_CommonForm
 		void Go_Forward();
 		void Go_End();
 
-		void SetReadOnly();
+		void SetReadOnly(States state);
 
         States State { get; set; }
 	}

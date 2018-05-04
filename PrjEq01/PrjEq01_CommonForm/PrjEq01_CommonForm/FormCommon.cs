@@ -61,84 +61,96 @@ namespace PrjEq01_CommonForm
 		{
             States state = States.ADD;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Add();
-            selected_tab.uc_tab.State = state;
-			selected_tab.uc_tab.SetReadOnly();
-			set_ts_buttons(state);
+			selected_tab.uc_tab.SetReadOnly(state);
+			if (selected_tab.uc_tab.Add())
+			{
+				selected_tab.uc_tab.State = state;
+				set_ts_buttons(state);
+			}
         }
 
 		private void Button_Edit_Click(object sender, EventArgs e)
 		{
             States state = States.EDIT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Edit();
-            selected_tab.uc_tab.State = state;
-			selected_tab.uc_tab.SetReadOnly();
-			set_ts_buttons(state);
+			selected_tab.uc_tab.SetReadOnly(state);
+			if (selected_tab.uc_tab.Edit())
+			{
+				selected_tab.uc_tab.State = state;
+				set_ts_buttons(state);
+			}
         }
 
 		private void Button_Delete_Click(object sender, EventArgs e)
 		{
             States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Delete();
-            selected_tab.uc_tab.State = state;
-			selected_tab.uc_tab.SetReadOnly();
-            set_ts_buttons(state);
+			selected_tab.uc_tab.SetReadOnly(state);
+			if (selected_tab.uc_tab.Delete())
+			{
+				selected_tab.uc_tab.State = state;
+				set_ts_buttons(state);
+			}
         }
 
 		private void Button_Undo_Click(object sender, EventArgs e)
 		{
             States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Undo();
-            selected_tab.uc_tab.State = state;
-			selected_tab.uc_tab.SetReadOnly();
-			set_ts_buttons(state);
+			selected_tab.uc_tab.SetReadOnly(state);
+			if (selected_tab.uc_tab.Undo())
+			{
+				selected_tab.uc_tab.State = state;
+				set_ts_buttons(state);
+			}
         }
 
 		private void Button_Save_Click(object sender, EventArgs e)
 		{
             States state = States.CONSULT;
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            if (selected_tab.uc_tab.Save())
+			selected_tab.uc_tab.SetReadOnly(state);
+			if (selected_tab.uc_tab.Save())
             {
                 selected_tab.uc_tab.State = state;
-				selected_tab.uc_tab.SetReadOnly();
 				set_ts_buttons(state);
             }
         }
 
         private void Button_Back_All_Click(object sender, EventArgs e)
         {
-            Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_Start();
-            selected_tab.uc_tab.State = States.CONSULT;
-			selected_tab.uc_tab.SetReadOnly();
+			States state = States.CONSULT;
+			Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+			selected_tab.uc_tab.SetReadOnly(state);
+			selected_tab.uc_tab.Go_Start();
+			selected_tab.uc_tab.State = state;
 		}
 
         private void Button_Back_One_Click(object sender, EventArgs e)
         {
-            Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_Back();
-            selected_tab.uc_tab.State = States.CONSULT;
-			selected_tab.uc_tab.SetReadOnly();
+			States state = States.CONSULT;
+			Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+			selected_tab.uc_tab.SetReadOnly(state);
+			selected_tab.uc_tab.Go_Back();
+			selected_tab.uc_tab.State = state;
 		}
 
         private void Button_Forward_One_Click(object sender, EventArgs e)
         {
-            Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_Forward();
-            selected_tab.uc_tab.State = States.CONSULT;
-			selected_tab.uc_tab.SetReadOnly();
+			States state = States.CONSULT;
+			Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+			selected_tab.uc_tab.SetReadOnly(state);
+			selected_tab.uc_tab.Go_Forward();
+			selected_tab.uc_tab.State = state;
 		}
 
         private void Button_Forward_All_Click(object sender, EventArgs e)
         {
-            Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
-            selected_tab.uc_tab.Go_End();
-            selected_tab.uc_tab.State = States.CONSULT;
-			selected_tab.uc_tab.SetReadOnly();
+			States state = States.CONSULT;
+			Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
+			selected_tab.uc_tab.SetReadOnly(state);
+			selected_tab.uc_tab.Go_End();
+			selected_tab.uc_tab.State = state;
 		}
 
         private void tc_main_SelectedIndexChanged(object sender, EventArgs e)

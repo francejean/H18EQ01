@@ -21,17 +21,27 @@ namespace PrjEq01_Application.Tabs
 			State = States.CONSULT;
 		}
 
-		public void Add()
+		public bool Add()
 		{
 			throw new NotImplementedException();
 		}
 
-		public void Delete()
+		public bool Delete()
 		{
 			throw new NotImplementedException();
 		}
 
-		public void Edit()
+		public bool Edit()
+		{
+			throw new NotImplementedException();
+		}
+
+		public bool Undo()
+		{
+			throw new NotImplementedException();
+		}
+
+		public bool Save()
 		{
 			throw new NotImplementedException();
 		}
@@ -56,17 +66,7 @@ namespace PrjEq01_Application.Tabs
 			throw new NotImplementedException();
 		}
 
-		public bool Save()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void SetReadOnly()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Undo()
+		public void SetReadOnly(States state)
 		{
 			throw new NotImplementedException();
 		}
