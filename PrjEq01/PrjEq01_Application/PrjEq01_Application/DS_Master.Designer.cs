@@ -9123,10 +9123,18 @@ SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE (IdArrive 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham\r\nFROM     ARRIVE\r\nWHERE  ((No" +
-                "Cham + IdCli + IdReser) NOT IN\r\n                      (SELECT NoCham + IdCli + I" +
-                "dReser AS Expr1\r\n                       FROM      DEPART))";
+            this._commandCollection[1].CommandText = @"SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham
+FROM     ARRIVE
+WHERE  ((NoCham + IdCli + IdReser) NOT IN
+                      (SELECT NoCham + IdCli + IdReser AS Expr1
+                       FROM      DEPART)) AND (IdArrive NOT IN
+                      (SELECT ARRIVE_1.IdArrive
+                       FROM      ARRIVE AS ARRIVE_1 INNER JOIN
+                                         RESERVATION ON ARRIVE_1.IdReser = RESERVATION.IdReser
+                       WHERE   (@Date > RESERVATION.DateFin) OR
+                                         (@Date < RESERVATION.DateDebut)))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9157,8 +9165,14 @@ SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE (IdArrive 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DS_Master.ARRIVEDataTable dataTable) {
+        public virtual int FillBy(DS_Master.ARRIVEDataTable dataTable, string Date) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Date == null)) {
+                throw new global::System.ArgumentNullException("Date");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -9170,8 +9184,14 @@ SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE (IdArrive 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DS_Master.ARRIVEDataTable GetDataBy() {
+        public virtual DS_Master.ARRIVEDataTable GetDataBy(string Date) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Date == null)) {
+                throw new global::System.ArgumentNullException("Date");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
             DS_Master.ARRIVEDataTable dataTable = new DS_Master.ARRIVEDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

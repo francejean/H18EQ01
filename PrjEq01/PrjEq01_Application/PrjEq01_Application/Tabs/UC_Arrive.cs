@@ -37,11 +37,28 @@ namespace PrjEq01_Application.Tabs
 
 		private void Fill()
 		{
-			this.TA_ARRIVE.Fill(this.ds_master.ARRIVE);
-			this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+			int IdArrive = 0;
+			try
+			{
+				IdArrive = (int)ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"];
+			}
+			catch(Exception e){ }
+
 			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
-			this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
 			this.TA_DE.FillBy(ds_master.DE);
+			if(State == States.ADD || State == States.EDIT)
+			{
+				this.TA_RESERVATION.FillByArriveDate(this.ds_master.RESERVATION, ds_master.ARRIVE[BS_ARRIVE.Position].DateArrive.ToString());
+			}
+			else if (State == States.CONSULT)
+			{
+				this.TA_ARRIVE.Fill(this.ds_master.ARRIVE);
+				this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
+				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+			}
+			if(BS_ARRIVE.DataSource != null)
+				BS_ARRIVE.Position = BS_ARRIVE.Find("IdArrive", IdArrive);
+			Sync_ForeignTables();
 		}
 
 		private void Link_All(bool link_state)
@@ -208,24 +225,14 @@ namespace PrjEq01_Application.Tabs
 
 		public void Sync_ForeignTables()
 		{
-			if (State == States.CONSULT)
+			try
 			{
-				try
-				{
+				if(BS_CLIENT.DataSource != null)
 					BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+				if(BS_RESERVATION.DataSource != null)
 					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
-				}
-				catch (Exception e) { MessageBox.Show(e.Message); }
 			}
-			else if (State == States.ADD || State == States.EDIT)
-			{
-				try
-				{
-					BS_CLIENT.Position = BS_CLIENT.Find("IdCli", DTR_Arrive["IdCli"]);
-					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
-				}
-				catch (Exception e) { MessageBox.Show(e.Message); }
-			}
+			catch (Exception e) { MessageBox.Show(e.Message); }
 		}
 
 		public bool Add()
@@ -260,8 +267,11 @@ namespace PrjEq01_Application.Tabs
 				}
 
 				ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
-				DTR_Arrive.CancelEdit();
+				DTR_Arrive.Delete();
 				BS_ARRIVE.Position = 0;
+
+				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+				Sync_ForeignTables();
 				Link_All(true);
 			}
 			return true;
@@ -393,6 +403,7 @@ namespace PrjEq01_Application.Tabs
 			}
 
 			DTR_Arrive["IdReser"] = IdReser;
+			DTR_Arrive.EndEdit();
 
 			if (DTR_Arrive.GetColumnError("IdReser") != "")
 			{
