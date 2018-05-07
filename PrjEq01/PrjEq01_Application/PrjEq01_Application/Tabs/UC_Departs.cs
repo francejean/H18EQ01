@@ -37,11 +37,37 @@ namespace PrjEq01_Application.Tabs
 
 		public void Fill()
 		{
-			TA_ARRIVE.Fill(this.dS_Master.ARRIVE);
+			string idArrive = null;
+			try
+			{
+				idArrive = dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"].ToString();
+			}
+			catch (Exception ex){ }
+
+			if (State == States.ADD)
+			{
+				TA_ARRIVE.FillBy(this.dS_Master.ARRIVE, DateTime.Today.ToString());
+			}
+			else
+			{
+				TA_ARRIVE.Fill(this.dS_Master.ARRIVE);
+			}
 			TA_CLIENT.Fill(this.dS_Master.CLIENT);
-			TA_DEPART.FillByDEPART(this.dS_Master.DEPART);
 			TA_RESERVATION.Fill(this.dS_Master.RESERVATION);
 			TA_DE.Fill(this.dS_Master.DE);
+			if (State == States.CONSULT)
+			{
+				TA_DEPART.FillByDEPART(this.dS_Master.DEPART);
+			}
+			if (BS_ARRIVE != null && idArrive != null)
+			{
+				BS_ARRIVE.Position = BS_ARRIVE.Find("IdArrive", idArrive);
+			}
+			else
+			{
+				BS_ARRIVE.Position = 0;
+			}
+			Sync_ForeignTables();
 		}
 
 		private void LinkAll()
@@ -143,8 +169,10 @@ namespace PrjEq01_Application.Tabs
 
 		private void Sync_ForeignTables()
 		{
-			BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-			BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			if (BS_CLIENT.DataSource != null)
+				BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+			if (BS_RESERVATION.DataSource != null)
+				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
 		}
 
 		private void NewDepart()
@@ -177,14 +205,21 @@ namespace PrjEq01_Application.Tabs
 					DTR_De.BeginEdit();
 					DTR_De["Attribuee"] = false;
 					DTR_De.EndEdit();
-					TA_DE.Update(dS_Master.DE);
+					try
+					{
+						TA_DE.Update(dS_Master.DE);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+					}
 				}
 			}
 		}
 
 		public bool Add()
 		{
-			TA_ARRIVE.FillBy(dS_Master.ARRIVE);
+			TA_ARRIVE.FillBy(dS_Master.ARRIVE, DateTime.Today.ToString());
 			if(dS_Master.Tables["ARRIVE"].Rows.Count <= 0)
 			{
 				MessageBox.Show("Toute les arrivées enregistré sont déjà associées à un départ, vous ne pouvez donc pas ajouter de départ");
@@ -239,7 +274,14 @@ namespace PrjEq01_Application.Tabs
 					DTR_Depart["ConfirmerPar"] = ir_departs.tb_confirmerPar.Text;
 					DTR_Depart.EndEdit();
 					AjustDe();
-					TA_DEPART.Update(dS_Master.DEPART);
+					try
+					{
+						TA_DEPART.Update(dS_Master.DEPART);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+					}
 					TA_ARRIVE.Fill(dS_Master.ARRIVE);
 					Sync_ForeignTables();
 					ir_departs.tb_confirmerPar.ResetText();

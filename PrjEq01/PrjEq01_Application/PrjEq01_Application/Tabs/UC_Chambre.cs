@@ -39,11 +39,17 @@ namespace PrjEq01_Application.Tabs
 
 		public void Fill()
 		{
-			TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
-			TA_AYANT.FillBy(this.dS_Master.AYANT);
+			string safeNoCham = tb_noCham.Text;
+			if(State == States.CONSULT)
+			{
+				TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
+				TA_AYANT.FillBy(this.dS_Master.AYANT);
+			}
 			TA_COMMODITE.Fill(this.dS_Master.COMMODITE);
 			TA_TYPECHAM.Fill(this.dS_Master.TYPECHAM);
 			TA_LOCALISATION.Fill(this.dS_Master.LOCALISATION);
+			if (tb_noCham.ReadOnly && BS_CHAMBRE.DataSource != null) 
+				BS_CHAMBRE.Position = BS_CHAMBRE.Find("NoCham", safeNoCham);
 		}
 
 		private void LinkAll()
@@ -395,7 +401,14 @@ namespace PrjEq01_Application.Tabs
 				dS_Master.Tables["TYPECHAM"].Rows.Find(lastTypeCham)["NbDispo"] = totalLast;
 			}//************************************************************************************ NEEDTO test this in edit
 
-			TA_TYPECHAM.Update(dS_Master.TYPECHAM);
+			try
+			{
+				TA_TYPECHAM.Update(dS_Master.TYPECHAM);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		public bool Add()
@@ -458,8 +471,15 @@ namespace PrjEq01_Application.Tabs
 					DTR_Chambre["Prix"] = prix / 100;
 					prixAjust = false;
 					DTR_Chambre.EndEdit();
-					TA_CHAMBRE.Update(dS_Master.CHAMBRE);
-					TA_AYANT.Update(dS_Master.AYANT);
+					try
+					{
+						TA_CHAMBRE.Update(dS_Master.CHAMBRE);
+						TA_AYANT.Update(dS_Master.AYANT);
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+					}
 					AjustNbDispoInTypeCham(null);
 					BS_CHAMBRE.Sort = "NoCham";
 					return true;
