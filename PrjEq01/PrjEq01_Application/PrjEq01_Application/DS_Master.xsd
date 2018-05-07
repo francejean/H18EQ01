@@ -1486,23 +1486,6 @@ WHERE        (CodCom NOT IN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DE" msprop:Generator_TableClassName="DEDataTable" msprop:Generator_TableVarName="tableDE" msprop:Generator_RowChangedName="DERowChanged" msprop:Generator_TablePropName="DE" msprop:Generator_RowDeletingName="DERowDeleting" msprop:Generator_RowChangingName="DERowChanging" msprop:Generator_RowEvHandlerName="DERowChangeEventHandler" msprop:Generator_RowDeletedName="DERowDeleted" msprop:Generator_RowClassName="DERow" msprop:Generator_UserTableName="DE" msprop:Generator_RowEvArgName="DERowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Attribuee" msprop:Generator_ColumnVarNameInTable="columnAttribuee" msprop:Generator_ColumnPropNameInRow="Attribuee" msprop:Generator_ColumnPropNameInTable="AttribueeColumn" msprop:Generator_UserColumnName="Attribuee" type="xs:boolean" minOccurs="0" />
-              <xs:element name="IdReser" msprop:Generator_ColumnVarNameInTable="columnIdReser" msprop:Generator_ColumnPropNameInRow="IdReser" msprop:Generator_ColumnPropNameInTable="IdReserColumn" msprop:Generator_UserColumnName="IdReser" type="xs:int" />
-              <xs:element name="NoCham" msprop:Generator_ColumnVarNameInTable="columnNoCham" msprop:Generator_ColumnPropNameInRow="NoCham" msprop:Generator_ColumnPropNameInTable="NoChamColumn" msprop:Generator_UserColumnName="NoCham">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="3" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CodTypCham" msprop:Generator_ColumnVarNameInTable="columnCodTypCham" msprop:Generator_ColumnPropNameInRow="CodTypCham" msprop:Generator_ColumnPropNameInTable="CodTypChamColumn" msprop:Generator_UserColumnName="CodTypCham" type="xs:string" minOccurs="0" />
-              <xs:element name="Prix" msprop:Generator_ColumnVarNameInTable="columnPrix" msprop:Generator_ColumnPropNameInRow="Prix" msprop:Generator_ColumnPropNameInTable="PrixColumn" msprop:Generator_UserColumnName="Prix" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
