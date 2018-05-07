@@ -28,7 +28,7 @@ namespace PrjEq01_Application.Tabs
 			ic_Reserv.ClientSelected = this.OnClientSelected;
 			ir_Reserv.BS = BS_RESERVATION;
 			ir_Reserv.ReservSelected = this.OnReservSelected;
-			lc_chambre.setBS(BS_CHAMBRE);
+			lc_reserv.setBS(BS_CHAMBRE);
 
 			State = States.CONSULT;
 		}
@@ -147,7 +147,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					try
 					{
-						lc_chambre.dgv_chambre.DataSource = BS_CHAMBRE;
+						lc_reserv.dgv_chambre.DataSource = BS_CHAMBRE;
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -156,7 +156,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					try
 					{
-						lc_chambre.dgv_chambre.DataSource = null;
+						lc_reserv.dgv_chambre.DataSource = null;
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -167,7 +167,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void SetReadOnly(States state)
 		{
-			List<IInfoBox> consult_controls = new List<IInfoBox> { ic_Reserv, ir_Reserv, lc_chambre };
+			List<IInfoBox> consult_controls = new List<IInfoBox> { ic_Reserv, ir_Reserv, lc_reserv };
 
 			foreach (IInfoBox consult_control in consult_controls)
 			{ consult_control.SetReadOnly(state); }
@@ -225,7 +225,7 @@ namespace PrjEq01_Application.Tabs
 			if (State == States.ADD)
 			{
 				ic_Reserv.ResetErrors();
-				lc_chambre.ResetErrors();
+				lc_reserv.ResetErrors();
 
 				DS_Master.Tables["Reservation"].Rows.RemoveAt(DS_Master.RESERVATION.Rows.Count - 1);
 				DTR_RESERV.CancelEdit();
@@ -240,7 +240,7 @@ namespace PrjEq01_Application.Tabs
 			if (!CheckErrors())
 			{
 				ic_Reserv.ResetErrors();
-				lc_chambre.ResetErrors();
+				lc_reserv.ResetErrors();
 				return true;
 			}
 			return false;
@@ -296,7 +296,7 @@ namespace PrjEq01_Application.Tabs
 		{
 			// We need the two functions to execute
 			bool result1 = this.ic_Reserv.CheckErrors(),
-				 result2 = this.lc_chambre.CheckErrors();
+				 result2 = this.lc_reserv.CheckErrors();
 			return result1 || result2;
 		}
 	}

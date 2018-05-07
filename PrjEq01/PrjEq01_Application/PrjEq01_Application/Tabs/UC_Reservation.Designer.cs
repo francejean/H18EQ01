@@ -40,7 +40,7 @@ namespace PrjEq01_Application.Tabs
 			this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
 			this.ic_Reserv = new PrjEq01_Application.UserControls.Info_Client.IC_Reserv();
 			this.ir_Reserv = new PrjEq01_Application.UserControls.Info_Reservation.IR_Reserv();
-			this.lc_chambre = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Reserv();
+			this.lc_reserv = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Reserv();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
@@ -91,16 +91,16 @@ namespace PrjEq01_Application.Tabs
 			this.ir_Reserv.Size = new System.Drawing.Size(224, 190);
 			this.ir_Reserv.TabIndex = 21;
 			// 
-			// lc_chambre
+			// lc_reserv
 			// 
-			this.lc_chambre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.lc_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.lc_chambre.Location = new System.Drawing.Point(3, 199);
-			this.lc_chambre.MinimumSize = new System.Drawing.Size(850, 230);
-			this.lc_chambre.Name = "lc_chambre";
-			this.lc_chambre.Size = new System.Drawing.Size(967, 233);
-			this.lc_chambre.TabIndex = 23;
+			this.lc_reserv.Location = new System.Drawing.Point(3, 199);
+			this.lc_reserv.MinimumSize = new System.Drawing.Size(850, 230);
+			this.lc_reserv.Name = "lc_reserv";
+			this.lc_reserv.Size = new System.Drawing.Size(967, 233);
+			this.lc_reserv.TabIndex = 23;
 			// 
 			// errorProvider
 			// 
@@ -111,7 +111,7 @@ namespace PrjEq01_Application.Tabs
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.Controls.Add(this.lc_chambre);
+			this.Controls.Add(this.lc_reserv);
 			this.Controls.Add(this.ic_Reserv);
 			this.Controls.Add(this.ir_Reserv);
 			this.Margin = new System.Windows.Forms.Padding(2);
@@ -140,7 +140,7 @@ namespace PrjEq01_Application.Tabs
 		private UserControls.Info_Client.IC_Reserv ic_Reserv;
 		private System.Windows.Forms.BindingSource BS_CLIENT;
 		private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
-		private UserControls.Liste_Chambre.LC_Reserv lc_chambre;
+		private UserControls.Liste_Chambre.LC_Reserv lc_reserv;
 		private System.Windows.Forms.ErrorProvider errorProvider;
 	}
 }
