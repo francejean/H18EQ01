@@ -32,8 +32,6 @@ namespace PrjEq01_Application.UserControls
 
 		public virtual void SetReadOnly(States state)
 		{
-			bool readOnly = States.CONSULT == state;
-			// Different for Reserv and Arrive
 			bt_list.Enabled = (state == States.ADD);
 		}
 

@@ -166,12 +166,20 @@ namespace PrjEq01_Application.Tabs
 
 		private void AjustDe()
 		{
-			//if(Date < date) // NEEDTO DO IT
-			//{
-				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(DTR_Depart["NoCham"]);
-				DTR_De["ATTRIBUEE"] = 0;
-				TA_DE.Update(DTR_De);
-			//}
+			if(DateTime.Today < ir_departs.DTP_Fin.Value)
+			{
+				Object[] pk = new object[2];
+				pk[0] = DTR_Depart["IdReser"];
+				pk[1] = DTR_Depart["NoCham"];
+				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(pk);
+				if(DTR_De != null)
+				{
+					DTR_De.BeginEdit();
+					DTR_De["Attribuee"] = false;
+					DTR_De.EndEdit();
+					TA_DE.Update(dS_Master.DE);
+				}
+			}
 		}
 
 		public bool Add()
@@ -180,7 +188,6 @@ namespace PrjEq01_Application.Tabs
 			if(dS_Master.Tables["ARRIVE"].Rows.Count <= 0)
 			{
 				MessageBox.Show("Toute les arrivées enregistré sont déjà associées à un départ, vous ne pouvez donc pas ajouter de départ");
-				SetReadOnly(States.CONSULT);
 				TA_ARRIVE.Fill(dS_Master.ARRIVE);
 				Sync_ForeignTables();
 				return false;
@@ -188,7 +195,6 @@ namespace PrjEq01_Application.Tabs
 			PrjEq01_Application.List_Forms.LF_Arrive lf_arrive = new PrjEq01_Application.List_Forms.LF_Arrive(BS_ARRIVE);
 			if (lf_arrive.ShowDialog() == DialogResult.Cancel)
 			{
-				SetReadOnly(States.CONSULT);
 				TA_ARRIVE.Fill(dS_Master.ARRIVE);
 				Sync_ForeignTables();
 				return false;
@@ -241,7 +247,6 @@ namespace PrjEq01_Application.Tabs
 				}
 				else
 				{
-					SetReadOnly(States.ADD);
 					ir_departs.tb_confirmerPar.Focus();
 					return false;
 				}
