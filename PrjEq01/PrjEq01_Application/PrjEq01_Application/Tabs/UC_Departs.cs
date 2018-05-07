@@ -35,7 +35,7 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		private void Fill()
+		public void Fill()
 		{
 			string idArrive = null;
 			try

@@ -37,7 +37,7 @@ namespace PrjEq01_Application.Tabs
 			LinkAll();
 		}
 
-		private void Fill()
+		public void Fill()
 		{
 			string safeNoCham = tb_noCham.Text;
 			if(State == States.CONSULT)
