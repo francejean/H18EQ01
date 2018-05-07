@@ -14,7 +14,10 @@ namespace PrjEq01_Application.Tabs
 	public partial class UC_Reservation : UserControl, IButtons
 	{
 		public States State { get; set; }
+
 		private DataRow DTR_RESERV;
+
+		private BindingSource BS_BK_CHAMBRE = new BindingSource();
 
 		private bool LinkReser_State, LinkClient_State, LinkChambre_State;
 
@@ -22,20 +25,29 @@ namespace PrjEq01_Application.Tabs
 		{
 			InitializeComponent();
 			ic_Reserv.BS = BS_CLIENT;
-			ir_Reserv.BS = BS_RESERVATION;
-			State = States.CONSULT;
-
 			ic_Reserv.ClientSelected = this.OnClientSelected;
+			ir_Reserv.BS = BS_RESERVATION;
+			ir_Reserv.ReservSelected = this.OnReservSelected;
+			lc_reserv.setBS(BS_BK_CHAMBRE);
+			lc_reserv.OnSelected = OnChambreSelected;
+
+			State = States.CONSULT;
 		}
 
 		private void Tab_Reservation_Load(object sender, EventArgs e)
 		{
 			Fill();
 			Link_All(true);
+
+			BS_BK_CHAMBRE.DataSource = DS_Master;
+			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
+
+			TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, null);
+			
 			Sync_ForeignTables();
 		}
 
-		public void Fill()
+		private void Fill()
 		{
 			TA_DE.FillBy(DS_Master.DE);
 			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
@@ -138,7 +150,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					try
 					{
-						lc_chambre.dgv_chambre.DataSource = BS_CHAMBRE;
+						lc_reserv.dgv_chambre.DataSource = BS_CHAMBRE;
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -147,7 +159,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					try
 					{
-						lc_chambre.dgv_chambre.DataSource = null;
+						lc_reserv.dgv_chambre.DataSource = null;
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -158,7 +170,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void SetReadOnly(States state)
 		{
-			List<IInfoBox> consult_controls = new List<IInfoBox> { ic_Reserv, ir_Reserv };
+			List<IInfoBox> consult_controls = new List<IInfoBox> { ic_Reserv, ir_Reserv, lc_reserv };
 
 			foreach (IInfoBox consult_control in consult_controls)
 			{ consult_control.SetReadOnly(state); }
@@ -184,6 +196,22 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
+		public void OnReservSelected(int IdReserv)
+		{
+			ir_Reserv.BS.Position = BS_RESERVATION.Find("IdReser", IdReserv);
+			
+			Sync_ForeignTables();
+		}
+
+		public void OnChambreSelected(int PK)
+		{
+			if(State == States.ADD)
+			{
+				DataRowView drv = (DataRowView) BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", PK)];
+				lc_reserv.dgv_chambre.Rows.Add(drv.Row);
+			}
+		}
+
 		public bool Add()
 		{
 			NewReserv();
@@ -194,20 +222,23 @@ namespace PrjEq01_Application.Tabs
 		{
 			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.EDIT);
-			return true;
+			return false;
 		}
 
 		public bool Delete()
 		{
 			MessageBox.Show("Fonction en développement.");
 			//SetReadOnly(States.CONSULT);
-			return true;
+			return false;
 		}
 
 		public bool Undo()
 		{
 			if (State == States.ADD)
 			{
+				ic_Reserv.ResetErrors();
+				lc_reserv.ResetErrors();
+
 				DS_Master.Tables["Reservation"].Rows.RemoveAt(DS_Master.RESERVATION.Rows.Count - 1);
 				DTR_RESERV.CancelEdit();
 				BS_RESERVATION.Position = 0;
@@ -218,8 +249,13 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Save()
 		{
-			MessageBox.Show("Fonction en développement.");
-			//SetReadOnly(States.CONSULT);
+			if (!CheckErrors())
+			{
+				ic_Reserv.ResetErrors();
+				lc_reserv.ResetErrors();
+				DTR_RESERV.AcceptChanges();
+				return true;
+			}
 			return false;
 		}
 		
@@ -250,24 +286,32 @@ namespace PrjEq01_Application.Tabs
 		private void NewReserv()
 		{
 			BS_RESERVATION.Position = BS_RESERVATION.Count - 1;
+			BS_BK_CHAMBRE.Position = BS_BK_CHAMBRE.Count - 1;
 			DS_Master.RESERVATION.Columns["IdReser"].AutoIncrementSeed = (int)DS_Master.RESERVATION.Rows[BS_RESERVATION.Position]["IdReser"] + 1;
-
+			
 			DTR_RESERV = DS_Master.Tables["Reservation"].NewRow();
 			DTR_RESERV["IdReser"] = (int)DS_Master.RESERVATION.Columns["IdReser"].AutoIncrementSeed;
 			DTR_RESERV["IdCli"] = -1;
 			DTR_RESERV["DateReser"] = DateTime.Today;
 			DTR_RESERV["DateDebut"] = DateTime.Today;
-			DTR_RESERV["DateFin"] = DateTime.Today;
-
+			DTR_RESERV["DateFin"] = DateTime.Today.AddDays(3);
 			DS_Master.Tables["Reservation"].Rows.Add(DTR_RESERV);
-			BS_RESERVATION.Position = BS_RESERVATION.Count - 1;
 
-			DTR_RESERV.BeginEdit();
+			BS_RESERVATION.Position = BS_RESERVATION.Count - 1;
 
 			Link_All(false);
 			Link_Reservation(true);
 
 			EmptyFields();
+		}
+
+		private bool CheckErrors()
+		{
+			// We need the two functions to execute
+			bool result = false;
+			result |= this.ic_Reserv.CheckErrors();
+			result |= this.lc_reserv.CheckErrors();
+			return result;
 		}
 	}
 }
