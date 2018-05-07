@@ -54,10 +54,7 @@ namespace PrjEq01_CommonForm
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
 			if (selected_tab.uc_tab.Add())
 			{
-				if (tc_main.SelectedTab.Name != "Tab_Chambres")
-				{
-					selected_tab.uc_tab.SetReadOnly(state);
-				}
+				selected_tab.uc_tab.SetReadOnly(state);
 				selected_tab.uc_tab.State = state;
 				set_ts_buttons(state);
 			}
@@ -153,7 +150,6 @@ namespace PrjEq01_CommonForm
             {
                 Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
                 set_ts_buttons(selected_tab.uc_tab.State);
-				selected_tab.uc_tab.Fill();
             }
             catch (Exception exc) { };
         }

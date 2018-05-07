@@ -40,8 +40,9 @@ namespace PrjEq01_Application.Tabs
 			this.TA_CLIENT = new PrjEq01_Application.DS_MasterTableAdapters.CLIENTTableAdapter();
 			this.ic_Reserv = new PrjEq01_Application.UserControls.Info_Client.IC_Reserv();
 			this.ir_Reserv = new PrjEq01_Application.UserControls.Info_Reservation.IR_Reserv();
-			this.lc_chambre = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Reserv();
+			this.lc_reserv = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Reserv();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.TA_BK_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.BK_CHAMBRETableAdapter();
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_DE)).BeginInit();
@@ -73,45 +74,55 @@ namespace PrjEq01_Application.Tabs
 			// 
 			// ic_Reserv
 			// 
+			this.ic_Reserv.BS = null;
 			this.ic_Reserv.ClientSelected = null;
 			this.ic_Reserv.Location = new System.Drawing.Point(3, 3);
 			this.ic_Reserv.MinimumSize = new System.Drawing.Size(365, 190);
 			this.ic_Reserv.Name = "ic_Reserv";
-			this.ic_Reserv.Size = new System.Drawing.Size(395, 190);
+			this.ic_Reserv.Size = new System.Drawing.Size(408, 190);
 			this.ic_Reserv.TabIndex = 22;
 			// 
 			// ir_Reserv
 			// 
 			this.ir_Reserv.BS = null;
-			this.ir_Reserv.Location = new System.Drawing.Point(404, 3);
+			this.ir_Reserv.Location = new System.Drawing.Point(417, 3);
 			this.ir_Reserv.MinimumSize = new System.Drawing.Size(200, 190);
 			this.ir_Reserv.Name = "ir_Reserv";
 			this.ir_Reserv.ReservSelected = null;
-			this.ir_Reserv.Size = new System.Drawing.Size(200, 190);
+			this.ir_Reserv.Size = new System.Drawing.Size(224, 190);
 			this.ir_Reserv.TabIndex = 21;
 			// 
-			// lc_chambre
+			// lc_reserv
 			// 
-			this.lc_chambre.Location = new System.Drawing.Point(3, 199);
-			this.lc_chambre.MinimumSize = new System.Drawing.Size(850, 230);
-			this.lc_chambre.Name = "lc_chambre";
-			this.lc_chambre.Size = new System.Drawing.Size(951, 256);
-			this.lc_chambre.TabIndex = 23;
+			this.lc_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lc_reserv.Location = new System.Drawing.Point(3, 199);
+			this.lc_reserv.MinimumSize = new System.Drawing.Size(850, 230);
+			this.lc_reserv.Name = "lc_reserv";
+			this.lc_reserv.OnSelected = null;
+			this.lc_reserv.Size = new System.Drawing.Size(967, 233);
+			this.lc_reserv.TabIndex = 23;
 			// 
 			// errorProvider
 			// 
 			this.errorProvider.ContainerControl = this;
+			// 
+			// TA_BK_CHAMBRE
+			// 
+			this.TA_BK_CHAMBRE.ClearBeforeFill = true;
 			// 
 			// UC_Reservation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.Controls.Add(this.lc_chambre);
+			this.Controls.Add(this.lc_reserv);
 			this.Controls.Add(this.ic_Reserv);
 			this.Controls.Add(this.ir_Reserv);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "UC_Reservation";
-			this.Size = new System.Drawing.Size(971, 458);
+			this.Size = new System.Drawing.Size(973, 432);
 			this.Load += new System.EventHandler(this.Tab_Reservation_Load);
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).EndInit();
@@ -135,7 +146,8 @@ namespace PrjEq01_Application.Tabs
 		private UserControls.Info_Client.IC_Reserv ic_Reserv;
 		private System.Windows.Forms.BindingSource BS_CLIENT;
 		private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
-		private UserControls.Liste_Chambre.LC_Reserv lc_chambre;
+		private UserControls.Liste_Chambre.LC_Reserv lc_reserv;
 		private System.Windows.Forms.ErrorProvider errorProvider;
+		private DS_MasterTableAdapters.BK_CHAMBRETableAdapter TA_BK_CHAMBRE;
 	}
 }
