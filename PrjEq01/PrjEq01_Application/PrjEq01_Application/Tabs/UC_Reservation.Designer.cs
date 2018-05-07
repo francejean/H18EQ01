@@ -42,6 +42,7 @@ namespace PrjEq01_Application.Tabs
 			this.ir_Reserv = new PrjEq01_Application.UserControls.Info_Reservation.IR_Reserv();
 			this.lc_reserv = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Reserv();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.TA_BK_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.BK_CHAMBRETableAdapter();
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_DE)).BeginInit();
@@ -99,12 +100,17 @@ namespace PrjEq01_Application.Tabs
 			this.lc_reserv.Location = new System.Drawing.Point(3, 199);
 			this.lc_reserv.MinimumSize = new System.Drawing.Size(850, 230);
 			this.lc_reserv.Name = "lc_reserv";
+			this.lc_reserv.OnSelected = null;
 			this.lc_reserv.Size = new System.Drawing.Size(967, 233);
 			this.lc_reserv.TabIndex = 23;
 			// 
 			// errorProvider
 			// 
 			this.errorProvider.ContainerControl = this;
+			// 
+			// TA_BK_CHAMBRE
+			// 
+			this.TA_BK_CHAMBRE.ClearBeforeFill = true;
 			// 
 			// UC_Reservation
 			// 
@@ -142,5 +148,6 @@ namespace PrjEq01_Application.Tabs
 		private DS_MasterTableAdapters.CLIENTTableAdapter TA_CLIENT;
 		private UserControls.Liste_Chambre.LC_Reserv lc_reserv;
 		private System.Windows.Forms.ErrorProvider errorProvider;
+		private DS_MasterTableAdapters.BK_CHAMBRETableAdapter TA_BK_CHAMBRE;
 	}
 }

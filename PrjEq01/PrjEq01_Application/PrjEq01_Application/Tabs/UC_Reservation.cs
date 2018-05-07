@@ -28,7 +28,8 @@ namespace PrjEq01_Application.Tabs
 			ic_Reserv.ClientSelected = this.OnClientSelected;
 			ir_Reserv.BS = BS_RESERVATION;
 			ir_Reserv.ReservSelected = this.OnReservSelected;
-			lc_reserv.setBS(BS_CHAMBRE);
+			lc_reserv.setBS(BS_BK_CHAMBRE);
+			lc_reserv.OnSelected = OnChambreSelected;
 
 			State = States.CONSULT;
 		}
@@ -40,6 +41,8 @@ namespace PrjEq01_Application.Tabs
 
 			BS_BK_CHAMBRE.DataSource = DS_Master;
 			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
+
+			TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, null);h
 			
 			Sync_ForeignTables();
 		}
@@ -200,6 +203,15 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
+		public void OnChambreSelected(int PK)
+		{
+			if(State == States.ADD)
+			{
+				DataRowView drv = (DataRowView) BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", PK)];
+				lc_reserv.dgv_chambre.Rows.Add(drv.Row);
+			}
+		}
+
 		public bool Add()
 		{
 			NewReserv();
@@ -241,6 +253,7 @@ namespace PrjEq01_Application.Tabs
 			{
 				ic_Reserv.ResetErrors();
 				lc_reserv.ResetErrors();
+				DTR_RESERV.AcceptChanges();
 				return true;
 			}
 			return false;
@@ -295,9 +308,10 @@ namespace PrjEq01_Application.Tabs
 		private bool CheckErrors()
 		{
 			// We need the two functions to execute
-			bool result1 = this.ic_Reserv.CheckErrors(),
-				 result2 = this.lc_reserv.CheckErrors();
-			return result1 || result2;
+			bool result = false;
+			result |= this.ic_Reserv.CheckErrors();
+			result |= this.lc_reserv.CheckErrors();
+			return result;
 		}
 	}
 }
