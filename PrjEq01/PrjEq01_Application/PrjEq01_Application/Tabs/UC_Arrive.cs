@@ -244,11 +244,22 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Edit()
 		{
+			DTR_Arrive = ds_master.Tables["Arrive"].Rows[BS_ARRIVE.Position];
 			return true;
 		}
 
 		public bool Delete()
 		{
+			DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			switch (result)
+			{
+				case DialogResult.Yes:
+					BS_ARRIVE.RemoveCurrent();
+					TA_ARRIVE.Update(ds_master.ARRIVE);
+					break;
+				case DialogResult.No:
+					break;
+			}
 			return true;
 		}
 
@@ -419,7 +430,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void OnChambreSelected(int NoCham)
 		{
-			if (State == States.ADD)
+			if (State == States.ADD || State == States.EDIT)
 			{
 				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", NoCham)];
 				DTR_De = De.Row;
@@ -461,6 +472,7 @@ namespace PrjEq01_Application.Tabs
 
 		public bool CheckSaveErrors()
 		{
+			if(State == States.ADD || State == States.EDIT)
 			if (DTR_Arrive.HasErrors)
 			{
 				foreach(DataColumn column in DTR_Arrive.GetColumnsInError())

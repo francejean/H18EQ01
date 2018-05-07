@@ -42,7 +42,7 @@ namespace PrjEq01_Application.Tabs
 			BS_BK_CHAMBRE.DataSource = DS_Master;
 			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
 
-			TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, null);h
+			TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, null);
 			
 			Sync_ForeignTables();
 		}

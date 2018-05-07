@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PrjEq01_CommonForm;
 
 namespace PrjEq01_Application.UserControls.Info_Reservation
 {
@@ -32,6 +33,12 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 			{
 				BS.Position = BS_pos_backup;
 			}
+		}
+
+		public override void SetReadOnly(States state)
+		{
+			base.SetReadOnly(state);
+			//bt_list.Enabled = (state == States.ADD);
 		}
 	}
 }
