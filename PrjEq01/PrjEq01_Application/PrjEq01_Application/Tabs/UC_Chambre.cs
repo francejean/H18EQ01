@@ -385,6 +385,22 @@ namespace PrjEq01_Application.Tabs
 			DTR_Chambre.BeginEdit();
 		}
 
+		private void DeleteChambre()
+		{
+			BS_AYANT.Position = 0;
+			DTR_Chambre = dS_Master.Tables["CHAMBRE"].Rows[BS_CHAMBRE.Position];
+			foreach(DataRow DTR_toDel in DTR_Chambre.GetChildRows("AYANT_FK_NoCham"))
+			{
+				BS_AYANT.RemoveCurrent();
+				BS_AYANT.Position++;
+			}
+			BS_CHAMBRE.RemoveCurrent();
+			BS_CHAMBRE.MoveFirst();
+			TA_AYANT.Update(dS_Master.AYANT);
+			TA_CHAMBRE.Update(dS_Master.CHAMBRE);
+			AjustNbDispoInTypeCham();
+		}
+
 		private void AjustNbDispoInTypeCham()
 		{
 			foreach (DataRow DTR_TypeCham in dS_Master.Tables["TYPECHAM"].Rows)
@@ -441,7 +457,31 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Delete()
 		{
-			MessageBox.Show("Fonction en développement.");
+			TA_CHAMBRE.FillByNotInDE(dS_Master.CHAMBRE);
+			if (dS_Master.Tables["CHAMBRE"].Rows.Count <= 0)
+			{
+				MessageBox.Show("Aucune chambre n'est disponible pour être modifier");
+				TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
+				return false;
+			}
+			PrjEq01_Application.List_Forms.LF_ChambreNoCham lf_chambreNoCham = new PrjEq01_Application.List_Forms.LF_ChambreNoCham();
+			lf_chambreNoCham.Dgv_main.AutoGenerateColumns = false;
+			lf_chambreNoCham.Dgv_main.DataSource = BS_CHAMBRE;
+			if (lf_chambreNoCham.ShowDialog() == DialogResult.Cancel)
+			{
+				TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
+				return false;
+			}
+			DialogResult result = MessageBox.Show("Êtes-vous certains de vouloir supprimer cette chambre?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			switch (result)
+			{
+				case DialogResult.Yes:
+					DeleteChambre();
+					break;
+				case DialogResult.No:
+					break;
+			}
+			TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
 			return true;
 		}
 
