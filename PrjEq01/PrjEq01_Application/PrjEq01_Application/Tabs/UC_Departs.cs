@@ -273,7 +273,6 @@ namespace PrjEq01_Application.Tabs
 					DTR_Depart.BeginEdit();
 					DTR_Depart["ConfirmerPar"] = ir_departs.tb_confirmerPar.Text;
 					DTR_Depart.EndEdit();
-					AjustDe();
 					try
 					{
 						TA_DEPART.Update(dS_Master.DEPART);
@@ -281,7 +280,9 @@ namespace PrjEq01_Application.Tabs
 					catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
+						return false;
 					}
+					AjustDe();
 					TA_ARRIVE.Fill(dS_Master.ARRIVE);
 					Sync_ForeignTables();
 					ir_departs.tb_confirmerPar.ResetText();
