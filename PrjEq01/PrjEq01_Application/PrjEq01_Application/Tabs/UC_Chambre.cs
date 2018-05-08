@@ -377,6 +377,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void AjustNbDispoInTypeCham(string lastTypeCham)
 		{
+			//foreach
 			int totalDispo = 0;
 			DataRow DTR_TypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"]);
 			foreach (DataRow DTR_Cham in DTR_TypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
