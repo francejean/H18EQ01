@@ -22,7 +22,7 @@ namespace PrjEq01_Application.Tabs
 		private DataRow DTR_Chambre;
 		private DataRow DTR_Ayant;
 		private DataRow DTR_BK_Commodite;
-		
+
 		private ErrorProvider errorProvider = new ErrorProvider();
 
 		public UC_Chambre()
@@ -40,7 +40,7 @@ namespace PrjEq01_Application.Tabs
 		public void Fill()
 		{
 			string safeNoCham = tb_noCham.Text;
-			if(State == States.CONSULT)
+			if (State == States.CONSULT)
 			{
 				TA_CHAMBRE.FillByCHAMBRE(this.dS_Master.CHAMBRE);
 				TA_AYANT.FillBy(this.dS_Master.AYANT);
@@ -48,7 +48,7 @@ namespace PrjEq01_Application.Tabs
 			TA_COMMODITE.Fill(this.dS_Master.COMMODITE);
 			TA_TYPECHAM.Fill(this.dS_Master.TYPECHAM);
 			TA_LOCALISATION.Fill(this.dS_Master.LOCALISATION);
-			if (tb_noCham.ReadOnly && BS_CHAMBRE.DataSource != null) 
+			if (tb_noCham.ReadOnly && BS_CHAMBRE.DataSource != null)
 				BS_CHAMBRE.Position = BS_CHAMBRE.Find("NoCham", safeNoCham);
 		}
 
@@ -364,7 +364,6 @@ namespace PrjEq01_Application.Tabs
 
 		private void NewChambre()
 		{
-			SetReadOnly(States.CONSULT);
 			UnLinkTextData();
 			WipeInformation();
 			bt_listNoChambre.Enabled = false;
@@ -377,31 +376,20 @@ namespace PrjEq01_Application.Tabs
 
 		private void AjustNbDispoInTypeCham(string lastTypeCham)
 		{
-			int totalDispo = 0;
-			DataRow DTR_TypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"]);
-			foreach (DataRow DTR_Cham in DTR_TypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
+			foreach(DataRow DTR_TypeCham in dS_Master.Tables["TYPECHAM"].Rows)
 			{
-				if(DTR_Cham["Etat"].ToString() == "1")
-				{
-					totalDispo++;
-				}
-			}
-			dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"])["NbDispo"] = totalDispo;
-
-			if(lastTypeCham != null && lastTypeCham != DTR_Chambre["CodTypCham"].ToString()) //***** NEEDTO test this in edit
-			{
-				int totalLast = 0;
-				DataRow DTR_LastTypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(lastTypeCham);
-				foreach (DataRow DTR_Cham in DTR_LastTypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
+				int totalDispo = 0;
+				foreach (DataRow DTR_Cham in DTR_TypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
 				{
 					if (DTR_Cham["Etat"].ToString() == "1")
 					{
-						totalLast++;
+						totalDispo++;
 					}
 				}
-				dS_Master.Tables["TYPECHAM"].Rows.Find(lastTypeCham)["NbDispo"] = totalLast;
-			}//************************************************************************************ NEEDTO test this in edit
+				dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_TypeCham["CodTypCham"])["NbDispo"] = totalDispo;
 
+			}
+			
 			try
 			{
 				TA_TYPECHAM.Update(dS_Master.TYPECHAM);
@@ -414,14 +402,14 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Add()
 		{
-			State = States.ADD;
+			State = States.ADD;//STATE?
 			NewChambre();
 			return true;
 		}
 
 		public bool Edit()
 		{
-			TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);//NEEDTO CHANGE PLACE
+			TA_BK_COMMODITE.FillBy(this.dS_Master.BK_COMMODITE, tb_noCham.Text);//NEEDTO CHANGE PLACE WHEN DO EDIT
 			MessageBox.Show("Fonction en développement.");
 			return true;
 		}
@@ -436,7 +424,7 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD)
 			{
-				State = States.CONSULT;
+				State = States.CONSULT; //STATE??
 				prixAjust = false;
 				errorProvider.Clear();
 				if (mustFocusNoCham)
@@ -465,7 +453,7 @@ namespace PrjEq01_Application.Tabs
 				mtb_prixToFull();
 				if (IsAllInfoChambreValide())
 				{
-					State = States.CONSULT;
+					State = States.CONSULT;//STATE?
 					errorProvider.Clear();
 					BS_CHAMBRE.Position = 0;
 					float.TryParse(DTR_Chambre["Prix"].ToString(), out float prix);
@@ -487,14 +475,6 @@ namespace PrjEq01_Application.Tabs
 				}
 				else
 				{
-					if (mustFocusNoCham)
-					{
-						tb_noCham.ReadOnly = false;
-					}
-					else
-					{
-						SetReadOnly(States.ADD);
-					}
 					return false;
 				}
 			}
@@ -504,25 +484,21 @@ namespace PrjEq01_Application.Tabs
 		public void Go_Start()
 		{
 			BS_CHAMBRE.MoveFirst();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_Back()
 		{
 			BS_CHAMBRE.MovePrevious();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_Forward()
 		{
 			BS_CHAMBRE.MoveNext();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		public void Go_End()
 		{
 			BS_CHAMBRE.MoveLast();
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listNoChambre_Click(object sender, EventArgs e)
@@ -535,7 +511,6 @@ namespace PrjEq01_Application.Tabs
 			{
 				BS_CHAMBRE.Position = tempPositionBS_CHAMBRE;
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCodeType_Click(object sender, EventArgs e)
@@ -548,7 +523,6 @@ namespace PrjEq01_Application.Tabs
 				tb_descType.Text = dS_Master.Tables["TYPECHAM"].Rows[BS_TYPECHAM.Position]["DescTyp"].ToString();
 				IsCodeTypeValide(0);
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCodeLoc_Click(object sender, EventArgs e)
@@ -561,16 +535,15 @@ namespace PrjEq01_Application.Tabs
 				tb_descLoc.Text = dS_Master.Tables["LOCALISATION"].Rows[BS_LOCALISATION.Position]["DescLoc"].ToString();
 				IsCodeLocValide(0);
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_listCommodite_Click(object sender, EventArgs e)
 		{
 			PrjEq01_Application.List_Forms.LF_ChambreCommodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_ChambreCommodite();
-            lf_chambreCommodite.Dgv_main.DataSource = BS_BK_COMMODITE;
-            if (lf_chambreCommodite.ShowDialog() == DialogResult.OK)
-            {
-                DTR_Ayant = dS_Master.Tables["AYANT"].NewRow();
+			lf_chambreCommodite.Dgv_main.DataSource = BS_BK_COMMODITE;
+			if (lf_chambreCommodite.ShowDialog() == DialogResult.OK)
+			{
+				DTR_Ayant = dS_Master.Tables["AYANT"].NewRow();
 				DTR_Ayant["NoCham"] = tb_noCham.Text;
 				DTR_Ayant["CodCom"] = dS_Master.Tables["BK_COMMODITE"].Rows[BS_BK_COMMODITE.Position]["CodCom"];
 				DTR_Ayant["DescCom"] = dS_Master.Tables["BK_COMMODITE"].Rows[BS_BK_COMMODITE.Position]["DescCom"];
@@ -578,7 +551,6 @@ namespace PrjEq01_Application.Tabs
 				BS_BK_COMMODITE.RemoveCurrent();
 				dS_Master.Tables["BK_COMMODITE"].AcceptChanges();
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void bt_deleteCommodite_Click(object sender, EventArgs e)
@@ -591,7 +563,6 @@ namespace PrjEq01_Application.Tabs
 				dS_Master.Tables["BK_COMMODITE"].Rows.Add(DTR_BK_Commodite);
 				BS_AYANT.RemoveCurrent();
 			}
-			//MessageBox.Show("Fonction en développement.");
 		}
 
 		private void UC_Chambre_Leave(object sender, EventArgs e)
@@ -709,7 +680,7 @@ namespace PrjEq01_Application.Tabs
 			if (mtb_prix.Text.Length < 5 && (State == States.CONSULT || prixAjust))
 			{
 				mtb_prixToFull();
-				if(State != States.CONSULT)
+				if (State != States.CONSULT)
 					IsPrixValide(0);
 			}
 		}
