@@ -386,8 +386,7 @@ namespace PrjEq01_Application.Tabs
 				}
 			}
 			dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"])["NbDispo"] = totalDispo;
-
-			//ddfdfdf
+			
 			if (lastTypeCham != null && lastTypeCham != DTR_Chambre["CodTypCham"].ToString()) //***** NEEDTO test this in edit
 			{
 				int totalLast = 0;
