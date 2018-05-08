@@ -420,13 +420,19 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Edit()
 		{
+			TA_CHAMBRE.FillByNotInDE(dS_Master.CHAMBRE);
+			if (dS_Master.Tables["CHAMBRE"].Rows.Count <= 0)
+			{
+				MessageBox.Show("Aucune chambre n'est disponible pour être modifier");
+				TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
+				return false;
+			}
 			PrjEq01_Application.List_Forms.LF_ChambreNoCham lf_chambreNoCham = new PrjEq01_Application.List_Forms.LF_ChambreNoCham();
 			lf_chambreNoCham.Dgv_main.AutoGenerateColumns = false;
 			lf_chambreNoCham.Dgv_main.DataSource = BS_CHAMBRE;
-			int tempPositionBS_CHAMBRE = BS_CHAMBRE.Position;
 			if (lf_chambreNoCham.ShowDialog() == DialogResult.Cancel)
 			{
-				BS_CHAMBRE.Position = tempPositionBS_CHAMBRE;
+				TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
 				return false;
 			}
 			EditChambre();
@@ -443,6 +449,7 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD || State == States.EDIT)
 			{
+				bool stateEdit = (State == States.EDIT);
 				State = States.CONSULT; //STATE??
 				prixAjust = false;
 				userChangePrix = false;
@@ -456,10 +463,13 @@ namespace PrjEq01_Application.Tabs
 				{
 					DTR_Chambre.EndEdit();
 					dS_Master.Tables["CHAMBRE"].RejectChanges();
+					dS_Master.Tables["AYANT"].RejectChanges();
 					BS_CHAMBRE.ResetCurrentItem();
 				}
 				mustFocusNoCham = false;
 				BS_CHAMBRE.Position = 0;
+				if (stateEdit)
+					TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
 			}
 			return true;
 		}
@@ -494,6 +504,8 @@ namespace PrjEq01_Application.Tabs
 					}
 					AjustNbDispoInTypeCham();
 					BS_CHAMBRE.Sort = "NoCham";
+					if (stateEdit)
+						TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
 					return true;
 				}
 				else
