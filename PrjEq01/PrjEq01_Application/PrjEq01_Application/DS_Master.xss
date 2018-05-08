@@ -126,6 +126,38 @@
     <Connector ID="DesignRelation:DEPART_FK_IdCli" ZOrder="24" LineWidth="11">
       <RoutePoints>
         <Point>
+          <X>694</X>
+          <Y>647</Y>
+        </Point>
+        <Point>
+          <X>694</X>
+          <Y>1375</Y>
+        </Point>
+        <Point>
+          <X>565</X>
+          <Y>1375</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:DE_FK_NoCham" ZOrder="20" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>277</X>
+          <Y>356</Y>
+        </Point>
+        <Point>
+          <X>277</X>
+          <Y>1367</Y>
+        </Point>
+        <Point>
+          <X>380</X>
+          <Y>1367</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:DEPART_FK_IdCli" ZOrder="19" LineWidth="11">
+      <RoutePoints>
+        <Point>
           <X>710</X>
           <Y>343</Y>
         </Point>

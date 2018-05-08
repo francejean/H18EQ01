@@ -162,6 +162,12 @@
     <Compile Include="UserControls\Info_Client\IC_Reserv.Designer.cs">
       <DependentUpon>IC_Reserv.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Info_Client\IC_Client.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Info_Client\IC_Client.Designer.cs">
+      <DependentUpon>IC_Client.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Info_Reservation\IR_Base.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     <EmbeddedResource Include="UserControls\Info_Client\IC_Arrive.resx">
       <DependentUpon>IC_Arrive.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Client\IC_Client.resx">
+      <DependentUpon>IC_Client.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Reserv.resx">
       <DependentUpon>IC_Reserv.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +294,9 @@
     <EmbeddedResource Include="UserControls\Info_Reservation\IR_Depart.resx">
       <DependentUpon>IR_Depart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Info_Reservation\IR_Reserv.resx">
+      <DependentUpon>IR_Reserv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Arrive.resx">
       <DependentUpon>LC_Arrive.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Info_Client\IC_Base.resx">
       <DependentUpon>IC_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Liste_Chambre\LC_Reserv.resx">
+      <DependentUpon>LC_Reserv.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_Master.xsc">
       <DependentUpon>DS_Master.xsd</DependentUpon>

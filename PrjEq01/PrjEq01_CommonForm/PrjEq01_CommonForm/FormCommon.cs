@@ -37,17 +37,8 @@ namespace PrjEq01_CommonForm
             else if(state == States.CONSULT)
             {
                 ts_button_list.Find(x => x.Name == "button_add").Enabled = true;
-                if (tc_main.SelectedTab.Name != "Tab_Départs")
-                {
-                    ts_button_list.Find(x => x.Name == "button_edit").Enabled = true;
-                    ts_button_list.Find(x => x.Name == "button_delete").Enabled = true;
-
-                }
-                else
-                {
-                    ts_button_list.Find(x => x.Name == "button_edit").Enabled = false;
-                    ts_button_list.Find(x => x.Name == "button_delete").Enabled = false;
-                }
+                ts_button_list.Find(x => x.Name == "button_edit").Enabled = (tc_main.SelectedTab.Name != "Tab_Départs");
+                ts_button_list.Find(x => x.Name == "button_delete").Enabled = (tc_main.SelectedTab.Name != "Tab_Départs" && tc_main.SelectedTab.Name != "Tab_Clients");
                 ts_button_list.Find(x => x.Name == "button_undo").Enabled = false;
                 ts_button_list.Find(x => x.Name == "button_save").Enabled = false;
                 ts_button_list.Find(x => x.Name == "button_backAll").Enabled = true;
@@ -63,10 +54,7 @@ namespace PrjEq01_CommonForm
             Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
 			if (selected_tab.uc_tab.Add())
 			{
-				if (tc_main.SelectedTab.Name != "Tab_Chambres")
-				{
-					selected_tab.uc_tab.SetReadOnly(state);
-				}
+				selected_tab.uc_tab.SetReadOnly(state);
 				selected_tab.uc_tab.State = state;
 				set_ts_buttons(state);
 			}
@@ -162,7 +150,6 @@ namespace PrjEq01_CommonForm
             {
                 Tab_Interface selected_tab = (Tab_Interface)tc_main.TabPages[tc_main.SelectedIndex];
                 set_ts_buttons(selected_tab.uc_tab.State);
-				selected_tab.uc_tab.Fill();
             }
             catch (Exception exc) { };
         }

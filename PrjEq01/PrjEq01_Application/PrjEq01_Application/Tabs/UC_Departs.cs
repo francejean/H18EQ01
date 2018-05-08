@@ -230,6 +230,7 @@ namespace PrjEq01_Application.Tabs
 			PrjEq01_Application.List_Forms.LF_Arrive lf_arrive = new PrjEq01_Application.List_Forms.LF_Arrive(BS_ARRIVE);
 			if (lf_arrive.ShowDialog() == DialogResult.Cancel)
 			{
+				SetReadOnly(States.CONSULT);
 				TA_ARRIVE.Fill(dS_Master.ARRIVE);
 				Sync_ForeignTables();
 				return false;
@@ -289,6 +290,7 @@ namespace PrjEq01_Application.Tabs
 				}
 				else
 				{
+					SetReadOnly(States.ADD);
 					ir_departs.tb_confirmerPar.Focus();
 					return false;
 				}

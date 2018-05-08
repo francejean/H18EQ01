@@ -41,7 +41,7 @@ namespace PrjEq01_Application.UserControls
 			}
 		}
 
-		public void SetReadOnly(States state)
+		public virtual void SetReadOnly(States state)
 		{
 			switch (state)
 			{

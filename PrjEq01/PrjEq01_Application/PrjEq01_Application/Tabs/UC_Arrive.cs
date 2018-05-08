@@ -244,11 +244,22 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Edit()
 		{
+			DTR_Arrive = ds_master.Tables["Arrive"].Rows[BS_ARRIVE.Position];
 			return true;
 		}
 
 		public bool Delete()
 		{
+			DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			switch (result)
+			{
+				case DialogResult.Yes:
+					BS_ARRIVE.RemoveCurrent();
+					TA_ARRIVE.Update(ds_master.ARRIVE);
+					break;
+				case DialogResult.No:
+					break;
+			}
 			return true;
 		}
 
@@ -279,39 +290,44 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Save()
 		{
-			bool hasErrors = CheckSaveErrors();
-			if (State == States.ADD)
+			DialogResult result = MessageBox.Show("Do you want to save the information?","Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			switch (result)
 			{
-				if (!hasErrors)
-				{
-					DialogResult result = MessageBox.Show("Do you want to save the information?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-					switch (result)
+				case DialogResult.Yes:
+					bool hasErrors = true;
+					if (State == States.ADD)
 					{
-						case DialogResult.Yes:
+						hasErrors = CheckSaveErrors();
+						if (!hasErrors)
+						{
 							try
-								{
-									DTR_Arrive.EndEdit();
-									DTR_De.EndEdit();
-									TA_ARRIVE.Update(ds_master.ARRIVE);
-									TA_DE.Update(ds_master.DE);
-									Link_All(true);
-									this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
-									Sync_ForeignTables();
-								}
-								catch (Exception e)
-								{
-									hasErrors = true;
-									MessageBox.Show(e.Message);
-								}
-							return true;
-						case DialogResult.No:
-							return false;
-						default:
-							return false;
+							{
+								DTR_Arrive.EndEdit();
+								DTR_De.EndEdit();
+								TA_ARRIVE.Update(ds_master.ARRIVE);
+								TA_DE.Update(ds_master.DE);
+								Link_All(true);
+								this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+								Sync_ForeignTables();
+							}
+							catch (Exception e)
+							{
+								hasErrors = true;
+								MessageBox.Show(e.Message);
+							}
+						}
+						else
+						{
+
+						}
 					}
-				}
+					return !hasErrors;
+
+				case DialogResult.No:
+					return false;
+				default:
+					return false;
 			}
-			return !hasErrors;
 		}
 
 		public void Go_Start()
@@ -414,7 +430,7 @@ namespace PrjEq01_Application.Tabs
 
 		public void OnChambreSelected(int NoCham)
 		{
-			if (State == States.ADD)
+			if (State == States.ADD || State == States.EDIT)
 			{
 				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", NoCham)];
 				DTR_De = De.Row;
@@ -456,34 +472,27 @@ namespace PrjEq01_Application.Tabs
 
 		public bool CheckSaveErrors()
 		{
-			if(State == States.ADD)
+			if(State == States.ADD || State == States.EDIT)
+			if (DTR_Arrive.HasErrors)
 			{
-				if (DTR_Arrive.HasErrors)
+				foreach(DataColumn column in DTR_Arrive.GetColumnsInError())
 				{
-					SetErrors();
-					return true;
+					switch (column.ColumnName)
+					{
+						case "IdCli":
+							errorProvider.SetError(ic_arrive.tb_noClient, DTR_Arrive.GetColumnError(column));
+							break;
+						case "IdReser":
+							errorProvider.SetError(ir_arrive.tb_noReserv, DTR_Arrive.GetColumnError(column));
+							break;
+						case "NoCham":
+							errorProvider.SetError(ic_arrive.tb_noChambre, DTR_Arrive.GetColumnError(column));
+							break;
+					}
 				}
+				return true;
 			}
 			return false;
-		}
-
-		public void SetErrors()
-		{
-			foreach (DataColumn column in DTR_Arrive.GetColumnsInError())
-			{
-				switch (column.ColumnName)
-				{
-					case "IdCli":
-						errorProvider.SetError(ic_arrive.tb_noClient, DTR_Arrive.GetColumnError(column));
-						break;
-					case "IdReser":
-						errorProvider.SetError(ir_arrive.tb_noReserv, DTR_Arrive.GetColumnError(column));
-						break;
-					case "NoCham":
-						errorProvider.SetError(ic_arrive.tb_noChambre, DTR_Arrive.GetColumnError(column));
-						break;
-				}
-			}
 		}
 	}
 }

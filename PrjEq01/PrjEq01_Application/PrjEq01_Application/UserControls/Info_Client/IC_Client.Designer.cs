@@ -1,6 +1,6 @@
-﻿namespace PrjEq01_Application.UserControls.Liste_Chambre
+﻿namespace PrjEq01_Application.UserControls.Info_Client
 {
-	partial class LC_Reserv
+	partial class IC_Client
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,32 +28,25 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-			this.GroupBox_ListeChambres.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).BeginInit();
+			this.gb_client.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// errorProvider
+			// bt_list
 			// 
-			this.errorProvider.ContainerControl = this;
+			this.bt_list.Visible = false;
 			// 
-			// LC_Reserv
+			// IC_Client
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.Name = "LC_Reserv";
-			this.GroupBox_ListeChambres.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgv_chambre)).EndInit();
+			this.Name = "IC_Client";
+			this.gb_client.ResumeLayout(false);
+			this.gb_client.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.ErrorProvider errorProvider;
 	}
 }
