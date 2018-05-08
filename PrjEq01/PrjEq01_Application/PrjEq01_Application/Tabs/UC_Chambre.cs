@@ -376,31 +376,20 @@ namespace PrjEq01_Application.Tabs
 
 		private void AjustNbDispoInTypeCham(string lastTypeCham)
 		{
-			int totalDispo = 0;
-			DataRow DTR_TypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"]);
-			foreach (DataRow DTR_Cham in DTR_TypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
+			foreach(DataRow DTR_TypeCham in dS_Master.Tables["TYPECHAM"].Rows)
 			{
-				if (DTR_Cham["Etat"].ToString() == "1")
-				{
-					totalDispo++;
-				}
-			}
-			dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_Chambre["CodTypCham"])["NbDispo"] = totalDispo;
-			
-			if (lastTypeCham != null && lastTypeCham != DTR_Chambre["CodTypCham"].ToString()) //***** NEEDTO test this in edit
-			{
-				int totalLast = 0;
-				DataRow DTR_LastTypeCham = dS_Master.Tables["TYPECHAM"].Rows.Find(lastTypeCham);
-				foreach (DataRow DTR_Cham in DTR_LastTypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
+				int totalDispo = 0;
+				foreach (DataRow DTR_Cham in DTR_TypeCham.GetChildRows("CHAMBRE_FK_CodTypCham"))
 				{
 					if (DTR_Cham["Etat"].ToString() == "1")
 					{
-						totalLast++;
+						totalDispo++;
 					}
 				}
-				dS_Master.Tables["TYPECHAM"].Rows.Find(lastTypeCham)["NbDispo"] = totalLast;
-			}//************************************************************************************ NEEDTO test this in edit
+				dS_Master.Tables["TYPECHAM"].Rows.Find(DTR_TypeCham["CodTypCham"])["NbDispo"] = totalDispo;
 
+			}
+			
 			try
 			{
 				TA_TYPECHAM.Update(dS_Master.TYPECHAM);
