@@ -396,8 +396,16 @@ namespace PrjEq01_Application.Tabs
 			}
 			BS_CHAMBRE.RemoveCurrent();
 			BS_CHAMBRE.MoveFirst();
-			TA_AYANT.Update(dS_Master.AYANT);
-			TA_CHAMBRE.Update(dS_Master.CHAMBRE);
+			try
+			{
+				TA_AYANT.Update(dS_Master.AYANT);
+				TA_CHAMBRE.Update(dS_Master.CHAMBRE);
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 			AjustNbDispoInTypeCham();
 		}
 
@@ -618,6 +626,11 @@ namespace PrjEq01_Application.Tabs
 
 		private void bt_listCommodite_Click(object sender, EventArgs e)
 		{
+			if (BS_BK_COMMODITE.Count == 0)
+			{
+				MessageBox.Show("Cette chambre comporte déjà toute les commoditées, impossible d'en ajouter plus");
+				return;
+			}
 			PrjEq01_Application.List_Forms.LF_ChambreCommodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_ChambreCommodite();
 			lf_chambreCommodite.Dgv_main.DataSource = BS_BK_COMMODITE;
 			if (lf_chambreCommodite.ShowDialog() == DialogResult.OK)
@@ -694,7 +707,8 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (mustFocusNoCham && e.KeyCode == Keys.Enter)
 			{
-				tb_etat.Focus();
+				tb_etage.Focus();
+				tb_etage.DeselectAll();
 			}
 		}
 
