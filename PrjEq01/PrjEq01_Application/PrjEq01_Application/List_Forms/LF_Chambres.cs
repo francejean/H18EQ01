@@ -20,5 +20,10 @@ namespace PrjEq01_Application.List_Forms
 			InitializeComponent();
 			dgv_main.DataSource = this.BS;
 		}
+
+		public string GetNoChamSelected()
+		{
+			return dgv_main.SelectedRows[0].Cells[0].Value.ToString();
+		}
 	}
 }

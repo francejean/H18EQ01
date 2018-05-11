@@ -41,8 +41,6 @@ namespace PrjEq01_Application.Tabs
 
 			BS_BK_CHAMBRE.DataSource = DS_Master;
 			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
-
-			//TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, null);
 			
 			Sync_ForeignTables();
 		}
@@ -50,9 +48,10 @@ namespace PrjEq01_Application.Tabs
 		public void Fill()
 		{
 			TA_DE.FillBy(DS_Master.DE);
-			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
-			TA_RESERVATION.Fill(DS_Master.RESERVATION);
 			TA_CLIENT.Fill(DS_Master.CLIENT);
+			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
+			TA_BK_CHAMBRE.Fill(DS_Master.BK_CHAMBRE);
+			TA_RESERVATION.Fill(DS_Master.RESERVATION);
 		}
 
 		private void Link_All(bool link_state)
@@ -307,10 +306,12 @@ namespace PrjEq01_Application.Tabs
 
 		private bool CheckErrors()
 		{
-			// We need the two functions to execute
+			// We need all the functions to execute
 			bool result = false;
 			result |= this.ic_Reserv.CheckErrors();
+			result |= this.ir_Reserv.CheckErrors();
 			result |= this.lc_reserv.CheckErrors();
+
 			return result;
 		}
 	}
