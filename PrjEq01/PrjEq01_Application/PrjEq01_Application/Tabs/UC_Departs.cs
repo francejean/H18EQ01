@@ -222,7 +222,7 @@ namespace PrjEq01_Application.Tabs
 			TA_ARRIVE.FillBy(dS_Master.ARRIVE, DateTime.Today.ToString());
 			if (dS_Master.Tables["ARRIVE"].Rows.Count <= 0)
 			{
-				MessageBox.Show("Toute les arrivées enregistré sont déjà associées à un départ, vous ne pouvez donc pas ajouter de départ");
+				MessageBox.Show("Aucune arrivées n'est disponible pour être associéer à un départ");
 				TA_ARRIVE.Fill(dS_Master.ARRIVE);
 				Sync_ForeignTables();
 				return false;
@@ -273,7 +273,6 @@ namespace PrjEq01_Application.Tabs
 					DTR_Depart.BeginEdit();
 					DTR_Depart["ConfirmerPar"] = ir_departs.tb_confirmerPar.Text;
 					DTR_Depart.EndEdit();
-					AjustDe();
 					try
 					{
 						TA_DEPART.Update(dS_Master.DEPART);
@@ -281,7 +280,9 @@ namespace PrjEq01_Application.Tabs
 					catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
+						return false;
 					}
+					AjustDe();
 					TA_ARRIVE.Fill(dS_Master.ARRIVE);
 					Sync_ForeignTables();
 					ir_departs.tb_confirmerPar.ResetText();
