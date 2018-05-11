@@ -42,7 +42,7 @@ namespace PrjEq01_Application.Tabs
 			{
 				IdArrive = (int)ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"];
 			}
-			catch(Exception e){ }
+			catch(Exception e){ MessageBox.Show(e.Message); }
 
 			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
 			this.TA_DE.FillBy(ds_master.DE);

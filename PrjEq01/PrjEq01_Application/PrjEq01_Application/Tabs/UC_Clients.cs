@@ -54,7 +54,7 @@ namespace PrjEq01_Application.Tabs
 				ic_client.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
 				ic_client.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 			}
-			catch (Exception e) { }
+			catch (Exception e) { MessageBox.Show(e.Message); }
 		}
 
 		public bool Add()
