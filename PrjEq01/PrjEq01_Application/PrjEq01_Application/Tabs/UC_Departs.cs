@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
+using System.Data.SqlClient;
 
 namespace PrjEq01_Application.Tabs
 {
@@ -38,11 +39,17 @@ namespace PrjEq01_Application.Tabs
 		public void Fill()
 		{
 			string idArrive = null;
-			try
+			if(BS_ARRIVE.Position >= 0)
 			{
-				idArrive = dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"].ToString();
+				try
+				{
+					idArrive = dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"].ToString();
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
 			}
-			catch (Exception ex) { }
 
 			if (State == States.ADD)
 			{
@@ -196,23 +203,38 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (DateTime.Today < ir_departs.DTP_Fin.Value)
 			{
-				Object[] pk = new object[2];
-				pk[0] = DTR_Depart["IdReser"];
-				pk[1] = DTR_Depart["NoCham"];
-				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(pk);
-				if (DTR_De != null)
+				DataRow newDe = null;
+				foreach(DataRow DTR_De in dS_Master.Tables["DE"].Rows)
 				{
-					DTR_De.BeginEdit();
-					DTR_De["Attribuee"] = false;
-					DTR_De.EndEdit();
-					try
+					if(DTR_De["IdReser"].ToString() == DTR_Depart["IdReser"].ToString() && DTR_De["NoCham"].ToString() == DTR_Depart["NoCham"].ToString())
 					{
-						TA_DE.Update(dS_Master.DE);
+						newDe = dS_Master.Tables["DE"].NewRow();
+						newDe["Attribuee"] = false;
+						newDe["NoCham"] = DTR_Depart["NoCham"];
+						newDe["IdReser"] = DTR_Depart["IdReser"];
 					}
-					catch (Exception ex)
-					{
-						MessageBox.Show(ex.Message);
-					}
+				}
+				if(newDe != null)
+				{
+					string connectionString = TA_DE.Connection.ConnectionString;
+					string query = "DELETE FROM DE WHERE NoCham = " + newDe["NoCham"].ToString() + " AND IdReser = " + newDe["IdReser"].ToString();
+					SqlConnection connection = new SqlConnection(connectionString);
+					SqlCommand command = new SqlCommand(query, connection);
+					SqlDataReader reader;
+					connection.Open();
+					reader = command.ExecuteReader();
+					while (reader.Read()) { }
+					connection.Close();
+
+					dS_Master.Tables["DE"].Rows.Add(newDe);
+				}
+				try
+				{
+					TA_DE.Update(dS_Master.DE);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
 				}
 			}
 		}
@@ -255,6 +277,7 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (State == States.ADD)
 			{
+				errorProvider.Clear();
 				dS_Master.Tables["DEPART"].RejectChanges();
 				BS_DEPART.ResetCurrentItem();
 				TA_ARRIVE.Fill(dS_Master.ARRIVE);
