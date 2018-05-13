@@ -112,7 +112,7 @@ namespace PrjEq01_Application.Tabs
 				ic_base.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
 				ic_base.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
 				ic_base.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
-				ic_base.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+				ic_base.cb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
 				ic_base.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
 				ic_base.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 			}

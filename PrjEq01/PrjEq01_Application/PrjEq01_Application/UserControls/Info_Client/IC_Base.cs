@@ -51,7 +51,7 @@ namespace PrjEq01_Application.UserControls
 		{
 			foreach (Control ctrl in gb_client.Controls)
 			{
-				if (ctrl is TextBox || ctrl is DateTimePicker)
+				if (ctrl is TextBox || ctrl is DateTimePicker || ctrl is ComboBox)
 					ctrl.ResetText();
 			}
 		}

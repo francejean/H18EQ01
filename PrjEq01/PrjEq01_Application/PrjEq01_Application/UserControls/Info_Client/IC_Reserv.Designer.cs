@@ -46,7 +46,7 @@
 			this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_adresse, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_telephone, 0);
-			this.gb_client.Controls.SetChildIndex(this.tb_typeCarte, 0);
+			this.gb_client.Controls.SetChildIndex(this.cb_typeCarte, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_nomClient, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_noCarte, 0);
 			// 
