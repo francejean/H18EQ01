@@ -30,11 +30,36 @@
 		{
 			this.gb_client.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// tb_noCarte
+			// 
+			this.tb_noCarte.Validated += new System.EventHandler(this.tb_noCarte_Validated);
+			// 
+			// tb_nomClient
+			// 
+			this.tb_nomClient.Validated += new System.EventHandler(this.tb_nomClient_Validated);
+			// 
+			// tb_telephone
+			// 
+			this.tb_telephone.Validated += new System.EventHandler(this.tb_telephone_Validated);
+			// 
+			// tb_adresse
+			// 
+			this.tb_adresse.Validated += new System.EventHandler(this.tb_adresse_Validated);
 			// 
 			// bt_list
 			// 
 			this.bt_list.Visible = false;
+			// 
+			// dtp_datExp
+			// 
+			this.dtp_datExp.Validated += new System.EventHandler(this.dtp_datExp_Validated);
+			// 
+			// cb_typeCarte
+			// 
+			this.cb_typeCarte.Validated += new System.EventHandler(this.cb_typeCarte_Validated);
 			// 
 			// IC_Client
 			// 
@@ -43,6 +68,7 @@
 			this.gb_client.ResumeLayout(false);
 			this.gb_client.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}

@@ -117,7 +117,7 @@ namespace PrjEq01_Application.Tabs
 						ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
 						ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
 						ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
-						ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+						ic_arrive.cb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
 						ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
 						ic_arrive.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 					}
@@ -130,7 +130,7 @@ namespace PrjEq01_Application.Tabs
 						ic_arrive.tb_nomClient.DataBindings.Clear();
 						ic_arrive.tb_adresse.DataBindings.Clear();
 						ic_arrive.tb_telephone.DataBindings.Clear();
-						ic_arrive.tb_typeCarte.DataBindings.Clear();
+						ic_arrive.cb_typeCarte.DataBindings.Clear();
 						ic_arrive.tb_noCarte.DataBindings.Clear();
 						ic_arrive.dtp_datExp.DataBindings.Clear();
 					}
@@ -278,14 +278,8 @@ namespace PrjEq01_Application.Tabs
 					DTR_De.EndEdit();
 				}
 
-				DTR_Arrive.RejectChanges();
-
-				if(State == States.ADD)
-				{
-					ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
-					DTR_Arrive.Delete();
-					BS_ARRIVE.Position = 0;
-				}
+				DTR_Arrive.Delete();
+				BS_ARRIVE.MoveFirst();
 
 				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
 				Sync_ForeignTables();
@@ -412,6 +406,7 @@ namespace PrjEq01_Application.Tabs
 				DTR_De.BeginEdit();
 				DTR_De["Attribuee"] = false;
 				DTR_Arrive["NoCham"] = -1;
+				DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["NoCham"], "Une chambre doit être sélectionnée.");
 			}
 
 			DTR_Arrive["IdReser"] = IdReser;
