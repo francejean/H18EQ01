@@ -203,38 +203,23 @@ namespace PrjEq01_Application.Tabs
 		{
 			if (DateTime.Today < ir_departs.DTP_Fin.Value)
 			{
-				DataRow newDe = null;
-				foreach(DataRow DTR_De in dS_Master.Tables["DE"].Rows)
+				Object[] pk = new object[2];
+				pk[0] = DTR_Depart["IdReser"];
+				pk[1] = DTR_Depart["NoCham"];
+				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(pk);
+				if (DTR_De != null)
 				{
-					if(DTR_De["IdReser"].ToString() == DTR_Depart["IdReser"].ToString() && DTR_De["NoCham"].ToString() == DTR_Depart["NoCham"].ToString())
+					DTR_De.BeginEdit();
+					DTR_De["Attribuee"] = false;
+					DTR_De.EndEdit();
+					try
 					{
-						newDe = dS_Master.Tables["DE"].NewRow();
-						newDe["Attribuee"] = false;
-						newDe["NoCham"] = DTR_Depart["NoCham"];
-						newDe["IdReser"] = DTR_Depart["IdReser"];
+						TA_DE.Update(dS_Master.DE);
 					}
-				}
-				if(newDe != null)
-				{
-					string connectionString = TA_DE.Connection.ConnectionString;
-					string query = "DELETE FROM DE WHERE NoCham = " + newDe["NoCham"].ToString() + " AND IdReser = " + newDe["IdReser"].ToString();
-					SqlConnection connection = new SqlConnection(connectionString);
-					SqlCommand command = new SqlCommand(query, connection);
-					SqlDataReader reader;
-					connection.Open();
-					reader = command.ExecuteReader();
-					while (reader.Read()) { }
-					connection.Close();
-
-					dS_Master.Tables["DE"].Rows.Add(newDe);
-				}
-				try
-				{
-					TA_DE.Update(dS_Master.DE);
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show(ex.Message);
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+					}
 				}
 			}
 		}
