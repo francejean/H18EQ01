@@ -35,12 +35,9 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 
 			if (result == DialogResult.OK)
 			{
-				if(OnSelected != null)
-				{
-					OnSelected(lf_chambres.GetNoChamSelected());
-				}
+				OnSelected?.Invoke(lf_chambres.GetNoChamSelected());
 			}
-			else if (result == DialogResult.Cancel)
+			else
 			{
 				BS.Position = BS_pos_backup;
 			}

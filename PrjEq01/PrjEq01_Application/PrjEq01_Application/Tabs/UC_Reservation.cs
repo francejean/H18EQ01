@@ -29,7 +29,7 @@ namespace PrjEq01_Application.Tabs
 			ir_Reserv.BS = BS_RESERVATION;
 			ir_Reserv.ReservSelected = this.OnReservSelected;
 			lc_reserv.setBS(BS_BK_CHAMBRE);
-			lc_reserv.OnSelected = OnChambreSelected;
+			lc_reserv.OnSelected = this.OnChambreSelected;
 
 			State = States.CONSULT;
 		}
@@ -202,12 +202,12 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		public void OnChambreSelected(int PK)
+		public void OnChambreSelected(string PK)
 		{
 			if(State == States.ADD)
 			{
-				DataRowView drv = (DataRowView) BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", PK)];
-				lc_reserv.dgv_chambre.Rows.Add(drv.Row);
+				DataRow dtr_X = null;
+				lc_reserv.dgv_chambre.Rows.Add(dtr_X);
 			}
 		}
 

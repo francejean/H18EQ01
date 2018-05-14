@@ -246,6 +246,9 @@
     <EmbeddedResource Include="List_Forms\LF_ChambreNoCham.resx">
       <DependentUpon>LF_ChambreNoCham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_Chambres.resx">
+      <DependentUpon>LF_Chambres.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_Client.resx">
       <DependentUpon>LF_Client.cs</DependentUpon>
     </EmbeddedResource>
