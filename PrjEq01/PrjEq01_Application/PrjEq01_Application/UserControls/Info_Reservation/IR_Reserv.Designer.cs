@@ -28,13 +28,20 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.gb_reserv.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// bt_list
 			// 
 			this.bt_list.Enabled = true;
+			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
 			// 
 			// IR_Reserv
 			// 
@@ -44,10 +51,13 @@
 			this.gb_reserv.ResumeLayout(false);
 			this.gb_reserv.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
+
+		private System.Windows.Forms.ErrorProvider errorProvider;
 	}
 }
