@@ -141,8 +141,8 @@ namespace PrjEq01_Application.Tabs
 
 		private void Link_Chamber(bool link_state)
 		{
-			this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
-			this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
+			this.BS_CHAMBRE.DataMember = "CHAMBRE";
+			this.BS_CHAMBRE.DataSource = this.DS_Master;
 			if (LinkChambre_State != link_state)
 			{
 				if (link_state)
@@ -206,8 +206,9 @@ namespace PrjEq01_Application.Tabs
 		{
 			if(State == States.ADD)
 			{
-				DataRow dtr_X = null;
-				lc_reserv.dgv_chambre.Rows.Add(dtr_X);
+				DataRowView cham = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", PK)];
+				DataRow Dtr = cham.Row;
+				lc_reserv.dgv_chambre.Rows.Add(Dtr);
 			}
 		}
 
