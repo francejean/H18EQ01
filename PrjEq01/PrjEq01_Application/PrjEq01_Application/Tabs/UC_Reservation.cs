@@ -29,7 +29,7 @@ namespace PrjEq01_Application.Tabs
 			ir_Reserv.BS = BS_RESERVATION;
 			ir_Reserv.ReservSelected = this.OnReservSelected;
 			lc_reserv.setBS(BS_BK_CHAMBRE);
-			lc_reserv.OnSelected = OnChambreSelected;
+			lc_reserv.OnSelected = this.OnChambreSelected;
 
 			State = States.CONSULT;
 		}
@@ -41,8 +41,6 @@ namespace PrjEq01_Application.Tabs
 
 			BS_BK_CHAMBRE.DataSource = DS_Master;
 			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
-
-			//TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, null);
 			
 			Sync_ForeignTables();
 		}
@@ -50,9 +48,10 @@ namespace PrjEq01_Application.Tabs
 		public void Fill()
 		{
 			TA_DE.FillBy(DS_Master.DE);
-			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
-			TA_RESERVATION.Fill(DS_Master.RESERVATION);
 			TA_CLIENT.Fill(DS_Master.CLIENT);
+			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
+			TA_BK_CHAMBRE.Fill(DS_Master.BK_CHAMBRE);
+			TA_RESERVATION.Fill(DS_Master.RESERVATION);
 		}
 
 		private void Link_All(bool link_state)
@@ -203,12 +202,12 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		public void OnChambreSelected(int PK)
+		public void OnChambreSelected(string PK)
 		{
 			if(State == States.ADD)
 			{
-				DataRowView drv = (DataRowView) BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", PK)];
-				lc_reserv.dgv_chambre.Rows.Add(drv.Row);
+				DataRow dtr_X = null;
+				lc_reserv.dgv_chambre.Rows.Add(dtr_X);
 			}
 		}
 
@@ -307,10 +306,12 @@ namespace PrjEq01_Application.Tabs
 
 		private bool CheckErrors()
 		{
-			// We need the two functions to execute
+			// We need all the functions to execute
 			bool result = false;
 			result |= this.ic_Reserv.CheckErrors();
+			result |= this.ir_Reserv.CheckErrors();
 			result |= this.lc_reserv.CheckErrors();
+
 			return result;
 		}
 	}

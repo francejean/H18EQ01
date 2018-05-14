@@ -28,7 +28,20 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// LF_Chambres
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.ClientSize = new System.Drawing.Size(734, 384);
+			this.Name = "LF_Chambres";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LF_Chambres_FormClosing);
+			((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgv_main)).EndInit();
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion
