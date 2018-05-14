@@ -113,7 +113,7 @@ namespace PrjEq01_Application.Tabs
 						ic_Reserv.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
 						ic_Reserv.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
 						ic_Reserv.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
-						ic_Reserv.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+						ic_Reserv.cb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
 						ic_Reserv.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 						ic_Reserv.tb_solde.DataBindings.Add("Text", BS_CLIENT, "SoldeDu");
 					}
@@ -128,7 +128,7 @@ namespace PrjEq01_Application.Tabs
 						ic_Reserv.tb_adresse.DataBindings.Clear();
 						ic_Reserv.tb_telephone.DataBindings.Clear();
 						ic_Reserv.tb_noCarte.DataBindings.Clear();
-						ic_Reserv.tb_typeCarte.DataBindings.Clear();
+						ic_Reserv.cb_typeCarte.DataBindings.Clear();
 						ic_Reserv.dtp_datExp.DataBindings.Clear();
 						ic_Reserv.tb_solde.DataBindings.Clear();
 					}

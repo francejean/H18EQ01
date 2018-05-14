@@ -32,3 +32,10 @@ Le num_cham choisi est affiché à l'usager
 	- Dans IC_Arrive, No. chambre
 
 Des messages de validation sont affichés à l'usager
+	-Error provider avec messages
+
+Les messages de validation sont precis pour l'usager
+	-On peut hover pour voir le message
+
+Les listes de sélection sont fonctionelles et conformes
+	-Toutes les listes de sélection fonctionnent et sont conformes
