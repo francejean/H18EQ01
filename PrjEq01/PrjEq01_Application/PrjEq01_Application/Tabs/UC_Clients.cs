@@ -95,6 +95,7 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Save()
 		{
+			ActiveControl = ic_client.tb_noClient;
 			if (!CheckSaveErrors())
 			{
 				DialogResult result = MessageBox.Show("Do you want to save the client?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
