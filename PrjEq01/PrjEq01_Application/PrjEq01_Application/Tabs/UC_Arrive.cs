@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
 
@@ -31,7 +32,9 @@ namespace PrjEq01_Application.Tabs
 		private void Tab_Arrive_Load(object sender, EventArgs e)
 		{
 			Fill();
-			Link_All(true);
+			Link_ARRIVE(true);
+			if(BS_ARRIVE.Count > 0)
+				Link_All(true);
 			Sync_ForeignTables();
 		}
 
@@ -42,7 +45,7 @@ namespace PrjEq01_Application.Tabs
 			{
 				IdArrive = (int)ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"];
 			}
-			catch(Exception e){ MessageBox.Show(e.Message); }
+			catch(Exception e){ }
 
 			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
 			this.TA_DE.FillBy(ds_master.DE);
@@ -232,7 +235,7 @@ namespace PrjEq01_Application.Tabs
 				if (BS_RESERVATION.DataSource != null)
 					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
 			}
-			catch (Exception e) { MessageBox.Show(e.Message); }
+			catch (Exception e) { }
 		}
 
 		public bool Add()
@@ -250,16 +253,51 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Delete()
 		{
-			DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			switch (result)
+			List<String> idArriveNotDepart = new List<string>();
+
+			SqlConnection sqlConnection = new SqlConnection(TA_ARRIVE.Connection.ConnectionString);
+			SqlCommand command = new SqlCommand();
+			SqlDataReader reader;
+
+			command.CommandText = "SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE((NoCham + IdCli + IdReser) NOT IN (SELECT NoCham + IdCli + IdReser AS Expr1 FROM DEPART))";
+			command.CommandType = CommandType.Text;
+			command.Connection = sqlConnection;
+
+			sqlConnection.Open();
+
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
 			{
-				case DialogResult.Yes:
-					BS_ARRIVE.RemoveCurrent();
-					TA_ARRIVE.Update(ds_master.ARRIVE);
-					break;
-				case DialogResult.No:
-					break;
+				idArriveNotDepart.Add(reader["IdArrive"].ToString());
 			}
+
+			Predicate<String> idArriveFinder = (String id) => { return id == ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString(); };
+			if(idArriveNotDepart.Find(idArriveFinder) != null)
+			{
+				DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				switch (result)
+				{
+					case DialogResult.Yes:
+						BS_ARRIVE.RemoveCurrent();
+						TA_ARRIVE.Update(ds_master.ARRIVE);
+						if (BS_ARRIVE.Count == 0)
+						{
+							Link_All(false);
+							ic_arrive.WipeInformation();
+							ir_arrive.WipeInformation();
+						}
+						break;
+					case DialogResult.No:
+						break;
+				}
+			}
+			else
+			{
+				MessageBox.Show("Can't delete an arrive with a depart", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			sqlConnection.Close();
 			return true;
 		}
 
@@ -397,6 +435,7 @@ namespace PrjEq01_Application.Tabs
 		{
 			//lc_arrive.SetListButton(true);
 			ir_arrive.BS = BS_RESERVATION;
+
 
 			if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 			{
