@@ -176,10 +176,18 @@ namespace PrjEq01_Application.Tabs
 
 		private void Sync_ForeignTables()
 		{
-			if (BS_CLIENT.DataSource != null)
-				BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-			if (BS_RESERVATION.DataSource != null)
-				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			if(BS_ARRIVE.Count > 0)
+			{
+				if (BS_CLIENT.DataSource != null)
+					BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+				if (BS_RESERVATION.DataSource != null)
+					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			}
+			else
+			{
+				ir_departs.WipeInformation();
+				ic_base.WipeInformation();
+			}
 		}
 
 		private void NewDepart()
@@ -199,7 +207,7 @@ namespace PrjEq01_Application.Tabs
 			BS_DEPART.Position = BS_DEPART.Count - 1;
 		}
 
-		private void AjustDe()
+		private void AjustDe(bool attribuee)
 		{
 			if (DateTime.Today < ir_departs.DTP_Fin.Value)
 			{
@@ -210,7 +218,7 @@ namespace PrjEq01_Application.Tabs
 				if (DTR_De != null)
 				{
 					DTR_De.BeginEdit();
-					DTR_De["Attribuee"] = false;
+					DTR_De["Attribuee"] = attribuee;
 					DTR_De.EndEdit();
 					try
 					{
@@ -284,13 +292,13 @@ namespace PrjEq01_Application.Tabs
 					try
 					{
 						TA_DEPART.Update(dS_Master.DEPART);
+						AjustDe(false);
 					}
 					catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
 						return false;
 					}
-					AjustDe();
 					TA_ARRIVE.Fill(dS_Master.ARRIVE);
 					Sync_ForeignTables();
 					ir_departs.tb_confirmerPar.ResetText();
