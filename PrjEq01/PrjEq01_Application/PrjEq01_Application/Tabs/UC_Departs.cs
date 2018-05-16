@@ -176,10 +176,18 @@ namespace PrjEq01_Application.Tabs
 
 		private void Sync_ForeignTables()
 		{
-			if (BS_CLIENT.DataSource != null)
-				BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-			if (BS_RESERVATION.DataSource != null)
-				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			if(BS_ARRIVE.Count > 0)
+			{
+				if (BS_CLIENT.DataSource != null)
+					BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+				if (BS_RESERVATION.DataSource != null)
+					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			}
+			else
+			{
+				ir_departs.WipeInformation();
+				ic_base.WipeInformation();
+			}
 		}
 
 		private void NewDepart()
