@@ -400,13 +400,12 @@ namespace PrjEq01_Application.Tabs
 			{
 				TA_AYANT.Update(dS_Master.AYANT);
 				TA_CHAMBRE.Update(dS_Master.CHAMBRE);
-
+				AjustNbDispoInTypeCham();
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
-			AjustNbDispoInTypeCham();
 		}
 
 		private void AjustNbDispoInTypeCham()
@@ -545,12 +544,12 @@ namespace PrjEq01_Application.Tabs
 					{
 						TA_CHAMBRE.Update(dS_Master.CHAMBRE);
 						TA_AYANT.Update(dS_Master.AYANT);
+						AjustNbDispoInTypeCham();
 					}
 					catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
 					}
-					AjustNbDispoInTypeCham();
 					BS_CHAMBRE.Sort = "NoCham";
 					if (stateEdit)
 						TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);

@@ -207,7 +207,7 @@ namespace PrjEq01_Application.Tabs
 			BS_DEPART.Position = BS_DEPART.Count - 1;
 		}
 
-		private void AjustDe()
+		private void AjustDe(bool attribuee)
 		{
 			if (DateTime.Today < ir_departs.DTP_Fin.Value)
 			{
@@ -218,7 +218,7 @@ namespace PrjEq01_Application.Tabs
 				if (DTR_De != null)
 				{
 					DTR_De.BeginEdit();
-					DTR_De["Attribuee"] = false;
+					DTR_De["Attribuee"] = attribuee;
 					DTR_De.EndEdit();
 					try
 					{
@@ -292,13 +292,13 @@ namespace PrjEq01_Application.Tabs
 					try
 					{
 						TA_DEPART.Update(dS_Master.DEPART);
+						AjustDe(false);
 					}
 					catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
 						return false;
 					}
-					AjustDe();
 					TA_ARRIVE.Fill(dS_Master.ARRIVE);
 					Sync_ForeignTables();
 					ir_departs.tb_confirmerPar.ResetText();
