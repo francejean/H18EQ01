@@ -468,7 +468,7 @@ namespace PrjEq01_Application.Tabs
 			TA_CHAMBRE.FillByNotInDE(dS_Master.CHAMBRE);
 			if (dS_Master.Tables["CHAMBRE"].Rows.Count <= 0)
 			{
-				MessageBox.Show("Aucune chambre n'est disponible pour être modifier");
+				MessageBox.Show("Aucune chambre n'est disponible pour être supprimer");
 				TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
 				return false;
 			}
