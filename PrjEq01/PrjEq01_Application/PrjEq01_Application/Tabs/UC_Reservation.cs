@@ -237,8 +237,12 @@ namespace PrjEq01_Application.Tabs
 
 				BS_BK_CHAMBRE.RemoveCurrent();
 				DS_Master.Tables["BK_CHAMBRE"].AcceptChanges();
-				//lc_reserv.dgv_chambre.Rows.Add(DTR_DE.ItemArray[2], DTR_DE.ItemArray[4], DTR_DE.ItemArray[3], DTR_DE.ItemArray[0]);
 			}
+		}
+
+		public void AjusteSoldeDuClient()
+		{
+
 		}
 
 		public bool Add()
@@ -282,7 +286,16 @@ namespace PrjEq01_Application.Tabs
 			{
 				ic_Reserv.ResetErrors();
 				lc_reserv.ResetErrors();
-				DTR_RESERV.AcceptChanges();
+
+				try
+				{
+					TA_RESERVATION.Update(DS_Master.RESERVATION);
+					TA_DE.Update(DS_Master.DE);
+					AjustSoldeDuClient();
+				}
+				catch (Exception ex)
+				{ MessageBox.Show(ex.Message); }
+
 				return true;
 			}
 			return false;
