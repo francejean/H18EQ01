@@ -11,9 +11,7 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 {
 	public partial class LC_Reserv : LC_Base
 	{
-		private ItemSelectedDeleg _onSelected;
-
-		public ItemSelectedDeleg OnSelected { get => _onSelected; set => _onSelected = value; }
+		public ChamberSelectedDeleg OnSelected { get; set; }
 
 		public LC_Reserv()
 		{
@@ -27,22 +25,19 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 
 		protected override void bt_list_Click(object sender, EventArgs e)
 		{
+			/*
+			MessageBox.Show("Fonction en développement.");
+			return;
+			*/
 			int BS_pos_backup = BS.Position;
 			List_Forms.LF_Chambres lf_chambres = new List_Forms.LF_Chambres(BS);
 			DialogResult result = lf_chambres.ShowDialog();
 
 			if (result == DialogResult.OK)
 			{
-				if(_onSelected != null)
-				{
-					if(e is DataGridViewCellEventArgs)
-					{
-						DataGridViewCellEventArgs a = e as DataGridViewCellEventArgs;
-						OnSelected(Convert.ToInt16(dgv_chambre.Rows[a.RowIndex].Cells[0].Value));
-					}
-				}
+				OnSelected?.Invoke(lf_chambres.GetNoChamSelected());
 			}
-			else if (result == DialogResult.Cancel)
+			else
 			{
 				BS.Position = BS_pos_backup;
 			}

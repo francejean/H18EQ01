@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using PrjEq01_CommonForm;
 
@@ -31,7 +32,9 @@ namespace PrjEq01_Application.Tabs
 		private void Tab_Arrive_Load(object sender, EventArgs e)
 		{
 			Fill();
-			Link_All(true);
+			Link_ARRIVE(true);
+			if(BS_ARRIVE.Count > 0)
+				Link_All(true);
 			Sync_ForeignTables();
 		}
 
@@ -46,7 +49,7 @@ namespace PrjEq01_Application.Tabs
 
 			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
 			this.TA_DE.FillBy(ds_master.DE);
-			if(State == States.ADD || State == States.EDIT)
+			if (State == States.ADD || State == States.EDIT)
 			{
 				this.TA_RESERVATION.FillByArriveDate(this.ds_master.RESERVATION, ds_master.ARRIVE[BS_ARRIVE.Position].DateArrive.ToString());
 			}
@@ -56,7 +59,7 @@ namespace PrjEq01_Application.Tabs
 				this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
 				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
 			}
-			if(BS_ARRIVE.DataSource != null)
+			if (BS_ARRIVE.DataSource != null)
 				BS_ARRIVE.Position = BS_ARRIVE.Find("IdArrive", IdArrive);
 			Sync_ForeignTables();
 		}
@@ -117,7 +120,7 @@ namespace PrjEq01_Application.Tabs
 						ic_arrive.tb_nomClient.DataBindings.Add("Text", BS_CLIENT, "Nom");
 						ic_arrive.tb_adresse.DataBindings.Add("Text", BS_CLIENT, "Adresse");
 						ic_arrive.tb_telephone.DataBindings.Add("Text", BS_CLIENT, "Telephone");
-						ic_arrive.tb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
+						ic_arrive.cb_typeCarte.DataBindings.Add("Text", BS_CLIENT, "TypeCarte");
 						ic_arrive.tb_noCarte.DataBindings.Add("Text", BS_CLIENT, "NoCarte");
 						ic_arrive.dtp_datExp.DataBindings.Add("Text", BS_CLIENT, "DatExp");
 					}
@@ -130,7 +133,7 @@ namespace PrjEq01_Application.Tabs
 						ic_arrive.tb_nomClient.DataBindings.Clear();
 						ic_arrive.tb_adresse.DataBindings.Clear();
 						ic_arrive.tb_telephone.DataBindings.Clear();
-						ic_arrive.tb_typeCarte.DataBindings.Clear();
+						ic_arrive.cb_typeCarte.DataBindings.Clear();
 						ic_arrive.tb_noCarte.DataBindings.Clear();
 						ic_arrive.dtp_datExp.DataBindings.Clear();
 					}
@@ -227,12 +230,12 @@ namespace PrjEq01_Application.Tabs
 		{
 			try
 			{
-				if(BS_CLIENT.DataSource != null)
+				if (BS_CLIENT.DataSource != null)
 					BS_CLIENT.Position = BS_CLIENT.Find("IdCli", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-				if(BS_RESERVATION.DataSource != null)
+				if (BS_RESERVATION.DataSource != null)
 					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
 			}
-			catch (Exception e) { MessageBox.Show(e.Message); }
+			catch (Exception e) { }
 		}
 
 		public bool Add()
@@ -250,25 +253,61 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Delete()
 		{
-			DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			switch (result)
+			List<String> idArriveNotDepart = new List<string>();
+
+			SqlConnection sqlConnection = new SqlConnection(TA_ARRIVE.Connection.ConnectionString);
+			SqlCommand command = new SqlCommand();
+			SqlDataReader reader;
+
+			command.CommandText = "SELECT IdArrive, DateArrive, IdCli, IdReser, NoCham FROM ARRIVE WHERE((NoCham + IdCli + IdReser) NOT IN (SELECT NoCham + IdCli + IdReser AS Expr1 FROM DEPART))";
+			command.CommandType = CommandType.Text;
+			command.Connection = sqlConnection;
+
+			sqlConnection.Open();
+
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
 			{
-				case DialogResult.Yes:
-					BS_ARRIVE.RemoveCurrent();
-					TA_ARRIVE.Update(ds_master.ARRIVE);
-					break;
-				case DialogResult.No:
-					break;
+				idArriveNotDepart.Add(reader["IdArrive"].ToString());
 			}
+
+			Predicate<String> idArriveFinder = (String id) => { return id == ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString(); };
+			if(idArriveNotDepart.Find(idArriveFinder) != null)
+			{
+				DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				switch (result)
+				{
+					case DialogResult.Yes:
+						BS_ARRIVE.RemoveCurrent();
+						TA_ARRIVE.Update(ds_master.ARRIVE);
+						if (BS_ARRIVE.Count == 0)
+						{
+							Link_All(false);
+							ic_arrive.WipeInformation();
+							ir_arrive.WipeInformation();
+						}
+						break;
+					case DialogResult.No:
+						break;
+				}
+			}
+			else
+			{
+				MessageBox.Show("Can't delete an arrive with a depart", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			sqlConnection.Close();
 			return true;
 		}
 
 		public bool Undo()
 		{
-			if (State == States.ADD)
+			if (State == States.ADD || State == States.EDIT)
 			{
-				if(Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
+				if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 				{
+					DTR_De.RejectChanges();
 					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
 					DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
 					DTR_De = De.Row;
@@ -277,9 +316,8 @@ namespace PrjEq01_Application.Tabs
 					DTR_De.EndEdit();
 				}
 
-				ds_master.Tables["Arrive"].Rows.RemoveAt(ds_master.ARRIVE.Rows.Count - 1);
 				DTR_Arrive.Delete();
-				BS_ARRIVE.Position = 0;
+				BS_ARRIVE.MoveFirst();
 
 				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
 				Sync_ForeignTables();
@@ -290,16 +328,15 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Save()
 		{
-			DialogResult result = MessageBox.Show("Do you want to save the information?","Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			switch (result)
+			bool hasErrors = CheckSaveErrors();
+			if (State == States.ADD || State == States.EDIT)
 			{
-				case DialogResult.Yes:
-					bool hasErrors = true;
-					if (State == States.ADD)
+				if (!hasErrors)
+				{
+					DialogResult result = MessageBox.Show("Do you want to save the information?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					switch (result)
 					{
-						hasErrors = CheckSaveErrors();
-						if (!hasErrors)
-						{
+						case DialogResult.Yes:
 							try
 							{
 								DTR_Arrive.EndEdit();
@@ -315,19 +352,15 @@ namespace PrjEq01_Application.Tabs
 								hasErrors = true;
 								MessageBox.Show(e.Message);
 							}
-						}
-						else
-						{
-
-						}
+							return true;
+						case DialogResult.No:
+							return false;
+						default:
+							return false;
 					}
-					return !hasErrors;
-
-				case DialogResult.No:
-					return false;
-				default:
-					return false;
+				}
 			}
+			return !hasErrors;
 		}
 
 		public void Go_Start()
@@ -387,12 +420,12 @@ namespace PrjEq01_Application.Tabs
 		{
 			DTR_Arrive["IdCli"] = IdCli;
 
-			if(DTR_Arrive.GetColumnError("IdCli") != "")
+			if (DTR_Arrive.GetColumnError("IdCli") != "")
 			{
 				DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["IdCli"], "");
 			}
 
-			errorProvider.SetError(ic_arrive.tb_noClient,"");
+			errorProvider.SetError(ic_arrive.tb_noClient, "");
 
 			Link_CLIENT(true);
 			Sync_ForeignTables();
@@ -403,6 +436,7 @@ namespace PrjEq01_Application.Tabs
 			//lc_arrive.SetListButton(true);
 			ir_arrive.BS = BS_RESERVATION;
 
+
 			if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 			{
 				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
@@ -411,6 +445,7 @@ namespace PrjEq01_Application.Tabs
 				DTR_De.BeginEdit();
 				DTR_De["Attribuee"] = false;
 				DTR_Arrive["NoCham"] = -1;
+				DTR_Arrive.SetColumnError(DTR_Arrive.Table.Columns["NoCham"], "Une chambre doit être sélectionnée.");
 			}
 
 			DTR_Arrive["IdReser"] = IdReser;
@@ -434,7 +469,7 @@ namespace PrjEq01_Application.Tabs
 			{
 				DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", NoCham)];
 				DTR_De = De.Row;
-				if(Convert.ToInt16(DTR_De["NoCham"]) != Convert.ToInt16(DTR_Arrive["NoCham"]))
+				if (Convert.ToInt16(DTR_De["NoCham"]) != Convert.ToInt16(DTR_Arrive["NoCham"]))
 				{
 					if (Convert.ToBoolean(DTR_De["Attribuee"]) == false)
 					{
@@ -472,27 +507,34 @@ namespace PrjEq01_Application.Tabs
 
 		public bool CheckSaveErrors()
 		{
-			if(State == States.ADD || State == States.EDIT)
-			if (DTR_Arrive.HasErrors)
+			if (State == States.ADD || State == States.EDIT)
 			{
-				foreach(DataColumn column in DTR_Arrive.GetColumnsInError())
+				if (DTR_Arrive.HasErrors)
 				{
-					switch (column.ColumnName)
-					{
-						case "IdCli":
-							errorProvider.SetError(ic_arrive.tb_noClient, DTR_Arrive.GetColumnError(column));
-							break;
-						case "IdReser":
-							errorProvider.SetError(ir_arrive.tb_noReserv, DTR_Arrive.GetColumnError(column));
-							break;
-						case "NoCham":
-							errorProvider.SetError(ic_arrive.tb_noChambre, DTR_Arrive.GetColumnError(column));
-							break;
-					}
+					SetErrors();
+					return true;
 				}
-				return true;
 			}
 			return false;
+		}
+
+		public void SetErrors()
+		{
+			foreach (DataColumn column in DTR_Arrive.GetColumnsInError())
+			{
+				switch (column.ColumnName)
+				{
+					case "IdCli":
+						errorProvider.SetError(ic_arrive.tb_noClient, DTR_Arrive.GetColumnError(column));
+						break;
+					case "IdReser":
+						errorProvider.SetError(ir_arrive.tb_noReserv, DTR_Arrive.GetColumnError(column));
+						break;
+					case "NoCham":
+						errorProvider.SetError(ic_arrive.tb_noChambre, DTR_Arrive.GetColumnError(column));
+						break;
+				}
+			}
 		}
 	}
 }
