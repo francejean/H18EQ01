@@ -247,11 +247,60 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Edit()
 		{
-			DTR_Arrive = ds_master.Tables["Arrive"].Rows[BS_ARRIVE.Position];
-			return true;
+			bool hasDepartB = hasDepart(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			bool hasTrxB = hasTrx(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			if (!hasDepartB && !hasTrxB)
+			{
+				DTR_Arrive = ds_master.Tables["Arrive"].Rows[BS_ARRIVE.Position];
+				return true;
+			}
+			else
+			{
+				MessageBox.Show("Can't modify an arrive with a " + (hasDepartB ? (hasTrxB ? "depart and a transaction" : "depart") : "transaction"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
 		}
 
 		public bool Delete()
+		{
+			bool hasDepartB = hasDepart(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			bool hasTrxB = hasTrx(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			if (!hasDepartB && !hasTrxB)
+			{
+				DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				switch (result)
+				{
+					case DialogResult.Yes:
+						DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", ds_master.ARRIVE[BS_ARRIVE.Position]["NoCham"])];
+						DTR_De = De.Row;
+						DTR_De.BeginEdit();
+						DTR_De["Attribuee"] = false;
+						DTR_De.EndEdit();
+						BS_ARRIVE.RemoveCurrent();
+						TA_ARRIVE.Update(ds_master.ARRIVE);
+						TA_DE.Update(ds_master.DE);
+						if (BS_ARRIVE.Count == 0)
+						{
+							Link_All(false);
+							ic_arrive.WipeInformation();
+							ir_arrive.WipeInformation();
+						}
+						Sync_ForeignTables();
+						return true;
+					case DialogResult.No:
+						return false;
+					default:
+						return false;
+				}
+			}
+			else
+			{
+				MessageBox.Show("Can't delete an arrive with a " + (hasDepartB ? (hasTrxB ? "depart and a transaction" : "depart") : "transaction"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+		}
+
+		public bool hasDepart(String IdArrive)
 		{
 			List<String> idArriveNotDepart = new List<string>();
 
@@ -272,33 +321,35 @@ namespace PrjEq01_Application.Tabs
 				idArriveNotDepart.Add(reader["IdArrive"].ToString());
 			}
 
-			Predicate<String> idArriveFinder = (String id) => { return id == ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString(); };
-			if(idArriveNotDepart.Find(idArriveFinder) != null)
+			Predicate<String> idArriveFinder = (String id) => { return id == IdArrive; };
+			sqlConnection.Close();
+			return idArriveNotDepart.Find(idArriveFinder) == null;
+		}
+
+		public bool hasTrx(String IdArrive)
+		{
+			List<String> idArriveNotTrx = new List<string>();
+
+			SqlConnection sqlConnection = new SqlConnection(TA_ARRIVE.Connection.ConnectionString);
+			SqlCommand command = new SqlCommand();
+			SqlDataReader reader;
+
+			command.CommandText = "SELECT IdArrive FROM ARRIVE WHERE(IdArrive NOT IN (SELECT IdArrive AS Expr1 FROM TRX))";
+			command.CommandType = CommandType.Text;
+			command.Connection = sqlConnection;
+
+			sqlConnection.Open();
+
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
 			{
-				DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-				switch (result)
-				{
-					case DialogResult.Yes:
-						BS_ARRIVE.RemoveCurrent();
-						TA_ARRIVE.Update(ds_master.ARRIVE);
-						if (BS_ARRIVE.Count == 0)
-						{
-							Link_All(false);
-							ic_arrive.WipeInformation();
-							ir_arrive.WipeInformation();
-						}
-						break;
-					case DialogResult.No:
-						break;
-				}
-			}
-			else
-			{
-				MessageBox.Show("Can't delete an arrive with a depart", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				idArriveNotTrx.Add(reader["IdArrive"].ToString());
 			}
 
+			Predicate<String> idArriveFinder = (String id) => { return id == IdArrive; };
 			sqlConnection.Close();
-			return true;
+			return idArriveNotTrx.Find(idArriveFinder) == null;
 		}
 
 		public bool Undo()
@@ -435,7 +486,6 @@ namespace PrjEq01_Application.Tabs
 		{
 			//lc_arrive.SetListButton(true);
 			ir_arrive.BS = BS_RESERVATION;
-
 
 			if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 			{
