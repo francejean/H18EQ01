@@ -12,6 +12,7 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 	public partial class LC_Reserv : LC_Base
 	{
 		public ChamberSelectedDeleg OnSelected { get; set; }
+		public ChamberBeforeSelection BeforeSelection { get; set; }
 
 		public LC_Reserv()
 		{
@@ -30,6 +31,9 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 		{
 			int BS_pos_backup = BS.Position;
 			List_Forms.LF_Chambres lf_chambres = new List_Forms.LF_Chambres(BS);
+
+			BeforeSelection();
+
 			DialogResult result = lf_chambres.ShowDialog();
 
 			if (result == DialogResult.OK)

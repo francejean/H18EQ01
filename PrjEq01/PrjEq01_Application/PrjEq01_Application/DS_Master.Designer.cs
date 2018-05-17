@@ -14350,19 +14350,14 @@ SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (N
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"DECLARE @date1 DateTime;
-    select @date1 01022017;
-DECLARE @date2 DateTime;
-    select @date2 01025018;
-
-SELECT        NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham
-FROM          CHAMBRE
-WHERE        NoCham NOT IN
-                             (SELECT        NoCham
-                               FROM          DE inner join RESERVATION on DE.IdReser = RESERVATION.IdReser
-                               WHERE        DateFin<@date1 AND  DateDebut>@date2)));";
+            this._commandCollection[1].CommandText = @"SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM dbo.CHAMBRE
+WHERE (NoCham NOT IN
+(SELECT NoCham FROM dbo.DE INNER JOIN dbo.RESERVATION ON DE.IdReser = RESERVATION.IdReser
+WHERE DateFin >= @date1 AND DateDebut <= @date2 OR DateDebut <= @date1 AND DateFin >= @date1 OR DateFin >= @date1 AND DateFin <= @date2)
+)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NoCham", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date1", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date2", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14393,13 +14388,19 @@ WHERE        NoCham NOT IN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DS_Master.BK_CHAMBREDataTable dataTable, string NoCham) {
+        public virtual int FillBy(DS_Master.BK_CHAMBREDataTable dataTable, global::System.Nullable<global::System.DateTime> date1, global::System.Nullable<global::System.DateTime> date2) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((NoCham == null)) {
-                throw new global::System.ArgumentNullException("NoCham");
+            if ((date1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date1.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NoCham));
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((date2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(date2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -14412,13 +14413,19 @@ WHERE        NoCham NOT IN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DS_Master.BK_CHAMBREDataTable GetDataBy(string NoCham) {
+        public virtual DS_Master.BK_CHAMBREDataTable GetDataBy(global::System.Nullable<global::System.DateTime> date1, global::System.Nullable<global::System.DateTime> date2) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((NoCham == null)) {
-                throw new global::System.ArgumentNullException("NoCham");
+            if ((date1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date1.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NoCham));
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((date2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(date2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             DS_Master.BK_CHAMBREDataTable dataTable = new DS_Master.BK_CHAMBREDataTable();
             this.Adapter.Fill(dataTable);

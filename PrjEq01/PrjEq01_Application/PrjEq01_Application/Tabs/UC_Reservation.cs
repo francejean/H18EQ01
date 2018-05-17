@@ -16,6 +16,7 @@ namespace PrjEq01_Application.Tabs
 		public States State { get; set; }
 
 		private DataRow DTR_RESERV;
+		private DataRow DTR_DE;
 
 		private BindingSource BS_BK_CHAMBRE = new BindingSource();
 
@@ -24,12 +25,16 @@ namespace PrjEq01_Application.Tabs
 		public UC_Reservation()
 		{
 			InitializeComponent();
+
 			ic_Reserv.BS = BS_CLIENT;
 			ic_Reserv.ClientSelected = this.OnClientSelected;
+
 			ir_Reserv.BS = BS_RESERVATION;
 			ir_Reserv.ReservSelected = this.OnReservSelected;
+
 			lc_reserv.setBS(BS_BK_CHAMBRE);
 			lc_reserv.OnSelected = this.OnChambreSelected;
+			lc_reserv.BeforeSelection = this.BeforeChamberSelection;
 
 			State = States.CONSULT;
 		}
@@ -47,7 +52,6 @@ namespace PrjEq01_Application.Tabs
 			TA_DE.FillBy(DS_Master.DE);
 			TA_CLIENT.Fill(DS_Master.CLIENT);
 			TA_CHAMBRE.Fill(DS_Master.CHAMBRE);
-			TA_BK_CHAMBRE.Fill(DS_Master.BK_CHAMBRE);
 			TA_RESERVATION.Fill(DS_Master.RESERVATION);
 		}
 
@@ -60,6 +64,7 @@ namespace PrjEq01_Application.Tabs
 			// BS_DE
 			BS_DE.DataMember = "DE_FK_IdReser";
 			BS_DE.DataSource = BS_RESERVATION;
+			lc_reserv.dgv_chambre.DataSource = BS_DE;
 
 			// BS_BK_CHAMBRE
 			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
@@ -207,18 +212,32 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
+		public void BeforeChamberSelection()
+		{
+			if (ir_Reserv.DTP_Debut.Enabled && ir_Reserv.DTP_Fin.Enabled)
+				TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, ir_Reserv.DTP_Debut.Value, ir_Reserv.DTP_Fin.Value);
+
+			ir_Reserv.DTP_Debut.Enabled = false;
+			ir_Reserv.DTP_Fin.Enabled = false;
+		}
+
 		public void OnChambreSelected(string PK)
 		{
 			if(State == States.ADD)
 			{
-				ir_Reserv.DTP_Debut.Enabled = false;
-				ir_Reserv.DTP_Fin.Enabled = false;
+				DTR_DE = DS_Master.Tables["De"].NewRow();
+				DTR_DE["IdReser"] = DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position]["IdReser"];
+				DTR_DE["NoCham"] = DS_Master.Tables["BK_CHAMBRE"].Rows[BS_BK_CHAMBRE.Position]["NoCham"];
 
+				DTR_DE["CodTypCham"] = DS_Master.Tables["BK_CHAMBRE"].Rows[BS_BK_CHAMBRE.Position]["CodTypCham"];
+				DTR_DE["Attribuee"] = true;
+				DTR_DE["Prix"] = DS_Master.Tables["BK_CHAMBRE"].Rows[BS_BK_CHAMBRE.Position]["Prix"];
 
-				//int foundindex = BS_CHAMBRE.Find("NoCham", DS_Master.Tables["DE"].Rows[BS_DE.Position]["NoCham"]);
-				//DataRow DTR_DE = BS_CHAMBRE[foundindex];
+				DS_Master.Tables["DE"].Rows.Add(DTR_DE);
 
-				//lc_reserv.dgv_chambre.Rows.Add(DTR_DE);
+				BS_BK_CHAMBRE.RemoveCurrent();
+				DS_Master.Tables["BK_CHAMBRE"].AcceptChanges();
+				//lc_reserv.dgv_chambre.Rows.Add(DTR_DE.ItemArray[2], DTR_DE.ItemArray[4], DTR_DE.ItemArray[3], DTR_DE.ItemArray[0]);
 			}
 		}
 
