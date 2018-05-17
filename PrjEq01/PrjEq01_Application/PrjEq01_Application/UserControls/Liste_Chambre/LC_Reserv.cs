@@ -17,7 +17,7 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 		{
 			InitializeComponent();
 
-			dgv_chambre.DataMember = "CHMABRE";
+			dgv_chambre.DataMember = "CHAMBRE";
 			dgv_chambre.DataSource = BS;
 		}
 
