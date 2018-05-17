@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PrjEq01_Application.List_Forms
 {
-	public partial class LF_ChambreCodeLoc : PrjEq01_Application.List_Forms.LF_Base
+	public partial class LF_Localisation : PrjEq01_Application.List_Forms.LF_Base
 	{
-		public LF_ChambreCodeLoc()
+		public LF_Localisation()
 		{
 			InitializeComponent();
 		}
 
-		public LF_ChambreCodeLoc(BindingSource BS) : base(BS)
+		public LF_Localisation(BindingSource BS) : base(BS)
 		{
 			InitializeComponent();
 			dgv_main.DataSource = this.BS;

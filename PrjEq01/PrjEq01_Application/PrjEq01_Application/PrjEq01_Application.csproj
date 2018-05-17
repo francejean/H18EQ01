@@ -76,23 +76,23 @@
     <Compile Include="List_Forms\LF_Base.Designer.cs">
       <DependentUpon>LF_Base.cs</DependentUpon>
     </Compile>
-    <Compile Include="List_Forms\LF_ChambreCodeLoc.cs">
+    <Compile Include="List_Forms\LF_Localisation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="List_Forms\LF_ChambreCodeLoc.Designer.cs">
-      <DependentUpon>LF_ChambreCodeLoc.cs</DependentUpon>
+    <Compile Include="List_Forms\LF_Localisation.Designer.cs">
+      <DependentUpon>LF_Localisation.cs</DependentUpon>
     </Compile>
-    <Compile Include="List_Forms\LF_ChambreCodeType.cs">
+    <Compile Include="List_Forms\LF_TypeChambre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="List_Forms\LF_ChambreCodeType.Designer.cs">
-      <DependentUpon>LF_ChambreCodeType.cs</DependentUpon>
+    <Compile Include="List_Forms\LF_TypeChambre.Designer.cs">
+      <DependentUpon>LF_TypeChambre.cs</DependentUpon>
     </Compile>
-    <Compile Include="List_Forms\LF_ChambreCommodite.cs">
+    <Compile Include="List_Forms\LF_Commodite.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="List_Forms\LF_ChambreCommodite.Designer.cs">
-      <DependentUpon>LF_ChambreCommodite.cs</DependentUpon>
+    <Compile Include="List_Forms\LF_Commodite.Designer.cs">
+      <DependentUpon>LF_Commodite.cs</DependentUpon>
     </Compile>
     <Compile Include="List_Forms\LF_ChambreNoCham.cs">
       <SubType>Form</SubType>
@@ -111,6 +111,12 @@
     </Compile>
     <Compile Include="List_Forms\LF_Client.Designer.cs">
       <DependentUpon>LF_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="List_Forms\LF_Depart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_Forms\LF_Depart.Designer.cs">
+      <DependentUpon>LF_Depart.cs</DependentUpon>
     </Compile>
     <Compile Include="List_Forms\LF_Reservation.cs">
       <SubType>Form</SubType>
@@ -234,20 +240,23 @@
     <EmbeddedResource Include="List_Forms\LF_Base.resx">
       <DependentUpon>LF_Base.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="List_Forms\LF_ChambreCodeLoc.resx">
-      <DependentUpon>LF_ChambreCodeLoc.cs</DependentUpon>
+    <EmbeddedResource Include="List_Forms\LF_Localisation.resx">
+      <DependentUpon>LF_Localisation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="List_Forms\LF_ChambreCodeType.resx">
-      <DependentUpon>LF_ChambreCodeType.cs</DependentUpon>
+    <EmbeddedResource Include="List_Forms\LF_TypeChambre.resx">
+      <DependentUpon>LF_TypeChambre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="List_Forms\LF_ChambreCommodite.resx">
-      <DependentUpon>LF_ChambreCommodite.cs</DependentUpon>
+    <EmbeddedResource Include="List_Forms\LF_Commodite.resx">
+      <DependentUpon>LF_Commodite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_ChambreNoCham.resx">
       <DependentUpon>LF_ChambreNoCham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_Client.resx">
       <DependentUpon>LF_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List_Forms\LF_Depart.resx">
+      <DependentUpon>LF_Depart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="List_Forms\LF_Reservation.resx">
       <DependentUpon>LF_Reservation.cs</DependentUpon>

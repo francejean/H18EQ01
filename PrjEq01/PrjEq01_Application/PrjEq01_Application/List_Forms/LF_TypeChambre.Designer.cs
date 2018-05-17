@@ -1,6 +1,6 @@
 ﻿namespace PrjEq01_Application.List_Forms
 {
-	partial class LF_ChambreCodeLoc
+	partial class LF_TypeChambre
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -35,13 +35,13 @@
 			// 
 			this.dgv_main.RowTemplate.Height = 24;
 			// 
-			// LF_ChambreCodeLoc
+			// LF_ChambreCodeType
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(976, 450);
-			this.Name = "LF_ChambreCodeLoc";
-			this.Text = "Liste de sélection sur la localisation";
+			this.Name = "LF_ChambreCodeType";
+			this.Text = "Liste de sélection sur le type de chambre";
 			((System.ComponentModel.ISupportInitialize)(this.dgv_main)).EndInit();
 			this.ResumeLayout(false);
 

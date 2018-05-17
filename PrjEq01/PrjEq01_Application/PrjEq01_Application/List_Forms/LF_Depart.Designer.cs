@@ -1,6 +1,6 @@
 ﻿namespace PrjEq01_Application.List_Forms
 {
-	partial class LF_ChambreCommodite
+	partial class LF_Depart
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -35,13 +36,14 @@
 			// 
 			this.dgv_main.RowTemplate.Height = 24;
 			// 
-			// LF_ChambreCommodite
+			// LF_Depart
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(976, 450);
-			this.Name = "LF_ChambreCommodite";
-			this.Text = "Liste de sélection sur les commodités";
+			this.ClientSize = new System.Drawing.Size(981, 446);
+			this.Name = "LF_Depart";
+			this.Text = "Liste de sélection sur les départs";
+			((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_main)).EndInit();
 			this.ResumeLayout(false);
 

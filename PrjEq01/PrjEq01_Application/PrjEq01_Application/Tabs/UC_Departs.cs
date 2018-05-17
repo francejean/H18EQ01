@@ -192,11 +192,8 @@ namespace PrjEq01_Application.Tabs
 
 		private void NewDepart()
 		{
-			dS_Master.DEPART.Columns["IdDepart"].AutoIncrementSeed = (int)dS_Master.DEPART.Rows.Count + 1;
-
 			DTR_Depart = dS_Master.Tables["DEPART"].NewRow();
-
-			DTR_Depart["IdDepart"] = (int)dS_Master.DEPART.Columns["IdDepart"].AutoIncrementSeed;
+			DTR_Depart["IdDepart"] = 0;
 			DTR_Depart["DateDepart"] = DateTime.Today;
 			DTR_Depart["IdCli"] = ic_base.tb_noClient.Text;
 			DTR_Depart["IdReser"] = ir_departs.tb_noReserv.Text;
@@ -206,6 +203,26 @@ namespace PrjEq01_Application.Tabs
 			dS_Master.Tables["DEPART"].Rows.Add(DTR_Depart);
 			BS_DEPART.Position = BS_DEPART.Count - 1;
 		}
+
+		private void DeleteDepart()
+		{
+			DTR_Depart = dS_Master.Tables["DEPART"].NewRow();
+			DTR_Depart["IdReser"] = dS_Master.Tables["DEPART"].Rows[BS_DEPART.Position]["IdReser"];
+			DTR_Depart["NoCham"] = dS_Master.Tables["DEPART"].Rows[BS_DEPART.Position]["NoCham"];
+			BS_DEPART.RemoveCurrent();
+			BS_DEPART.MoveFirst();
+			try
+			{
+				TA_DEPART.Update(dS_Master.DEPART);
+				AjustDe(false);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			DTR_Depart.Delete();
+		}
+
 
 		private void AjustDe(bool attribuee)
 		{
@@ -262,8 +279,36 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Delete()
 		{
-			MessageBox.Show("Vous ne pouvez pas supprimer un départ.");
-			return false;
+			TA_DEPART.FillByToDel(dS_Master.DEPART, DateTime.Today.ToString());
+			if (dS_Master.Tables["DEPART"].Rows.Count <= 0)
+			{
+				MessageBox.Show("Aucun depart n'est disponible pour être supprimer");
+				TA_DEPART.FillByDEPART(dS_Master.DEPART);
+				return false;
+			}
+			BS_DEPART.DataSource = dS_Master;
+			BS_DEPART.DataMember = "DEPART";
+			PrjEq01_Application.List_Forms.LF_Depart lf_depart = new PrjEq01_Application.List_Forms.LF_Depart(BS_DEPART);
+			if (lf_depart.ShowDialog() == DialogResult.Cancel)
+			{
+				TA_DEPART.FillByDEPART(dS_Master.DEPART);
+				BS_DEPART.DataSource = BS_RESERVATION;
+				BS_DEPART.DataMember = "DEPART_FK_IdReser";
+				return false;
+			}
+			DialogResult result = MessageBox.Show("Êtes-vous certains de vouloir supprimer ce départ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			switch (result)
+			{
+				case DialogResult.Yes:
+					DeleteDepart();
+					break;
+				case DialogResult.No:
+					break;
+			}
+			TA_DEPART.FillByDEPART(dS_Master.DEPART);
+			BS_DEPART.DataSource = BS_RESERVATION;
+			BS_DEPART.DataMember = "DEPART_FK_IdReser";
+			return true;
 		}
 
 		public bool Undo()
