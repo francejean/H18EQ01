@@ -38,9 +38,6 @@ namespace PrjEq01_Application.Tabs
 		{
 			Fill();
 			Link_All(true);
-
-			BS_BK_CHAMBRE.DataSource = DS_Master;
-			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
 			
 			Sync_ForeignTables();
 		}
@@ -59,6 +56,14 @@ namespace PrjEq01_Application.Tabs
 			Link_Reservation(link_state);
 			Link_Client(link_state);
 			Link_Chamber(link_state);
+
+			// BS_DE
+			BS_DE.DataMember = "DE_FK_IdReser";
+			BS_DE.DataSource = BS_RESERVATION;
+
+			// BS_BK_CHAMBRE
+			BS_BK_CHAMBRE.DataMember = "BK_CHAMBRE";
+			BS_BK_CHAMBRE.DataSource = DS_Master;
 		}
 
 		private void Link_Reservation(bool link_state)
@@ -141,15 +146,15 @@ namespace PrjEq01_Application.Tabs
 
 		private void Link_Chamber(bool link_state)
 		{
-			this.BS_CHAMBRE.DataMember = "DE_FK_IdReser";
-			this.BS_CHAMBRE.DataSource = this.BS_RESERVATION;
+			this.BS_CHAMBRE.DataMember = "CHAMBRE";
+			this.BS_CHAMBRE.DataSource = this.DS_Master;
 			if (LinkChambre_State != link_state)
 			{
 				if (link_state)
 				{
 					try
 					{
-						lc_reserv.dgv_chambre.DataSource = BS_CHAMBRE;
+						lc_reserv.dgv_chambre.DataSource = BS_DE;
 					}
 					catch (Exception e)
 					{ MessageBox.Show(e.Message); }
@@ -206,8 +211,14 @@ namespace PrjEq01_Application.Tabs
 		{
 			if(State == States.ADD)
 			{
-				DataRow dtr_X = null;
-				lc_reserv.dgv_chambre.Rows.Add(dtr_X);
+				ir_Reserv.DTP_Debut.Enabled = false;
+				ir_Reserv.DTP_Fin.Enabled = false;
+
+
+				//int foundindex = BS_CHAMBRE.Find("NoCham", DS_Master.Tables["DE"].Rows[BS_DE.Position]["NoCham"]);
+				//DataRow DTR_DE = BS_CHAMBRE[foundindex];
+
+				//lc_reserv.dgv_chambre.Rows.Add(DTR_DE);
 			}
 		}
 

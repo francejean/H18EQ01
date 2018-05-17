@@ -400,13 +400,12 @@ namespace PrjEq01_Application.Tabs
 			{
 				TA_AYANT.Update(dS_Master.AYANT);
 				TA_CHAMBRE.Update(dS_Master.CHAMBRE);
-
+				AjustNbDispoInTypeCham();
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
-			AjustNbDispoInTypeCham();
 		}
 
 		private void AjustNbDispoInTypeCham()
@@ -468,7 +467,7 @@ namespace PrjEq01_Application.Tabs
 			TA_CHAMBRE.FillByNotInDE(dS_Master.CHAMBRE);
 			if (dS_Master.Tables["CHAMBRE"].Rows.Count <= 0)
 			{
-				MessageBox.Show("Aucune chambre n'est disponible pour être modifier");
+				MessageBox.Show("Aucune chambre n'est disponible pour être supprimer");
 				TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
 				return false;
 			}
@@ -545,12 +544,12 @@ namespace PrjEq01_Application.Tabs
 					{
 						TA_CHAMBRE.Update(dS_Master.CHAMBRE);
 						TA_AYANT.Update(dS_Master.AYANT);
+						AjustNbDispoInTypeCham();
 					}
 					catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
 					}
-					AjustNbDispoInTypeCham();
 					BS_CHAMBRE.Sort = "NoCham";
 					if (stateEdit)
 						TA_CHAMBRE.FillByCHAMBRE(dS_Master.CHAMBRE);
@@ -598,7 +597,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void bt_listCodeType_Click(object sender, EventArgs e)
 		{
-			PrjEq01_Application.List_Forms.LF_ChambreCodeType lf_chambreCodeType = new PrjEq01_Application.List_Forms.LF_ChambreCodeType();
+			PrjEq01_Application.List_Forms.LF_TypeChambre lf_chambreCodeType = new PrjEq01_Application.List_Forms.LF_TypeChambre();
 			lf_chambreCodeType.Dgv_main.DataSource = BS_TYPECHAM;
 			if (lf_chambreCodeType.ShowDialog() == DialogResult.OK)
 			{
@@ -612,7 +611,7 @@ namespace PrjEq01_Application.Tabs
 
 		private void bt_listCodeLoc_Click(object sender, EventArgs e)
 		{
-			PrjEq01_Application.List_Forms.LF_ChambreCodeLoc lf_chambreCodeLoc = new PrjEq01_Application.List_Forms.LF_ChambreCodeLoc();
+			PrjEq01_Application.List_Forms.LF_Localisation lf_chambreCodeLoc = new PrjEq01_Application.List_Forms.LF_Localisation();
 			lf_chambreCodeLoc.Dgv_main.DataSource = BS_LOCALISATION;
 			if (lf_chambreCodeLoc.ShowDialog() == DialogResult.OK)
 			{
@@ -631,7 +630,7 @@ namespace PrjEq01_Application.Tabs
 				MessageBox.Show("Cette chambre comporte déjà toute les commoditées, impossible d'en ajouter plus");
 				return;
 			}
-			PrjEq01_Application.List_Forms.LF_ChambreCommodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_ChambreCommodite();
+			PrjEq01_Application.List_Forms.LF_Commodite lf_chambreCommodite = new PrjEq01_Application.List_Forms.LF_Commodite();
 			lf_chambreCommodite.Dgv_main.DataSource = BS_BK_COMMODITE;
 			if (lf_chambreCommodite.ShowDialog() == DialogResult.OK)
 			{

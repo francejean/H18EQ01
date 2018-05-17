@@ -499,7 +499,7 @@ namespace PrjEq01_Application.Tabs
 					}
 					else
 					{
-						MessageBox.Show("Chambre déja attribuée", "Erreur chambre", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show("Chambre déjà attribuée", "Erreur chambre", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 				}
 			}

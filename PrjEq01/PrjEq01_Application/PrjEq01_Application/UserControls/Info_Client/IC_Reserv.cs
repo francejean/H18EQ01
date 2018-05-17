@@ -35,7 +35,7 @@ namespace PrjEq01_Application.UserControls.Info_Client
 		public override void SetReadOnly(States state)
 		{
 			base.SetReadOnly(state);
-			this.tb_solde.ReadOnly = state == States.CONSULT;
+			//this.tb_solde.ReadOnly = (state == States.CONSULT);
 		}
 
 		public override void WipeInformation()

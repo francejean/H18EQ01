@@ -176,19 +176,24 @@ namespace PrjEq01_Application.Tabs
 
 		private void Sync_ForeignTables()
 		{
-			if (BS_CLIENT.DataSource != null)
-				BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
-			if (BS_RESERVATION.DataSource != null)
-				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			if(BS_ARRIVE.Count > 0)
+			{
+				if (BS_CLIENT.DataSource != null)
+					BS_CLIENT.Position = BS_CLIENT.Find("IdCli", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdCli"]);
+				if (BS_RESERVATION.DataSource != null)
+					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", dS_Master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
+			}
+			else
+			{
+				ir_departs.WipeInformation();
+				ic_base.WipeInformation();
+			}
 		}
 
 		private void NewDepart()
 		{
-			dS_Master.DEPART.Columns["IdDepart"].AutoIncrementSeed = (int)dS_Master.DEPART.Rows.Count + 1;
-
 			DTR_Depart = dS_Master.Tables["DEPART"].NewRow();
-
-			DTR_Depart["IdDepart"] = (int)dS_Master.DEPART.Columns["IdDepart"].AutoIncrementSeed;
+			DTR_Depart["IdDepart"] = 0;
 			DTR_Depart["DateDepart"] = DateTime.Today;
 			DTR_Depart["IdCli"] = ic_base.tb_noClient.Text;
 			DTR_Depart["IdReser"] = ir_departs.tb_noReserv.Text;
@@ -199,42 +204,47 @@ namespace PrjEq01_Application.Tabs
 			BS_DEPART.Position = BS_DEPART.Count - 1;
 		}
 
-		private void AjustDe()
+		private void DeleteDepart()
+		{
+			DTR_Depart = dS_Master.Tables["DEPART"].NewRow();
+			DTR_Depart["IdReser"] = dS_Master.Tables["DEPART"].Rows[BS_DEPART.Position]["IdReser"];
+			DTR_Depart["NoCham"] = dS_Master.Tables["DEPART"].Rows[BS_DEPART.Position]["NoCham"];
+			BS_DEPART.RemoveCurrent();
+			BS_DEPART.MoveFirst();
+			try
+			{
+				TA_DEPART.Update(dS_Master.DEPART);
+				AjustDe(false);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			DTR_Depart.Delete();
+		}
+
+
+		private void AjustDe(bool attribuee)
 		{
 			if (DateTime.Today < ir_departs.DTP_Fin.Value)
 			{
-				DataRow newDe = null;
-				foreach(DataRow DTR_De in dS_Master.Tables["DE"].Rows)
+				Object[] pk = new object[2];
+				pk[0] = DTR_Depart["IdReser"];
+				pk[1] = DTR_Depart["NoCham"];
+				DataRow DTR_De = dS_Master.Tables["DE"].Rows.Find(pk);
+				if (DTR_De != null)
 				{
-					if(DTR_De["IdReser"].ToString() == DTR_Depart["IdReser"].ToString() && DTR_De["NoCham"].ToString() == DTR_Depart["NoCham"].ToString())
+					DTR_De.BeginEdit();
+					DTR_De["Attribuee"] = attribuee;
+					DTR_De.EndEdit();
+					try
 					{
-						newDe = dS_Master.Tables["DE"].NewRow();
-						newDe["Attribuee"] = false;
-						newDe["NoCham"] = DTR_Depart["NoCham"];
-						newDe["IdReser"] = DTR_Depart["IdReser"];
+						TA_DE.Update(dS_Master.DE);
 					}
-				}
-				if(newDe != null)
-				{
-					string connectionString = TA_DE.Connection.ConnectionString;
-					string query = "DELETE FROM DE WHERE NoCham = " + newDe["NoCham"].ToString() + " AND IdReser = " + newDe["IdReser"].ToString();
-					SqlConnection connection = new SqlConnection(connectionString);
-					SqlCommand command = new SqlCommand(query, connection);
-					SqlDataReader reader;
-					connection.Open();
-					reader = command.ExecuteReader();
-					while (reader.Read()) { }
-					connection.Close();
-
-					dS_Master.Tables["DE"].Rows.Add(newDe);
-				}
-				try
-				{
-					TA_DE.Update(dS_Master.DE);
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show(ex.Message);
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+					}
 				}
 			}
 		}
@@ -269,8 +279,36 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Delete()
 		{
-			MessageBox.Show("Vous ne pouvez pas supprimer un départ.");
-			return false;
+			TA_DEPART.FillByToDel(dS_Master.DEPART, DateTime.Today.ToString());
+			if (dS_Master.Tables["DEPART"].Rows.Count <= 0)
+			{
+				MessageBox.Show("Aucun depart n'est disponible pour être supprimer");
+				TA_DEPART.FillByDEPART(dS_Master.DEPART);
+				return false;
+			}
+			BS_DEPART.DataSource = dS_Master;
+			BS_DEPART.DataMember = "DEPART";
+			PrjEq01_Application.List_Forms.LF_Depart lf_depart = new PrjEq01_Application.List_Forms.LF_Depart(BS_DEPART);
+			if (lf_depart.ShowDialog() == DialogResult.Cancel)
+			{
+				TA_DEPART.FillByDEPART(dS_Master.DEPART);
+				BS_DEPART.DataSource = BS_RESERVATION;
+				BS_DEPART.DataMember = "DEPART_FK_IdReser";
+				return false;
+			}
+			DialogResult result = MessageBox.Show("Êtes-vous certains de vouloir supprimer ce départ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			switch (result)
+			{
+				case DialogResult.Yes:
+					DeleteDepart();
+					break;
+				case DialogResult.No:
+					break;
+			}
+			TA_DEPART.FillByDEPART(dS_Master.DEPART);
+			BS_DEPART.DataSource = BS_RESERVATION;
+			BS_DEPART.DataMember = "DEPART_FK_IdReser";
+			return true;
 		}
 
 		public bool Undo()
@@ -299,13 +337,13 @@ namespace PrjEq01_Application.Tabs
 					try
 					{
 						TA_DEPART.Update(dS_Master.DEPART);
+						AjustDe(false);
 					}
 					catch (Exception ex)
 					{
 						MessageBox.Show(ex.Message);
 						return false;
 					}
-					AjustDe();
 					TA_ARRIVE.Fill(dS_Master.ARRIVE);
 					Sync_ForeignTables();
 					ir_departs.tb_confirmerPar.ResetText();

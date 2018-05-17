@@ -16,6 +16,9 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 		public LC_Reserv()
 		{
 			InitializeComponent();
+
+			dgv_chambre.DataMember = "CHAMBRE";
+			dgv_chambre.DataSource = BS;
 		}
 
 		public override void SetReadOnly(States state)
@@ -25,17 +28,14 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 
 		protected override void bt_list_Click(object sender, EventArgs e)
 		{
-			/*
-			MessageBox.Show("Fonction en développement.");
-			return;
-			*/
 			int BS_pos_backup = BS.Position;
 			List_Forms.LF_Chambres lf_chambres = new List_Forms.LF_Chambres(BS);
 			DialogResult result = lf_chambres.ShowDialog();
 
 			if (result == DialogResult.OK)
 			{
-				OnSelected?.Invoke(lf_chambres.GetNoChamSelected());
+				string s = lf_chambres.GetNoChamSelected();
+				OnSelected?.Invoke(s);
 			}
 			else
 			{
