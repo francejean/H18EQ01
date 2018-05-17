@@ -2784,8 +2784,6 @@ namespace PrjEq01_Application {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdDepart}, true));
                 this.columnIdDepart.AutoIncrement = true;
-                this.columnIdDepart.AutoIncrementSeed = -1;
-                this.columnIdDepart.AutoIncrementStep = -1;
                 this.columnIdDepart.AllowDBNull = false;
                 this.columnIdDepart.ReadOnly = true;
                 this.columnIdDepart.Unique = true;
@@ -11314,7 +11312,7 @@ SELECT IdDepart, DateDepart, ConfirmerPar, IdReser, NoCham, IdCli FROM DEPART WH
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdDepart, DateDepart, ConfirmerPar, IdReser, NoCham, IdCli FROM dbo.DEPART" +
@@ -11326,6 +11324,14 @@ SELECT IdDepart, DateDepart, ConfirmerPar, IdReser, NoCham, IdCli FROM DEPART WH
                 "EPART.NoCham, DEPART.IdCli, CLIENT.Nom\r\nFROM     DEPART INNER JOIN\r\n            " +
                 "      CLIENT ON DEPART.IdCli = CLIENT.IdCli";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT DEPART.IdDepart, DEPART.DateDepart, DEPART.ConfirmerPar, DEPART.IdReser, D" +
+                "EPART.NoCham, DEPART.IdCli\r\nFROM     DEPART INNER JOIN\r\n                  RESERV" +
+                "ATION ON DEPART.IdReser = RESERVATION.IdReser\r\nWHERE  (RESERVATION.DateFin < @Da" +
+                "te)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11371,6 +11377,42 @@ SELECT IdDepart, DateDepart, ConfirmerPar, IdReser, NoCham, IdCli FROM DEPART WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DS_Master.DEPARTDataTable GetDataBy() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            DS_Master.DEPARTDataTable dataTable = new DS_Master.DEPARTDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByToDel(DS_Master.DEPARTDataTable dataTable, string Date) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Date == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DS_Master.DEPARTDataTable GetDataByToDel(string Date) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Date == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Date));
+            }
             DS_Master.DEPARTDataTable dataTable = new DS_Master.DEPARTDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
