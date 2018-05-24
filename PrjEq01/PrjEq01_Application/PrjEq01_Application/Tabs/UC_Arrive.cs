@@ -64,6 +64,32 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
+		public void Fill(States State)
+		{
+			int IdArrive = 0;
+			try
+			{
+				IdArrive = (int)ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"];
+			}
+			catch (Exception e) { }
+
+			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
+			this.TA_DE.FillBy(ds_master.DE);
+			if (State == States.ADD || State == States.EDIT)
+			{
+				this.TA_RESERVATION.FillByArriveDate(this.ds_master.RESERVATION, ds_master.ARRIVE[BS_ARRIVE.Position].DateArrive.ToString());
+			}
+			else if (State == States.CONSULT)
+			{
+				this.TA_ARRIVE.Fill(this.ds_master.ARRIVE);
+				this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
+				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+			}
+			if (BS_ARRIVE.DataSource != null)
+				BS_ARRIVE.Position = BS_ARRIVE.Find("IdArrive", IdArrive);
+			Sync_ForeignTables();
+		}
+
 		private void Link_All(bool link_state)
 		{
 			Link_CLIENT(link_state);
@@ -361,7 +387,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					if (DTR_De != null)
 					{
-						/*string old_room = DTR_De["NoCham"].ToString();
+						string old_room = DTR_De["NoCham"].ToString();
 
 						if (old_room != DTR_De["NoCham"].ToString())
 						{
@@ -371,13 +397,13 @@ namespace PrjEq01_Application.Tabs
 							DTR_De_old.BeginEdit();
 							DTR_De_old["Attribuee"] = false;
 							DTR_De_old.EndEdit();
-						}*/
+						}
 					}
 				}
 				if(State == States.ADD)
 					DTR_Arrive.Delete();
 
-				Fill();
+				Fill(States.CONSULT);
 				Sync_ForeignTables();
 				Link_All(true);
 			}
