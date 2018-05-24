@@ -286,6 +286,7 @@ namespace PrjEq01_Application.Tabs
 							ir_arrive.WipeInformation();
 						}
 						Sync_ForeignTables();
+						MessageBox.Show("Deletion successful");
 						return true;
 					case DialogResult.No:
 						return false;
@@ -300,7 +301,7 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public bool hasDepart(String IdArrive)
+		private bool hasDepart(String IdArrive)
 		{
 			List<String> idArriveNotDepart = new List<string>();
 
@@ -326,15 +327,15 @@ namespace PrjEq01_Application.Tabs
 			return idArriveNotDepart.Find(idArriveFinder) == null;
 		}
 
-		public bool hasTrx(String IdArrive)
+		private bool hasTrx(String IdArrive)
 		{
-			List<String> idArriveNotTrx = new List<string>();
+			List<String> idArriveWithTrx = new List<string>();
 
 			SqlConnection sqlConnection = new SqlConnection(TA_ARRIVE.Connection.ConnectionString);
 			SqlCommand command = new SqlCommand();
 			SqlDataReader reader;
 
-			command.CommandText = "SELECT IdArrive FROM ARRIVE WHERE(IdArrive NOT IN (SELECT IdArrive AS Expr1 FROM TRX))";
+			command.CommandText = "SELECT IdArrive FROM TRX WHERE TRX.IdArrive = " + IdArrive;
 			command.CommandType = CommandType.Text;
 			command.Connection = sqlConnection;
 
@@ -344,12 +345,12 @@ namespace PrjEq01_Application.Tabs
 
 			while (reader.Read())
 			{
-				idArriveNotTrx.Add(reader["IdArrive"].ToString());
+				idArriveWithTrx.Add(reader["IdArrive"].ToString());
 			}
+			sqlConnection.Close();
 
 			Predicate<String> idArriveFinder = (String id) => { return id == IdArrive; };
-			sqlConnection.Close();
-			return idArriveNotTrx.Find(idArriveFinder) == null;
+			return idArriveWithTrx.Find(idArriveFinder) != null;
 		}
 
 		public bool Undo()
@@ -358,19 +359,25 @@ namespace PrjEq01_Application.Tabs
 			{
 				if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 				{
-					DTR_De.RejectChanges();
-					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
-					DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
-					DTR_De = De.Row;
-					DTR_De.BeginEdit();
-					DTR_De["Attribuee"] = false;
-					DTR_De.EndEdit();
+					if (DTR_De != null)
+					{
+						/*string old_room = DTR_De["NoCham"].ToString();
+
+						if (old_room != DTR_De["NoCham"].ToString())
+						{
+							BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
+							DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", old_room)];
+							DataRow DTR_De_old = De.Row;
+							DTR_De_old.BeginEdit();
+							DTR_De_old["Attribuee"] = false;
+							DTR_De_old.EndEdit();
+						}*/
+					}
 				}
+				if(State == States.ADD)
+					DTR_Arrive.Delete();
 
-				DTR_Arrive.Delete();
-				BS_ARRIVE.MoveFirst();
-
-				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+				Fill();
 				Sync_ForeignTables();
 				Link_All(true);
 			}
@@ -530,10 +537,10 @@ namespace PrjEq01_Application.Tabs
 						if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 						{
 							De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", Convert.ToInt16(DTR_Arrive["NoCham"]))];
-							DTR_De = De.Row;
-							DTR_De.BeginEdit();
-							DTR_De["Attribuee"] = false;
-							DTR_De.EndEdit();
+							DataRow DTR_De_old = De.Row;
+							DTR_De_old.BeginEdit();
+							DTR_De_old["Attribuee"] = false;
+							DTR_De_old.EndEdit();
 						}
 
 						DTR_Arrive["NoCham"] = NoCham;
@@ -555,7 +562,7 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public bool CheckSaveErrors()
+		private bool CheckSaveErrors()
 		{
 			if (State == States.ADD || State == States.EDIT)
 			{
@@ -568,7 +575,7 @@ namespace PrjEq01_Application.Tabs
 			return false;
 		}
 
-		public void SetErrors()
+		private void SetErrors()
 		{
 			foreach (DataColumn column in DTR_Arrive.GetColumnsInError())
 			{

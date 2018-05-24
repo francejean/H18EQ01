@@ -198,6 +198,4 @@ VALUES (DATEADD(day, -3, CURRENT_TIMESTAMP),5,5,'207');
 /*<TRX>*/
 INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli,IdArrive)
 VALUES (DATEADD(day, -1, CURRENT_TIMESTAMP),234.56,1,'01',5,'207',5,3);
-INSERT INTO TRX (DateTrx,MontantTrx,Reportee,CodTypTrx,IdReser,NoCham,IdCli,IdArrive)
-VALUES (CURRENT_TIMESTAMP,52.99,0,'60',3,'203',3,1);
 /*</TRX>*/
