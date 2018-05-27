@@ -64,6 +64,32 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
+		public void Fill(States State)
+		{
+			int IdArrive = 0;
+			try
+			{
+				IdArrive = (int)ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"];
+			}
+			catch (Exception e) { }
+
+			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
+			this.TA_DE.FillBy(ds_master.DE);
+			if (State == States.ADD || State == States.EDIT)
+			{
+				this.TA_RESERVATION.FillByArriveDate(this.ds_master.RESERVATION, ds_master.ARRIVE[BS_ARRIVE.Position].DateArrive.ToString());
+			}
+			else if (State == States.CONSULT)
+			{
+				this.TA_ARRIVE.Fill(this.ds_master.ARRIVE);
+				this.TA_CHAMBRE.FillByARRIVE(this.ds_master.CHAMBRE);
+				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+			}
+			if (BS_ARRIVE.DataSource != null)
+				BS_ARRIVE.Position = BS_ARRIVE.Find("IdArrive", IdArrive);
+			Sync_ForeignTables();
+		}
+
 		private void Link_All(bool link_state)
 		{
 			Link_CLIENT(link_state);
@@ -247,11 +273,61 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Edit()
 		{
-			DTR_Arrive = ds_master.Tables["Arrive"].Rows[BS_ARRIVE.Position];
-			return true;
+			bool hasDepartB = hasDepart(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			bool hasTrxB = hasTrx(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			if (!hasDepartB && !hasTrxB)
+			{
+				DTR_Arrive = ds_master.Tables["Arrive"].Rows[BS_ARRIVE.Position];
+				return true;
+			}
+			else
+			{
+				MessageBox.Show("Can't modify an arrive with a " + (hasDepartB ? (hasTrxB ? "depart and a transaction" : "depart") : "transaction"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
 		}
 
 		public bool Delete()
+		{
+			bool hasDepartB = hasDepart(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			bool hasTrxB = hasTrx(ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString());
+			if (!hasDepartB && !hasTrxB)
+			{
+				DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				switch (result)
+				{
+					case DialogResult.Yes:
+						DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", ds_master.ARRIVE[BS_ARRIVE.Position]["NoCham"])];
+						DTR_De = De.Row;
+						DTR_De.BeginEdit();
+						DTR_De["Attribuee"] = false;
+						DTR_De.EndEdit();
+						BS_ARRIVE.RemoveCurrent();
+						TA_ARRIVE.Update(ds_master.ARRIVE);
+						TA_DE.Update(ds_master.DE);
+						if (BS_ARRIVE.Count == 0)
+						{
+							Link_All(false);
+							ic_arrive.WipeInformation();
+							ir_arrive.WipeInformation();
+						}
+						Sync_ForeignTables();
+						MessageBox.Show("Deletion successful");
+						return true;
+					case DialogResult.No:
+						return false;
+					default:
+						return false;
+				}
+			}
+			else
+			{
+				MessageBox.Show("Can't delete an arrive with a " + (hasDepartB ? (hasTrxB ? "depart and a transaction" : "depart") : "transaction"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+		}
+
+		private bool hasDepart(String IdArrive)
 		{
 			List<String> idArriveNotDepart = new List<string>();
 
@@ -272,33 +348,35 @@ namespace PrjEq01_Application.Tabs
 				idArriveNotDepart.Add(reader["IdArrive"].ToString());
 			}
 
-			Predicate<String> idArriveFinder = (String id) => { return id == ds_master.ARRIVE[BS_ARRIVE.Position]["IdArrive"].ToString(); };
-			if(idArriveNotDepart.Find(idArriveFinder) != null)
-			{
-				DialogResult result = MessageBox.Show("Do you want to delete the arrive?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-				switch (result)
-				{
-					case DialogResult.Yes:
-						BS_ARRIVE.RemoveCurrent();
-						TA_ARRIVE.Update(ds_master.ARRIVE);
-						if (BS_ARRIVE.Count == 0)
-						{
-							Link_All(false);
-							ic_arrive.WipeInformation();
-							ir_arrive.WipeInformation();
-						}
-						break;
-					case DialogResult.No:
-						break;
-				}
-			}
-			else
-			{
-				MessageBox.Show("Can't delete an arrive with a depart", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-
+			Predicate<String> idArriveFinder = (String id) => { return id == IdArrive; };
 			sqlConnection.Close();
-			return true;
+			return idArriveNotDepart.Find(idArriveFinder) == null;
+		}
+
+		private bool hasTrx(String IdArrive)
+		{
+			List<String> idArriveWithTrx = new List<string>();
+
+			SqlConnection sqlConnection = new SqlConnection(TA_ARRIVE.Connection.ConnectionString);
+			SqlCommand command = new SqlCommand();
+			SqlDataReader reader;
+
+			command.CommandText = "SELECT IdArrive FROM TRX WHERE TRX.IdArrive = " + IdArrive;
+			command.CommandType = CommandType.Text;
+			command.Connection = sqlConnection;
+
+			sqlConnection.Open();
+
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				idArriveWithTrx.Add(reader["IdArrive"].ToString());
+			}
+			sqlConnection.Close();
+
+			Predicate<String> idArriveFinder = (String id) => { return id == IdArrive; };
+			return idArriveWithTrx.Find(idArriveFinder) != null;
 		}
 
 		public bool Undo()
@@ -307,19 +385,25 @@ namespace PrjEq01_Application.Tabs
 			{
 				if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 				{
-					DTR_De.RejectChanges();
-					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
-					DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", DTR_Arrive["NoCham"])];
-					DTR_De = De.Row;
-					DTR_De.BeginEdit();
-					DTR_De["Attribuee"] = false;
-					DTR_De.EndEdit();
+					if (DTR_De != null)
+					{
+						string old_room = DTR_De["NoCham"].ToString();
+
+						if (old_room != DTR_De["NoCham"].ToString())
+						{
+							BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
+							DataRowView De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", old_room)];
+							DataRow DTR_De_old = De.Row;
+							DTR_De_old.BeginEdit();
+							DTR_De_old["Attribuee"] = false;
+							DTR_De_old.EndEdit();
+						}
+					}
 				}
+				if(State == States.ADD)
+					DTR_Arrive.Delete();
 
-				DTR_Arrive.Delete();
-				BS_ARRIVE.MoveFirst();
-
-				this.TA_RESERVATION.FillByARRIVE(this.ds_master.RESERVATION);
+				Fill(States.CONSULT);
 				Sync_ForeignTables();
 				Link_All(true);
 			}
@@ -436,7 +520,6 @@ namespace PrjEq01_Application.Tabs
 			//lc_arrive.SetListButton(true);
 			ir_arrive.BS = BS_RESERVATION;
 
-
 			if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 			{
 				BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", DTR_Arrive["IdReser"]);
@@ -480,10 +563,10 @@ namespace PrjEq01_Application.Tabs
 						if (Convert.ToInt16(DTR_Arrive["NoCham"]) != -1)
 						{
 							De = (DataRowView)BS_CHAMBRE[BS_CHAMBRE.Find("NoCham", Convert.ToInt16(DTR_Arrive["NoCham"]))];
-							DTR_De = De.Row;
-							DTR_De.BeginEdit();
-							DTR_De["Attribuee"] = false;
-							DTR_De.EndEdit();
+							DataRow DTR_De_old = De.Row;
+							DTR_De_old.BeginEdit();
+							DTR_De_old["Attribuee"] = false;
+							DTR_De_old.EndEdit();
 						}
 
 						DTR_Arrive["NoCham"] = NoCham;
@@ -505,7 +588,7 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public bool CheckSaveErrors()
+		private bool CheckSaveErrors()
 		{
 			if (State == States.ADD || State == States.EDIT)
 			{
@@ -518,7 +601,7 @@ namespace PrjEq01_Application.Tabs
 			return false;
 		}
 
-		public void SetErrors()
+		private void SetErrors()
 		{
 			foreach (DataColumn column in DTR_Arrive.GetColumnsInError())
 			{
