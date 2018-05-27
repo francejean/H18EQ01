@@ -291,7 +291,7 @@ namespace PrjEq01_Application.Tabs
 				{
 					TA_RESERVATION.Update(DS_Master.RESERVATION);
 					TA_DE.Update(DS_Master.DE);
-					AjustSoldeDuClient();
+					AjusteSoldeDuClient();
 				}
 				catch (Exception ex)
 				{ MessageBox.Show(ex.Message); }

@@ -45,7 +45,7 @@ namespace PrjEq01_Application.Tabs
 			{
 				IdArrive = (int)ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"];
 			}
-			catch(Exception e){ }
+			catch(Exception e){ Console.WriteLine(e.StackTrace); }
 
 			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
 			this.TA_DE.FillBy(ds_master.DE);
@@ -71,7 +71,7 @@ namespace PrjEq01_Application.Tabs
 			{
 				IdArrive = (int)ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdArrive"];
 			}
-			catch (Exception e) { }
+			catch (Exception e) { Console.WriteLine(e.StackTrace); }
 
 			this.TA_CLIENT.Fill(this.ds_master.CLIENT);
 			this.TA_DE.FillBy(ds_master.DE);
@@ -261,7 +261,7 @@ namespace PrjEq01_Application.Tabs
 				if (BS_RESERVATION.DataSource != null)
 					BS_RESERVATION.Position = BS_RESERVATION.Find("IdReser", ds_master.Tables["ARRIVE"].Rows[BS_ARRIVE.Position]["IdReser"]);
 			}
-			catch (Exception e) { }
+			catch (Exception e) { Console.WriteLine(e.StackTrace); }
 		}
 
 		public bool Add()
