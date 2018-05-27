@@ -28,8 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.label4 = new System.Windows.Forms.Label();
-			this.tb_solde = new System.Windows.Forms.MaskedTextBox();
+			this.tb_solde = new PrjEq01_Application.UserControls.CurrencyTextBox(this.components);
 			this.gb_client.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ds_master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -39,16 +40,16 @@
 			// 
 			this.gb_client.Controls.Add(this.tb_solde);
 			this.gb_client.Controls.Add(this.label4);
+			this.gb_client.Controls.SetChildIndex(this.label4, 0);
 			this.gb_client.Controls.SetChildIndex(this.dtp_datExp, 0);
 			this.gb_client.Controls.SetChildIndex(this.bt_list, 0);
-			this.gb_client.Controls.SetChildIndex(this.label4, 0);
-			this.gb_client.Controls.SetChildIndex(this.tb_solde, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_noClient, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_adresse, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_telephone, 0);
 			this.gb_client.Controls.SetChildIndex(this.cb_typeCarte, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_nomClient, 0);
 			this.gb_client.Controls.SetChildIndex(this.tb_noCarte, 0);
+			this.gb_client.Controls.SetChildIndex(this.tb_solde, 0);
 			// 
 			// bt_list
 			// 
@@ -65,18 +66,18 @@
 			// 
 			// tb_solde
 			// 
+			this.tb_solde.DecimalPlaces = 2;
+			this.tb_solde.DecimalsSeparator = '.';
 			this.tb_solde.Location = new System.Drawing.Point(272, 139);
-			this.tb_solde.Mask = "000.00$";
 			this.tb_solde.Name = "tb_solde";
-			this.tb_solde.ReadOnly = true;
+			this.tb_solde.PreFix = "$";
 			this.tb_solde.Size = new System.Drawing.Size(108, 20);
 			this.tb_solde.TabIndex = 17;
-			this.tb_solde.Text = "00000";
+			this.tb_solde.ThousandsSeparator = ' ';
 			// 
 			// IC_Reserv
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.MinimumSize = new System.Drawing.Size(408, 190);
 			this.Name = "IC_Reserv";
 			this.gb_client.ResumeLayout(false);
 			this.gb_client.PerformLayout();
@@ -88,6 +89,6 @@
 
 		#endregion
 		private System.Windows.Forms.Label label4;
-		public System.Windows.Forms.MaskedTextBox tb_solde;
+		public PrjEq01_Application.UserControls.CurrencyTextBox tb_solde;
 	}
 }
