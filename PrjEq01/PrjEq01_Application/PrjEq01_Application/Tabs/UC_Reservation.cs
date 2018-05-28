@@ -203,7 +203,6 @@ namespace PrjEq01_Application.Tabs
 		public void OnClientSelected(int IdCli)
 		{
 			DTR_RESERV["IdCli"] = IdCli;
-			DTR_RESERV.AcceptChanges();
 
 			soldeClientAjouter += (decimal)DS_Master.Tables["CLIENT"].Rows[BS_CLIENT.Position]["SoldeDu"];
 			AjusteSoldeDuClient(0);
@@ -241,10 +240,11 @@ namespace PrjEq01_Application.Tabs
 
 		public void OnChambreSelected(string PK)
 		{
-			if(State == States.ADD)
+			if(State == States.ADD || State == States.EDIT)
 			{
 				DTR_DE = DS_Master.Tables["De"].NewRow();
-				DTR_DE["IdReser"] = DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position]["IdReser"];
+				//DTR_DE["IdReser"] = DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position]["IdReser"];
+				DTR_DE["IdReser"] = ir_Reserv.tb_noReserv.Text;
 				DTR_DE["NoCham"] = DS_Master.Tables["BK_CHAMBRE"].Rows[BS_BK_CHAMBRE.Position]["NoCham"];
 
 				DTR_DE["CodTypCham"] = DS_Master.Tables["BK_CHAMBRE"].Rows[BS_BK_CHAMBRE.Position]["CodTypCham"];
@@ -278,15 +278,77 @@ namespace PrjEq01_Application.Tabs
 
 		public bool Edit()
 		{
-			MessageBox.Show("Fonction en développement.");
-			//SetReadOnly(States.EDIT);
-			return false;
+			BS_BK_CHAMBRE.Position = BS_BK_CHAMBRE.Count - 1;
+			
+			DTR_RESERV = DS_Master.Tables["Reservation"].Rows[BS_RESERVATION.Position];
+			DTR_RESERV.BeginEdit();
+
+			return true;
 		}
 
 		public bool Delete()
 		{
-			MessageBox.Show("Fonction en développement.");
-			//SetReadOnly(States.CONSULT);
+			TA_TRX.Fill(DS_Master.TRX);
+			TA_ARRIVE.Fill(DS_Master.ARRIVE);
+			TA_DEPART.Fill(DS_Master.DEPART);
+
+			DTR_RESERV = DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position];
+			int i = DTR_RESERV.GetChildRows("ARRIVE_FK_IdReser").Length;
+			int j = DTR_RESERV.GetChildRows("DEPART_FK_IdReser").Length;
+
+			// Pré-conditions
+			if(i != 0 && j != i)
+			{
+				MessageBox.Show("Le nombre d'arrivés n'est pas compatible avec le nombre de départs associés à cette réservation","Impossible de suprimer");
+				return false;
+			}
+
+			if (ir_Reserv.DTP_Fin.Value.AddDays(2) < DateTime.Today)
+			{
+				MessageBox.Show("Une réservation doit rester dans la base de donnée au moins 2 jours après sa date de fin.", "Impossible de suprimer");
+				return false;
+			}
+
+			// Post-conditions
+			foreach (DataRow DTR in DTR_RESERV.GetChildRows("TRX_FK_IdReser"))
+			{
+				DTR["IdReser"] = null;
+			}
+
+			foreach (DataRow DTR in DTR_RESERV.GetChildRows("DE_FK_IdReser"))
+			{
+				DTR.Delete();
+			}
+
+			foreach (DataRow DTR in DTR_RESERV.GetChildRows("DEPART_FK_IdReser"))
+			{
+				DTR.Delete();
+			}
+
+			foreach (DataRow DTR in DTR_RESERV.GetChildRows("ARRIVE_FK_IdReser"))
+			{
+				DTR.Delete();
+			}
+
+			DTR_RESERV.Delete();
+
+			try
+			{
+				TA_TRX.Update(DS_Master.TRX);
+				TA_DE.Update(DS_Master.DE);
+				TA_ARRIVE.Update(DS_Master.ARRIVE);
+				TA_DEPART.Update(DS_Master.DEPART);
+				TA_RESERVATION.Update(DS_Master.RESERVATION);
+
+				Sync_ForeignTables();
+
+				MessageBox.Show("Reservation supprimé avec succès.", "Succès");
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show(e.Message);
+			}
+
 			return false;
 		}
 
@@ -299,9 +361,18 @@ namespace PrjEq01_Application.Tabs
 
 				DS_Master.Tables["Reservation"].Rows.RemoveAt(DS_Master.RESERVATION.Rows.Count - 1);
 				DTR_RESERV.CancelEdit();
-				DTR_DE.CancelEdit();
+				DTR_DE?.CancelEdit();
 				BS_RESERVATION.Position = 0;
 				Link_All(true);
+			}
+			else if (State == States.EDIT)
+			{
+				ic_Reserv.ResetErrors();
+				lc_reserv.ResetErrors();
+
+				DTR_RESERV.CancelEdit();
+				DTR_DE?.CancelEdit();
+				BS_RESERVATION.Position = 0;
 			}
 			return true;
 		}
@@ -313,15 +384,16 @@ namespace PrjEq01_Application.Tabs
 				ic_Reserv.ResetErrors();
 				lc_reserv.ResetErrors();
 
+				TA_RESERVATION.Update(DS_Master.RESERVATION);
 				try
 				{
-					TA_RESERVATION.Update(DS_Master.RESERVATION);
 					TA_DE.Update(DS_Master.DE);
+					return true;
 				}
-				catch (Exception ex)
-				{ MessageBox.Show(ex.Message); }
-
-				return true;
+				catch (Exception e)
+				{
+					MessageBox.Show(e.Message);
+				}
 			}
 			return false;
 		}
@@ -352,6 +424,9 @@ namespace PrjEq01_Application.Tabs
 
 		private void NewReserv()
 		{
+			TA_DE.FillBy(DS_Master.DE);
+			TA_BK_CHAMBRE.Fill(DS_Master.BK_CHAMBRE);
+
 			BS_RESERVATION.Position = BS_RESERVATION.Count - 1;
 			BS_BK_CHAMBRE.Position = BS_BK_CHAMBRE.Count - 1;
 			DS_Master.RESERVATION.Columns["IdReser"].AutoIncrementSeed = (int)DS_Master.RESERVATION.Rows[BS_RESERVATION.Position]["IdReser"] + 1;

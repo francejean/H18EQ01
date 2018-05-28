@@ -14,8 +14,4 @@
 namespace PrjEq01_Application.DS_MasterTableAdapters
 {
 
-
-	public partial class BK_CHAMBRETableAdapter
-	{
-	}
 }

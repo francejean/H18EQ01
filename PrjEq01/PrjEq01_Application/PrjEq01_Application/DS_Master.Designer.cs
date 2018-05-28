@@ -14918,7 +14918,7 @@ WHERE        (CodCom NOT IN
         public virtual int FillBy(DS_Master.BK_COMMODITEDataTable dataTable, string NoCham) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((NoCham == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("NoCham");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NoCham));
@@ -14937,7 +14937,7 @@ WHERE        (CodCom NOT IN
         public virtual DS_Master.BK_COMMODITEDataTable GetDataBy(string NoCham) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((NoCham == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("NoCham");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NoCham));
