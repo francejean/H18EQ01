@@ -22,6 +22,9 @@ namespace PrjEq01_Application.Tabs
 
 		private bool LinkReser_State, LinkClient_State, LinkChambre_State;
 
+		// le solde à ajouter au solde courant du client
+		private decimal soldeClientAjouter = 0;
+
 		public UC_Reservation()
 		{
 			InitializeComponent();
@@ -201,6 +204,7 @@ namespace PrjEq01_Application.Tabs
 		{
 			DTR_RESERV["IdCli"] = IdCli;
 			DTR_RESERV.AcceptChanges();
+			soldeClientAjouter = (decimal)DS_Master.Tables["CLIENT"].Rows[BS_CLIENT.Position]["SoldeDu"];
 			Link_Client(true);
 			Sync_ForeignTables();
 		}
@@ -237,12 +241,19 @@ namespace PrjEq01_Application.Tabs
 
 				BS_BK_CHAMBRE.RemoveCurrent();
 				DS_Master.Tables["BK_CHAMBRE"].AcceptChanges();
+				
+				AjusteSoldeDuClient((decimal)DS_Master.Tables["BK_CHAMBRE"].Rows[BS_BK_CHAMBRE.Position]["Prix"]);
 			}
 		}
 
-		public void AjusteSoldeDuClient()
+		public void AjusteSoldeDuClient(decimal ajoutMontant)
 		{
+			soldeClientAjouter += ajoutMontant;
 
+			if ((int)DTR_RESERV["IdCli"] != -1)
+			{
+				ic_Reserv.tb_solde.Text = "";
+			}
 		}
 
 		public bool Add()
@@ -291,7 +302,6 @@ namespace PrjEq01_Application.Tabs
 				{
 					TA_RESERVATION.Update(DS_Master.RESERVATION);
 					TA_DE.Update(DS_Master.DE);
-					AjusteSoldeDuClient();
 				}
 				catch (Exception ex)
 				{ MessageBox.Show(ex.Message); }

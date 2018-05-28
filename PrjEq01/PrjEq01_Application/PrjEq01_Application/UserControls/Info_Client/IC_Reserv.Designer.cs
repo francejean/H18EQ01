@@ -71,6 +71,7 @@
 			this.tb_solde.Location = new System.Drawing.Point(272, 139);
 			this.tb_solde.Name = "tb_solde";
 			this.tb_solde.PreFix = "$";
+			this.tb_solde.ReadOnly = true;
 			this.tb_solde.Size = new System.Drawing.Size(108, 20);
 			this.tb_solde.TabIndex = 17;
 			this.tb_solde.ThousandsSeparator = ' ';
