@@ -26,6 +26,7 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 		public override void SetReadOnly(States state)
 		{
 			bt_listCommodite.Enabled = (state != States.CONSULT);
+			bt_deleteRow.Enabled = (state != States.CONSULT);
 		}
 
 		protected override void bt_list_Click(object sender, EventArgs e)

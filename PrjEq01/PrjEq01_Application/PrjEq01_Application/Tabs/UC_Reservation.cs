@@ -263,24 +263,51 @@ namespace PrjEq01_Application.Tabs
 
 		public void OnLCDelete()
 		{
-			bool addOnBK = false;
-			DTR_DE = DS_Master.Tables["DE"].Rows[BS_DE.Position];
+			if (lc_reserv.dgv_chambre.Rows.Count == 0)
+			{
+				MessageBox.Show("Le tableau est déjà vide.");
+				return;
+			}
+
+
+			bool addOnBK = true;
+			DataRow foundRow = DS_Master.Tables["CHAMBRE"].Rows.Find(lc_reserv.dgv_chambre.Rows[BS_DE.Position].Cells[lc_reserv.dgv_chambre.Columns[0].Index].Value);
 			DTR_RESERV = DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position];
-			DataRow DTR_chambre = DS_Master.Tables["CHAMBRE"].Rows.Find(DTR_DE["NoCham"]);
+			DataRow DTR_chambre = DS_Master.Tables["CHAMBRE"].Rows.Find(foundRow["NoCham"]);
 			if (DTR_chambre["Etat"].ToString() == "1")
 			{
 				foreach (DataRow DTR_reservtmp in DS_Master.Tables["RESERVATION"].Rows)
 				{
-					if (DTR_reservtmp["IdReser"] != DTR_DE["IdReser"])
+					if (DTR_reservtmp["IdReser"].ToString() != DTR_RESERV["IdReser"].ToString())
 					{
 						if (((DateTime)DTR_reservtmp["DateDebut"] >= (DateTime)DTR_RESERV["DateDebut"] && (DateTime)DTR_reservtmp["DateDebut"] <= (DateTime)DTR_RESERV["DateFin"]) ||
 							((DateTime)DTR_reservtmp["DateFin"] >= (DateTime)DTR_RESERV["DateDebut"] && (DateTime)DTR_reservtmp["DateFin"] <= (DateTime)DTR_RESERV["DateFin"]))
 						{
+							// INTERIEUR
 
+							foreach (DataRow DTR_detmp in DTR_reservtmp.GetChildRows("DE_FK_IdReser"))
+							{
+								if (DTR_detmp["NoCham"].ToString() == foundRow["NoCham"].ToString())
+								{
+									addOnBK = false;
+								}
+							}
 						}
 					}
 				}
 			}
+			else
+			{
+				addOnBK = false;
+			}
+
+			if (addOnBK)
+			{
+				DataRow DTR_BK_Chambre = DS_Master.Tables["BK_CHAMBRE"].NewRow();
+				DTR_BK_Chambre.ItemArray = foundRow.ItemArray;
+				DS_Master.Tables["BK_CHAMBRE"].Rows.Add(DTR_BK_Chambre);
+			}
+			BS_DE.RemoveCurrent();
 		}
 
 		private void AjusteSoldeDuClient(decimal ajoutMontant)
@@ -335,7 +362,7 @@ namespace PrjEq01_Application.Tabs
 			// Post-conditions
 			foreach (DataRow DTR in DTR_RESERV.GetChildRows("TRX_FK_IdReser"))
 			{
-				DTR["IdReser"] = null;
+				DTR["IdReser"] = DBNull.Value;
 			}
 
 			foreach (DataRow DTR in DTR_RESERV.GetChildRows("DE_FK_IdReser"))

@@ -14353,7 +14353,7 @@ SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM CHAMBRE WHERE (N
             this._commandCollection[1].CommandText = @"SELECT NoCham, Etage, Prix, Etat, Memo, CodLoc, CodTypCham FROM dbo.CHAMBRE
 WHERE (NoCham NOT IN
 (SELECT NoCham FROM dbo.DE INNER JOIN dbo.RESERVATION ON DE.IdReser = RESERVATION.IdReser
-WHERE DateFin >= @date1 AND DateDebut <= @date2 OR DateDebut <= @date1 AND DateFin >= @date1 OR DateFin >= @date1 AND DateFin <= @date2)
+WHERE DateFin >= @date1 AND DateDebut <= @date2 OR DateDebut <= @date1 AND DateFin >= @date1 OR DateFin >= @date1 AND DateFin <= @date2) AND Etat = 1
 )";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date1", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
