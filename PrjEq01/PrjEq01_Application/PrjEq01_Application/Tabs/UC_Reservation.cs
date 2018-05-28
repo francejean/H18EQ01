@@ -38,6 +38,7 @@ namespace PrjEq01_Application.Tabs
 			lc_reserv.setBS(BS_BK_CHAMBRE);
 			lc_reserv.OnSelected = this.OnChambreSelected;
 			lc_reserv.BeforeSelection = this.BeforeChamberSelection;
+			lc_reserv.DeleteCurrent = this.OnLCDelete;
 
 			State = States.CONSULT;
 		}
@@ -260,7 +261,29 @@ namespace PrjEq01_Application.Tabs
 			}
 		}
 
-		public void AjusteSoldeDuClient(decimal ajoutMontant)
+		public void OnLCDelete()
+		{
+			bool addOnBK = false;
+			DTR_DE = DS_Master.Tables["DE"].Rows[BS_DE.Position];
+			DTR_RESERV = DS_Master.Tables["RESERVATION"].Rows[BS_RESERVATION.Position];
+			DataRow DTR_chambre = DS_Master.Tables["CHAMBRE"].Rows.Find(DTR_DE["NoCham"]);
+			if (DTR_chambre["Etat"].ToString() == "1")
+			{
+				foreach (DataRow DTR_reservtmp in DS_Master.Tables["RESERVATION"].Rows)
+				{
+					if (DTR_reservtmp["IdReser"] != DTR_DE["IdReser"])
+					{
+						if (((DateTime)DTR_reservtmp["DateDebut"] >= (DateTime)DTR_RESERV["DateDebut"] && (DateTime)DTR_reservtmp["DateDebut"] <= (DateTime)DTR_RESERV["DateFin"]) ||
+							((DateTime)DTR_reservtmp["DateFin"] >= (DateTime)DTR_RESERV["DateDebut"] && (DateTime)DTR_reservtmp["DateFin"] <= (DateTime)DTR_RESERV["DateFin"]))
+						{
+
+						}
+					}
+				}
+			}
+		}
+
+		private void AjusteSoldeDuClient(decimal ajoutMontant)
 		{
 			soldeClientAjouter += ajoutMontant;
 

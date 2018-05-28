@@ -60,6 +60,7 @@
 			this.bt_deleteRow.Size = new System.Drawing.Size(20, 20);
 			this.bt_deleteRow.TabIndex = 11;
 			this.bt_deleteRow.UseVisualStyleBackColor = true;
+			this.bt_deleteRow.Click += new System.EventHandler(this.bt_deleteRow_Click);
 			// 
 			// LC_Reserv
 			// 

@@ -10,6 +10,7 @@ namespace PrjEq01_Application
 	public delegate void ItemSelectedDeleg(int PK);
 	public delegate void ChamberSelectedDeleg(string PK);
 	public delegate bool ChamberBeforeSelection();
+	public delegate void ChamberDeleteCurrent();
 	public delegate void OnValidatedDeleg();
 
 	static class Program
