@@ -304,7 +304,7 @@ namespace PrjEq01_Application.Tabs
 					}
 					errorProvider.SetError(ic_client.dtp_datExp, DTR_Client.GetColumnError(DTR_Client.Table.Columns["DatExp"]));
 				}
-				catch (Exception e) { };
+				catch (Exception e) { Console.WriteLine(e.StackTrace); };
 			}
 		}
 	}

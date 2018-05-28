@@ -156,6 +156,12 @@
     <Compile Include="Tabs\UC_Clients.Designer.cs">
       <DependentUpon>UC_Clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CurrencyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\CurrencyTextBox.Designer.cs">
+      <DependentUpon>CurrencyTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Info_Client\IC_Arrive.cs">
       <SubType>UserControl</SubType>
     </Compile>

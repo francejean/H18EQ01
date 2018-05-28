@@ -54,29 +54,20 @@ namespace PrjEq01_Application.UserControls.Info_Reservation
 
 		public bool CheckErrors()
 		{
-			bool result = true;
+			bool result = false;
 			if(DTP_Reserv.Value > DTP_Debut.Value)
 			{
 				errorProvider.SetError(DTP_Debut, "La date de début ne peut pas être plus tôt que la date de la réservation");
-				result = false;
+				result = true;
 			}
 			else errorProvider.SetError(DTP_Debut, "");
-
-			if (DTP_Reserv.Value > DTP_Debut.Value)
-			{
-				errorProvider.SetError(DTP_Fin, "La date de fin ne peut pas être plus tôt que la date de la réservation");
-				result = false;
-			}
-			else errorProvider.SetError(DTP_Fin, "");
 
 			if (DTP_Debut.Value > DTP_Fin.Value)
 			{
 				errorProvider.SetError(DTP_Fin, "La date de fin ne peut pas être plus tôt que la date du début");
-				result = false;
+				result = true;
 			}
 			else errorProvider.SetError(DTP_Fin, "");
-
-			
 
 			return result;
 		}

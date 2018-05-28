@@ -43,6 +43,9 @@ namespace PrjEq01_Application.Tabs
 			this.lc_reserv = new PrjEq01_Application.UserControls.Liste_Chambre.LC_Reserv();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.TA_BK_CHAMBRE = new PrjEq01_Application.DS_MasterTableAdapters.BK_CHAMBRETableAdapter();
+			this.TA_TRX = new PrjEq01_Application.DS_MasterTableAdapters.TRXTableAdapter();
+			this.TA_ARRIVE = new PrjEq01_Application.DS_MasterTableAdapters.ARRIVETableAdapter();
+			this.TA_DEPART = new PrjEq01_Application.DS_MasterTableAdapters.DEPARTTableAdapter();
 			((System.ComponentModel.ISupportInitialize)(this.DS_Master)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_CHAMBRE)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BS_DE)).BeginInit();
@@ -97,6 +100,7 @@ namespace PrjEq01_Application.Tabs
 			this.lc_reserv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.lc_reserv.BeforeSelection = null;
 			this.lc_reserv.Location = new System.Drawing.Point(3, 199);
 			this.lc_reserv.MinimumSize = new System.Drawing.Size(850, 230);
 			this.lc_reserv.Name = "lc_reserv";
@@ -111,6 +115,18 @@ namespace PrjEq01_Application.Tabs
 			// TA_BK_CHAMBRE
 			// 
 			this.TA_BK_CHAMBRE.ClearBeforeFill = true;
+			// 
+			// TA_TRX
+			// 
+			this.TA_TRX.ClearBeforeFill = true;
+			// 
+			// TA_ARRIVE
+			// 
+			this.TA_ARRIVE.ClearBeforeFill = true;
+			// 
+			// TA_DEPART
+			// 
+			this.TA_DEPART.ClearBeforeFill = true;
 			// 
 			// UC_Reservation
 			// 
@@ -149,5 +165,8 @@ namespace PrjEq01_Application.Tabs
 		private UserControls.Liste_Chambre.LC_Reserv lc_reserv;
 		private System.Windows.Forms.ErrorProvider errorProvider;
 		private DS_MasterTableAdapters.BK_CHAMBRETableAdapter TA_BK_CHAMBRE;
+		private DS_MasterTableAdapters.TRXTableAdapter TA_TRX;
+		private DS_MasterTableAdapters.ARRIVETableAdapter TA_ARRIVE;
+		private DS_MasterTableAdapters.DEPARTTableAdapter TA_DEPART;
 	}
 }

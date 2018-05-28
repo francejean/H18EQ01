@@ -12,6 +12,8 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 	public partial class LC_Reserv : LC_Base
 	{
 		public ChamberSelectedDeleg OnSelected { get; set; }
+		public ChamberBeforeSelection BeforeSelection { get; set; }
+		public ChamberDeleteCurrent DeleteCurrent { get; set; }
 
 		public LC_Reserv()
 		{
@@ -24,22 +26,25 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 		public override void SetReadOnly(States state)
 		{
 			bt_listCommodite.Enabled = (state != States.CONSULT);
+			bt_deleteRow.Enabled = (state != States.CONSULT);
 		}
 
 		protected override void bt_list_Click(object sender, EventArgs e)
 		{
-			int BS_pos_backup = BS.Position;
-			List_Forms.LF_Chambres lf_chambres = new List_Forms.LF_Chambres(BS);
-			DialogResult result = lf_chambres.ShowDialog();
+			if (BeforeSelection())
+			{
+				int BS_pos_backup = BS.Position;
+				List_Forms.LF_Chambres lf_chambres = new List_Forms.LF_Chambres(BS);
+				DialogResult result = lf_chambres.ShowDialog();
 
-			if (result == DialogResult.OK)
-			{
-				string s = lf_chambres.GetNoChamSelected();
-				OnSelected?.Invoke(s);
-			}
-			else
-			{
-				BS.Position = BS_pos_backup;
+				if (result == DialogResult.OK)
+				{
+					OnSelected?.Invoke(lf_chambres.GetNoChamSelected());
+				}
+				else
+				{
+					BS.Position = BS_pos_backup;
+				}
 			}
 		}
 
@@ -59,6 +64,11 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 		public void ResetErrors()
 		{
 			this.errorProvider.SetError(bt_listCommodite, "");
+		}
+
+		private void bt_deleteRow_Click(object sender, EventArgs e)
+		{
+			DeleteCurrent?.Invoke();
 		}
 	}
 }
