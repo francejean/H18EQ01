@@ -204,7 +204,10 @@ namespace PrjEq01_Application.Tabs
 		{
 			DTR_RESERV["IdCli"] = IdCli;
 			DTR_RESERV.AcceptChanges();
-			soldeClientAjouter = (decimal)DS_Master.Tables["CLIENT"].Rows[BS_CLIENT.Position]["SoldeDu"];
+
+			soldeClientAjouter += (decimal)DS_Master.Tables["CLIENT"].Rows[BS_CLIENT.Position]["SoldeDu"];
+			AjusteSoldeDuClient(0);
+			
 			Link_Client(true);
 			Sync_ForeignTables();
 		}
@@ -216,13 +219,24 @@ namespace PrjEq01_Application.Tabs
 			Sync_ForeignTables();
 		}
 
-		public void BeforeChamberSelection()
+		public bool BeforeChamberSelection()
 		{
-			if (ir_Reserv.DTP_Debut.Enabled && ir_Reserv.DTP_Fin.Enabled)
-				TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, ir_Reserv.DTP_Debut.Value, ir_Reserv.DTP_Fin.Value);
+			if (ic_Reserv.tb_noClient.Text != "" && ic_Reserv.tb_noClient.Text != "-1")
+			{
+				if (ir_Reserv.DTP_Debut.Enabled && ir_Reserv.DTP_Fin.Enabled)
+					TA_BK_CHAMBRE.FillBy(DS_Master.BK_CHAMBRE, ir_Reserv.DTP_Debut.Value, ir_Reserv.DTP_Fin.Value);
 
-			ir_Reserv.DTP_Debut.Enabled = false;
-			ir_Reserv.DTP_Fin.Enabled = false;
+				ic_Reserv.bt_list.Enabled = false;
+				ir_Reserv.DTP_Debut.Enabled = false;
+				ir_Reserv.DTP_Fin.Enabled = false;
+
+				errorProvider.SetError(ic_Reserv.bt_list, "");
+				return true;
+			}
+			else
+				errorProvider.SetError(ic_Reserv.bt_list, "Choisissez un client avant d'ajouter des chambres.");
+
+			return false;
 		}
 
 		public void OnChambreSelected(string PK)
@@ -252,7 +266,7 @@ namespace PrjEq01_Application.Tabs
 
 			if ((int)DTR_RESERV["IdCli"] != -1)
 			{
-				ic_Reserv.tb_solde.Text = "";
+				ic_Reserv.tb_solde.Text = soldeClientAjouter.ToString();
 			}
 		}
 
@@ -285,6 +299,7 @@ namespace PrjEq01_Application.Tabs
 
 				DS_Master.Tables["Reservation"].Rows.RemoveAt(DS_Master.RESERVATION.Rows.Count - 1);
 				DTR_RESERV.CancelEdit();
+				DTR_DE.CancelEdit();
 				BS_RESERVATION.Position = 0;
 				Link_All(true);
 			}

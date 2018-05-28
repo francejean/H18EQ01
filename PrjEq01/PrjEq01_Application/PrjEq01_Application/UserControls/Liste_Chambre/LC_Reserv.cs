@@ -29,21 +29,20 @@ namespace PrjEq01_Application.UserControls.Liste_Chambre
 
 		protected override void bt_list_Click(object sender, EventArgs e)
 		{
-			int BS_pos_backup = BS.Position;
-			List_Forms.LF_Chambres lf_chambres = new List_Forms.LF_Chambres(BS);
-
-			BeforeSelection();
-
-			DialogResult result = lf_chambres.ShowDialog();
-
-			if (result == DialogResult.OK)
+			if (BeforeSelection())
 			{
-				string s = lf_chambres.GetNoChamSelected();
-				OnSelected?.Invoke(s);
-			}
-			else
-			{
-				BS.Position = BS_pos_backup;
+				int BS_pos_backup = BS.Position;
+				List_Forms.LF_Chambres lf_chambres = new List_Forms.LF_Chambres(BS);
+				DialogResult result = lf_chambres.ShowDialog();
+
+				if (result == DialogResult.OK)
+				{
+					OnSelected?.Invoke(lf_chambres.GetNoChamSelected());
+				}
+				else
+				{
+					BS.Position = BS_pos_backup;
+				}
 			}
 		}
 

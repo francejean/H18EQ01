@@ -30,7 +30,7 @@ namespace PrjEq01_Application.List_Forms
 
 		private void LF_Chambres_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			this.noCham = dgv_main.CurrentRow.Cells["NoCham"].Value.ToString();
+			this.noCham = dgv_main.CurrentRow?.Cells["NoCham"].Value.ToString();
 		}
 	}
 }
